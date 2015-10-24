@@ -1,28 +1,70 @@
-DOCTYPE
-HEAD
-	<TITLE>LOGIN</TITLE>
-BODY
-	<FORM action="login_check" method="post">
-	<TABLE>
-	<TR>
-	<TD>
-	<LABEL>ID</LABEL>
-	<INPUT type="text" name="id" id="id" value="" />
-	</TD>
-	</TR>
-	<TR>
-	<TD>
-	<LABEL>PW</LABEL>
-	<INPUT type="password" name="pw" value="" />
-	</TD>
-	</TR>
-	<TR>
-	<TD>
-	</TR>
-	<TR>
-	<TD>
-	<INPUT type="submit" name="submit" id="submit" value="SUBMIT" />
-	</TD>
-	</TR>
-	</TABLE>	
-	</FORM>
+doctype html(lang='ko-kr')
+head
+    meta(charset='utf-8')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    title vasket!
+    // Bootstrap
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    |     
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      |       
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    |     
+    style(type='text/css').
+      body {
+      padding-top: 70px;
+      }
+      .navbar {
+      background-color: #ffa800;
+      }
+      .navbar-brand
+      {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      text-align: center;
+      margin: auto;
+      }
+      button {
+      width: 30px;
+      }
+  |   
+body
+.container-fluid
+  nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+    a.navbar-brand(href='/')
+      img(src='./images/logo.png')
+  |     
+  .col-md-offset-4.col-md-6
+    br
+    br
+    |         
+    form.form-horizontal(role='form', action='login_check', method='post')
+      .form-group
+        label.control-label.col-sm-2(for='id') facebook:
+        |               
+        .col-sm-4
+          input#id.form-control(type='text', placeholder='facebook 아이디', size='45')
+      |             
+      br
+      |             
+      .form-group
+        label.control-label.col-sm-2(for='pw') Password:
+        |               
+        .col-sm-4
+          input#pw.form-control(type='password', placeholder='Enter password', size='45')
+      |             
+      br
+      |             
+      .form-group
+        .col-sm-offset-2.col-sm-4
+          input.btn.btn-default(type='submit', value='submit')

@@ -17,7 +17,7 @@ var login_check = require('./routes/login_check');
 var app = express();
 
 // view engine setup
-app.set('port', process.env.PORT || 3000);
+app.set('port', 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.locals.loggedIn = req.session.userid ? true : false;
   console.log(req.session.userid);
   console.log(res.locals.loggedIn);
-  res.render('./html/vasket_main.jade');
+  res.render('main');
 });
 
 module.exports = router;
