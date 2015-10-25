@@ -20,6 +20,8 @@ router.post('/', function(req, res, next) {
 	[req.body.id, req.body.pw], function(err, result, field) {
 			var isLogin = result[0].result;
 			console.log(isLogin);
+			console.log(req.body.id);
+			console.log(req.body.pw);
 			if (isLogin == 1) {
 				req.session.userid = req.body.id;
 				res.redirect('/');
