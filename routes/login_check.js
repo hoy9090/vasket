@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var pool = mysql.createPool({
-	host: 'localhost',
+	host: 'vasket.co.kr',
 	user: 'root',
 	password: '1012'
 });
