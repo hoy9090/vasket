@@ -56,9 +56,15 @@ body
               a(href='#about') &#xD68C;&#xC0AC; &#xC18C;&#xAC1C;
             | &#x9;        
             li
-              a(href='login')
-                span.glyphicon.glyphicon-log-in
-                |  &#xB85C;&#xADF8;&#xC778;
+              - if(loggedIn) {
+                  a(href='logout')
+                    span.glyphicon.glyphicon-log-in
+                    |  LOGOUT
+                - } else {
+                  a(href='login')
+                    span.glyphicon.glyphicon-log-in
+                    |  &#xB85C;&#xADF8;&#xC778;
+                - }
             | &#x9;        
             li
               a(href='#')
