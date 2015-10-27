@@ -12,7 +12,7 @@ var users = require('./routes/users');
 var finish = require('./routes/finish');
 var join = require('./routes/join');
 var login = require('./routes/login');
-var logout = require('/routes/logout');
+var logout = require('./routes/logout');
 var login_check = require('./routes/login_check');
 
 var app = express();
