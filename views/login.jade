@@ -45,44 +45,44 @@ head
       width: 30px;
       }
   |   
-  body
-    .container-fluid
-      nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
-        a.navbar-brand(href='')
-          img(src='/images/logo.png')
-      |     
+body
+  .container-fluid
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      a.navbar-brand(href='')
+        img(src='/images/logo.png')
+    |     
+    br
+    |     
+    br
+    |     
+    br
+    |     
+    #aa.col-md-offset-4.col-md-4
       br
-      |     
       br
-      |     
+      |         
+      .col-md-offset-2.col-md-10
+        form.form-horizontal(role='form')
+          .form-group
+            label.control-label.col-sm-2(for='id') facebook:
+            |               
+            .col-sm-8
+              input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
+          |             
+          br
+          |             
+          .form-group
+            label.control-label.col-sm-2(for='pwd') Password:
+            |               
+            .col-sm-8
+              input.form-control(type='password', name='pw', placeholder='Enter password', size='45')
+          |             
+          br
+          |             
+          .form-group
+            .col-sm-offset-2.col-sm-8
+              input.btn.btn-default(type='submit', value='submit')
+      |           
       br
-      |     
-      #aa.col-md-offset-4.col-md-4
-        br
-        br
-        |         
-        .col-md-offset-2.col-md-10
-          form.form-horizontal(role='form')
-            .form-group
-              label.control-label.col-sm-2(for='id') facebook:
-              |               
-              .col-sm-8
-                input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
-            |             
-            br
-            |             
-            .form-group
-              label.control-label.col-sm-2(for='pwd') Password:
-              |               
-              .col-sm-8
-                input.form-control(type='password', name='pw', placeholder='Enter password', size='45')
-            |             
-            br
-            |             
-            .form-group
-              .col-sm-offset-2.col-sm-8
-                input.btn.btn-default(type='submit', value='submit')
-        |           
-        br
-        |           
-        br
+      |           
+      br
