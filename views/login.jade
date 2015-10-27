@@ -8,9 +8,9 @@ head
     |     
     title vasket!
     // Bootstrap
-    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='bootstrap/css/bootstrap.min.css', rel='stylesheet')
     |     
-    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    link(href='bootstrap/css/kfonts2.css', rel='stylesheet')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -21,9 +21,12 @@ head
     style(type='text/css').
       body {
       padding-top: 70px;
+      background-color: #ffa800;
       }
       .navbar {
       background-color: #ffa800;
+      margin: 50px;
+      padding-bottom: 50px;
       }
       .navbar-brand
       {
@@ -34,37 +37,52 @@ head
       text-align: center;
       margin: auto;
       }
+      #aa {
+      border-radius: 7%;
+      background-color: white;
+      }
       button {
       width: 30px;
       }
   |   
-body
-.container-fluid
-  nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
-    a.navbar-brand(href='/')
-      img(src='./images/logo.png')
-  |     
-  .col-md-offset-4.col-md-6
-    br
-    br
-    |         
-    form.form-horizontal(role='form', action='login_check', method='post')
-      .form-group
-        label.control-label.col-sm-2(for='id') facebook:
-        |               
-        .col-sm-4
-          input.form-control(name='id', type='text', placeholder='facebook 아이디', size='45')
-      |             
+  body
+    .container-fluid
+      nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+        a.navbar-brand(href='')
+          img(src='/images/logo.png')
+      |     
       br
-      |             
-      .form-group
-        label.control-label.col-sm-2(for='pw') Password:
-        |               
-        .col-sm-4
-          input.form-control(name='pw', type='password', placeholder='Enter password', size='45')
-      |             
+      |     
       br
-      |             
-      .form-group
-        .col-sm-offset-2.col-sm-4
-          input.btn.btn-default(type='submit', value='submit')
+      |     
+      br
+      |     
+      #aa.col-md-offset-4.col-md-4
+        br
+        br
+        |         
+        .col-md-offset-2.col-md-10
+          form.form-horizontal(role='form')
+            .form-group
+              label.control-label.col-sm-2(for='id') facebook:
+              |               
+              .col-sm-8
+                input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
+            |             
+            br
+            |             
+            .form-group
+              label.control-label.col-sm-2(for='pwd') Password:
+              |               
+              .col-sm-8
+                input.form-control(type='password', name='pw', placeholder='Enter password', size='45')
+            |             
+            br
+            |             
+            .form-group
+              .col-sm-offset-2.col-sm-8
+                input.btn.btn-default(type='submit', value='submit')
+        |           
+        br
+        |           
+        br
