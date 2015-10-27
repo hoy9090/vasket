@@ -26,7 +26,8 @@
       // they are logged into this app or not.
       document.getElementById('status').innerHTML = 'Please log ' +
         'into Facebook.';
-    }
+    }document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
   }
 
   // This function is called when someone finishes with the Login
@@ -92,7 +93,7 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button size='xlarge' scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button size='xlarge' scope="public_profile,email" onlogin="checkLoginState();" auto-logout-link="true">
 </fb:login-button>
 
 <div id="status">
