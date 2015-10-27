@@ -48,6 +48,9 @@ app.use('/finish', finish);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/login_check', login_check);
+app.use('/fb_login', express.Router().get('/', function(req, res, next) {
+  res.sendFile(path.join(__dirname, 'views/html/fb_login.html'));
+}));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
