@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 			console.log(req.body.pw);
 			if (isLogin == 1) {
 				req.session.userid = req.body.id;
-				res.location('back');
+				res.redirect('/');
 				res.end();
 				console.log('DB ID/PW Success!!');
 				//session config
@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
 			else {
 				res.writeHeader('content-type', 'text/javascript');
 				res.write('<script>alert(\'로그인 정보가 잘못되었습니다.\n다시 한번 확인해주세요.\');</script>');
-				res.
+				res.location('back');
 				res.end();
 			}
 			connection.release();
