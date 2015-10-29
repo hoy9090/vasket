@@ -42,19 +42,20 @@ html(lang='ko-kr')
       margin-top: 4px;
       margin-bottom: 4px;
       }
+
       button {
       margin-bottom: 4px;
       margin-top: 4px;
-      width: 80%;
+      width: 92%;
       height: 40px;
       }
       input.btn {
-      width: 80%;
+      width: 92%;
       height: 35px;
       background-color: #ffa800;
       }
       input.form-control {
-      width: 80%;
+      width: 92%;
       }
       .none-prop {width: 0%;}
   body
@@ -78,7 +79,7 @@ html(lang='ko-kr')
                 input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
             .col-sm-12
               center
-                input.form-control(type='password', name='pw', placeholder='Enter password', size='45')
+                input#pwd.form-control(type='password', name='pw', placeholder='Enter password', size='45')
             .col-sm-12
               input.btn.btn-default(type='submit', value='로그인', size='45')
           .col-sm-12
