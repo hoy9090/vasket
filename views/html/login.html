@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko-kr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vasket!</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/kfonts2.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+    body {
+    	padding-top: 70px;
+        background-color: #ffa800;
+    }
+    .navbar {
+    	background-color: #ffa800;
+        border: none;
+        margin-top: 17px;
+        padding-bottom: 50px;
+
+
+    }
+    .navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+}
+#aa {
+    border-radius: 20px;
+    background-color: white;
+    
+    text-align: center;
+
+}
+#pwd {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+    button {
+        margin-bottom: 4px;
+        margin-top: 4px;
+        width: 285px;
+        height: 40px;
+    }
+    input.btn {
+        width: 285px;
+        height: 35px;
+        background-color: #ffa800;
+    }
+    input.form-control {
+        width: 285px;
+    }
+    .none-prop {width: 0%;}
+    </style>
+
+  </head>
+  <body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <a href="" class="navbar-brand"><img src="./imgs/login_logo.png"></a>
+    </nav>
+    <br>
+    <br>
+    <br>
+
+    <div class="col-sm-offset-4 col-sm-4" id="aa">
+        <br><br>
+        <div class="col-sm-12">
+        <h3>로그인</h3>
+        <p>로그인 하실 계정을 선택해주세요</p>
+        <hr>
+        <form class="form-horizontal" role="form">
+              <div class="col-sm-12">
+                <center><input type="text" class="form-control" id="id" placeholder="facebook 아이디" size="45"></center>
+              </div>
+              <div class="col-sm-12">          
+                <center><input type="password" class="form-control" id="pwd" placeholder="Enter password" size="45"></center>
+              </div>       
+              <div class="col-sm-12">
+                <input type="submit" value="로그인" class="btn btn-default" size="45">
+              </div>
+              
+        </form>
+        <div class="col-sm-12">
+        <hr>
+              <button class="btn btn-default" >페이스북으로 로그인</button>
+        </div>
+        <div class="col-sm-12">
+              <button class="btn btn-default">다른 SNS 회원가입은 준비중입니다.</button>
+              <hr>
+        </div>
+        <div class="col-sm-12">
+        <p>아직 가입 안하셨나요? <a href="">회원가입</a></p>
+        </div>
+        </div>
+        <br>
+          <br>
+          
+    </div>
+    <div class="col-sm-4 none-prop"></div>
+  </div>
+  </body>
+
+</html>
