@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 			}
 			else {
 				res.writeHeader('content-type', 'text/javascript');
-				res.write('<script>alert(\'Login Fail!!\');location.replace(\'/\');</script>');
+				res.write('<script>alert(\'로그인 정보가 잘못되었습니다.\n다시 한번 확인해주세요.\');</script>');
 				res.end();
 				console.error('Login Fail!!');
 			}
