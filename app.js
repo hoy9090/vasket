@@ -14,6 +14,7 @@ var join = require('./routes/join');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var login_check = require('./routes/login_check');
+var signup = require('./routes/signup');
 
 var app = express();
 
@@ -48,6 +49,7 @@ app.use('/finish', finish);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/login_check', login_check);
+app.use('/signup', signup);
 app.use('/fb_login', express.Router().get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, 'views/html/fb_login.html'));
 }));
