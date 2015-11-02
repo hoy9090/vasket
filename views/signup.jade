@@ -6,8 +6,8 @@ html(lang='ko-kr')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title vasket!
     // Bootstrap
-    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    link(href='../../public/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='../../public/bootstrap/css/kfonts2.css', rel='stylesheet')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -46,7 +46,7 @@ html(lang='ko-kr')
       margin-bottom: 4px;
       margin-top: 4px;
       width: 285px;
-      height: 40px;
+      height: 35px;
       }
       input.btn {
       width: 285px;
@@ -68,11 +68,12 @@ html(lang='ko-kr')
       padding: 0 !important;
       margin: 0 !important;
       }
+      #sex { width: 285px; text-align: left; height: 35px; margin-top: 4px;}
   body
     .container-fluid
       center
         a(href='main_vasket.html')
-          img(src='/images/login_logo.png')
+          img(src='../../public/images/login_logo.png')
       br
       br
       br
@@ -97,25 +98,82 @@ html(lang='ko-kr')
               #birth.form-inline
                 .col-xs-6.nopadding
                   select#year.form-control
+                    option Year
                 .col-xs-3.nopadding
                   select#month.form-control
-                    option 1
+                    option Month
                 .col-xs-3.nopadding
                   select#day.form-control
-                    option 1
+                    option 1Day
+                  br
+            center
+              .col-xs-12
+                #sex.form-control
+                  .col-xs-4
+                    | Sex :
+                  .col-xs-8
+                    label.radio-inline
+                      input(type='radio', name='optradio')
+                      | Man
+                    label.radio-inline
+                      input(type='radio', name='optradio')
+                      | Woman
+                hr
+            .col-xs-12
+              .dropdown
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
+                  | use agreement 
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    pre.
+                      \n                    Hello!
+                                          Here is the agreement of utilization space
+                                          Thank you!
+              .dropdown
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
+                  | personal information~
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    pre.
+                      \n                    Hello!
+                                          Here is the agreement of utilization space
+                                          Thank you!
+              .dropdown
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
+                  | e-commerce~ 
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    pre.
+                      \n                    Hello!
+                                          Here is the agreement of utilization space
+                                          Thank you!
             .col-xs-12
               hr
               p
                 | 이미 가입 하셨나요? 
-                a(href='login') 로그인
+                a(href='login.html') 로그인
           br
           br
+    br
+    br
+    br
+    br
     script(type='text/javascript').
       var innerHTML;
       for (var year=2015; year>1909; year--) {
       innerHTML = document.getElementById("year").innerHTML;
-      if (year == 2015)
-      document.getElementById("year").innerHTML = '<option>'.concat(year, '</option>');
-      else
       document.getElementById("year").innerHTML = innerHTML.concat('<option>', year, '</option>');
       }
+      for (var month=1; month<13; month++) {
+      innerHTML = document.getElementById("month").innerHTML;
+      document.getElementById("month").innerHTML = innerHTML.concat('<option>', month, '</option>');
+      }
+      for (var day=1; day<32; day++) {
+      innerHTML = document.getElementById("day").innerHTML;
+      document.getElementById("day").innerHTML = innerHTML.concat('<option>', day, '</option>');
+      }
+    script(src='../../public/bootstrap/js/bootstrap.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
