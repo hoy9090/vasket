@@ -59,6 +59,52 @@ html(lang='ko-kr')
       }
       .none-prop {width: 0%;}
   body
+    script.
+      // This is called with the results from from FB.getLoginStatus().
+      // This function is called when someone finishes with the Login
+      // Button.  See the onlogin handler attached to it in the sample
+      // code below.
+      }
+      window.fbAsyncInit = function() {
+      FB.init({
+      appId      : 883225935107427,
+      cookie     : true,  // enable cookies to allow the server to access
+      // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.5' // use version 2.2
+      });
+      // Now that we've initialized the JavaScript SDK, we call
+      // FB.getLoginStatus().  This function gets the state of the
+      // person visiting this page and can return one of three states to
+      // the callback you provide.  They can be:
+      //
+      // 1. Logged into your app ('connected')
+      // 2. Logged into Facebook, but not your app ('not_authorized')
+      // 3. Not logged into Facebook and can't tell if they are logged into
+      //    your app or not.
+      //
+      // These three cases are handled in the callback function.
+      };
+      function fb_login(){
+      FB.login(function(response) {
+      if (response.authResponse) {
+      loggedIn = true;
+      location.href('/');
+      }
+      }, {
+      scope: 'public_profile,email,user_likes'
+      });
+      }
+      // Load the SDK asynchronously
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      // Here we run a very simple test of the Graph API after login is
+      // successful.  See statusChangeCallback() for when this call is made.
     .container-fluid
       nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         a.navbar-brand(href='')
@@ -84,14 +130,14 @@ html(lang='ko-kr')
               input.btn.btn-default(type='submit', value='로그인', size='45')
           .col-sm-12
             hr
-            button.btn.btn-default 페이스북으로 로그인
+            button.btn.btn-default(onClick='fb_login();') 페이스북으로 로그인
           .col-sm-12
             button.btn.btn-default 다른 SNS 회원가입은 준비중입니다.
             hr
           .col-sm-12
             p
               | 아직 가입 안하셨나요? 
-              a(href='') 회원가입
+              a(href='signup') 회원가입
         br
         br
       .col-sm-4.none-prop
