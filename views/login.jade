@@ -58,10 +58,10 @@ html(lang='ko-kr')
       width: 92%;
       }
       .none-prop {width: 0%;}
-    script
+    script(type='text/javascript')
       function(error) {
-          if(error.responseText == 'showAlert')
-              alert("Please enter correct user name and password.")
+      if(error.responseText == 'showAlert')
+      alert("Please enter correct user name and password.")
       }
   body
     .container-fluid
