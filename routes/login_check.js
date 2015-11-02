@@ -30,9 +30,11 @@ router.post('/', function(req, res, next) {
 				//session config
 			}
 			else {
-				res.writeHeader('content-type', 'text/javascript');
-				res.write('<script>alert(\'로그인 정보가 잘못되었습니다.\n다시 한번 확인해주세요.\');</script>');
-				res.location('back');
+				// res.writeHeader('content-type', 'text/javascript');
+				// res.write('<script>alert(\'로그인 정보가 잘못되었습니다.\n다시 한번 확인해주세요.\');</script>');
+				// res.location('back');
+				// res.end();
+				res.send(500, 'showAlert');
 				res.end();
 			}
 			connection.release();
