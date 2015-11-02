@@ -87,7 +87,7 @@ html(lang='ko-kr')
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
-      #{loggedIn} = true;
+      document.loggedIn = true;
       location.href('/');
       }
       }, {
