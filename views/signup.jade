@@ -72,7 +72,7 @@ html(lang='ko-kr')
   body
     .container-fluid
       center
-        a(href='main_vasket.html')
+        a(href='main')
           img(src='/images/login_logo.png')
       br
       br
@@ -86,43 +86,42 @@ html(lang='ko-kr')
             p 다양한 서비스를 제한없이 사용할 수 있습니다.
             hr
             .col-xs-12
-              label 로그인 필요정보
-              center
-                input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
-              br
-            .col-xs-12
               label 기본정보입력
               center
                 input.form-control(type='text', name='name', placeholder='이름')
-            center
-              #birth.form-inline
-                .col-xs-6.nopadding
-                  select#year.form-control
-                    option Year
-                .col-xs-3.nopadding
-                  select#month.form-control
-                    option Month
-                .col-xs-3.nopadding
-                  select#day.form-control
-                    option 1Day
-                  br
-            center
-              .col-xs-12
-                #sex.form-control
-                  .col-xs-4
-                    | Sex :
-                  .col-xs-8
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      | Man
-                    label.radio-inline
-                      input(type='radio', name='optradio')
-                      | Woman
-                hr
+            form.form-horizontal(role='form', action='signup_finish', method='post')
+              center
+                #birth.form-inline
+                  .col-xs-6.nopadding
+                    select#year.form-control
+                      option 년
+                  .col-xs-3.nopadding
+                    select#month.form-control
+                      option 월
+                  .col-xs-3.nopadding
+                    select#day.form-control
+                      option 일
+                    br
+              center
+                .col-xs-12
+                  #sex.form-control
+                    .col-xs-4
+                      | 성별
+                    .col-xs-8
+                      label.radio-inline
+                        input(type='radio', name='optradio')
+                        | 남
+                      label.radio-inline
+                        input(type='radio', name='optradio')
+                        | 여
+                  hr
+              center
+                .col-xs-12
+                  input.btn.btn-default 회원가입
             .col-xs-12
               .dropdown
                 button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
-                  | use agreement 
+                  | 이용 약관
                   span.caret
                 ul.dropdown-menu
                   li
@@ -132,7 +131,7 @@ html(lang='ko-kr')
                                           Thank you!
               .dropdown
                 button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
-                  | personal information~
+                  | 개인정보 취급약관
                   span.caret
                 ul.dropdown-menu
                   li
@@ -142,7 +141,7 @@ html(lang='ko-kr')
                                           Thank you!
               .dropdown
                 button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
-                  | e-commerce~ 
+                  | 전자상거래 약관
                   span.caret
                 ul.dropdown-menu
                   li
