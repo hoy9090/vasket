@@ -61,15 +61,15 @@ body
                   a(href='logout')
                     span.glyphicon.glyphicon-log-out
                     |  로그아웃
-                - } else {
-                  a(href='login')
-                    span.glyphicon.glyphicon-log-in
-                    |  &#xB85C;&#xADF8;&#xC778;
-                - }
+              - } else {
+                a(href='login')
+                  span.glyphicon.glyphicon-log-in
+                  |  &#xB85C;&#xADF8;&#xC778;
+              - }
             li
               - if(loggedIn) {
                   a(href='mypage') MY페이지
-                }
+              - }
             | &#x9;        
             //li
               a(href='signup')
