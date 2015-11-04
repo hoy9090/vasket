@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 				}
 				else {
 					connection.release();
-					res.render('signup', {"id": req.body.id, "name": req.body.name, "birthday": req.body.birthday, "gender": req.body.gender});
+					res.render('signup', {id: req.body.id, name: req.body.name, birthday: req.body.birthday, gender: req.body.gender});
 					res.end();
 				}
 			});
