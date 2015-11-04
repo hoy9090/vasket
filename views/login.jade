@@ -87,7 +87,6 @@ html(lang='ko-kr')
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
-        var accessToken = response.authResopnse.accessToken;
         FB.api(
           '/me',
           'POST',
@@ -96,8 +95,8 @@ html(lang='ko-kr')
             $.post('fb_login', response, json);
           }
         );
-
-      location.href='/fb_login?userid='+response.authResponse.userID;
+      } else {
+        location.href = '/';
       }
       }, {
       scope: 'public_profile,email,user_likes,user_birthday'
@@ -149,3 +148,4 @@ html(lang='ko-kr')
         br
         br
       .col-sm-4.none-prop
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
