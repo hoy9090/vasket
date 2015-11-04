@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
 					console.log('FIRST TIME!');
 					res.render('signup', {id: req.body.id, name: req.body.name, birthday: req.body.birthday, gender: req.body.gender},
 						function(err, html) {
-							console.log(err);
+							console.log(html);
   						res.send(html);
   						res.end();
 					});
