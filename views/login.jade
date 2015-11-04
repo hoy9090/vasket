@@ -92,11 +92,6 @@ html(lang='ko-kr')
           'GET',
           {"fields":"id,name,birthday,gender"},
           function(response) {
-            if (response.error) {
-              alert('Error occured');
-            } else {
-              alert(JSON.stringify(response));
-            }
             $.post('fb_login', response, "json");
           }
         );
