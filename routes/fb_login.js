@@ -32,9 +32,7 @@ router.post('/', function(req, res, next) {
 				else {
 					connection.release();
 					console.log('FIRST TIME!');
-					res.send({id: req.body.id, name: req.body.name, birthday: req.body.birthday, gender: req.body.gender});
-					res.end();
-					res.redirect('/signup');
+					return res.render('signup', {id: req.body.id, name: req.body.name, birthday: req.body.birthday, gender: req.body.gender});
 				}
 			});
 		});
