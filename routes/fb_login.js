@@ -33,8 +33,8 @@ router.post('/', function(req, res, next) {
 					connection.release();
 					console.log('FIRST TIME!');
 					res.send({id: req.body.id, name: req.body.name, birthday: req.body.birthday, gender: req.body.gender});
-					res.redirect('/signup');
 					res.end();
+					res.redirect('/signup');
 				}
 			});
 		});
