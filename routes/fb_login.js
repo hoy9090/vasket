@@ -8,8 +8,8 @@ var pool = mysql.createPool({
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-	var userid = req.query.userid;
+router.post('/', function(req, res, next) {
+	var userid = req.body.id;
 	if (userid) {
 		pool.getConnection(function(err, connection) {
 			if (err) {
@@ -30,8 +30,7 @@ router.get('/', function(req, res, next) {
 					//session config
 				}
 				else {
-					res.redirect('/signup?userid='+userid);
-					res.end();
+					res.render('signup', {"id": req.body.id, "name": req.body.name, "birthday": req.body.birthday, "gender": req.body.gender});
 				}
 				connection.release();
 			});

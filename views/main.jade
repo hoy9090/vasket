@@ -66,6 +66,9 @@ body
                     span.glyphicon.glyphicon-log-in
                     |  &#xB85C;&#xADF8;&#xC778;
                 - }
+            li
+              - if(loggedIn) {
+                  a(href='mypage') MY페이지
             | &#x9;        
             //li
               a(href='signup')
