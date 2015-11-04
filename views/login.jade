@@ -95,7 +95,7 @@ html(lang='ko-kr')
             if (response.error) {
               alert('Error occured');
             } else {
-              alert(JSON.stringfy(response));
+              alert(JSON.stringify(response));
             }
             $.post('fb_login', response, json);
           }
