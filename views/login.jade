@@ -86,6 +86,7 @@ html(lang='ko-kr')
       };
       function fb_login(){
       FB.login(function(response) {
+      alert(JSON.stringify(response));
       if (response.authResponse) {
         FB.api(
           '/me',
