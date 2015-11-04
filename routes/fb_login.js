@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 			connection.query('select count(*) result from user where userID=?', 
 			[userid], function(err, result, field) {
 				var isAlreadyUser = result[0].result;
-				console.log(isLogin);
+				console.log(isAlreadyUser);
 				if (isAlreadyUser == 1) {
 					req.session.userid = userid;
 					res.redirect('/');
