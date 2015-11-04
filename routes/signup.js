@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('signup', {userID: req.query.userid});
+	var json = {};
+	json[userid] = req.query.userid;
+  res.render('signup', json);
 });
 
 module.exports = router;
