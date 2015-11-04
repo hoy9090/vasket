@@ -27,12 +27,12 @@ router.post('/', function(req, res, next) {
 					res.redirect('/');
 					res.end();
 					console.log('DB FB Login Success!!');
-					//session config
+					connection.release();
 				}
 				else {
+					connection.release();
 					res.render('signup', {"id": req.body.id, "name": req.body.name, "birthday": req.body.birthday, "gender": req.body.gender});
 				}
-				connection.release();
 			});
 		});
 	} else {
