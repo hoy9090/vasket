@@ -87,8 +87,7 @@ html(lang='ko-kr')
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
-      session.userid = response.authResponse.userID;
-      location.href='/';
+      location.href='/fb_login?userid='+response.authResponse.userID;
       }
       }, {
       scope: 'public_profile,email,user_likes'

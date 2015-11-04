@@ -15,6 +15,7 @@ var login = require('./routes/login');
 var logout = require('./routes/logout');
 var login_check = require('./routes/login_check');
 var signup = require('./routes/signup');
+var fb_login = require('./routes/fb_login');
 
 var app = express();
 
@@ -38,11 +39,6 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-  res.locals.session = req.session;
-  next();
-});
-
-app.use(function(req, res, next) {
   res.locals.loggedIn = req.session.userid ? true : false;
   next();
 });
@@ -55,9 +51,7 @@ app.use('/login', login);
 app.use('/logout', logout);
 app.use('/login_check', login_check);
 app.use('/signup', signup);
-app.use('/fb_login', express.Router().get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname, 'views/html/fb_login.html'));
-}));
+app.use('/fb_login', fb_login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
