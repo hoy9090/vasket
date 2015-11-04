@@ -86,11 +86,10 @@ html(lang='ko-kr')
       };
       function fb_login(){
       FB.login(function(response) {
-      alert(JSON.stringify(response));
       if (response.authResponse) {
         FB.api(
           '/me',
-          'POST',
+          'GET',
           {"fields":"id,name,birthday,gender"},
           function(response) {
             if (response.error) {
@@ -98,7 +97,7 @@ html(lang='ko-kr')
             } else {
               alert(JSON.stringify(response));
             }
-            $.post('fb_login', response, json);
+            $.post('fb_login', response, "json");
           }
         );
       } else {
