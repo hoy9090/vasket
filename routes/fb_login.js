@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
 			[userid], function(err, result, field) {
 				var isAlreadyUser = result[0].result;
 				console.log(isAlreadyUser);
-				if (isAlreadyUser == 1) {
+				if (isAlreadyUser === 1) {
 					req.session.userid = userid;
 					res.redirect('/');
 					res.end();
