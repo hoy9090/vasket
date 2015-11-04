@@ -14,7 +14,7 @@ var join = require('./routes/join');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var login_check = require('./routes/login_check');
-// var signup = require('./routes/signup');
+var signup = require('./routes/signup');
 var fb_login = require('./routes/fb_login');
 
 var app = express();
@@ -50,7 +50,7 @@ app.use('/finish', finish);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/login_check', login_check);
-// app.use('/signup', signup);
+app.use('/signup', signup);
 app.use('/fb_login', fb_login);
 
 // catch 404 and forward to error handler
