@@ -32,8 +32,14 @@ router.post('/', function(req, res, next) {
 				else {
 					connection.release();
 					console.log('FIRST TIME!');
-					res.redirect('/');
-					res.end();
+					// res.redirect('/');
+					// res.end();
+					res.json({
+                    id      : req.body.id, 
+                    name    : req.body.name, 
+                    birthday: req.body.birthday, 
+                    gender  : req.body.gender
+                  });
 					// res.render('signup');
 				// 	res.render(
     //               'signup', 
