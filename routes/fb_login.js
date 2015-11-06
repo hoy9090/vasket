@@ -40,7 +40,7 @@ router.post('/', function(req, res, next) {
                     birthday: req.body.birthday, 
                     gender  : req.body.gender
                   });
-					// res.render('signup');
+					// res.render('signup'); 
 				// 	res.render(
     //               'signup', 
     //               {
