@@ -84,6 +84,9 @@ html(lang='ko-kr')
       //
       // These three cases are handled in the callback function.
       };
+      FB.Event.subscribe('auth.login', function(response) {
+        console.log(response.id);
+      });
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
@@ -102,9 +105,6 @@ html(lang='ko-kr')
       scope: 'public_profile,email,user_likes,user_birthday'
       });
       }
-      FB.Event.subscribe('auth.login', function(response) {
-        console.log(response.id);
-      });
       // Load the SDK asynchronously
       (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -115,6 +115,7 @@ html(lang='ko-kr')
       }(document, 'script', 'facebook-jssdk'));
       // Here we run a very simple test of the Graph API after login is
       // successful.  See statusChangeCallback() for when this call is made.
+      
     .container-fluid
       nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         a.navbar-brand(href='')
