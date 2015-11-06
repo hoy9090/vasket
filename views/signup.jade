@@ -92,7 +92,7 @@ html(lang='ko-kr')
             .col-xs-12
               label 기본정보입력
               center
-                input#name.form-control(type='text', name='name', placeholder='이름')
+                input#username.form-control(type='text', name='name', placeholder='이름')
             form.form-horizontal(role='form', action='signup_finish', method='post')
               center
                 #birth.form-inline
@@ -178,7 +178,7 @@ html(lang='ko-kr')
       innerHTML = document.getElementById("day").innerHTML;
       document.getElementById("day").innerHTML = innerHTML.concat('<option>', day, '</option>');
       }
-      if (document.getElementById('name'))
-        document.getElementById('name').setAttribute('value', #{name});
+      if (document.getElementById('username'))
+        document.getElementById('username').setAttribute('value', #{name});
     script(src='../bootstrap/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
