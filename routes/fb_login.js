@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
 				else {
 					connection.release();
 					console.log('FIRST TIME!');
-					res.render(signup);
+					res.render('signup');
 				// 	res.render(
     //               'signup', 
     //               {
