@@ -86,16 +86,16 @@ html(lang='ko-kr')
                 url: '/fb_login',
                 success: function(data) {
                   console.log(data);
-
                   var form = document.createElement('form');
                   form.setAttribute('method', 'post');
                   form.setAttribute('action', '/signup');
-                  var hiddenField = document.createElement('input');
-                  hiddenField.setAttribute('id', data.id);
-                  hiddenField.setAttribute('name', data.name);
-                  hiddenField.setAttribute('birthday', data.birthday);
-                  hiddenField.setAttribute('gender', data.gender);
-                  form.appendChild(hiddenField);
+                  for (var key in data) {
+                      var hiddenField = document.createElement("input");
+                      hiddenField.setAttribute("type", "hidden");
+                      hiddenField.setAttribute("name", key);
+                      hiddenField.setAttribute("value", data[key]);
+                      form.appendChild(hiddenField);
+                  }
                   document.body.appendChild(form);
                   form.submit();
                 }
