@@ -81,12 +81,18 @@ html(lang='ko-kr')
             function(response) {
               $.ajax({
                 type: 'POST',
-                data: response,
+                data: response, 
+                dataType: "JSON",
                 url: '/fb_login',
                 success: function(data) {
+                    console.log(data.form);
                   //if (data.redirect) {
                       // data.redirect contains the string URL to redirect to
-                    location.href = "/signup";
+                    $.ajax({
+                      type: 'POST',
+                      data: data.form,
+                      url: '/signup'
+                    })
                   //}
                 }
               });
