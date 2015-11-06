@@ -84,10 +84,10 @@ html(lang='ko-kr')
                 data: response,
                 url: '/fb_login',
                 success: function(data) {
-                  if (data.redirect) {
+                  //if (data.redirect) {
                       // data.redirect contains the string URL to redirect to
-                    location.href = data.redirect;
-                  }
+                    location.href = "/signup";
+                  //}
                 }
               });
             }
