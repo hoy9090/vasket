@@ -73,7 +73,7 @@ html(lang='ko-kr')
       version    : 'v2.5' // use version 2.2
       });
       FB.getLoginStatus(function(response) {
-        console.log(response.status === 'connected') {
+        if (response.status === 'connected') {
           FB.api(
           '/me',
           'GET',
@@ -81,7 +81,7 @@ html(lang='ko-kr')
           function(response) {
             $.post('fb_login', response, "json");
           }
-        );
+          );
         }
       });
       // Now that we've initialized the JavaScript SDK, we call
