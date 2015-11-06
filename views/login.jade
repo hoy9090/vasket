@@ -73,8 +73,8 @@ html(lang='ko-kr')
       version    : 'v2.5' // use version 2.2
       });
       FB.getLoginStatus(function(response) {
-        console.log(response.status);
-        console.log(#{id});
+        console.log(response.status === 'connected')
+          location.href = 'fb_login';
       });
       // Now that we've initialized the JavaScript SDK, we call
       // FB.getLoginStatus().  This function gets the state of the
