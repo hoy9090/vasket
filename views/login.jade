@@ -92,7 +92,7 @@ html(lang='ko-kr')
           'GET',
           {"fields":"id,name,birthday,gender"},
           function(response) {
-            $.post('fb_login', response, json);
+            $.post('fb_login', response, "json");
           }
         );
       } else {
