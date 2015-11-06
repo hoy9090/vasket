@@ -72,6 +72,18 @@ html(lang='ko-kr')
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.5' // use version 2.2
       });
+      FB.getLoginStatus(function(response) {
+        if (response.status == 'connected') {
+          FB.api(
+            '/me',
+            'GET',
+            {"fields":"id,name,birthday,gender"},
+            function(response) {
+              $.post('fb_login', response, "json");
+            }
+          );
+        }
+      });
       // Now that we've initialized the JavaScript SDK, we call
       // FB.getLoginStatus().  This function gets the state of the
       // person visiting this page and can return one of three states to
@@ -87,15 +99,8 @@ html(lang='ko-kr')
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
-        FB.api(
-          '/me',
-          'GET',
-          {"fields":"id,name,birthday,gender"},
-          function(response) {
-            $.post('fb_login', response, "json");
-          }
-        );
       } else {
+        alert('^6^');
         location.href = '/';
       }
       }, {
