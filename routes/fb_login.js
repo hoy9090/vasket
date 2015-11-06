@@ -33,6 +33,7 @@ router.post('/', function(req, res, next) {
 					connection.release();
 					console.log('FIRST TIME!');
 					res.redirect('/');
+					res.end();
 					// res.render('signup');
 				// 	res.render(
     //               'signup', 
