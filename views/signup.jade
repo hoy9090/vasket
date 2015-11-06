@@ -178,7 +178,7 @@ html(lang='ko-kr')
       innerHTML = document.getElementById("day").innerHTML;
       document.getElementById("day").innerHTML = innerHTML.concat('<option>', day, '</option>');
       }
-      if (document.getElementById("name"))
-        document.getElementById("name").value = #{name};
+      if (document.getElementById('name'))
+        document.getElementById('name').setAttribute('value', #{name});
     script(src='../bootstrap/js/bootstrap.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
