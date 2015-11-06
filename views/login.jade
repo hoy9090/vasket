@@ -89,11 +89,7 @@ html(lang='ko-kr')
                     console.log(data);
                   //if (data.redirect) {
                       // data.redirect contains the string URL to redirect to
-                    $.ajax({
-                      type: 'POST',
-                      data: data,
-                      url: '/signup'
-                    })
+                    location.href = '/signup'
                   //}
                 }
               });
