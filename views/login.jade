@@ -79,7 +79,17 @@ html(lang='ko-kr')
             'GET',
             {"fields":"id,name,birthday,gender"},
             function(response) {
-              $.post('fb_login', response, "json");
+              $.ajax({
+                type: 'POST',
+                data: response,
+                url: '/fb_login',
+                success: function(data) {
+                  if (data.redirect) {
+                      // data.redirect contains the string URL to redirect to
+                    location.href = data.redirect;
+                  }
+                }
+              });
             }
           );
         }
