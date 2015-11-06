@@ -73,8 +73,16 @@ html(lang='ko-kr')
       version    : 'v2.5' // use version 2.2
       });
       FB.getLoginStatus(function(response) {
-        console.log(response.status === 'connected')
-          location.href = 'fb_login';
+        console.log(response.status === 'connected') {
+          FB.api(
+          '/me',
+          'GET',
+          {"fields":"id,name,birthday,gender"},
+          function(response) {
+            $.post('fb_login', response, "json");
+          }
+        );
+        }
       });
       // Now that we've initialized the JavaScript SDK, we call
       // FB.getLoginStatus().  This function gets the state of the
@@ -91,16 +99,16 @@ html(lang='ko-kr')
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
-        FB.api(
-          '/me',
-          'GET',
-          {"fields":"id,name,birthday,gender"},
-          function(response) {
-            $.post('fb_login', response, "json");
-          }
-        );
+      //FB.api(
+      //    '/me',
+      //    'GET',
+      //    {"fields":"id,name,birthday,gender"},
+      //    function(response) {
+      //      $.post('fb_login', response, "json");
+      //    }
+      //  );
       } else {
-        location.href = '/';
+        alert('페이스북 로그인이 취소되었습니다.');
       }
       }, {
       scope: 'public_profile,email,user_likes,user_birthday'
