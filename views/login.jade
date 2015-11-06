@@ -85,12 +85,19 @@ html(lang='ko-kr')
                 dataType: "JSON",
                 url: '/fb_login',
                 success: function(data) {
-                    console.log('aaaaa');
-                    console.log(data);
-                  //if (data.redirect) {
-                      // data.redirect contains the string URL to redirect to
-                    location.href = '/signup'
-                  //}
+                  console.log(data);
+
+                  var form = document.createElement('form');
+                  form.setAttribute('method', 'post');
+                  form.setAttribute('action', '/signup');
+                  var hiddenField = document.createElement('input');
+                  hiddenField.setAttribute('id', data.id);
+                  hiddenField.setAttribute('name', data.name);
+                  hiddenField.setAttribute('birthday', data.birthday);
+                  hiddenField.setAttribute('gender', data.gender);
+                  form.appendChild(hiddenField);
+                  document.body.appendChild(form);
+                  form.submit();
                 }
               });
             }
