@@ -38,22 +38,6 @@ router.post('/', function(req, res, next) {
                     birthday: req.body.birthday, 
                     gender  : req.body.gender
                   });
-					// res.render(
-     //              'signup', 
-     //              {
-     //                id      : req.body.id, 
-     //                name    : req.body.name, 
-     //                birthday: req.body.birthday, 
-     //                gender  : req.body.gender
-     //              } ,
-     //              function(err, html){
-     //                if(err) console.log(err);
-
-     //                console.log(html);                        
-     //                res.send(html);
-                  
-     //              }
-     //            );
 				}
 			});
 		});

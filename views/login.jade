@@ -72,7 +72,7 @@ html(lang='ko-kr')
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.5' // use version 2.2
       });
-      FB.getLoginStatus(function(response) {
+      /*FB.getLoginStatus(function(response) {
         if (response.status == 'connected') {
           FB.api(
             '/me',
@@ -103,7 +103,7 @@ html(lang='ko-kr')
             }
           );
         }
-      });
+      });*/
       // Now that we've initialized the JavaScript SDK, we call
       // FB.getLoginStatus().  This function gets the state of the
       // person visiting this page and can return one of three states to
@@ -116,9 +116,45 @@ html(lang='ko-kr')
       //
       // These three cases are handled in the callback function.
       };
+
+      function go_signup(){
+        FB.getLoginStatus(function(response) {
+          if (response.status == 'connected') {
+            FB.api(
+              '/me',
+              'GET',
+              {"fields":"id,name,birthday,gender"},
+              function(response) {
+                $.ajax({
+                  type: 'POST',
+                  data: response, 
+                  dataType: "JSON",
+                  url: '/fb_login',
+                  success: function(data) {
+                    console.log(data);
+                    var form = document.createElement('form');
+                    form.setAttribute('method', 'post');
+                    form.setAttribute('action', '/signup');
+                    for (var key in data) {
+                      var hiddenField = document.createElement("input");
+                      hiddenField.setAttribute("type", "hidden");
+                      hiddenField.setAttribute("name", key);
+                      hiddenField.setAttribute("value", data[key]);
+                      form.appendChild(hiddenField);
+                    }
+                    document.body.appendChild(form);
+                    form.submit();
+                  }
+                });
+              }
+            );
+          }
+        });
+      }
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
+        go_signup();
       } else {
         alert('^6^');
         location.href = '/';
