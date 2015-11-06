@@ -112,7 +112,9 @@ html(lang='ko-kr')
       }(document, 'script', 'facebook-jssdk'));
       // Here we run a very simple test of the Graph API after login is
       // successful.  See statusChangeCallback() for when this call is made.
-      console.log(id);
+      FB.Event.subscribe('auth.login', function(response) {
+        console.log(response.id);
+      });
     .container-fluid
       nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
         a.navbar-brand(href='')
