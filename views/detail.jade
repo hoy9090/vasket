@@ -1,0 +1,104 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title vasket!
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body { padding-top: 60px; background-color: #BBBBBB;}
+      nav {background-color: #ffa800;}
+      .navbar li a {color:#595959;}
+      .navbar li a:hover {background-color:#ffa800; color:#000000;}
+      .navbar .navbar-toggle {
+      border-color: #ffa800;
+      }
+      .navbar .navbar-toggle:hover,
+      .navbar .navbar-toggle:focus {
+      background-color: #ffa800;
+      }
+      .navbar .navbar-toggle .icon-bar {
+      background-color: #ffffff;
+      }
+      .bs-example{
+      background-color: #ffffff; width: 100%; height:500px; margin-top: 50px; padding-left: 20px; padding-top: 20px;
+      }
+      .contents {background-color: #ffffff; width: 100%;height:50px;}
+  body
+    .container
+      nav.navbar.navbar-fixed-top
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#')
+              img(src='/images/logo.png', width='90px;')
+          #myNavbar.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/#event') 이벤트
+              li
+                a(href='/#service') 서비스 소개
+              li
+                a(href='/#about') 회사 소개
+              li
+                a(href='/logout') 로그아웃
+      .col-xs-12.contents
+        .col-xs-4
+          p Brand logo
+        .col-xs-8
+          h4 Breand Name
+          p Brand explain
+      br
+      .bs-example
+        ul.nav.nav-tabs
+          li.active
+            a(data-toggle='tab', href='#sectionA') Section A
+          li
+            a(data-toggle='tab', href='#sectionB') Section B
+        .tab-content
+          #sectionA.tab-pane.fade.in.active
+            h3 Section A
+            p
+              | Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+          #sectionB.tab-pane.fade
+            h3 Section B
+            p
+              | Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.
+            br
+            br
+            ul.nav.nav-pills
+              li.active
+                a(data-toggle='tab', href='#secA') Section A
+              li
+                a(data-toggle='tab', href='#secB') Section B
+              li
+                a(data-toggle='tab', href='#secC') Section C
+            .tab-content
+              #secA.tab-pane.fade.in.active
+                h3 Section A
+                p
+                  | Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
+              #secB.tab-pane.fade
+                h3 Section B
+                p
+                  | Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.
+                br
+                br
+              #secC.tab-pane.fade
+                h3 Section C
+                form.form-inline
+                  input(type='text', size='35', maxlength='100')
+                  button.btn.btn-default(type='submit') GO
+                br
+                br
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
