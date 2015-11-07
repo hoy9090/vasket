@@ -50,18 +50,18 @@ html(lang='ko-kr')
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand(href='#')
-              img(src='/images/logo.png', width='90px;')
+            a.navbar-brand(href='/')
+              img(src='/images/logo.png', width='90px')
           #myNavbar.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
               li
-                a(href='main.html#event') event
+                a(href='/#event') 이벤트
               li
-                a(href='main.html#service') service
+                a(href='/#service') 서비스 소개
               li
-                a(href='main.html#about') about us
+                a(href='/#about') 회사 소개
               li
-                a(href='#event') logout
+                a(href='/logout') 로그아웃
     #D-day
       .D-day
         button#date-button(onclick='divClose()')
@@ -70,7 +70,7 @@ html(lang='ko-kr')
     .container
       #user-id
         .col-xs-2
-          img#facebookimg(src='/images/facebook.png', width='25px;', height='33px;')
+          img#facebookimg(src='/images/facebook.png', width='30px', height='30px')
         .col-xs-8
           center
             p#user-id_ #{email}
