@@ -7,6 +7,10 @@ var pool = mysql.createPool({
 	password: '1012'
 });
 
+Date.prototype.toMysqlFormat = function() {
+    return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
+};
+
 /* GET home page. */
 router.post('/', function(req, res, next) {
 	var userid = req.body.userid;
