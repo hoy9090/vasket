@@ -115,6 +115,9 @@ html(lang='ko-kr')
                     document.body.appendChild(form);
                     form.submit();*/
                   },
+                  fail: function() {
+                    console.log('sdczx');
+                  },
                   error: function(request, status, error) {
                     console.log('aaa');
                     //window.location.href='/';
