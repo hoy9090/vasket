@@ -14,9 +14,12 @@ router.post('/', function(req, res, next) {
 	var month = req.body.month;
 	var day = req.body.day;
 	var username = req.body.username;
+	var name = req.body.name;
 	var gender = req.body.sex;
 	var email = req.body.email;
 
+	console.log(userid, year, month, day, username, name, gender, email);
+	
 	pool.getConnection(function(err, connection) {
 		if (err) {
 			console.error('DB Connection error!!');
