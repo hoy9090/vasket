@@ -14,7 +14,8 @@ function twoDigits(d) {
 }
 
 Date.prototype.toMysqlFormat = function() {
-    return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
+		console.log(this.getUTCFullYear(), this.getUTCMonth(), this.getUTCDate());
+    return this.getUTCFullYear() + "-" + twoDigits(this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
 };
 
 /* GET home page. */
