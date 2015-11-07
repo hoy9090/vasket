@@ -116,7 +116,7 @@ html(lang='ko-kr')
                         input(type='radio', name='sex', checked={true: '#{gender}' === 'male'})
                         | 남
                       label.radio-inline
-                        input(type='radio', name='sex', checked={true: '#{gender}' === 'female'})
+                        input(type='radio', name='sex')
                         | 여
                   hr
               .col-xs-12
@@ -164,6 +164,7 @@ html(lang='ko-kr')
     br
     br
     br
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(type='text/javascript').
       var innerHTML;
       for (var year=2015; year>1909; year--) {
@@ -186,5 +187,4 @@ html(lang='ko-kr')
         $('#month').val(date_arr[0].parseInt());
         $('#day').val(date_arr[1].parseInt());
       }
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='../bootstrap/js/bootstrap.min.js')
