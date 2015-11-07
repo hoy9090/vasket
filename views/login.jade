@@ -98,8 +98,7 @@ html(lang='ko-kr')
                   data: response, 
                   dataType: "JSON",
                   url: '/fb_login',
-                  success: function(data) {
-                    console.log('aaa');
+                  done: function(data) {                
                     console.log(data);
                     var form = document.createElement('form');
                     form.setAttribute('method', 'post');
@@ -114,8 +113,9 @@ html(lang='ko-kr')
                     document.body.appendChild(form);
                     form.submit();
                   },
-                  error: function(request,status,error) {
-                    location.href = '/';
+                  fail: function(request, status, error) {
+                    console.log('aaa');
+                    window.location.href='/';
                   }
                 });
               }
