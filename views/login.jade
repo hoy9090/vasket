@@ -99,9 +99,6 @@ html(lang='ko-kr')
                   dataType: "JSON",
                   url: '/fb_login',
                   success: function(data) {
-                    console.log('aassa');        
-                    /*console.log(data);
-                    console.log('aaa');
                     var form = document.createElement('form');
                     form.setAttribute('method', 'post');
                     form.setAttribute('action', '/signup');
@@ -113,14 +110,11 @@ html(lang='ko-kr')
                       form.appendChild(hiddenField);
                     }
                     document.body.appendChild(form);
-                    form.submit();*/
-                  },
-                  fail: function() {
-                    console.log('sdczx');
+                    form.submit();
                   },
                   error: function(request, status, error) {
                     console.log('aaa');
-                    //window.location.href='/';
+                    window.location.href='/';
                   }
                 });
               }
