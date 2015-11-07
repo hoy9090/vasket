@@ -122,6 +122,7 @@ html(lang='ko-kr')
           }
         });
       }
+
       function fb_login(){
       FB.login(function(response) {
       if (response.authResponse) {
@@ -134,6 +135,7 @@ html(lang='ko-kr')
       scope: 'public_profile,email,user_likes,user_birthday'
       });
       }
+      
       // Load the SDK asynchronously
       (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
