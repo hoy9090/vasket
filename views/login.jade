@@ -112,7 +112,7 @@ html(lang='ko-kr')
                     }
                     document.body.appendChild(form);
                     form.submit();
-                  }
+                  },
                   error: function(request,status,error) {
                     location.href = '/';
                   }
@@ -135,7 +135,7 @@ html(lang='ko-kr')
       scope: 'public_profile,email,user_likes,user_birthday'
       });
       }
-      
+
       // Load the SDK asynchronously
       (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
