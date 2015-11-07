@@ -97,7 +97,6 @@ html(lang='ko-kr')
                   type: 'POST',
                   data: response, 
                   dataType: "JSON",
-                  async: false,
                   url: '/fb_login',
                   done: function(data) {
                     console.log('aassa');        
@@ -118,7 +117,7 @@ html(lang='ko-kr')
                   },
                   fail: function(request, status, error) {
                     console.log('aaa');
-                    window.location.href='/';
+                    //window.location.href='/';
                   }
                 });
               }
