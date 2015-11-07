@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
 		}
 		console.log('DB Connection Success!!');
 		connection.query('use vasket');
-		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 0, ?)', [userid, name, year+'-'+day+'-'+month, email, new Date()], function(err, result, field) {
+		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 1, ?)', [userid, name, new Date(year, month, day).toMysqlFormat(), email, new Date()], function(err, result, field) {
 			if (err) {
 				console.error(err);
 				return;
