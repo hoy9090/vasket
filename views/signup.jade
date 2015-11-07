@@ -181,13 +181,13 @@ html(lang='ko-kr')
       }
       if (document.getElementById('username'))
         document.getElementById('username').setAttribute('value', '#{name}');
-      if ('#{birthday}' != null || '#{birthday}' != '') {
+      if ('#{birthday}' != null && '#{birthday}' != '') {
         var date_arr = '#{birthday}'.split('/');
         console.log(date_arr[0]);
         console.log(date_arr[1]);
         console.log(date_arr[2]);
-        $('#year').val(date_arr[2].parseInt());
-        $('#month').val(date_arr[0].parseInt());
-        $('#day').val(date_arr[1].parseInt());
+        $('#year').val(parseInt(date_arr[2]));
+        $('#month').val(parseInt(date_arr[0]));
+        $('#day').val(parseInt(date_arr[1]));
       }
     script(src='../bootstrap/js/bootstrap.min.js')
