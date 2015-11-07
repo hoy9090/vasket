@@ -13,13 +13,12 @@ router.post('/', function(req, res, next) {
 	var year = req.body.year;
 	var month = req.body.month;
 	var day = req.body.day;
-	var username = req.body.username;
 	var name = req.body.name;
 	var gender = req.body.sex;
 	var email = req.body.email;
 
-	console.log(userid, year, month, day, username, name, gender, email);
-	
+	console.log(userid, year, month, day, name, gender, email);
+
 	pool.getConnection(function(err, connection) {
 		if (err) {
 			console.error('DB Connection error!!');
@@ -27,7 +26,7 @@ router.post('/', function(req, res, next) {
 		}
 		console.log('DB Connection Success!!');
 		connection.query('use vasket');
-		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 0, ?)', [userid, username, year+'-'+day+'-'+month, email, new Date()], function(err, result, field) {
+		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 0, ?)', [userid, name, year+'-'+day+'-'+month, email, new Date()], function(err, result, field) {
 			if (err) {
 				console.error(err);
 				return;
