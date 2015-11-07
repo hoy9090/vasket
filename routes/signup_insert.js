@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
 		connection.query('use vasket');
 		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 0, ?)', [userid, name, year+'-'+day+'-'+month, email, new Date()], function(err, result, field) {
 			if (err) {
-				console.error('DB Connection error!!');
+				console.error(err);
 				return;
 			}
 			res.redirect('signup_finish');
