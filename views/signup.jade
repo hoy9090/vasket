@@ -113,10 +113,10 @@ html(lang='ko-kr')
                       | 성별
                     .col-xs-8
                       label.radio-inline
-                        input(type='radio', name='sex', checked={true: '#{gender}' === 'maledasds'})
+                        input(type='radio', name='sex', checked=('#{gender}'==='male' ? "checked" : undefined))
                         | 남
                       label.radio-inline
-                        input(type='radio', name='sex')
+                        input(type='radio', name='sex', checked=('#{gender}'==='female' ? "checked" : undefined))
                         | 여
                   hr
               .col-xs-12
@@ -183,6 +183,9 @@ html(lang='ko-kr')
         document.getElementById('username').setAttribute('value', '#{name}');
       if ('#{birthday}' != null || '#{birthday}' != '') {
         var date_arr = '#{birthday}'.split('/');
+        console.log(date_arr[0]);
+        console.log(date_arr[1]);
+        console.log(date_arr[2]);
         $('#year').val(date_arr[2].parseInt());
         $('#month').val(date_arr[0].parseInt());
         $('#day').val(date_arr[1].parseInt());
