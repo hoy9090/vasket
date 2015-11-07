@@ -41,6 +41,7 @@ router.post('/', function(req, res, next) {
 				console.error(err);
 				return;
 			}
+			req.session.userid = userid;
 			res.redirect('signup_finish');
 			res.end();
 			connection.release();
