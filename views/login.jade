@@ -113,6 +113,9 @@ html(lang='ko-kr')
                     document.body.appendChild(form);
                     form.submit();
                   }
+                  error: function(request,status,error) {
+                    location.href = '/';
+                  }
                 });
               }
             );
@@ -143,7 +146,7 @@ html(lang='ko-kr')
       // successful.  See statusChangeCallback() for when this call is made.
     .container-fluid
       nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
-        a.navbar-brand(href='')
+        a.navbar-brand(href='/')
           img(src='./images/login_logo.png')
       br
       br
