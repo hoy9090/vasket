@@ -77,87 +77,83 @@ html(lang='ko-kr')
       br
       br
       br
-      form(action='url')
-        #aa.col-sm-offset-2.col-xs-12.col-sm-8
-          br
-          br
+      #aa.col-sm-offset-2.col-xs-12.col-sm-8
+        br
+        br
+        .col-xs-12
+          h3 추가정보입력
+          hr
           .col-xs-12
-            h3 추가정보입력
-            p 다양한 서비스를 제한없이 사용할 수 있습니다.
-            p Your facebook ID: #{id} (Hashed)
-            p Name: #{name}
-            p Birthday: #{birthday}
-            p Gender: #{gender}
-            hr
+            label 기본정보입력
+            center
+              input#username.form-control(type='text', name='name', placeholder='이름')
+          form.form-horizontal(role='form', action='signup_insert', method='post')
+            center
+              #birth.form-inline
+                .col-xs-6.nopadding
+                  select#year.form-control
+                    option 년
+                .col-xs-3.nopadding
+                  select#month.form-control
+                    option 월
+                .col-xs-3.nopadding
+                  select#day.form-control
+                    option 일
+                  br
+            center
+              .col-xs-12
+                #sex.form-control
+                  .col-xs-4
+                    | 성별
+                  .col-xs-8
+                    label.radio-inline
+                      input(type='radio', name='sex', value='male', checked=('#{gender}'==='male' ? "checked" : undefined))
+                      | 남
+                    label.radio-inline
+                      input(type='radio', name='sex', value='female', checked=('#{gender}'==='female' ? "checked" : undefined))
+                      | 여
+                hr
             .col-xs-12
-              label 기본정보입력
-              center
-                input#username.form-control(type='text', name='name', placeholder='이름')
-            form.form-horizontal(role='form', action='signup_finish', method='post')
-              center
-                #birth.form-inline
-                  .col-xs-6.nopadding
-                    select#year.form-control
-                      option 년
-                  .col-xs-3.nopadding
-                    select#month.form-control
-                      option 월
-                  .col-xs-3.nopadding
-                    select#day.form-control
-                      option 일
-                    br
+              .dropdown
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
+                  | 이용 약관
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    pre.
+                      \n                    Hello!
+                                          Here is the agreement of utilization space
+                                          Thank you!
+              .dropdown
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
+                  | 개인정보 취급약관
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    pre.
+                      \n                    Hello!
+                                          Here is the agreement of utilization space
+                                          Thank you!
+              .dropdown
+                button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
+                  | 전자상거래 약관
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    pre.
+                      \n                    Hello!
+                                          Here is the agreement of utilization space
+                                          Thank you!
+              input#userid(type='hidden', value='#{id}')
+              input#email(type='hidden', value='#{email}')
               center
                 .col-xs-12
-                  #sex.form-control
-                    .col-xs-4
-                      | 성별
-                    .col-xs-8
-                      label.radio-inline
-                        input(type='radio', name='sex', checked=('#{gender}'==='male' ? "checked" : undefined))
-                        | 남
-                      label.radio-inline
-                        input(type='radio', name='sex', checked=('#{gender}'==='female' ? "checked" : undefined))
-                        | 여
-                  hr
-              .col-xs-12
-                .dropdown
-                  button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
-                    | 이용 약관
-                    span.caret
-                  ul.dropdown-menu
-                    li
-                      pre.
-                        \n                    Hello!
-                                            Here is the agreement of utilization space
-                                            Thank you!
-                .dropdown
-                  button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
-                    | 개인정보 취급약관
-                    span.caret
-                  ul.dropdown-menu
-                    li
-                      pre.
-                        \n                    Hello!
-                                            Here is the agreement of utilization space
-                                            Thank you!
-                .dropdown
-                  button.btn.btn-default.dropdown-toggle(data-toggle='dropdown', type='button')
-                    | 전자상거래 약관
-                    span.caret
-                  ul.dropdown-menu
-                    li
-                      pre.
-                        \n                    Hello!
-                                            Here is the agreement of utilization space
-                                            Thank you!
-                center
-                  .col-xs-12
-                    input.btn.btn-default(type='submit', value='약관에 동의하고 가입하기')
-            .col-xs-12
-              hr
-              p
-                | 이미 가입 하셨나요? 
-                a(href='login') 로그인
+                  input.btn.btn-default(type='submit', value='약관에 동의하고 가입하기')
+          .col-xs-12
+            hr
+            p
+              | 이미 가입 하셨나요? 
+              a(href='login') 로그인
           br
           br
     br

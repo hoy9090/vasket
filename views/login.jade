@@ -91,7 +91,7 @@ html(lang='ko-kr')
             FB.api(
               '/me',
               'GET',
-              {"fields":"id,name,birthday,gender"},
+              {"fields":"id,name,birthday,gender,email"},
               function(response) {
                 $.ajax({
                   type: 'POST',

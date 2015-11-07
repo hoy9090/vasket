@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title vasket!
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body {background-color: #ffa800; padding-top: 70px;}
+      #signup-complete {background-color: #ffffff;border-radius: 7px; margin-bottom: 70px;}
+      button {clear: both; width:200px; height: 70px;}
+  body
+    .container
+      center
+        a(href='/')
+          img(src='/images/login_logo.png')
+      br
+      br
+      br
+      #signup-complete.col-sm-offset-2.col-xs-12.col-sm-8
+        br
+        br
+        center
+          h3  회원가입이 완료되었습니다. 
+        br
+        br
+        center
+          button.btn.btn-default(type='button', onClick='location.href=/login') 로그인 화면으로 돌아가기
+        br
+        br
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='../bootstrap/js/bootstrap.min.js')

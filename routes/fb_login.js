@@ -36,7 +36,8 @@ router.post('/', function(req, res, next) {
                     id      : req.body.id, 
                     name    : req.body.name, 
                     birthday: req.body.birthday, 
-                    gender  : req.body.gender
+                    gender  : req.body.gender,
+                    email		: req.body.email
                   });
 				}
 			});
