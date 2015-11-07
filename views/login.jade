@@ -97,6 +97,7 @@ html(lang='ko-kr')
                   type: 'POST',
                   data: response, 
                   dataType: "JSON",
+                  async: false,
                   url: '/fb_login',
                   done: function(data) {                
                     console.log(data);
