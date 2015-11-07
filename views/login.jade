@@ -113,7 +113,6 @@ html(lang='ko-kr')
                     form.submit();
                   },
                   error: function(request, status, error) {
-                    console.log('aaa');
                     window.location.href='/';
                   }
                 });
@@ -160,7 +159,7 @@ html(lang='ko-kr')
           h3 로그인
           p 로그인 하실 계정을 선택해주세요
           hr
-          form.form-horizontal(role='form', action='login_check', method='post')
+          //form.form-horizontal(role='form', action='login_check', method='post')
             .col-sm-12
               center
                 input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
