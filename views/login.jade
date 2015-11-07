@@ -99,6 +99,7 @@ html(lang='ko-kr')
                   dataType: "JSON",
                   url: '/fb_login',
                   success: function(data) {
+                    console.log('aaa');
                     console.log(data);
                     var form = document.createElement('form');
                     form.setAttribute('method', 'post');
