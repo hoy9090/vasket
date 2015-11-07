@@ -25,6 +25,7 @@ router.post('/', function(req, res, next) {
 				if (isAlreadyUser == 1) {
 					req.session.userid = userid;
 					console.log('DB FB Login Success!!');
+					res.end();
 					connection.release();
 				}
 				else {
