@@ -113,10 +113,10 @@ html(lang='ko-kr')
                       | 성별
                     .col-xs-8
                       label.radio-inline
-                        input(type='radio', name='sex', {checked: gender === 'male'})
+                        input(type='radio', name='sex', checked={true: '#{gender}' == 'male'})
                         | 남
                       label.radio-inline
-                        input(type='radio', name='sex', {checked: gender === 'female'})
+                        input(type='radio', name='sex', checked={true: '#{gender}' == 'female'})
                         | 여
                   hr
               .col-xs-12
