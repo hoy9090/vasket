@@ -9,14 +9,8 @@ var pool = mysql.createPool({
 
 function twoDigits(d) {
     if(0 <= d && d < 10) return "0" + d.toString();
-    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
     return d.toString();
 }
-
-Date.prototype.toMysqlFormat = function() {
-		console.log(this.getUTCFullYear(), this.getUTCMonth(), this.getUTCDate());
-    return this.getUTCFullYear() + "-" + twoDigits(this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
-};
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
@@ -37,7 +31,7 @@ router.post('/', function(req, res, next) {
 		}
 		console.log('DB Connection Success!!');
 		connection.query('use vasket');
-		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 1, ?)', [userid, name, new Date(year, month, day).toMysqlFormat(), email, new Date()], function(err, result, field) {
+		connection.query('insert into user(userID, password, userName, userBirth, email, isFacebook, joindate) values(?, 1234, ?, ?, ?, 1, ?)', [userid, name, year+"-"+twoDigits(month)+"-"+twoDigits(day), email, new Date()], function(err, result, field) {
 			if (err) {
 				console.error(err);
 				return;
