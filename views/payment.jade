@@ -1,0 +1,146 @@
+extends layout
+
+block style
+  style(type='text/css').
+    body {margin-left: 10px; margin-right:10px;}
+    #order {background-color: #ffffff; width: 100%; height: 50px;padding-top: 6px;}
+    #order_ {background-color: #ffffff; width: 100%; height: 50px; margin-bottom: 30px;padding-top: 6px;}
+    #info {background-color: #ffffff; width: 100%; height: 60px; padding-top: 17px;}
+    #info_ {background-color: #ffffff; width: 100%; height: 60px; margin-bottom: 30px;padding-top: 17px;}
+    #DI {background-color: #ffffff; width: 100%; margin-bottom: 10px; padding-bottom: 20px; margin-bottom: 30px;}
+    #tel {width: 70px;}
+    #aaa {margin-top: 10px;}
+    #delivery-text { width: 100%; margin-top: 30px;}
+    #pay_button {float: right; width: 30%;}
+
+block content
+  h4 주문/결제
+  #order.col-xs-12
+    h4 상품 이름
+  #order_.col-xs-12
+    h4 상품 옵션
+  br
+  hr
+  h4 구매 회원 정보
+  #info.col-xs-12
+    .col-xs-3
+      label 성명
+    .col-xs-9
+      input.form-control(type='text', disabled='', value='Lee Sang-Kyu')
+  #info.col-xs-12
+    .col-xs-3
+      label 이메일
+    .col-xs-9
+      input.form-control(type='text', disabled='', value='hoy9090@naver.com')
+  #info_.col-xs-12
+    .col-xs-3
+      label 휴대폰번호
+    .col-xs-9
+      input.form-control(type='text', disabled='', value='000-0000-0000')
+  br
+  hr
+  h4 배송 정보
+  #DI.col-xs-12
+    ul.nav.nav-tabs
+      li.active
+        a(data-toggle='tab', href='#sectionA') 배송지 목록
+      li
+        a(data-toggle='tab', href='#sectionB') 새로 입력
+    .tab-content
+      #sectionA.tab-pane.fade.in.active
+        .col-xs-12
+          input(type='radio', name='delivery')
+        .col-xs-12
+          input(type='radio', name='delivery')
+        .col-xs-12
+          input(type='radio', name='delivery')
+      #sectionB.tab-pane.fade
+        form
+          #aaa.col-xs-12
+            .col-xs-3
+              label 성명
+            .col-xs-9
+              input.form-control(type='text', size='30')
+          #aaa.col-xs-12
+            .col-xs-3
+              label 휴대폰번호
+            .col-xs-9.form-inline
+              .col-xs-4
+                input#tel.form-control(type='tel', size='3', maxlength='3')
+              .col-xs-4
+                input#tel.form-control(type='tel', size='4', maxlength='4')
+              .col-xs-4
+                input#tel.form-control(type='tel', size='4', maxlength='4')
+          #aaa.col-xs-12
+            .col-xs-3
+              label 배송주소
+            .col-xs-7
+              input#address.form-control(type='text', size='30')
+            .col-xs-2
+              button.btn.btn-default(onClick='sample6_execDaumPostcode();return false;') 주소검색
+    br
+    hr
+    input#delivery-text.form-control(type='text', placeholder='배송시 요청사항')
+  br
+  hr
+  h4 결제 정보
+  #info.col-xs-12
+    .col-xs-3
+      label 총상품가격
+    .col-xs-9
+      p 59,800원
+  #info.col-xs-12
+    .col-xs-3
+      label 할인쿠폰
+    .col-xs-9
+      p 0원
+  #info.col-xs-12
+    .col-xs-3
+      label 총배송비
+    .col-xs-9
+      p 0원
+  #info.col-xs-12
+    .col-xs-3
+      label 총결제금액
+    .col-xs-9
+      p 59,800원
+  button#pay_button.btn.btn-default 결제하기
+
+block script_content
+  script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
+  script.
+    function sample6_execDaumPostcode() {
+    new daum.Postcode({
+    oncomplete: function(data) {
+    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+    var fullAddr = ''; // 최종 주소 변수
+    var extraAddr = ''; // 조합형 주소 변수
+    // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+    if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+    fullAddr = data.roadAddress;
+    } else { // 사용자가 지번 주소를 선택했을 경우(J)
+    fullAddr = data.jibunAddress;
+    }
+    // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+    if(data.userSelectedType === 'R'){
+    //법정동명이 있을 경우 추가한다.
+    if(data.bname !== ''){
+    extraAddr += data.bname;
+    }
+    // 건물명이 있을 경우 추가한다.
+    if(data.buildingName !== ''){
+    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+    }
+    // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+    fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+    }
+    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+    //document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+    document.getElementById('address').value = fullAddr;
+    // 커서를 상세주소 필드로 이동한다.
+    document.getElementById('address').focus();
+    }
+    }).open();
+    }

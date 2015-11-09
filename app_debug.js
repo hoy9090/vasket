@@ -17,6 +17,7 @@ var signup_insert = require('./routes/signup_insert');
 var signup_finish = require('./routes/signup_finish');
 var mypage = require('./routes/mypage');
 var detail = require('./routes/detail');
+var payment = require('./routes/payment');
 
 var app = express();
 
@@ -54,6 +55,7 @@ app.use('/signup_insert', signup_insert);
 app.use('/signup_finish', signup_finish);
 app.use('/mypage', mypage);
 app.use('/detail', detail);
+app.use('/payment', payment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
