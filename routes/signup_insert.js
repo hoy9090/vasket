@@ -37,6 +37,7 @@ router.post('/', function(req, res, next) {
 				return;
 			}
 			req.session.userid = userid;
+			req.session.email = email;
 			res.redirect('signup_finish');
 			res.end();
 			connection.release();
