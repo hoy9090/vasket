@@ -1,113 +1,66 @@
-doctype html
-html(lang='ko-kr')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title vasket!
-    // Bootstrap
-    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
-    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-    // WARNING: Respond.js doesn't work if you view the page via file://
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-    style(type='text/css').
-      body { padding-top: 50px; background-color: #BBBBBB;}
-      nav {background-color: #ffa800;}
-      .navbar li a {color:#595959;}
-      .navbar li a:hover {background-color:#ffa800; color:#000000;}
-      .navbar .navbar-toggle {
-      border-color: #ffa800;
-      }
-      .navbar .navbar-toggle:hover,
-      .navbar .navbar-toggle:focus {
-      background-color: #ffa800;
-      }
-      .navbar .navbar-toggle .icon-bar {
-      background-color: #ffffff;
-      }
-      .D-day {height: 60px; width: 100%; text-align: center; color:#ffffff; background-color: #3D3D3D;
-      font-size: 20px;}
-      #d-day {padding-top: 17px;}
-      #user-id_ {padding-top: 8px; font-size: 20px; float: left;}
-      button#date-button { float: right; border: none; background-color: #3D3D3D; padding-top: 17px;}
-      #user-id {background-color: #ffffff; width: 100%; height: 40px; text-align: center;margin-top: 20px; border-radius: 7px;}
-      #facebookimg {float:left; padding-top: 9px;}
-      .glyphicon-cog {padding-top: 10px; font-size: 20px;}
-      #user-management {margin-top: 20px; background-color: #ffffff; border-radius: 7px; padding-top: 17px; font-size: 20px; padding-left: 10px;padding-bottom: 10px; height: 100px;}
-      #menu-right { float: right; border: none; background-color: #ffffff;}
-      #menu-right-2 { clear:both; float: right; border: none; background-color: #ffffff;}
-      #call-box {background-color: #ffffff; border-radius: 7px; text-align: center; width: 100%; height: 60px; padding-top: 1px; margin-top: 10px;}
-      #user-id a, #user-management a {color:#353535;}
-  body
-    .container
-      nav.navbar.navbar-fixed-top
-        .container
-          .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand(href='/')
-              img(src='/images/logo.png', width='90px')
-          #myNavbar.collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-right
-              li
-                a(href='/#event') 이벤트
-              li
-                a(href='/#service') 서비스 소개
-              li
-                a(href='/#about') 회사 소개
-              li
-                a(href='/logout') 로그아웃
-    #D-day
-      .D-day
-        button#date-button(onclick='divClose()')
-          span.glyphicon.glyphicon-remove
-        p#d-day
-    .container
-      #user-id
-        .col-xs-1
-          img#facebookimg(src='/images/facebook.png', width='30px', height='36px')
-        .col-xs-9
-          left
-            p#user-id_ #{email}
-        .col-xs-2
-          center
-            a#setting(href='#')
-              span.glyphicon.glyphicon-cog
-      #user-management
-        .col-xs-10
-          p 주문목록/배송조회
-        .col-xs-2
-          center
-            a(href='#')
-              span.glyphicon.glyphicon-chevron-right
-        hr
-        .col-xs-10
-          p 취소/반품/환불내역
-        .col-xs-2
-          center
-            a(href='#')
-              span.glyphicon.glyphicon-chevron-right
-      #user-management
-        .col-xs-10
-          p 1:1 문의
-        .col-xs-2
-          center
-            a(href='#')
-              span.glyphicon.glyphicon-chevron-right
-        hr
-        .col-xs-10
-          p 고객센터
-        .col-xs-2
-          center
-            a(href='#')
-              span.glyphicon.glyphicon-chevron-right
-      #call-box
-        h3 Call : 000-0000
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-    script(src='/javascripts/javascript.js')
-    script(src='/bootstrap/js/bootstrap.min.js')
+extends layout
+
+block style
+  style(type='text/css').
+    .D-day {height: 60px; width: 100%; text-align: center; color:#ffffff; background-color: #3D3D3D;
+    font-size: 20px;}
+    #d-day {padding-top: 17px;}
+    #user-id_ {padding-top: 8px; font-size: 20px; float: left;}
+    button#date-button { float: right; border: none; background-color: #3D3D3D; padding-top: 17px;}
+    #user-id {background-color: #ffffff; width: 100%; height: 40px; text-align: center;margin-top: 20px; border-radius: 7px;}
+    #facebookimg {float:left; padding-top: 9px;}
+    .glyphicon-cog {padding-top: 10px; font-size: 20px;}
+    #user-management {margin-top: 20px; background-color: #ffffff; border-radius: 7px; padding-top: 17px; font-size: 20px; padding-left: 10px;padding-bottom: 10px; height: 100px;}
+    #menu-right { float: right; border: none; background-color: #ffffff;}
+    #menu-right-2 { clear:both; float: right; border: none; background-color: #ffffff;}
+    #call-box {background-color: #ffffff; border-radius: 7px; text-align: center; width: 100%; height: 60px; padding-top: 1px; margin-top: 10px;}
+    #user-id a, #user-management a {color:#353535;}
+block content
+  #D-day
+    .D-day
+      button#date-button(onclick='divClose()')
+        span.glyphicon.glyphicon-remove
+      p#d-day
+  .container
+    #user-id
+      .col-xs-1
+        img#facebookimg(src='/images/facebook.png', width='30px', height='36px')
+      .col-xs-9
+        left
+          p#user-id_ #{email}
+      .col-xs-2
+        center
+          a#setting(href='#')
+            span.glyphicon.glyphicon-cog
+    #user-management
+      .col-xs-10
+        p 주문목록/배송조회
+      .col-xs-2
+        center
+          a(href='#')
+            span.glyphicon.glyphicon-chevron-right
+      hr
+      .col-xs-10
+        p 취소/반품/환불내역
+      .col-xs-2
+        center
+          a(href='#')
+            span.glyphicon.glyphicon-chevron-right
+    #user-management
+      .col-xs-10
+        p 1:1 문의
+      .col-xs-2
+        center
+          a(href='#')
+            span.glyphicon.glyphicon-chevron-right
+      hr
+      .col-xs-10
+        p 고객센터
+      .col-xs-2
+        center
+          a(href='#')
+            span.glyphicon.glyphicon-chevron-right
+    #call-box
+      h3 Call : 000-0000
+block script_content
+  script(src='/javascripts/javascript.js')

@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var routes = require('./routes/index');
+var users = require('./routes/users');
+var finish = require('./routes/finish');
+var join = require('./routes/join');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var login_check = require('./routes/login_check');
@@ -21,7 +24,7 @@ var detail = require('./routes/detail');
 var app = express();
 
 // view engine setup
-app.set('port', 80);
+app.set('port', 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -45,6 +48,9 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', routes);
+app.use('/users', users);
+app.use('/join', join);
+app.use('/finish', finish);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/login_check', login_check);

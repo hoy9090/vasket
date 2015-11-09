@@ -1,90 +1,12 @@
-doctype html(lang='ko-kr')
-head
-    meta(charset='utf-8')
-    |     
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    |     
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    |     
-    title vasket!
-    // Bootstrap
-    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    |     
-    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
-    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-    // WARNING: Respond.js doesn't work if you view the page via file://
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      |       
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-    |     
-    style(type='text/css').
-      body {
-      padding-top: 70px;
-      }
-      .navbar {
-      background-color: #ffa800;
-      }
-      #event { }
-      #service { text-align : center; }
-      #about { text-align : center;}
-      #main_img { width: 100%; }
-  |   
-body
-  .container-fluid
-    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
-      .container
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
-            span.icon-bar
-            | &#x9;        
-            span.icon-bar
-            | &#x9;        
-            span.icon-bar
-          | &#x9;      
-          a.navbar-brand(href='#')
-            img(src='./images/logo.png' width='90px')
-        | &#x9;    
-        #myNavbar.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='#event') &#xC774;&#xBCA4;&#xD2B8;
-            | &#x9;        
-            li
-              a(href='#service') &#xC11C;&#xBE44;&#xC2A4; &#xC18C;&#xAC1C;
-            | &#x9;        
-            li
-              a(href='#about') &#xD68C;&#xC0AC; &#xC18C;&#xAC1C;
-            | &#x9;        
-            li
-              - if(loggedIn) {
-                  a(href='logout')
-                    span.glyphicon.glyphicon-log-out
-                    |  로그아웃
-              - } else {
-                a(href='login')
-                  span.glyphicon.glyphicon-log-in
-                  |  &#xB85C;&#xADF8;&#xC778;
-              - }
-            li
-              - if(loggedIn) {
-                  a(href='mypage') MY페이지
-              - }
-            | &#x9;        
-            //li
-              a(href='signup')
-                span.glyphicon.glyphicon-user
-                |  &#xD68C;&#xC6D0;&#xAC00;&#xC785;
-    |  &#x9;
-    #event
+extends layout
 
-    |  &#x9;
-    #service
-    img#main_img(src='./images/main_1.jpg')
-    |  &#x9;
-    #about
-    img#main_img(src='./images/main_2.jpg')
-  // jQuery (necessary for Bootstrap's JavaScript plugins)
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-  // Include all compiled plugins (below), or include individual files as needed
-  script(src='/bootstrap/js/bootstrap.min.js')
+block style
+  style(type='text/css') #main_img { width: 100%; }
+block content
+  #event
+  |  &#x9;
+  #service
+  img#main_img(src='/images/main_1.jpg')
+  |  &#x9;
+  #about
+  img#main_img(src='/images/main_2.jpg')
