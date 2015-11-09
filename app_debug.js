@@ -8,9 +8,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var finish = require('./routes/finish');
-var join = require('./routes/join');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
 var login_check = require('./routes/login_check');
@@ -48,9 +45,6 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/join', join);
-app.use('/finish', finish);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/login_check', login_check);
