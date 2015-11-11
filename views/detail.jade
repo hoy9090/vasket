@@ -65,10 +65,11 @@ block content
             table.table
               thead
                 th 댓글 목록
-              tr
-                td
-                  p <b>아이디</b>
-                  p 내용
+              each val in result
+                tr
+                  td
+                    p!= '<b>'+val.email+'</b>'
+                    p= val.comment
 block script_content
   script.
     $(document).ready(function(){
