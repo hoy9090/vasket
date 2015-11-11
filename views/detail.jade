@@ -74,19 +74,20 @@ block content
               tfoot
                 tr
                   td(style='text-align: center')
-                  - var listCount = 5;
-                  - var pageCount = Math.ceil(count / listCount);
-                  - if (pageNo)
-                  -   currentPage = pageNo;
-                  - else
-                  -   currentPage = 1;
-                  - for (var page = 1; page <= pageCount; page++) {
-                  -   if (currentPage === page)    
-                        b= page
-                  -   else
-                        a(href='/detail#secC?pageNo='+pageNo)= page
+                    - var listCount = 5;
+                    - var pageCount = Math.ceil(count / listCount);
+                    - if (pageNo) {
+                    -   currentPage = pageNo;
+                    - } else {
+                    -   currentPage = 1;
+                    - }
+                    - for (var page = 1; page <= pageCount; page++) {
+                    -   if (currentPage === page)    
+                          b #{page}
+                    -   else
+                          a(href='/detail#secC?pageNo=#{pageNo}') #{page}
+                    - }
                     =' '
-                  - }
 
 block script_content
   script.
