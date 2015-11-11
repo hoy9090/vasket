@@ -65,11 +65,26 @@ block content
             table.table
               thead
                 th 댓글 목록
-              each val in result
+              tbody
+                each val in result
+                  tr
+                    td
+                      p!= '<b>'+val.email+'</b>'
+                      p= val.content
+              tfoot
                 tr
-                  td
-                    p!= '<b>'+val.email+'</b>'
-                    p= val.content
+                  td(style='text-align: center')
+                  - var listCount = 5;
+                  - var pageCount = ceil(count / listCount);
+                  - var currentPage = getParameterByName('pageNo');
+                  - for (var page = 1; page <= pageCount; page++) {
+                  -   if (currentPage === page)    
+                        b= page
+                  -   else
+                        a(href='/detail#secC?pageNo='+pageNo)= page
+                      &nbsp;
+                  - }
+
 block script_content
   script.
     $(document).ready(function(){
@@ -82,3 +97,7 @@ block script_content
       else
         hash && $('ul.nav a[href="' + hash + '"]').tab('show');
       });
+    function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }

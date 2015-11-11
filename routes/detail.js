@@ -23,9 +23,14 @@ router.get('/', function(req, res, next) {
 				for (var val in result) {
 					console.log(result[val].email, result[val].content);
 				}
-				console.log('DB ACCESS!!');
-				connection.release();
-				res.render('detail', {result: result});
+				connection.query('select count(*) count from comment',
+					function(err, result, field) {
+						var count = result[0].count;
+						console.log('count: '+count);
+						console.log('DB ACCESS!!');
+						connection.release();
+						res.render('detail', {result: result, count: count});
+				});
 			});
 		});
   	}
@@ -46,7 +51,6 @@ router.post('/', function(req, res, next) {
 				for (var val in result) {
 					console.log(val.email, val.content);
 				}
-				console.log('DB ACCESS!!');
 				connection.release();
 				res.render('detail', result);
 			});
