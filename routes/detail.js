@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
 		res.render('main');
 	else {
 		pool.getConnection(function(err, connection) {
-			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc;',
+			connection.query('use vasket');
+			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc',
 				function(err, result, field) {
 				if (err) {
 					console.error('DB Selection error!!');
@@ -35,7 +36,7 @@ router.post('/', function(req, res, next) {
 	else {
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc;',
+			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc',
 				function(err, result, field) {
 				if (err) {
 					console.error('DB Selection error!!');
