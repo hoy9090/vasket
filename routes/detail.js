@@ -23,6 +23,7 @@ router.get('/', function(req, res, next) {
 				for (var val in result) {
 					console.log(result[val].email, result[val].content);
 				}
+				console.log('DB ACCESS!!');
 				connection.release();
 				res.render('detail', {result: result});
 			});
@@ -45,6 +46,7 @@ router.post('/', function(req, res, next) {
 				for (var val in result) {
 					console.log(val.email, val.content);
 				}
+				console.log('DB ACCESS!!');
 				connection.release();
 				res.render('detail', result);
 			});
