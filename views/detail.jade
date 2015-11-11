@@ -11,12 +11,6 @@ block style
     #detail-product { float: left; margin-bottom: 20px;}
     .nav-pills {clear: both;}
     .nav-pills li {width: 32%}
-block head_script_content
-  script.
-    function getParameterByName(name) {
-      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }
 block content
   .col-xs-12.contents
     .col-xs-4
@@ -82,7 +76,10 @@ block content
                   td(style='text-align: center')
                   - var listCount = 5;
                   - var pageCount = Math.ceil(count / listCount);
-                  - var currentPage = getParameterByName('pageNo');
+                  - if (pageNo)
+                  -   currentPage = pageNo;
+                  - else
+                  -   currentPage = 1;
                   - for (var page = 1; page <= pageCount; page++) {
                   -   if (currentPage === page)    
                         b= page
