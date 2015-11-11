@@ -75,7 +75,7 @@ block content
                 tr
                   td(style='text-align: center')
                   - var listCount = 5;
-                  - var pageCount = ceil(count / listCount);
+                  - var pageCount = Math.ceil(count / listCount);
                   - var currentPage = getParameterByName('pageNo');
                   - for (var page = 1; page <= pageCount; page++) {
                   -   if (currentPage === page)    
