@@ -10,7 +10,6 @@ var session = require('express-session');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var logout = require('./routes/logout');
-var login_check = require('./routes/login_check');
 var signup = require('./routes/signup');
 var fb_login = require('./routes/fb_login');
 var signup_insert = require('./routes/signup_insert');
@@ -18,6 +17,7 @@ var signup_finish = require('./routes/signup_finish');
 var mypage = require('./routes/mypage');
 var detail = require('./routes/detail');
 var payment = require('./routes/payment');
+var reg_comment = require('./routes/reg_comment');
 
 var app = express();
 
@@ -48,7 +48,6 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/login_check', login_check);
 app.use('/signup', signup);
 app.use('/fb_login', fb_login);
 app.use('/signup_insert', signup_insert);
@@ -56,6 +55,7 @@ app.use('/signup_finish', signup_finish);
 app.use('/mypage', mypage);
 app.use('/detail', detail);
 app.use('/payment', payment);
+app.use('/reg_comment', reg_comment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

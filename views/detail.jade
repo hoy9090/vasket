@@ -2,57 +2,82 @@ extends layout
 
 block style
   style(type='text/css').
+    body {margin:10px;}
     .bs-example{
-    background-color: #ffffff; width: 100%; height:500px; margin-top: 50px; padding-left: 20px; padding-top: 20px;
+    background-color: #ffffff; width: 100%; height:100%; padding-left: 10px; padding-top: 20px; margin-right: 10px; margin-bottom: 20px;
     }
-    .contents {background-color: #ffffff; width: 100%;height:50px;}
+    .contents {background-color: #ffffff; width: 100%; height:100%; margin-bottom: 10px;}
+    .nav-tabs li {width: 50%;}
+    #detail-product { float: left; margin-bottom: 20px;}
+    .nav-pills {clear: both;}
+    .nav-pills li {width: 32%}
 block content
   .col-xs-12.contents
     .col-xs-4
-      p Brand logo
+      p 브랜드 로고
     .col-xs-8
-      h4 Breand Name
-      p Brand explain
-  br
-  .bs-example
+      h4 브랜드명
+      p 브랜드 설명
+  .col-xs-12.bs-example
     ul.nav.nav-tabs
       li.active
-        a(data-toggle='tab', href='#sectionA') Section A
+        a(data-toggle='tab', href='#sectionA') 컨텐츠
       li
-        a(data-toggle='tab', href='#sectionB') Section B
+        a(data-toggle='tab', href='#sectionB') 상품구매
     .tab-content
       #sectionA.tab-pane.fade.in.active
-        h3 Section A
+        h3 컨텐츠
         p
           | Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
       #sectionB.tab-pane.fade
-        h3 Section B
-        p
-          | Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.
+        h3 상품구매
+        #detail-product.col-xs-6
+          img(src='/images/basic.jpg', width='100%')
+        #detail-product.col-xs-6
+          h5  Lucky Box!!
+          br
+          br
+          button.btn.btn-default Event Go!
         br
         br
         ul.nav.nav-pills
           li.active
-            a(data-toggle='tab', href='#secA') Section A
+            a(data-toggle='tab', href='#secA') 상세페이지
           li
-            a(data-toggle='tab', href='#secB') Section B
+            a(data-toggle='tab', href='#secB') 상품 안내
           li
-            a(data-toggle='tab', href='#secC') Section C
+            a(data-toggle='tab', href='#secC') 댓글
         .tab-content
           #secA.tab-pane.fade.in.active
-            h3 Section A
+            h3 상세페이지
             p
-              | Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
           #secB.tab-pane.fade
-            h3 Section B
+            h3 상품 안내
             p
-              | Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.
-            br
-            br
           #secC.tab-pane.fade
-            h3 Section C
-            form.form-inline
-              input(type='text', size='35', maxlength='100')
-              button.btn.btn-default(type='submit') GO
+            h3 댓글
+            form(role='form', action='/reg_comment', method='post')
+              .form-group
+                textarea.form-control(rows='3', placeholder='댓글을 입력하세요', maxlength='100', name='content')
+              .form-group(align='right')
+                button.btn.btn-default(type='submit') 댓글 입력
             br
-            br
+            table.table
+              thead
+                th 댓글 목록
+              tr
+                td
+                  p <b>아이디</b>
+                  p 내용
+block script_content
+  script.
+    $(document).ready(function(){
+      var hash = window.location.hash;
+      console.log(hash);
+      if (hash === '#secA' || hash === '#secB' || hash === '#secC') {
+        $('ul.nav a[href="' + '#sectionB' + '"]').tab('show');
+        $('ul.nav a[href="' + hash + '"]').tab('show');
+      }
+      else
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+      });

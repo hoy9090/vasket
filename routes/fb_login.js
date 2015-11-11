@@ -18,18 +18,18 @@ router.post('/', function(req, res, next) {
 			}
 			console.log('DB Connection Success!!');
 			connection.query('use vasket');
-			connection.query('select count(*) result from user where userID=?', 
+			connection.query('select count(*) result, userNo from user where userID=?', 
 			[userid], function(err, result, field) {
 				var isAlreadyUser = result[0].result;
 				console.log(isAlreadyUser);
 				if (isAlreadyUser == 1) {
 					req.session.userid = userid;
 					req.session.email = req.body.email;
+					req.session.userNo = result[0].userNo;
 					console.log('DB FB Login Success!!');
 					res.end();
 					connection.release();
-				}
-				else {
+				} else {
 					connection.release();
 					console.log('FIRST TIME!');
 					res.json({

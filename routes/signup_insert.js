@@ -38,8 +38,12 @@ router.post('/', function(req, res, next) {
 			}
 			req.session.userid = userid;
 			req.session.email = email;
-			res.redirect('signup_finish');
-			connection.release();
+			connection.query('select userNo from user where userID=?', 
+			[userid], function(err, result, field) {
+				req.session.userNo = result[0].userNo;
+				res.redirect('signup_finish');
+				connection.release();
+			});
 		});
 	});
 });
