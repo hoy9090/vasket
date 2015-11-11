@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 					return;
 				}
 				for (var val in result) {
-					console.log(val.email, val.content);
+					console.log(result[val].email, result[val].content);
 				}
 				connection.release();
 				res.render('detail', {result: result});
