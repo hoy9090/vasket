@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
 					console.log(val.email, val.content);
 				}
 				connection.release();
-				res.render('detail', result);
+				res.render('detail', {result: result});
 			});
 		});
   	}
