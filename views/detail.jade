@@ -11,6 +11,12 @@ block style
     #detail-product { float: left; margin-bottom: 20px;}
     .nav-pills {clear: both;}
     .nav-pills li {width: 32%}
+block head_script_content
+  script.
+    function getParameterByName(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
 block content
   .col-xs-12.contents
     .col-xs-4
@@ -97,7 +103,3 @@ block script_content
       else
         hash && $('ul.nav a[href="' + hash + '"]').tab('show');
       });
-    function getParameterByName(name) {
-      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }
