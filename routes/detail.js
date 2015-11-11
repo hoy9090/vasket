@@ -20,8 +20,8 @@ router.get('/', function(req, res, next) {
 					console.error('DB Selection error!!');
 					return;
 				}
-				for (var key in result) {
-					console.log(key.email, key.content);
+				for (var val in result) {
+					console.log(val.email, val.content);
 				}
 				connection.release();
 				res.render('detail', result);
@@ -42,8 +42,8 @@ router.post('/', function(req, res, next) {
 					console.error('DB Selection error!!');
 					return;
 				}
-				for (var key in result) {
-					console.log(key.email, key.content);
+				for (var val in result) {
+					console.log(val.email, val.content);
 				}
 				connection.release();
 				res.render('detail', result);
