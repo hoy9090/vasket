@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 						console.log('count: '+count);
 						console.log('DB ACCESS!!');
 						connection.release();
-						res.render('detail', {result: result, count: count, pageNo: req.query('pageNo')});
+						res.render('detail', {result: result, count: count, pageNo: req.query.pageNo});
 				});
 			});
 		});
