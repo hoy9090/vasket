@@ -65,12 +65,11 @@ block content
             table.table
               thead
                 th 댓글 목록
-              p= result
-              //each key in result
+              each val in result
                 tr
                   td
-                    p!= '<b>'+result[key].email+'</b>'
-                    p= result[key].content
+                    p!= '<b>'+val.email+'</b>'
+                    p= val.content
 block script_content
   script.
     $(document).ready(function(){
