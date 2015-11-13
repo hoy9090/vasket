@@ -10,7 +10,7 @@ var pool = mysql.createPool({
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	if (!req.session.userid)
-		res.render('main');
+		res.redirect('main');
 	else {
 		console.log('pageNo: '+req.query.pageNo);
 		var pageNo = req.query.pageNo ? req.query.pageNo : 1;
