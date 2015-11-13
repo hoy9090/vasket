@@ -76,6 +76,7 @@ block content
                   td(style='text-align: center')
                     - var listCount = 5;
                     - var pageCount = Math.ceil(count / listCount);
+                    - var currentPage;
                     - if (pageNo) {
                     -   currentPage = pageNo;
                     - } else {
@@ -85,7 +86,7 @@ block content
                     -   if (currentPage === page)    
                           b #{page}
                     -   else
-                          a(href ='/detail#secC?pageNo=#{page}') #{page}
+                          a(href ='/detail#secC?pageNo=#{page}' onClick='window.location.href=window.location.href') #{page}
                     - }
                     ='  '
 
