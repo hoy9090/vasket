@@ -5,15 +5,12 @@ block style
     .D-day {height: 60px; width: 100%; text-align: center; color:#ffffff; background-color: #3D3D3D;
     font-size: 20px;}
     #d-day {padding-top: 17px;}
-    #user-id_ {font-size: 20px; margin-left: 5px; margin-top: 5px;}
-    button#date-button { float: right; border: none; background-color: #3D3D3D; padding-top: 17px;}
-    #user-id {margin-top: 20px; background-color: #ffffff; border-radius: 7px; padding-left: 5px; padding-top: 5px; font-size: 20px;}
-    #user-management {margin-top: 20px; background-color: #ffffff; border-radius: 7px; padding-top: 17px; font-size: 20px; padding-bottom: 10px; height: 100px;}
-    .glyphicon-cog {margin-top: 5px;}
-    #menu-right { float: right; border: none; background-color: #ffffff;}
-    #menu-right-2 { clear:both; float: right; border: none; background-color: #ffffff;}
-    #call-box {background-color: #ffffff; border-radius: 7px; text-align: center; width: 100%; height: 60px; padding-top: 1px; margin-top: 20px;}
-    #user-id a, #user-management a {color:#353535;}
+    #box2 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
+    #box2 span {float: right; padding-top: 10px;}
+    #box2_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;;margin-bottom: 13px;}
+    #box2_ span {float: right; padding-top: 10px;}
+    #box1_ {margin-top:13px; background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;;margin-bottom: 13px;}
+    
 block content
   #D-day
     .D-day
@@ -21,46 +18,30 @@ block content
         span.glyphicon.glyphicon-remove
       p#d-day
   .container
-    #user-id
+    #box1_.col-xs-12
       .row
+        .col-xs-2
+          h5(style='color:#636363;') ID
+        .col-xs-9
+          h5 #{email}
         .col-xs-1
-          img(src='/images/facebook.png', width='35px', height='35px')
-        .col-xs-11
-          left
-            p#user-id_ #{email}
-      //.col-xs-2(padding-left='0px')
-        center
-          a(href='#')
-            span.glyphicon.glyphicon-cog
-    #user-management
-      .col-xs-10
-        p 주문목록/배송조회
-      .col-xs-2
-        center
-          a(href='#')
-            span.glyphicon.glyphicon-chevron-right
-      hr
-      .col-xs-10
-        p 취소/반품/환불내역
-      .col-xs-2
-        center
-          a(href='#')
-            span.glyphicon.glyphicon-chevron-right
-    #user-management
-      .col-xs-10
-        p 1:1 문의
-      .col-xs-2
-        center
-          a(href='#')
-            span.glyphicon.glyphicon-chevron-right
-      hr
-      .col-xs-10
-        p 고객센터
-      .col-xs-2
-        center
-          a(href='#')
-            span.glyphicon.glyphicon-chevron-right
-    #call-box
-      h3 Call : 000-0000
+          span.glyphicon.glyphicon-cog
+    #box2.col-xs-12(onclick='caution();')
+      h5(style='float:left;') 주문목록/배송조회
+      span.glyphicon.glyphicon-chevron-right
+    #box2_.col-xs-12(onclick='caution();')
+      h5(style='float:left;') 취소/반품/환불내역
+      span.glyphicon.glyphicon-chevron-right
+    #box2.col-xs-12(onclick='caution();')
+      h5(style='float:left;') 1:1 문의
+      span.glyphicon.glyphicon-chevron-right
+    #box2.col-xs-12(onclick='caution();')
+      h5(style='float:left;') 고객센터
+      span.glyphicon.glyphicon-chevron-right
+    #box2_.col-xs-12
+      center
+        h4 전화문의 070-7706-5099
+        h6(style='color:#bbbbbb;') 평일 09-18시 / 주말, 공휴일 휴무
+
 block script_content
   script(src='/javascripts/javascript.js')
