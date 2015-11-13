@@ -12,9 +12,10 @@ router.get('/', function(req, res, next) {
 	if (!req.session.userid)
 		res.render('main');
 	else {
+		var pageNo = req.query.pageNo ? req.query.pageNo : 1;
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc',
+			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc limit '+5*(pageNo-1)+', 5;',
 				function(err, result, field) {
 				if (err) {
 					console.error('DB Selection error!!');
@@ -25,6 +26,10 @@ router.get('/', function(req, res, next) {
 				}
 				connection.query('select count(*) count from comment',
 					function(err, result, field) {
+						if (err) {
+							console.error('DB Selection error!!');
+							return;
+						}
 						var count = result[0].count;
 						console.log('count: '+count);
 						console.log('DB ACCESS!!');
