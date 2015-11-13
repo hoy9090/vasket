@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 		res.render('main');
 	else {
 		var pageNo = req.query.pageNo ? req.query.pageNo : 1;
+		console.log('pageNo: '+pageNo);
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
 			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc limit '+5*(pageNo-1)+', 5;',
@@ -22,9 +23,6 @@ router.get('/', function(req, res, next) {
 					return;
 				}
 				var content = result;
-				for (var val in result) {
-					console.log(result[val].email, result[val].content);
-				}
 				connection.query('select count(*) count from comment',
 					function(err, result, field) {
 						if (err) {
@@ -32,7 +30,6 @@ router.get('/', function(req, res, next) {
 							return;
 						}
 						var count = result[0].count;
-						console.log('count: '+count);
 						console.log('DB ACCESS!!');
 						connection.release();
 						res.render('detail', {result: content, count: count, pageNo: req.query.pageNo});
