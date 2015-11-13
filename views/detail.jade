@@ -85,13 +85,13 @@ block content
                     -   if (currentPage === page)    
                           b #{page}
                     -   else
-                          a(href='/detail#secC?pageNo=#{page}') #{page}
+                          a(href='/detail#secC?pageNo=#{page}' onClick='reloadPage();') #{page}
                     - }
                     ='  '
 
 block script_content
   script.
-    $(document).ready(function(){
+    function reloadPage(){
       var hash = window.location.hash ? window.location.hash.split('?')[0] : null;
       console.log(hash);
       if (hash === '#secA' || hash === '#secB' || hash === '#secC') {
@@ -100,5 +100,5 @@ block script_content
       }
       else
         hash && $('ul.nav a[href="' + hash + '"]').tab('show');
-      });
-    $('')
+      }
+    $(document).ready(reloadPage);
