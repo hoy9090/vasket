@@ -18,6 +18,7 @@ var mypage = require('./routes/mypage');
 var detail = require('./routes/detail');
 var payment = require('./routes/payment');
 var reg_comment = require('./routes/reg_comment');
+var pagingComment = require('./routes/pagingComment');
 
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/mypage', mypage);
 app.use('/detail', detail);
 app.use('/payment', payment);
 app.use('/reg_comment', reg_comment);
+app.use('/pagingComment', pagingComment);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
