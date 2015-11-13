@@ -85,7 +85,7 @@ block content
                     -   if (currentPage === page)    
                           b #{page}
                     -   else
-                          a(href='/pagingComment?pageNo=#{page}') #{page}
+                          a(onClick='$.ajax({url: "detail#secC?pageNo=#{page}"});') #{page}
                     - }
                     ='  '
 
