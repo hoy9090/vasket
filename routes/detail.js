@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 					console.error('DB Selection error!!');
 					return;
 				}
+				var content = result;
 				for (var val in result) {
 					console.log(result[val].email, result[val].content);
 				}
@@ -34,7 +35,7 @@ router.get('/', function(req, res, next) {
 						console.log('count: '+count);
 						console.log('DB ACCESS!!');
 						connection.release();
-						res.render('detail', {result: result, count: count, pageNo: req.query.pageNo});
+						res.render('detail', {result: content, count: count, pageNo: req.query.pageNo});
 				});
 			});
 		});
