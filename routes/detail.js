@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 	if (!req.session.userid)
 		res.render('main');
 	else {
+		console.log('pageNo: '+req.query.pageNo);
 		var pageNo = req.query.pageNo ? req.query.pageNo : 1;
 		console.log('pageNo: '+pageNo);
 		pool.getConnection(function(err, connection) {
