@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 		}
 		connection.query('select userName, phone, address from destination where userNo=?', [req.session.userNo], function(err, result, field) {
 			if (err) {
-				console.err('DEST DB select error!!');
+				console.error('DEST DB select error!!');
 				return;
 			}
 			var dest = result;
