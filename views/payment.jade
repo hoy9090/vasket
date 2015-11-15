@@ -55,15 +55,15 @@ block content
           a(href='#secB', data-toggle='tab') 새로 입력
       .tab-content
         #secA.tab-pane.fade.in.active
-        each val in dest
-          #box1.col-xs-12
-            .row
-              .col-xs-1
-                input(type='radio', name='address')
-              .col-xs-11
-                p#name= val.userName
-                p#phone-number 휴대폰: #{val.phone}
-                p#address= val.address
+          each val in dest
+            #box1.col-xs-12
+              .row
+                .col-xs-1
+                  input(type='radio', name='address')
+                .col-xs-11
+                  p#name= val.userName
+                  p#phone-number 휴대폰: #{val.phone}
+                  p#address= val.address
         #secB.tab-pane.fade
           #box1.col-xs-12
             .row
