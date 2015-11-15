@@ -9,7 +9,7 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	if (req.session) {
+	if (req.session.userid) {
 		pool.getConnection(function(err, connection) {
 			if (err) {
 				console.error('DEST DB Connection error!!');
