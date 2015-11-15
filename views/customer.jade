@@ -1,7 +1,7 @@
 extends layout
 
 block style
-	style(type='text/css').
+  style(type='text/css').
     .nav-pills li {width: 32%; background-color: #ffffff; margin-bottom:0.5%; margin-right: 0.2%}
     #customer { width: 100%; padding-top: 10px; padding-left: 25px;}
     #secA, #secB, #secC, #secD, #secE, #secF {background-color: #ffffff; height: 200px; width: 98%}
@@ -53,19 +53,19 @@ block content
       br
     
 block script_content
-	script(type='text/javascript').
-      var count =0;
-      function QnA(){
-      var q = document.getElementById("Q1");
-      var ans = document.getElementById("answer");
-      if(count == 0){
-      q.innerHTML="Q. what is Jat-Kyu??"+"<span "+"class="+"\\"glyphicon glyphicon-chevron-up\""+"></span>";
-      ans.style.display ="block";
-      count=1;
-      }
-      else{
-      q.innerHTML="Q. what is Jat-Kyu??"+"<span "+"class="+"\\"glyphicon glyphicon-chevron-down\""+"></span>";
-      ans.style.display = "none";
-      count=0;
-      }
-      }
+  script(type='text/javascript').
+    var count =0;
+    function QnA(){
+    var q = document.getElementById("Q1");
+    var ans = document.getElementById("answer");
+    if(count == 0){
+    q.innerHTML="Q. what is Jat-Kyu??"+"<span "+"class="+"\\"glyphicon glyphicon-chevron-up\""+"></span>";
+    ans.style.display ="block";
+    count=1;
+    }
+    else{
+    q.innerHTML="Q. what is Jat-Kyu??"+"<span "+"class="+"\\"glyphicon glyphicon-chevron-down\""+"></span>";
+    ans.style.display = "none";
+    count=0;
+    }
+    }
