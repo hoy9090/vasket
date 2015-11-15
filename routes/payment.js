@@ -9,23 +9,27 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	pool.getConnection(function(err, connection) {
-		if (err) {
-			console.error('DEST DB Connection error!!');
-			return;
-		}
-		connection.query('use vasket;');
-		connection.query('select userName, phone, address from destination where userNo=?;',
-			[req.session.userNo], function(err, result, field) {
+	if (req.session) {
+		pool.getConnection(function(err, connection) {
 			if (err) {
-				console.error(err);
+				console.error('DEST DB Connection error!!');
 				return;
 			}
-			var dest = result;
-			connection.release();
-			res.render('payment', {dest: dest, name: req.session.name, email: req.session.email});
+			connection.query('use vasket;');
+			connection.query('select userName, phone, address from destination where userNo=?;',
+				[req.session.userNo], function(err, result, field) {
+				if (err) {
+					console.error(err);
+					return;
+				}
+				var dest = result;
+				connection.release();
+				res.render('payment', {dest: dest, name: req.session.name, email: req.session.email});
+			});
 		});
-	});
+	} else {
+		res.redirect('/');
+	}
 });
 
 module.exports = router;
