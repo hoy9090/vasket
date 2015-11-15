@@ -33,17 +33,17 @@ block content
         .col-xs-3
           h6(style='color:#636363;') 성명
         .col-xs-9
-          h6#bank 이태형
+          h6#bank #{name}
       .row
         .col-xs-3
           h6(style='color:#636363;') 이메일
         .col-xs-9
-          h6#bank coco2638@naver.com
+          h6#bank #{email}
       .row
         .col-xs-3
           h6(style='color:#636363;') 휴대폰번호
         .col-xs-9
-          h6#bank 010-3332-9011
+          h6#bank 010-2989-7753
     #hr.col-xs-12
       hr
     h5 배송정보
@@ -55,22 +55,16 @@ block content
           a(href='#secB', data-toggle='tab') 새로 입력
       .tab-content
         #secA.tab-pane.fade.in.active
+        each val in dest
           #box1.col-xs-12
             .row
               .col-xs-1
                 input(type='radio', name='address')
               .col-xs-11
-                p#name 이태형
-                p#phone-number 휴대폰: 010-3332-9011
-                p#address 151-015 서울특별시 관악구 신림동 신림로
-          #box1.col-xs-12
-            .row
-              .col-xs-1
-                input(type='radio', name='address')
-              .col-xs-11
-                p#name 이태형
-                p#phone-number 휴대폰: 010-3332-9011
-                p#address 151-015 서울특별시 관악구 신림동 신림로
+                p#name= val.userName
+                p#phone-number 휴대폰: #{val.phone}
+                p#address= val.address
+        - }
         #secB.tab-pane.fade
           #box1.col-xs-12
             .row

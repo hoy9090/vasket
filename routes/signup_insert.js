@@ -38,6 +38,7 @@ router.post('/', function(req, res, next) {
 			}
 			req.session.userid = userid;
 			req.session.email = email;
+			req.session.name = name;
 			connection.query('select userNo from user where userID=?', 
 			[userid], function(err, result, field) {
 				req.session.userNo = result[0].userNo;
