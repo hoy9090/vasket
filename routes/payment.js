@@ -22,7 +22,8 @@ router.get('/', function(req, res, next) {
 				return;
 			}
 			var dest = result;
-			res.render('payment', {dest: dest});
+			connection.release();
+			res.render('payment', {dest: dest, name: req.session.name, email: req.session.email});
 		});
 	});
 });
