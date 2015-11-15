@@ -1,0 +1,146 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title vasket!
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body {background-color: #BBBBBB; padding-bottom: 20px;}
+      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
+      #nav h4 {float: clear; padding-right: 15px;}
+      #nav-two {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; margin-bottom: 13px;}
+      .red {color:#ff0000;}
+      #box1 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px;}
+      #box2 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
+      #box2 span {float: right; padding-top: 10px;}
+      #box2_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; margin-bottom: 20px; display: none;}
+      #box2:active { background-color: #ffffff;}
+  body
+    #nav.col-xs-12
+      a(href='javascript:history.back()')
+        span.glyphicon.glyphicon-arrow-left
+      h4 구매상세
+    #nav-two.col-xs-12
+      h6(style='float:left;') 결제금액 
+      h6#pay-number(style='float:left;')
+      h6#buy-date(style='float:right;') 2015.11.12 구매
+    .container
+      #box1.col-xs-12
+        h5 무통장입금
+      #box1.col-xs-12
+        h6(style='float:left;') 구매하신 상품의 결제가 
+        h6.red(style='float:left;')  예약되었습니다.
+        p(style='clear:both; color:#bbbbbb')
+          small * 입금기한내에 상품이 판매종료, 품절될 경우 예약이 자동으로 취소됩니다.
+      #box1_.col-xs-12
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 은행명
+          .col-xs-9
+            h6#bank 우리은행
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 예금주
+          .col-xs-9
+            h6#vasket (주)바스켓
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 계좌번호
+          .col-xs-9
+            h6#bank_number 1002-248-084408
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 입금금액
+          .col-xs-9
+            h6#bank 19,500원
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 입금기한
+          .col-xs-9
+            h6#bank 2015.11.12 23:59
+      #box1.col-xs-12
+        h5 주문정보
+      #box1_.col-xs-12
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 선택옵션
+          .col-xs-9
+            h6#bank 아 옷사고 싶다.. 옷좀 사줘 슈방!!
+      #box1.col-xs-12
+        h5 받는사람 정보
+      #box1_.col-xs-12
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 배송상태
+          .col-xs-9
+            h6#bank.red 입금대기중
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 받는사람
+          .col-xs-9
+            h6#bank 이태형
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 휴대전화
+          .col-xs-9
+            h6#bank 010-3332-9011
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 안심번호
+          .col-xs-9
+            h6#bank 발급요청중
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 배송주소
+          .col-xs-9
+            h6#bank 135-860 서울특별시 뱅뱅사거리 서한빌딩
+      #box1.col-xs-12
+        h5 결제정보
+      #box1_.col-xs-12
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 주문금액
+          .col-xs-9
+            h6#bank 19,500원
+        .row
+          .col-xs-3
+            h6(style='color:#636363;') 결제금액
+          .col-xs-9
+            h6#bank 19,500원
+      #box2.col-xs-12(onclick='caution();')
+        h5(style='float:left;') 주의사항
+        span.glyphicon.glyphicon-chevron-down
+      #box2_.col-xs-12
+        pre.
+          \n주의사항 페이지 입니다.
+          Here is caution page.
+          Please read this article carefully.
+          \t\t          
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(type='text/javascript').
+      var count =0;
+      function caution(){
+      var q = document.getElementById("box2");
+      var ans = document.getElementById("box2_");
+      if(count == 0){
+      q.innerHTML="<h5 style="+"\\"float:left;\""+">주의사항</h5>" +"<span "+"class="+"\"glyphicon glyphicon-chevron-up\""+"></span>";
+      ans.style.display ="block";
+      count=1;
+      }
+      else{
+      q.innerHTML="<h5 style="+"\\"float:left;\""+">주의사항</h5>" +"<span "+"class="+"\"glyphicon glyphicon-chevron-down\""+"></span>";
+      ans.style.display = "none";
+      count=0;
+      }
+      }
+    script(src='../../public/bootstrap/js/bootstrap.min.js')

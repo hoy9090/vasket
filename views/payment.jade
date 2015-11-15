@@ -2,114 +2,142 @@ extends layout
 
 block style
   style(type='text/css').
-    body {margin-left: 10px; margin-right:10px;}
-    #order {background-color: #ffffff; width: 100%; height: 50px;padding-top: 6px;}
-    #order_ {background-color: #ffffff; width: 100%; height: 50px; margin-bottom: 30px;padding-top: 6px;}
-    #info {background-color: #ffffff; width: 100%; height: 60px; padding-top: 17px;}
-    #info_ {background-color: #ffffff; width: 100%; height: 60px; margin-bottom: 30px;padding-top: 17px;}
-    #DI {background-color: #ffffff; width: 100%; margin-bottom: 10px; padding-bottom: 20px; margin-bottom: 30px;}
-    #tel {width: 70px;}
-    #aaa {margin-top: 10px;}
-    #delivery-text { width: 100%; margin-top: 30px;}
-    #pay_button {float: right; width: 30%;}
+    #box1 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+    #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px;}
+    #hr {margin-top: -10px;}
+    .nav-tabs li {width: 50%; text-align: center; color:#000000; background-color: #d7d7d7;}
+    .tab-content#secA input {padding-top: 10px;}
+    button.btn-danger {width: 100%; margin-top: 10px; margin-bottom: 20px;}
 
 block content
-  h4 주문/결제
-  #order.col-xs-12
-    h4 상품 이름
-  #order_.col-xs-12
-    h4 상품 옵션
-  br
-  hr
-  h4 구매 회원 정보
-  #info.col-xs-12
-    .col-xs-3
-      label 성명
-    .col-xs-9
-      input.form-control(type='text', disabled='', value='Lee Sang-Kyu')
-  #info.col-xs-12
-    .col-xs-3
-      label 이메일
-    .col-xs-9
-      input.form-control(type='text', disabled='', value='hoy9090@naver.com')
-  #info_.col-xs-12
-    .col-xs-3
-      label 휴대폰번호
-    .col-xs-9
-      input.form-control(type='text', disabled='', value='000-0000-0000')
-  br
-  hr
-  h4 배송 정보
-  #DI.col-xs-12
+  h5 주문/결제
+  #box1.col-xs-12(style='padding-left:4px;')
+    .row
+      .col-xs-3
+        img(src='../../public/images/basic.jpg', width='60px;')
+      .col-xs-9
+        h5#bank 나이키/오니츠카타이거 35종
+  #box1.col-xs-12
+    .row
+      .col-xs-12
+        h5 선택4)나이키 다트11 1.블랙+화이트 260
+    .row
+      .col-xs-12
+        p(style='float:right; color:#353535;') 1개 | 59,500원
+  #hr.col-xs-12
+    hr
+  h5 구매 회원 정보
+  #box1.col-xs-12
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 성명
+      .col-xs-9
+        h6#bank 이태형
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 이메일
+      .col-xs-9
+        h6#bank coco2638@naver.com
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 휴대폰번호
+      .col-xs-9
+        h6#bank 010-3332-9011
+  #hr.col-xs-12
+    hr
+  h5 배송정보
+  div
     ul.nav.nav-tabs
       li.active
-        a(data-toggle='tab', href='#sectionA') 배송지 목록
+        a(href='#secA', data-toggle='tab') 배송지 목록
       li
-        a(data-toggle='tab', href='#sectionB') 새로 입력
+        a(href='#secB', data-toggle='tab') 새로 입력
     .tab-content
-      #sectionA.tab-pane.fade.in.active
-        .col-xs-12
-          input(type='radio', name='delivery')
-        .col-xs-12
-          input(type='radio', name='delivery')
-        .col-xs-12
-          input(type='radio', name='delivery')
-      #sectionB.tab-pane.fade
-        form
-          #aaa.col-xs-12
+      #secA.tab-pane.fade.in.active
+        #box1.col-xs-12
+          .row
+            .col-xs-1
+              input(type='radio', name='address')
+            .col-xs-11
+              p#name 이태형
+              p#phone-number 휴대폰: 010-3332-9011
+              p#address 151-015 서울특별시 관악구 신림동 신림로
+        #box1.col-xs-12
+          .row
+            .col-xs-1
+              input(type='radio', name='address')
+            .col-xs-11
+              p#name 이태형
+              p#phone-number 휴대폰: 010-3332-9011
+              p#address 151-015 서울특별시 관악구 신림동 신림로
+      #secB.tab-pane.fade
+        #box1.col-xs-12
+          .row
             .col-xs-3
-              label 성명
+              h6(style='color:#636363;') 성명
             .col-xs-9
-              input.form-control(type='text', size='30')
-          #aaa.col-xs-12
+              input(type='text', style='width:100%; padding-top:3px;')
+          .row
             .col-xs-3
-              label 휴대폰번호
-            .col-xs-9.form-inline
-              .col-xs-4
-                input#tel.form-control(type='tel', size='3', maxlength='3')
-              .col-xs-4
-                input#tel.form-control(type='tel', size='4', maxlength='4')
-              .col-xs-4
-                input#tel.form-control(type='tel', size='4', maxlength='4')
-          #aaa.col-xs-12
+              h6(style='color:#636363;') 휴대폰번호
+            .col-xs-9
+              input(type='text', maxlength='3', size='4', style='padding-top:3px;')
+              | -
+              input(type='text', maxlength='4', size='4', style='padding-top:3px;')
+              | -
+              input(type='text', maxlength='4', size='4', style='padding-top:3px;')
+          .row
             .col-xs-3
-              label 배송주소
-            .col-xs-7
-              input#address.form-control(type='text', size='30')
-            .col-xs-2
-              button.btn.btn-default(onClick='sample6_execDaumPostcode();return false;') 주소검색
-    br
+              h6(style='color:#636363;') 배송주소
+            .col-xs-9
+              .form-inline
+                input(type='text', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
+                button(type='submit', style='padding-top:3px;') 찾기
+              input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
+              input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
+          hr
+          input(type='checkbox')
+          |  배송지 목록에 추가합니다. 
+          br
+          input(type='checkbox')
+          |  기본 배송지로 설정합니다.
+  #box1.col-xs-12
+    select.form-control(style='width:100%')
+      option 배송시 요청사항을 선택해주세요.
+      option 부재시 경비실에 맡겨주세요.
+      option 도착전 문자/전화 주세요.
+    input(type='text', placeholder='기타내용을 입력해주세요.', maxlength='30', style='width:100%; margin-top:3px;')
+    p(style='float:right;') 0/30자
+  #hr.col-xs-12
     hr
-    input#delivery-text.form-control(type='text', placeholder='배송시 요청사항')
-  br
-  hr
-  h4 결제 정보
-  #info.col-xs-12
-    .col-xs-3
-      label 총상품가격
-    .col-xs-9
-      p 59,800원
-  #info.col-xs-12
-    .col-xs-3
-      label 할인쿠폰
-    .col-xs-9
-      p 0원
-  #info.col-xs-12
-    .col-xs-3
-      label 총배송비
-    .col-xs-9
-      p 0원
-  #info.col-xs-12
-    .col-xs-3
-      label 총결제금액
-    .col-xs-9
-      p 59,800원
-  button#pay_button.btn.btn-default 결제하기
+  h5 결제 정보
+  #box1.col-xs-12
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 총상품가격
+      .col-xs-9
+        h6(style='float:right;') 59,500원
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 할인쿠폰
+      .col-xs-9
+        h6(style='float:right;') 0원
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 총배송비
+      .col-xs-9
+        h6(style='float:right;') 0원
+    .row
+      .col-xs-3
+        h6(style='color:#636363;') 총결제가격
+      .col-xs-9
+        h6(style='float:right;') 59,500원
+  button.btn.btn-danger(type='submit') 결제하기
 
 block script_content
   script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
   script.
-    function sample6_execDaumPostcode() {
+    function findAddr() {
     new daum.Postcode({
     oncomplete: function(data) {
     // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
