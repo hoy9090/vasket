@@ -1,0 +1,71 @@
+extends layout
+
+block style
+  style(type='text/css').
+    .nav-pills li {width: 32%; background-color: #ffffff; margin-bottom:0.5%; margin-right: 0.2%}
+    #customer { width: 100%; padding-top: 10px; padding-left: 25px;}
+    #secA, #secB, #secC, #secD, #secE, #secF {background-color: #ffffff; height: 200px; width: 98%}
+    #Q1 {border: solid; background-color: #ffffff; height: 40px; padding-left: 10px; padding-right: 10px; padding-top: 10px; border-width: 1px;}
+    #Q1 span {float: right;}
+    #answer {border: solid; background-color: #ffffff; height: 40px; padding-left: 10px; padding-right: 10px; padding-top: 10px; border-width: 1px;
+    display: none;}
+    #Q1:active {background-color: #1712AB;}
+
+block content
+	h4 Customer Center
+    #customer.col-xs-12
+      center
+        ul.nav.nav-pills
+          li.active
+            a(data-toggle='tab', href='#secA') Section A
+          li
+            a(data-toggle='tab', href='#secB') Section B
+          li
+            a(data-toggle='tab', href='#secC') Section C
+          br
+          li
+            a(data-toggle='tab', href='#secD') Section D
+          li
+            a(data-toggle='tab', href='#secE') Section E
+          li
+            a(data-toggle='tab', href='#secF') Section F
+      .tab-content
+        #secA.tab-pane.fade.in.active
+          #Q1(onclick='QnA();')
+            | Q. what is Jot-Kyu?? 
+            span.glyphicon.glyphicon-chevron-down
+          #answer
+            | A. King of Jot !!!
+          #Q1
+            | Q. what is Jot-Kyu?? 
+            span.glyphicon.glyphicon-chevron-down
+        #secB.tab-pane.fade
+          | Sec-Kyu
+        #secC.tab-pane.fade
+          | S-Kyu
+        #secD.tab-pane.fade
+          | Sexy-Kyu
+        #secE.tab-pane.fade
+          | Jot-Kyu
+        #secF.tab-pane.fade
+          | Jaji-Kyu
+      br
+      br
+    
+block script_content
+	script(type='text/javascript').
+    var count =0;
+    function QnA(){
+    var q = document.getElementById("Q1");
+    var ans = document.getElementById("answer");
+    if(count == 0){
+    q.innerHTML="Q. what is Jat-Kyu??"+"<span "+"class="+"\\"glyphicon glyphicon-chevron-up\""+"></span>";
+    ans.style.display ="block";
+    count=1;
+    }
+    else{
+    q.innerHTML="Q. what is Jat-Kyu??"+"<span "+"class="+"\\"glyphicon glyphicon-chevron-down\""+"></span>";
+    ans.style.display = "none";
+    count=0;
+    }
+    }
