@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 		console.log('pageNo: '+pageNo);
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select (select email from user where user.userno=comment.userno) email, content, date from comment order by commentNo desc limit '+5*(pageNo-1)+', 5;',
+			connection.query('select (select email from user where user.userno=comment.userno) email, content, date_format(date, "%Y-%m-%d %H:%i:%s") date from comment order by commentNo desc limit '+5*(pageNo-1)+', 5;',
 				function(err, result, field) {
 				if (err) {
 					console.error('DB Selection error!!');
