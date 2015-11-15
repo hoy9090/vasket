@@ -10,129 +10,130 @@ block style
     button.btn-danger {width: 100%; margin-top: 10px; margin-bottom: 20px;}
 
 block content
-  h5 주문/결제
-  #box1.col-xs-12(style='padding-left:4px;')
-    .row
-      .col-xs-3
-        img(src='/images/basic.jpg', width='60px;')
-      .col-xs-9
-        h5#bank 나이키/오니츠카타이거 35종
-  #box1.col-xs-12
-    .row
-      .col-xs-12
-        h5 선택4)나이키 다트11 1.블랙+화이트 260
-    .row
-      .col-xs-12
-        p(style='float:right; color:#353535;') 1개 | 59,500원
-  #hr.col-xs-12
-    hr
-  h5 구매 회원 정보
-  #box1.col-xs-12
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 성명
-      .col-xs-9
-        h6#bank 이태형
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 이메일
-      .col-xs-9
-        h6#bank coco2638@naver.com
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 휴대폰번호
-      .col-xs-9
-        h6#bank 010-3332-9011
-  #hr.col-xs-12
-    hr
-  h5 배송정보
-  div
-    ul.nav.nav-tabs
-      li.active
-        a(href='#secA', data-toggle='tab') 배송지 목록
-      li
-        a(href='#secB', data-toggle='tab') 새로 입력
-    .tab-content
-      #secA.tab-pane.fade.in.active
-        #box1.col-xs-12
-          .row
-            .col-xs-1
-              input(type='radio', name='address')
-            .col-xs-11
-              p#name 이태형
-              p#phone-number 휴대폰: 010-3332-9011
-              p#address 151-015 서울특별시 관악구 신림동 신림로
-        #box1.col-xs-12
-          .row
-            .col-xs-1
-              input(type='radio', name='address')
-            .col-xs-11
-              p#name 이태형
-              p#phone-number 휴대폰: 010-3332-9011
-              p#address 151-015 서울특별시 관악구 신림동 신림로
-      #secB.tab-pane.fade
-        #box1.col-xs-12
-          .row
-            .col-xs-3
-              h6(style='color:#636363;') 성명
-            .col-xs-9
-              input(type='text', style='width:100%; padding-top:3px;')
-          .row
-            .col-xs-3
-              h6(style='color:#636363;') 휴대폰번호
-            .col-xs-9
-              input(type='text', maxlength='3', size='4', style='padding-top:3px;')
-              | -
-              input(type='text', maxlength='4', size='4', style='padding-top:3px;')
-              | -
-              input(type='text', maxlength='4', size='4', style='padding-top:3px;')
-          .row
-            .col-xs-3
-              h6(style='color:#636363;') 배송주소
-            .col-xs-9
-              .form-inline
-                input(type='text', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
-                button(type='submit', style='padding-top:3px;') 찾기
-              input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
-              input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
-          hr
-          input(type='checkbox')
-          |  배송지 목록에 추가합니다. 
-          br
-          input(type='checkbox')
-          |  기본 배송지로 설정합니다.
-  #box1.col-xs-12
-    select.form-control(style='width:100%')
-      option 배송시 요청사항을 선택해주세요.
-      option 부재시 경비실에 맡겨주세요.
-      option 도착전 문자/전화 주세요.
-    input(type='text', placeholder='기타내용을 입력해주세요.', maxlength='30', style='width:100%; margin-top:3px;')
-    p(style='float:right;') 0/30자
-  #hr.col-xs-12
-    hr
-  h5 결제 정보
-  #box1.col-xs-12
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 총상품가격
-      .col-xs-9
-        h6(style='float:right;') 59,500원
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 할인쿠폰
-      .col-xs-9
-        h6(style='float:right;') 0원
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 총배송비
-      .col-xs-9
-        h6(style='float:right;') 0원
-    .row
-      .col-xs-3
-        h6(style='color:#636363;') 총결제가격
-      .col-xs-9
-        h6(style='float:right;') 59,500원
-  button.btn.btn-danger(type='submit') 결제하기
+  .container
+    h5 주문/결제
+    #box1.col-xs-12(style='padding-left:4px;')
+      .row
+        .col-xs-3
+          img(src='/images/basic.jpg', width='60px;')
+        .col-xs-9
+          h5#bank 나이키/오니츠카타이거 35종
+    #box1.col-xs-12
+      .row
+        .col-xs-12
+          h5 선택4)나이키 다트11 1.블랙+화이트 260
+      .row
+        .col-xs-12
+          p(style='float:right; color:#353535;') 1개 | 59,500원
+    #hr.col-xs-12
+      hr
+    h5 구매 회원 정보
+    #box1.col-xs-12
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 성명
+        .col-xs-9
+          h6#bank 이태형
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 이메일
+        .col-xs-9
+          h6#bank coco2638@naver.com
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 휴대폰번호
+        .col-xs-9
+          h6#bank 010-3332-9011
+    #hr.col-xs-12
+      hr
+    h5 배송정보
+    div
+      ul.nav.nav-tabs
+        li.active
+          a(href='#secA', data-toggle='tab') 배송지 목록
+        li
+          a(href='#secB', data-toggle='tab') 새로 입력
+      .tab-content
+        #secA.tab-pane.fade.in.active
+          #box1.col-xs-12
+            .row
+              .col-xs-1
+                input(type='radio', name='address')
+              .col-xs-11
+                p#name 이태형
+                p#phone-number 휴대폰: 010-3332-9011
+                p#address 151-015 서울특별시 관악구 신림동 신림로
+          #box1.col-xs-12
+            .row
+              .col-xs-1
+                input(type='radio', name='address')
+              .col-xs-11
+                p#name 이태형
+                p#phone-number 휴대폰: 010-3332-9011
+                p#address 151-015 서울특별시 관악구 신림동 신림로
+        #secB.tab-pane.fade
+          #box1.col-xs-12
+            .row
+              .col-xs-3
+                h6(style='color:#636363;') 성명
+              .col-xs-9
+                input(type='text', style='width:100%; padding-top:3px;')
+            .row
+              .col-xs-3
+                h6(style='color:#636363;') 휴대폰번호
+              .col-xs-9
+                input(type='text', maxlength='3', size='4', style='padding-top:3px;')
+                | -
+                input(type='text', maxlength='4', size='4', style='padding-top:3px;')
+                | -
+                input(type='text', maxlength='4', size='4', style='padding-top:3px;')
+            .row
+              .col-xs-3
+                h6(style='color:#636363;') 배송주소
+              .col-xs-9
+                .form-inline
+                  input(type='text', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
+                  button(type='submit', style='padding-top:3px;') 찾기
+                input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
+                input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
+            hr
+            input(type='checkbox')
+            |  배송지 목록에 추가합니다. 
+            br
+            input(type='checkbox')
+            |  기본 배송지로 설정합니다.
+    #box1.col-xs-12
+      select.form-control(style='width:100%')
+        option 배송시 요청사항을 선택해주세요.
+        option 부재시 경비실에 맡겨주세요.
+        option 도착전 문자/전화 주세요.
+      input(type='text', placeholder='기타내용을 입력해주세요.', maxlength='30', style='width:100%; margin-top:3px;')
+      p(style='float:right;') 0/30자
+    #hr.col-xs-12
+      hr
+    h5 결제 정보
+    #box1.col-xs-12
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 총상품가격
+        .col-xs-9
+          h6(style='float:right;') 59,500원
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 할인쿠폰
+        .col-xs-9
+          h6(style='float:right;') 0원
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 총배송비
+        .col-xs-9
+          h6(style='float:right;') 0원
+      .row
+        .col-xs-3
+          h6(style='color:#636363;') 총결제가격
+        .col-xs-9
+          h6(style='float:right;') 59,500원
+    button.btn.btn-danger(type='submit') 결제하기
 
 block script_content
   script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
