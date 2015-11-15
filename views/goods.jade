@@ -10,23 +10,24 @@ block style
     #goods_ {border-width: 1px; border-bottom-width: 0px; border-style: solid; border-color: #BDBDBD; background-color: #ffffff; width: 100%; padding-top:5px; padding-left: 10px; padding-bottom: 5px; margin-bottom: 5px;}
 
 block content
-  br
-  center
-    h4 구매상품
-  br
-  #goods.col-xs-12
-    p#deliverySearch
-      a(href='#') 배송조회
-    p#orderDate 주문일: 
-  #goods_.col-xs-12(onclick='goDetail();')
-    .row
-      .col-xs-2
-        img(src='/images/basic.jpg', width='50px;')
-      .col-xs-8
-        h6#states.red 입금대기중
-        h6#product_info Product information
-      #right.col-xs-2
-        span.glyphicon.glyphicon-chevron-right
+  .container
+    br
+    center
+      h4 구매상품
+    br
+    #goods.col-xs-12
+      p#deliverySearch
+        a(href='#') 배송조회
+      p#orderDate 주문일: 
+    #goods_.col-xs-12(onclick='goDetail();')
+      .row
+        .col-xs-2
+          img(src='/images/basic.jpg', width='50px;')
+        .col-xs-8
+          h6#states.red 입금대기중
+          h6#product_info Product information
+        #right.col-xs-2
+          span.glyphicon.glyphicon-chevron-right
 
 block script_content
   script(type='text/javascript').
