@@ -59,7 +59,7 @@ block content
             #box1.col-xs-12
               .row
                 .col-xs-1
-                  input(type='radio', name='address' checked=(#{val.isDefault} ? "checked" : undefined))
+                  input(type='radio', name='address' checked=('#{val.isDefault}' ==='1' ? "checked" : undefined))
                 .col-xs-11
                   p#name= val.userName
                   p#phone-number 휴대폰: #{val.phone}
