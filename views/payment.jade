@@ -85,15 +85,15 @@ block content
                 h6(style='color:#636363;') 배송주소
               .col-xs-9
                 .form-inline
-                  input(type='text', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
-                  button(type='submit', style='padding-top:3px;') 찾기
-                input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
-                input(type='text', style='padiing-top:3px; margin-top:2px; width:100%;')
+                  input(type='text', name='postal', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
+                  button(type='submit', onClick='findAddr(); return false;', style='padding-top:3px;') 찾기
+                input(type='text', name='base_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
+                input(type='text', name='detail_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
             hr
-            input(type='checkbox')
+            input(type='checkbox', name='add_dest')
             |  배송지 목록에 추가합니다. 
             br
-            input(type='checkbox')
+            input(type='checkbox', name='def_dest')
             |  기본 배송지로 설정합니다.
     #box1.col-xs-12
       select.form-control(style='width:100%')
@@ -159,10 +159,10 @@ block script_content
     fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
     }
     // 우편번호와 주소 정보를 해당 필드에 넣는다.
-    //document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
-    document.getElementById('address').value = fullAddr;
+    document.getElementById('postal').value = data.zonecode; //5자리 새우편번호 사용
+    document.getElementById('base_addr').value = fullAddr;
     // 커서를 상세주소 필드로 이동한다.
-    document.getElementById('address').focus();
+    document.getElementById('detail_addr').focus();
     }
     }).open();
     }
