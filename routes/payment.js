@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 				return;
 			}
 			connection.query('use vasket;');
-			connection.query('select userName, phone, address from destination where userNo=?;',
+			connection.query('select userName, phone, address, isDefault from destination where userNo=?;',
 				[req.session.userNo], function(err, result, field) {
 				if (err) {
 					console.error(err);
