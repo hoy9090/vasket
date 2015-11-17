@@ -186,6 +186,7 @@ block script_content
             addr = document.getElementsByClassName('addr')[i].innerHTML;
           }
         }
+        console.log(name, phone, addr);
         $.post('/pay_finish', {name: name, phone: phone, addr: addr});
       }
       if (tab_name == '#secB') {
