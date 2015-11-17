@@ -173,27 +173,20 @@ block script_content
 
     function payFinish() {
       var tab_name = $('ul.nav-tabs .active > a').attr('href');
-      console.log(tab_name);
       if (tab_name == '#secA') {
-        //var x = document.getElementsByClassName('addrRadio');
-        var x = $('.addrRadio:checked');
-        //- var name;
-        //- var phone;
-        //- var addr;
-        //- for (var i=0; i<x.length; i++) {
-        //-   if (x[i].checked=='checked') {
-        //-     name = document.getElementsByClassName('name')[i].text();
-        //-     phone = document.getElementsByClassName('phone')[i].text();
-        //-     addr = document.getElementsByClassName('addr')[i].text();
-        //-   }
-        //- }
-        name = $('div.row:has(".addrRadio:checked") p.name').text();
-        phone = x.parent().parent().closest('p.phone').text();
-        addr = x.parent().parent().closest('p.addr').text();
+        var name = $('div.row:has(".addrRadio:checked") p.name').text();
+        var phone = $('div.row:has(".addrRadio:checked") p.phone').text();
+        var addr = $('div.row:has(".addrRadio:checked") p.addr').text();
         console.log(name, phone, addr);
-        $.post('/pay_finish', {name: name, phone: phone, addr: addr});
+        $.post('/pay_finish', {tab: tab_name, name: name, phone: phone, addr: addr});
       }
       if (tab_name == '#secB') {
-
+        var name = $('input[name="name"]').value;
+        var hone = $('input[name="phone_1"]').value+'-'+$('input[name="phone_2"]').value+'-'$('input[name="phone_3"]').value;
+        var addr = $('input[name="postal"]').value+' '+$('input[name="base_addr"]').value+' '+$('input[name="detail_addr"]').value;
+        var add = $('input[name="add_dest"]').checked;
+        var isDefault = $('input[name="def_dest"]').checked;
+        console.log(name, phone, addr, add, isDefault);
+        $.post('/pay_finish', {tab: tab_name, name: name, phone: phone, addr: addr, add: add, isDefault: isDefault});
       }
     }
