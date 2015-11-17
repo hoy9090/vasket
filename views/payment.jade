@@ -85,10 +85,10 @@ block content
                 h6(style='color:#636363;') 배송주소
               .col-xs-9
                 .form-inline
-                  input(type='text', name='postal', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
-                  button(onClick='findAddr(); return false;', style='padding-top:3px;') 찾기
-                input(type='text', name='base_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
-                input(type='text', name='detail_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
+                  input#postal(type='text', name='postal', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
+                  button.btn.btn-default(onClick='findAddr(); return false;', style='padding-top:3px;') 찾기
+                input#base_addr(type='text', name='base_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
+                input#detail_addr(type='text', name='detail_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
             hr
             input(type='checkbox', name='add_dest')
             |  배송지 목록에 추가합니다. 
