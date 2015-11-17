@@ -184,8 +184,8 @@ block script_content
         var name = $('input[name="name"]').val();
         var hone = $('input[name="phone_1"]').val()+'-'+$('input[name="phone_2"]').val()+'-'+$('input[name="phone_3"]').val();
         var addr = $('input[name="postal"]').val()+' '+$('input[name="base_addr"]').val()+' '+$('input[name="detail_addr"]').val();
-        var add = $('input[name="add_dest"]').attr(checked);
-        var isDefault = $('input[name="def_dest"]').attr(checked);
+        var add = $('input[name="add_dest"]').attr('checked');
+        var isDefault = $('input[name="def_dest"]').attr('checked');
         console.log(name, phone, addr, add, isDefault);
         $.post('/pay_finish', {tab: tab_name, name: name, phone: phone, addr: addr, add: add, isDefault: isDefault});
       }
