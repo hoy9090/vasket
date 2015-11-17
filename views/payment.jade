@@ -174,7 +174,7 @@ block script_content
     function payFinish() {
       var tab_name = $('ul.nav-tabs .active > a').attr('href');
       console.log(tab_name);
-      if (tab_name == 'secA') {
+      if (tab_name == '#secA') {
         var x = document.getElementsByClassName('addrRadio');
         var name;
         var phone;
@@ -188,7 +188,7 @@ block script_content
         }
         $.post('/pay_finish', {name: name, phone: phone, addr: addr});
       }
-      if (tab_name == 'secB') {
+      if (tab_name == '#secB') {
 
       }
     }
