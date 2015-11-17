@@ -187,9 +187,9 @@ block script_content
         //-     addr = document.getElementsByClassName('addr')[i].text();
         //-   }
         //- }
-        name = x.closest('p.name').text();
-        phone = x.closest('p.phone').text();
-        addr = x.closest('p.addr').text();
+        name = x.parent().parent().closest('p.name').text();
+        phone = x.parent().parent().closest('p.phone').text();
+        addr = x.parent().parent().closest('p.addr').text();
         console.log(name, phone, addr);
         $.post('/pay_finish', {name: name, phone: phone, addr: addr});
       }
