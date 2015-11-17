@@ -167,13 +167,13 @@ block script_content
     }
     }).open();
     }
-    $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+    $(document).ready($("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
       var id = $(e.target).attr("href").substr(1);
       tab_name = id;
-    });
+    }));
     function payFinish() {
       console.log(tab_name);
-      if (tab_name == '#secA') {
+      if (tab_name == 'secA') {
         var x = document.getElementsByClassName('addrRadio');
         var name;
         var phone;
@@ -187,7 +187,7 @@ block script_content
         }
         $.post('/pay_finish', {name: name, phone: phone, addr: addr});
       }
-      if (tab_name == '#secB') {
+      if (tab_name == 'secB') {
 
       }
     }
