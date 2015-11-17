@@ -70,16 +70,16 @@ block content
               .col-xs-3
                 h6(style='color:#636363;') 성명
               .col-xs-9
-                input(type='text', style='width:100%; padding-top:3px;')
+                input(type='text', name='name', style='width:100%; padding-top:3px;')
             .row
               .col-xs-3
                 h6(style='color:#636363;') 휴대폰번호
               .col-xs-9
-                input(type='text', maxlength='3', size='4', style='padding-top:3px;')
+                input(type='text', name='phone_1', maxlength='3', size='4', style='padding-top:3px;')
                 | -
-                input(type='text', maxlength='4', size='4', style='padding-top:3px;')
+                input(type='text', name='phone_2', maxlength='4', size='4', style='padding-top:3px;')
                 | -
-                input(type='text', maxlength='4', size='4', style='padding-top:3px;')
+                input(type='text', name='phone_3', maxlength='4', size='4', style='padding-top:3px;')
             .row
               .col-xs-3
                 h6(style='color:#636363;') 배송주소
@@ -100,7 +100,7 @@ block content
         option 배송시 요청사항을 선택해주세요.
         option 부재시 경비실에 맡겨주세요.
         option 도착전 문자/전화 주세요.
-      input(type='text', placeholder='기타내용을 입력해주세요.', maxlength='30', style='width:100%; margin-top:3px;')
+      input(type='text', placeholder='기타내용을 입력해주세요.', maxlength='60', style='width:100%; margin-top:3px;')
       p(style='float:right;') 0/30자
     #hr.col-xs-12
       hr
