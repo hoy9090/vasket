@@ -59,36 +59,36 @@ block content
             #box1.col-xs-12
               .row
                 .col-xs-1
-                  input(type='radio', name='address' checked=(val.isDefault == 1 ? "checked" : undefined))
+                  input.form-control.addrRadio(type='radio', name='address' checked=(val.isDefault == 1 ? "checked" : undefined))
                 .col-xs-11
-                  p#name= val.userName
-                  p#phone-number 휴대폰: #{val.phone}
-                  p#address= val.address
+                  p#name.name= val.userName
+                  p#phone.phone 휴대폰: #{val.phone}
+                  p#address.addr= val.address
         #secB.tab-pane.fade
           #box1.col-xs-12
             .row
               .col-xs-3
                 h6(style='color:#636363;') 성명
               .col-xs-9
-                input(type='text', name='name', style='width:100%; padding-top:3px;')
+                input.form-control(type='text', name='name', style='width:100%; padding-top:3px;')
             .row
               .col-xs-3
                 h6(style='color:#636363;') 휴대폰번호
               .col-xs-9
-                input(type='text', name='phone_1', maxlength='3', size='4', style='padding-top:3px;')
+                input.form-control(type='text', name='phone_1', maxlength='3', size='4', style='padding-top:3px;')
                 | -
-                input(type='text', name='phone_2', maxlength='4', size='4', style='padding-top:3px;')
+                input.form-control(type='text', name='phone_2', maxlength='4', size='4', style='padding-top:3px;')
                 | -
-                input(type='text', name='phone_3', maxlength='4', size='4', style='padding-top:3px;')
+                input.form-control(type='text', name='phone_3', maxlength='4', size='4', style='padding-top:3px;')
             .row
               .col-xs-3
                 h6(style='color:#636363;') 배송주소
               .col-xs-9
                 .form-inline
-                  input#postal(type='text', name='postal', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
+                  input#postal.form-control(type='text', name='postal', size='25', style='padding-top:3px;', placeholder='동(읍/면/리) 입력 후 찾기')
                   button.btn.btn-default(onClick='findAddr(); return false;', style='padding-top:3px;') 찾기
-                input#base_addr(type='text', name='base_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
-                input#detail_addr(type='text', name='detail_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
+                input#base_addr.form-control(type='text', name='base_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
+                input#detail_addr.form-control(type='text', name='detail_addr', style='padiing-top:3px; margin-top:2px; width:100%;')
             hr
             input(type='checkbox', name='add_dest')
             |  배송지 목록에 추가합니다. 
@@ -126,11 +126,12 @@ block content
           h6(style='color:#636363;') 총결제가격
         .col-xs-9
           h6(style='float:right;') 59,500원
-    button.btn.btn-danger(type='submit') 결제하기
+    button.btn.btn-danger(type='submit', onClick='payFinish();') 결제하기
 
 block script_content
   script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
   script.
+    var tab_name;
     function findAddr() {
     new daum.Postcode({
     oncomplete: function(data) {
@@ -165,4 +166,27 @@ block script_content
     document.getElementById('detail_addr').focus();
     }
     }).open();
+    }
+    $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+      var id = $(e.target).attr("href").substr(1);
+      tab_name = id;
+    });
+    function payFinish() {
+      if (tab_name == '#secA') {
+        var x = document.getElementsByClassName('addrRadio');
+        var name;
+        var phone;
+        var addr;
+        for (var i=0; i<x.length; i++) {
+          if (x[i].checked=='checked') {
+            name = document.getElementsByClassName('name')[i].innerHTML;
+            phone = document.getElementsByClassName('phone')[i].innerHTML;
+            addr = document.getElementsByClassName('addr')[i].innerHTML;
+          }
+        }
+        $.post('/pay_finish', {name: name, phone: phone, addr: addr});
+      }
+      if (tab_name == '#secB') {
+
+      }
     }
