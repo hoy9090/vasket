@@ -175,18 +175,21 @@ block script_content
       var tab_name = $('ul.nav-tabs .active > a').attr('href');
       console.log(tab_name);
       if (tab_name == '#secA') {
-        var x = document.getElementsByClassName('addrRadio');
-        console.log(x.length);
-        var name;
-        var phone;
-        var addr;
-        for (var i=0; i<x.length; i++) {
-          if (x[i].checked=='checked') {
-            name = document.getElementsByClassName('name')[i].text();
-            phone = document.getElementsByClassName('phone')[i].text();
-            addr = document.getElementsByClassName('addr')[i].text();
-          }
-        }
+        //var x = document.getElementsByClassName('addrRadio');
+        var x = $('.addrRadio:checked');
+        //- var name;
+        //- var phone;
+        //- var addr;
+        //- for (var i=0; i<x.length; i++) {
+        //-   if (x[i].checked=='checked') {
+        //-     name = document.getElementsByClassName('name')[i].text();
+        //-     phone = document.getElementsByClassName('phone')[i].text();
+        //-     addr = document.getElementsByClassName('addr')[i].text();
+        //-   }
+        //- }
+        name = x.closest('p.name').text();
+        phone = x.closest('p.phone').text();
+        addr = x.closest('p.addr').text();
         console.log(name, phone, addr);
         $.post('/pay_finish', {name: name, phone: phone, addr: addr});
       }
