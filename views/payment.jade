@@ -59,6 +59,7 @@ block content
             #box1.col-xs-12
               .row
                 .col-xs-1
+                  - console.log(val.isDefault);
                   input(type='radio', name='address' checked=('#{val.isDefault}' == '1' ? "checked" : undefined))
                 .col-xs-11
                   p#name= val.userName
