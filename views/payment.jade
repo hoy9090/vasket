@@ -182,9 +182,9 @@ block script_content
         var addr;
         for (var i=0; i<x.length; i++) {
           if (x[i].checked=='checked') {
-            name = document.getElementsByClassName('name')[i].innerHTML.toString();
-            phone = document.getElementsByClassName('phone')[i].innerHTML.toString();
-            addr = document.getElementsByClassName('addr')[i].innerHTML.toString();
+            name = document.getElementsByClassName('name')[i].text();
+            phone = document.getElementsByClassName('phone')[i].text();
+            addr = document.getElementsByClassName('addr')[i].text();
           }
         }
         console.log(name, phone, addr);
