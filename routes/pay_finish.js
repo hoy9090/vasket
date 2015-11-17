@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
   	console.log(req.body.name, req.body.phone, req.body.addr);
   else {
   	console.log(req.body.name, req.body.phone, req.body.addr, req.body.add, req.body.isDefault);
-  	if (req.body.add) {
+  	if (req.body.add === true) {
 	  	pool.getConnection(function(err, connection) {
 	  		if (err) {
 					console.error('DB Connection error!!');
@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 				if (req.body.isDefault) {
 					connection.query('update destination set isDefault=0 where userNo=?', [req.session.userNo]);
 				}
-				connection.query('insert into destination(userNo, userName, phone, address, isDefault) values(?, ?, ?, ?, ?)', [req.session.userNo, req.body.name, req.body.phone, req.body.addr, req.body.isDefault]);
+				connection.query('insert into destination(userNo, userName, phone, address, isDefault) values(?, ?, ?, ?, ?)', [req.session.userNo, req.body.name, req.body.phone, req.body.addr, req.body.isDefault === true ? 1 : 0]);
 				//function(err, result, field)
 
 	  	});
