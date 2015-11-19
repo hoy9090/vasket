@@ -15,13 +15,16 @@ html(lang='ko-kr')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     style(type='text/css').
       body {
-      padding-top: 70px;
+      padding-top: 40px;
+      padding-bottom: 40px;
       background-color: #ffa800;
       }
       #aa {
       border-radius: 20px;
       background-color: white;
       text-align: center;
+      padding-top:20px;
+      padding-bottom:20px;
       }
       #pwd {
       margin-top: 4px;
@@ -33,14 +36,6 @@ html(lang='ko-kr')
       width: 92%;
       white-space: normal !important;
       word-break: keep-all;
-      }
-      input.btn {
-      width: 92%;
-      height: 35px;
-      background-color: #ffa800;
-      }
-      input.form-control {
-      width: 92%;
       }
       .none-prop {width: 0%;}
   body
@@ -134,35 +129,18 @@ html(lang='ko-kr')
       center
         a(href='/')
           img(src='/images/login_logo.png')
-      br
-      br
-      br
       #aa.col-sm-offset-2.col-sm-8
-        br
-        br
         .col-sm-12
           h3 로그인
           p(style='word-break: keep-all;') 로그인 하실 계정을 선택해주세요
-          //hr
-          //form.form-horizontal(role='form', action='login_check', method='post')
-            .col-sm-12
-              center
-                input.form-control(type='text', name='id', placeholder='facebook 아이디', size='45')
-            .col-sm-12
-              center
-                input#pwd.form-control(type='password', name='pw', placeholder='Enter password', size='45')
-            .col-sm-12
-              input.btn.btn-default(type='submit', value='로그인', size='45')
           .col-sm-12
             //hr
-            button.btn.btn-default(style='background-color: #3C5899;' onClick='fb_login();') 페이스북으로 로그인
+            button.btn.btn-default(style='background-color: #3C5899; text-color: #FFFFFF;' onClick='fb_login();') 페이스북으로 로그인
           .col-sm-12
             button.btn.btn-default(style='background-color: #EBEBEB;') 다른 SNS 회원가입은 준비중입니다.
           //.col-sm-12
             p
               | 아직 가입 안하셨나요? 
               a(href='signup') 회원가입
-        br
-        br
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
