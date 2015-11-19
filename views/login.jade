@@ -31,8 +31,8 @@ html(lang='ko-kr')
       margin-bottom: 4px;
       margin-top: 4px;
       width: 92%;
-      height: 40px;
       white-space: normal !important;
+      word-break: keep-all;
       }
       input.btn {
       width: 92%;
@@ -142,7 +142,7 @@ html(lang='ko-kr')
         br
         .col-sm-12
           h3 로그인
-          p 로그인 하실 계정을 선택해주세요
+          p(style='word-break: keep-all;') 로그인 하실 계정을 선택해주세요
           //hr
           //form.form-horizontal(role='form', action='login_check', method='post')
             .col-sm-12
