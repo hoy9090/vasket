@@ -2,30 +2,36 @@ extends layout
 
 block style
   style(type='text/css').
-    #basket {background-color: #ffffff; padding-top: 10px; padding-left: left;width: 100%;margin-bottom: 15px;}
+    #box1 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+    #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px;}
+    #box1_1 {background-color: #ffffff; width: 100%; padding-top: 9px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px; }
     table tr td {text-align: right;}
-    #basket_ {background-color: #ffffff; width: 100%; padding-top:7px; padding-left: 7px; border-style: solid; border-color: #ff0000; border-width: 1px; border-bottom-width: 0px;}
-    #basket_end {background-color: #ffffff; width: 100%; padding-left: 7px; padding-top: 7px; padding-bottom: 10px;border-style: solid; border-color: #ff0000; margin-bottom: 15px;border-width: 1px;}
     button.btn {width: 100%;}
     table {border: solid; border-color:#A6A6A6;border-width: 1px;}
+    #right { padding-top: 20px; padding-right: 10px;}
+    #hr {margin-top: -20px;}
 
 block content
   p 장바구니는 최대 60일간 보관되며, 딜종료시 사라집니다.
   form.form-inline
     input(type='checkbox')
     |  전체선택
-    #basket.col-xs-12
-      .col-xs-1
-        input(type='checkbox')
-      .col-xs-3
-        img(src='/images/basic.jpg', width='100%')
-      .col-xs-7
-        h5 상품 소개란!! 특가!!
-        h6
-          red 0$
-        br
-      .col-xs-12
+    #box1_1.col-xs-12
+      .row
+        .col-xs-1
+          input(type='checkbox')
+        .col-xs-2
+          img(src='../../public/images/basic.jpg', width='60px;')
+        .col-xs-7
+          h5 상품 소개란!! 특가!!
+          h6
+            red 0$
+          br
+        #right.col-xs-2
+          span.glyphicon.glyphicon-chevron-right
+      #hr.col-xs-12
         hr
+      .col-xs-12
         table.table
           thead
             tr
@@ -34,10 +40,10 @@ block content
             td
               red 0$
       br
-    #basket_.col-xs-12
+    #box1.col-xs-12
       .col-xs-12
         h5 결제금액
-    #basket_.col-xs-12
+    #box1.col-xs-12
       .col-xs-11
         p 주문금액
       .col-xs-1
@@ -46,7 +52,7 @@ block content
         p 배송비
       .col-xs-1
         p 0$
-    #basket_end.col-xs-12
+    #box1_.col-xs-12
       .col-xs-11
         h4
           red 결제예정금액
