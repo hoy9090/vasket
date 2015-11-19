@@ -7,10 +7,11 @@ block style
     #event {width:100%; background-color:#D5D5D5; padding-top:13px; padding-bottom:13px;}
     #about {width: 100%; background-color:#ffffff; ; text-align:center; padding-bottom:10px; padding-top:10px;}
     #footer1 {background-color:#505050; width:100%;text-align:center; color:#ffffff; padding-top:3px !important; padding-bottom:1px;border-width:0px; border-bottom-width:1px; border-color:#ffffff; border-style:solid;}
-    
+    #service {position: relative;}
     #footer3 {background-color:#505050; width:100%;color:#ffffff; padding-top:3px; font-size:5px;}
     #footer3 h6 {font-size:200%;}
     #footer3 h6#copyright {font-size:200%; text-align:center;}
+    #inner_btn {position: absolute; left: 38%; top: 76%; width: 24%; height: 15%;}
     .icons {
     
          display:block;
@@ -26,7 +27,9 @@ block content
       img#main_img(src='/images/main_1.jpg')
   |  &#x9;
   #service
-  img#main_img(src='/images/main_banner1.jpg')
+    img#main_img(src='/images/main_banner1.jpg')
+    a(href='login')
+      #inner_btn
   |  &#x9;
   #about.col-xs-12
     .row

@@ -25,8 +25,7 @@ router.post('/', function(req, res, next) {
 					connection.query('update destination set isDefault=0 where userNo=?', [req.session.userNo]);
 				}
 				connection.query('insert into destination(userNo, userName, phone, address, isDefault) values(?, ?, ?, ?, ?)', [req.session.userNo, req.body.name, req.body.phone, req.body.addr, req.body.isDefault == 'true' ? 1 : 0]);
-				//function(err, result, field)
-
+				connection.release();
 	  	});
 		}
   }
