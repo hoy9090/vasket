@@ -13,9 +13,9 @@ html
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     style(type='text/css').
-      body {padding-top: 50px; background-color: #BBBBBB;}
+      body {padding-top: 50px; background-color: #E6E6E6;}
       nav {background-color: #ffa800;}
-      .navbar li a {color:#595959;}
+      .navbar li a {color:#000000;}
       .navbar li a:hover {background-color:#ffa800; color:#000000;}
       .navbar .navbar-toggle {
       border-color: #ffa800;
@@ -43,14 +43,12 @@ html
               span.icon-bar
             a.navbar-brand(href='/')
               img(src='/images/logo.png', width='90px;')
-          #myNavbar.collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-right
+          #myNavbar.collapse.navbar-collapse.navbar-right
+            ul.navbar-right.nav.navbar-nav
               li
-                a(href='#event') 이벤트   
+                a(href='/') 홈  
               li
-                a(href='#service') 서비스 소개     
-              li
-                a(href='#about') 회사 소개
+                a(href='/service') 서비스
               li
                 - if(loggedIn) {
                     a(href='logout')

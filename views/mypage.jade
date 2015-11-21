@@ -2,10 +2,6 @@ extends layout
 
 block style
   style(type='text/css').
-    .D-day {height: 60px; width: 100%; text-align: center; color:#ffffff; background-color: #3D3D3D;
-    font-size: 20px;}
-    #d-day {padding-top: 17px;}
-    button#date-button { float: right; border: none; background-color: #3D3D3D; padding-top: 17px;}
     #box2 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
     #box2 span {float: right; padding-top: 10px;}
     #box2_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;margin-bottom: 13px;}
@@ -14,11 +10,6 @@ block style
     #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;margin-bottom: 13px;margin-top: 13px;}
 
 block content
-  #D-day
-    .D-day
-      button#date-button(onclick='divClose()')
-        span.glyphicon.glyphicon-remove
-      p#d-day
   .container
     #box1_.col-xs-12
       .row
@@ -43,6 +34,3 @@ block content
       center
         h4 전화문의 070-7706-5099
         h6(style='color:#bbbbbb;') 평일 09-18시 / 주말, 공휴일 휴무
-
-block script_content
-  script(src='/javascripts/javascript.js')
