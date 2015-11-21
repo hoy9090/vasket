@@ -24,6 +24,7 @@ var goodsDetail = require('./routes/goodsDetail');
 var basket = require('./routes/basket');
 var pay_finish = require('./routes/pay_finish');
 var service = require('./routes/service');
+var brand_like = require('./routes/brand_like');
 
 var app = express();
 
@@ -68,6 +69,7 @@ app.use('/goodsDetail', goodsDetail);
 app.use('/basket', basket);
 app.use('/pay_finish', pay_finish);
 app.use('/service', service);
+app.use('/brand_like', brand_like);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

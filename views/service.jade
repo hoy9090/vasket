@@ -18,8 +18,8 @@ block style
 		#contents-con {display:none; margin-top:3px;}
 		#event-con {display:none;}
 		#discount-con {display:none;}
-		.like {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffa800;}
-		.non_activated {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffffff;}
+		.like {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+		.non_activated {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
 		#event-list {background-color:#ffffff; padding-top:5px; padding-left:5px; padding-right:5px; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 block content
 	.col-xs-12
@@ -44,11 +44,11 @@ block content
 						.col-xs-6
 							h6= val.brandName
 						.col-xs-4
-							p.non_activated(id="brand#{val.brandNo}" onclick="like();") 즐겨찾기
+							p.non_activated(id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
 	#contents-con.col-xs-12
 		.row
 			#contents-list.col-xs-6
-				.col-xs-12
+				.col-xs-127
 					img(src="./images/main_1.jpg" width="100%;")
 				.col-xs-12(style="height:50px;")
 					h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
@@ -123,15 +123,15 @@ block script_content
 				document.getElementById(after_tab).style.borderColor="#ffa800";
 			}
 		}
-		function like(){
-			var like_id=document.getElementById("like");
-			console.log(like_id);
-			console.log(like_id.style.backgroundColor);
-			if(like_id.style.backgroundColor == "rgb(255, 168, 0)"){
-				like_id.style.backgroundColor = "#ffffff";
+		function like(num){
+			var like_id=document.getElementById("brand"+num);
+			if(like_id.className == "like"){
+				like_id.className = "non-activatied";
+				$.post('/brand_like', {command: "delete", brandNo: num});
 			}
 			else{
-			 like_id.style.backgroundColor="#ffa800";
+			 like_id.className = "like";
+			 $.post('/brand_like', {command: "insert", brandNo: num});
 			}
 		}
 		function setInitialLike() {
