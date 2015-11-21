@@ -138,7 +138,7 @@ block script_content
 		function setInitialLike() {
 		var brandLike = !{JSON.stringify(brandLike)};
 			for (var val in brandLike) {
-				console.log(val.brandNo);
+				console.log(val["brandNo"]);
 				$("#brand"+val.brandNo).attr('class', 'like');
 			}
 		}
