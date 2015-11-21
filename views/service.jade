@@ -19,7 +19,7 @@ block style
 		#contents-con {display:none; margin-top:3px;}
 		#event-con {display:none;}
 		#discount-con {display:none;}
-		.activated {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffa800;}
+		.like {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffa800;}
 		.non_activated {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffffff;}
 		#event-list {background-color:#ffffff; padding-top:5px; padding-left:5px; padding-right:5px; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 block content
@@ -136,7 +136,9 @@ block script_content
 			}
 		}
 		function setInitialLike() {
-			for (var val in !{JSON.stringify(brandLike)})
+			for (var val in !{JSON.stringify(brandLike)}) {
 				$("#"+val.brandNo).attr('class', 'like');
+				console.log('aaa');
+			}
 		}
 		$(document).ready(setInitialLike);
