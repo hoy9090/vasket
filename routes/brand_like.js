@@ -29,6 +29,7 @@ router.post('/', function(req, res, next) {
 		}
 		console.log('LIKE change success!!');
 		connection.release();
+		res.end();
 	});
 });
 
