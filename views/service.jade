@@ -45,7 +45,7 @@ block content
 						.col-xs-6
 							h6= val.brandName
 						.col-xs-4
-							p(id="#{val.brandNo}" onclick="like();") 즐겨찾기
+							p(id="brand#{val.brandNo}" onclick="like();") 즐겨찾기
 	#contents-con.col-xs-12
 		.row
 			#contents-list.col-xs-6
@@ -137,8 +137,7 @@ block script_content
 		}
 		function setInitialLike() {
 			for (var val in !{JSON.stringify(brandLike)}) {
-				$("#"+val.brandNo).attr('class', 'like');
-				console.log('aaa');
+				$("#brand"+val.brandNo).attr('class', 'like');
 			}
 		}
 		$(document).ready(setInitialLike);
