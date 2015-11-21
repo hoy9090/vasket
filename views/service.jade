@@ -1,0 +1,138 @@
+extends layout
+
+block style
+	style(type='text/css').
+		body {padding-top:53px;}
+		#service-brand {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffa800;height:50px; padding-top:7px; border-bottom-width:3px;}
+		#service-brand h6 {font-size:80%;}
+		#service-contents {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
+		#service-contents h6 {font-size:80%;}
+		#service-event {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;border-bottom-width:3px;}
+		#service-event h6 {font-size:80%;}
+		#service-discount {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff;border-left-width:0px;height:50px;border-bottom-width:3px;}
+		#service-discount h6 {font-size:80%;}
+		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb; padding-top:8px;}
+		#brand-list h6 {font-size:110%; font-weight:bold;}
+		#brand-list p {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffffff;}
+		#contents-list {background-color:#ffffff; border-style:solid; border-width:3px; border-color:#bbbbbb;}
+		#brand-con {display:block;}
+		#contents-con {display:none; margin-top:3px;}
+		#event-con {display:none;}
+		#discount-con {display:none;}
+		.activated {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffa800;}
+		.non_activated {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffffff;}
+		#event-list {background-color:#ffffff; padding-top:5px; padding-left:5px; padding-right:5px; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
+block content
+	.col-xs-12
+		.row
+			#service-brand.col-xs-3(onclick="change(1);")
+				h6 BRAND
+			#service-contents.col-xs-3(onclick="change(2);")
+				h6 CONTENTS
+			#service-event.col-xs-3(onclick="change(3);")
+				h6 EVENT
+				h6(style="margin-top:-4px;") COMMERCE				
+			#service-discount.col-xs-3(onclick="change(4);")
+				h6 DISCOUNT
+				h6(style="margin-top:-4px;") COMMERCE
+	#brand-con
+		if (brand)
+			each val in brand
+				#brand-list.col-xs-12
+					.row
+						.col-xs-2
+							img(src="./images/Nike-logo.png" width="45px;")
+						.col-xs-6
+							h6= val.brandName
+						.col-xs-4
+							p(id="#{val.brandNo}" class=(brandLike.indexOf(val.brandNo) > 0 ? "like" : undefined) onclick="like();") 즐겨찾기
+	#contents-con.col-xs-12
+		.row
+			#contents-list.col-xs-6
+				.col-xs-12
+					img(src="./images/main_1.jpg" width="100%;")
+				.col-xs-12(style="height:50px;")
+					h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
+			#contents-list.col-xs-6
+				.col-xs-12
+					img(src="./images/main_1.jpg" width="100%;")
+				.col-xs-12(style="height:50px;")
+					h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
+	#event-con
+		#event-list.col-xs-12
+			.col-xs-12
+				img(src="./images/main_1.jpg" width="100%;")
+			.col-xs-12
+
+	#discount-con.col-xs-12
+
+block script_content
+	script.
+		var count=1;
+		function change(num){
+			var copy_count=count;
+			var before_active;
+			var before_tab;
+			var after_active;
+			var after_tab;
+			count=num;
+			if(copy_count == 1){
+				before_active = "brand-con"
+				before_tab = "service-brand"
+				document.getElementById(before_active).style.display="none";
+				document.getElementById(before_tab).style.borderColor="#ffffff";
+			}
+			else if(copy_count == 2){
+				before_active = "contents-con"
+				before_tab = "service-contents"
+				document.getElementById(before_active).style.display="none";
+				document.getElementById(before_tab).style.borderColor="#ffffff";
+			}
+			else if(copy_count == 3){
+				before_active = "event-con"
+				before_tab = "service-event"
+				document.getElementById(before_active).style.display="none";
+				document.getElementById(before_tab).style.borderColor="#ffffff";
+			}
+			else{
+				before_active = "discount-con"
+				before_tab = "service-discount"
+				document.getElementById(before_active).style.display="none";
+				document.getElementById(before_tab).style.borderColor="#ffffff";
+			}
+			if(count == 1){
+				after_active = "brand-con"
+				after_tab = "service-brand"
+				document.getElementById(after_active).style.display="block";
+				document.getElementById(after_tab).style.borderColor="#ffa800";
+			}
+			else if(count == 2){
+				after_active = "contents-con"
+				after_tab = "service-contents"
+				document.getElementById(after_active).style.display="block";
+				document.getElementById(after_tab).style.borderColor="#ffa800";
+			}
+			else if(count == 3){
+				after_active = "event-con"
+				after_tab = "service-event"
+				document.getElementById(after_active).style.display="block";
+				document.getElementById(after_tab).style.borderColor="#ffa800";
+			}
+			else{
+				after_active = "discount-con"
+				after_tab = "service-discount"
+				document.getElementById(after_active).style.display="block";
+				document.getElementById(after_tab).style.borderColor="#ffa800";
+			}
+		}
+		function like(){
+			var like_id=document.getElementById("like");
+			console.log(like_id);
+			console.log(like_id.style.backgroundColor);
+			if(like_id.style.backgroundColor == "rgb(255, 168, 0)"){
+				like_id.style.backgroundColor = "#ffffff";
+			}
+			else{
+			 like_id.style.backgroundColor="#ffa800";
+			}
+		}

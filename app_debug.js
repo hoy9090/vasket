@@ -18,6 +18,12 @@ var mypage = require('./routes/mypage');
 var detail = require('./routes/detail');
 var payment = require('./routes/payment');
 var reg_comment = require('./routes/reg_comment');
+var customer = require('./routes/customer');
+var goods = require('./routes/goods');
+var goodsDetail = require('./routes/goodsDetail');
+var basket = require('./routes/basket');
+var pay_finish = require('./routes/pay_finish');
+var service = require('./routes/service');
 
 var app = express();
 
@@ -56,6 +62,12 @@ app.use('/mypage', mypage);
 app.use('/detail', detail);
 app.use('/payment', payment);
 app.use('/reg_comment', reg_comment);
+app.use('/customer', customer);
+app.use('/goods', goods);
+app.use('/goodsDetail', goodsDetail);
+app.use('/basket', basket);
+app.use('/pay_finish', pay_finish);
+app.use('/service', service);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
