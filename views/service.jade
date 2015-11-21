@@ -126,7 +126,7 @@ block script_content
 		function like(num){
 			var like_id=document.getElementById("brand"+num);
 			if(like_id.className == "like"){
-				like_id.className = "non-activatied";
+				like_id.className = "non-activated";
 				$.post('/brand_like', {command: "delete", brandNo: num});
 			}
 			else{
