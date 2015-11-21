@@ -45,7 +45,7 @@ block content
 						.col-xs-6
 							h6= val.brandName
 						.col-xs-4
-							p(id="#{val.brandNo}" class=(brandLike.indexOf(val.brandNo) > 0 ? "like" : undefined) onclick="like();") 즐겨찾기
+							p(id="#{val.brandNo}"  onclick="like();") 즐겨찾기
 	#contents-con.col-xs-12
 		.row
 			#contents-list.col-xs-6
@@ -136,3 +136,9 @@ block script_content
 			 like_id.style.backgroundColor="#ffa800";
 			}
 		}
+		function setInitialLike() {
+			for (var val in brandLike) {
+				$(val.brandNo).attr('class', 'like');
+			}
+		}
+		$(document).ready(setInitialLike);
