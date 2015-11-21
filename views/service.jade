@@ -139,7 +139,7 @@ block script_content
 		var brandLike = !{JSON.stringify(brandLike)};
 			for (var val in brandLike) {
 				console.log(val);
-				console.log(val['brandNo']);
+				console.log(brandLike[val]['brandNo']);
 				$("#brand"+val.brandNo).attr('class', 'like');
 			}
 		}
