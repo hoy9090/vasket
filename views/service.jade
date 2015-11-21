@@ -136,7 +136,7 @@ block script_content
 			}
 		}
 		function setInitialLike() {
-		var brandLike = !{brandLike};
+		var brandLike = !{JSON.parse(brandLike)};
 			for (var val in brandLike) {
 				console.log(val.brandNo);
 				$("#brand"+val.brandNo).attr('class', 'like');
