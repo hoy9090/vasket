@@ -13,7 +13,6 @@ block style
 		#service-discount h6 {font-size:80%;}
 		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb; padding-top:8px;}
 		#brand-list h6 {font-size:110%; font-weight:bold;}
-		#brand-list p {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffffff;}
 		#contents-list {background-color:#ffffff; border-style:solid; border-width:3px; border-color:#bbbbbb;}
 		#brand-con {display:block;}
 		#contents-con {display:none; margin-top:3px;}
@@ -45,7 +44,7 @@ block content
 						.col-xs-6
 							h6= val.brandName
 						.col-xs-4
-							p(id="brand#{val.brandNo}" onclick="like();") 즐겨찾기
+							p.non_activated(id="brand#{val.brandNo}" onclick="like();") 즐겨찾기
 	#contents-con.col-xs-12
 		.row
 			#contents-list.col-xs-6
