@@ -4,7 +4,7 @@ block style
   style(type='text/css').
     #box1 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
     #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px;}
-    #hr {margin-top: -10px;}
+    #hr {margin-top: -10px; margin-bottom: -10px;}
     .nav-tabs li {width: 50%; text-align: center; color:#000000; background-color: #d7d7d7;}
     .tab-content#secA input {padding-top: 10px;}
     button.btn-danger {width: 100%; margin-top: 10px; margin-bottom: 20px;}
@@ -35,7 +35,7 @@ block content
       hr
       .row
         .col-xs-3
-          h6(style='color:#636363;') 이메일
+          h6(style='color:#hr636363;') 이메일
         .col-xs-9
           h6#bank #{email}
       hr
