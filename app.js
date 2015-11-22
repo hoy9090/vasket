@@ -33,7 +33,8 @@ var app = express();
 
 var options = {
   key: fs.readFileSync(__dirname + '/ssl/ssl.key'),
-  cert: fs.readFileSync(__dirname + '/ssl/ssl.crt')
+  cert: fs.readFileSync(__dirname + '/ssl/ssl.crt'),
+  passphrase: "121314asdf"
 };
 
 // view engine setup
