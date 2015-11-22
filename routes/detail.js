@@ -40,26 +40,4 @@ router.get('/', function(req, res, next) {
   	}
 });
 
-// router.post('/', function(req, res, next) {
-//   if (!req.session.userid)
-// 		res.redirect('/');
-// 	else {
-// 		pool.getConnection(function(err, connection) {
-// 			connection.query('use vasket');
-// 			connection.query('select (select email from user where user.userno=comment.userno) email, content from comment order by commentNo desc',
-// 				function(err, result, field) {
-// 				if (err) {
-// 					console.error('DB Selection error!!');
-// 					return;
-// 				}
-// 				for (var val in result) {
-// 					console.log(val.email, val.content);
-// 				}
-// 				connection.release();
-// 				res.render('detail', result);
-// 			});
-// 		});
-//   	}
-// });
-
 module.exports = router;

@@ -29,8 +29,12 @@ block style
     #d-day {}
     button#date-button {float: right; border: none; background-color: #3D3D3D;}
     #service {position: relative;}
+    #about {position: relative;}
     #inner_btn {position: absolute; left: 38%; top: 76%; width: 24%; height: 15%;}
-
+    #inner_about1 {position: absolute; left: 15%; top: 48.5%; width: 12.2%; height: 38%; }
+    #inner_about2 {position: absolute; left: 33.5%; top: 48.5%; width: 12.2%; height: 38%; }
+    #inner_about3 {position: absolute; left: 52.1%; top: 48.5%; width: 12.2%; height: 38%; }
+    #inner_about4 {position: absolute; left: 70.8%; top: 48.5%; width: 12.2%; height: 38%; }
 block content
   #D-day
     .D-day
@@ -45,43 +49,52 @@ block content
     a(href='login')
       #inner_btn
   #about
-    .container
-      .col-xs-12
-        .col-xs-12
-          h2.evnet_title 바스켓 서비스
-          p.small 브랜드 전문 회원제 소셜커머스로 현재 배타서비스 기간입니다. 
-          p.small ※정식서비스는 현재 준비중입니다.
-          p.small_1 (*모바일 화면에 최적화 되어있으니 참고 바랍니다.)
-        .row
-          #con1.col-xs-6
-            .row
-              .col-xs-3
-                img(src='/images/contents.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
-              .col-xs-9
-                h6 컨텐츠 큐레이션
-                p.gray 고객들의 맞춤 브랜드 컨텐츠 큐레이션
-          #con2.col-xs-6
-            .row
-              #con_img.col-xs-3
-                img(src='images/event.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
-              .col-xs-9
-                h6 이벤트 커머스
-                p.gray 그 어느곳에서도 만날 수 없는 새로운 이벤트
-        .row
-          #con3.col-xs-6
-            .row
-              #con_img.col-xs-3
-                img(src='images/community.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
-              .col-xs-9
-                h6 커뮤니티
-                p.gray 브랜드 정보와 소식을 회원들과 공유
-          #con4.col-xs-6
-            .row
-              #con_img.col-xs-3
-                img(src='images/discount.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
-              .col-xs-9
-                h6 최저가+추가할인
-                p.gray 추가할인을 통한 범접할 수 없는 최저가
+    img#main_img(src='/images/service_info.jpg')
+    a(href='#about')
+      #inner_about1
+    a(href='#about')
+      #inner_about2
+    a(href='#about')
+      #inner_about3
+    a(href='#about')
+      #inner_about4
+    //- .container
+    //-   .col-xs-12
+    //-     .col-xs-12
+    //-       h2.evnet_title 바스켓 서비스
+    //-       p.small 브랜드 전문 회원제 소셜커머스로 현재 배타서비스 기간입니다. 
+    //-       p.small ※정식서비스는 현재 준비중입니다.
+    //-       p.small_1 (*모바일 화면에 최적화 되어있으니 참고 바랍니다.)
+    //-     .row
+    //-       #con1.col-xs-6
+    //-         .row
+    //-           .col-xs-3
+    //-             img(src='/images/contents.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
+    //-           .col-xs-9
+    //-             h6 컨텐츠 큐레이션
+    //-             p.gray 고객들의 맞춤 브랜드 컨텐츠 큐레이션
+    //-       #con2.col-xs-6
+    //-         .row
+    //-           #con_img.col-xs-3
+    //-             img(src='images/event.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
+    //-           .col-xs-9
+    //-             h6 이벤트 커머스
+    //-             p.gray 그 어느곳에서도 만날 수 없는 새로운 이벤트
+    //-     .row
+    //-       #con3.col-xs-6
+    //-         .row
+    //-           #con_img.col-xs-3
+    //-             img(src='images/community.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
+    //-           .col-xs-9
+    //-             h6 커뮤니티
+    //-             p.gray 브랜드 정보와 소식을 회원들과 공유
+    //-       #con4.col-xs-6
+    //-         .row
+    //-           #con_img.col-xs-3
+    //-             img(src='images/discount.png' width='44px;' style='margin-left:-10px; margin-top:10px;')
+    //-           .col-xs-9
+    //-             h6 최저가+추가할인
+    //-             p.gray 추가할인을 통한 범접할 수 없는 최저가
   #footer1.col-xs-12
     h6.
       <a href="" style="color:#ffffff">제휴문의</a> | <a href="" style="color:#ffffff">이용약관</a> | <a href="" style="color:#ffffff">개인정보 취급방침</a>
