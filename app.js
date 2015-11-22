@@ -32,8 +32,8 @@ var inquiry = require('./routes/inquiry');
 var app = express();
 
 var options = {
-  key: fs.readFileSync(__dirname + '/ssl/key.pem'),
-  cert: fs.readFileSync(__dirname + '/ssl/crt.pem')
+  key: fs.readFileSync(__dirname + '/ssl/ssl.key'),
+  cert: fs.readFileSync(__dirname + '/ssl/ssl.key')
 };
 
 // view engine setup
