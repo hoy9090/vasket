@@ -31,12 +31,6 @@ var inquiry = require('./routes/inquiry');
 
 var app = express();
 
-var options = {
-  key: fs.readFileSync(__dirname + '/ssl/ssl.key'),
-  cert: fs.readFileSync(__dirname + '/ssl/ssl.crt'),
-  passphrase: "121314asdf"
-};
-
 // view engine setup
 app.set('port1', 80);
 app.set('port2', 443);
@@ -105,10 +99,6 @@ if (app.get('env') === 'development') {
 
 http.createServer(app).listen(app.get('port1'), function(){
   console.log('Express http server listening on port ' + app.get('port1'));
-});
-
-https.createServer(options, app).listen(app.get('port2'), function(){
-  console.log('Express https server listening on port ' + app.get('port2'));
 });
 
 // production error handler
