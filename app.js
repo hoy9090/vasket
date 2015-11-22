@@ -1,5 +1,7 @@
 var express = require('express');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -29,8 +31,14 @@ var inquiry = require('./routes/inquiry');
 
 var app = express();
 
+var options = {
+  key: fs.readFileSync('./ssl/ssl.key'),
+  cert: fs.readFileSync('./ssl/ssl.crt')
+};
+
 // view engine setup
-app.set('port', 80);
+app.set('port1', 80);
+app.set('port2', 443);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -94,8 +102,12 @@ if (app.get('env') === 'development') {
   });
 }
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port1'), function(){
+  console.log('Express http server listening on port ' + app.get('port1'));
+});
+
+https.createServer(options, app).listen(app.get('port2'), function(){
+  console.log('Express https server listening on port ' + app.get('port2'));
 });
 
 // production error handler
