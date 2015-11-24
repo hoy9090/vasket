@@ -13,18 +13,14 @@ block style
 		#service-discount h6 {font-size:80%;}
 		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb; padding-top:8px;}
 		#brand-list h6 {font-size:110%; font-weight:bold;}
-		#brand-list p {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px; padding-bottom:3px;}
 		#contents-list {background-color:#ffffff; border-style:solid; border-width:3px; border-color:#bbbbbb;}
 		#brand-con {display:block;}
 		#contents-con {display:none; margin-top:3px;}
 		#event-con {display:none;}
-		#discount-con {display:none; background-color:#ffffff; text-align:center;}
-		.like {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffa800;}
-		.non_activated {font-size:100%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:7px; background-color:#ffffff;}
+		#discount-con {display:none;}
+		.like {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+		.non_activated {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
 		#event-list {background-color:#ffffff; padding-top:5px; padding-left:5px; padding-right:5px; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
-		#event-list h6 {font-weight:bold; font-size:110%;}
-		#discount-con h6 {font-weight:bold;}
-
 block content
 	.col-xs-12
 		.row
@@ -66,12 +62,7 @@ block content
 			.col-xs-12
 				img(src="./images/main_1.jpg" width="100%;")
 			.col-xs-12
-				h6 새로운 리복퓨리 증정!
-				h6 찬스딜!
 	#discount-con.col-xs-12
-		h3.
-			<span class="glyphicon glyphicon-exclamation-sign"></span>
-		h6 정식 서비스는 준비중입니다.
 
 block script_content
 	script.
@@ -135,12 +126,24 @@ block script_content
 		function like(num){
 			var like_id=document.getElementById("brand"+num);
 			if(like_id.className == "like"){
-				like_id.className = "non_activated";
-				$.post('/brand_like', {command: "delete", brandNo: num});
+				$.ajax({
+					type: "POST",
+					url: '/brand_like',
+					data: {command: "delete", brandNo: num},
+					success: function() {
+						like_id.className = "non_activated";
+					}
+				});
 			}
 			else{
-			 like_id.className = "like";
-			 $.post('/brand_like', {command: "insert", brandNo: num});
+			 $.ajax({
+			 		type: "POST",
+					url: '/brand_like',
+					data: {command: "insert", brandNo: num},
+					success: function() {
+						like_id.className = "like";
+					}
+				});
 			}
 		}
 		function setInitialLike() {
