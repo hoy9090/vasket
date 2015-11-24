@@ -4,7 +4,7 @@ html
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title vasket!
+    title Vasket!
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
     link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
@@ -39,7 +39,7 @@ html
         #one2.col-xs-6(onclick="open_one(2);")
           h6 1:1 문의내역
     #one1-con.col-xs-12
-      select#selec
+      select#selec.form-control(name='type')
         option 문의유형 선택
         option 취소문의
         option 교환문의
@@ -54,23 +54,24 @@ html
       br
       h5.yellow 답변 받으실 분
       input(type='text' name='name' style='width:100%; padding-top:6px; padding-bottom:6px; margin-bottom:2px;' placeholder='이름')
-      input(type='email' name='usremail' style='width:100%; padding-top:6px; padding-bottom:6px;margin-bottom:2px;' placeholder='E-mail')
+      input(type='email' name='email' style='width:100%; padding-top:6px; padding-bottom:6px;margin-bottom:2px;' placeholder='E-mail')
       input(type='text' name='phone_1' maxlength='3' style='width:33%;padding-top:6px; padding-bottom:6px;margin-bottom:10px;')
       input(type='text' name='phone_2' maxlength='4' style='width:33%;padding-top:6px; padding-bottom:6px;margin-bottom:10px;')
       input(type='text' name='phone_3' maxlength='4' style='width:34%;padding-top:6px; padding-bottom:6px;margin-bottom:10px;')
       h5.yellow 문의하기
-      input(type='text' name='name' style='width:100%; padding-top:6px; padding-bottom:6px; margin-bottom:2px;' placeholder='제목')
-      textarea(row='5' style='width:100%;height:100px;' placeholder='문의 내용을 입력해주세요')
-      button.btn.btn-warning(style='width:100%; margin-top:20px;') 문의하기
+      input(type='text' name='title' style='width:100%; padding-top:6px; padding-bottom:6px; margin-bottom:2px;' placeholder='제목')
+      textarea(row='5' name='content' style='width:100%;height:100px;' placeholder='문의 내용을 입력해주세요')
+      button.btn.btn-warning(style='width:100%; margin-top:20px;' onClick='inquiryFinish();') 문의하기
     #one2-con.col-xs-12
-      #one2-list.col-xs-12
-        .row
-          .col-xs-9
-            h6#enrollDate 등록일 2015.11.20
-            p#productName(style='margin-top:-5px;') 리복 퓨리 라이트
-            p#title.yellow(style='margin-top:-10px; margin-bottom:-1px;') 리복 문의
-          .col-xs-3
-            button(style='margin-top:20px;') 삭제
+      if (inquiry)
+        each val in inquiry
+          #one2-list.col-xs-12
+            .row
+              .col-xs-9
+                h6= val.date
+                p#title.yellow(style='margin-top:-10px;')= val.title
+              .col-xs-3
+                button(style='margin-top:20px;') 삭제
 
     script(type='text/javascript').
       var count=1;
@@ -111,4 +112,15 @@ html
         }
       } 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script.
+      function inquiryFinish() {
+        var type = $('select[name="type"]').val();
+        var name = $('input[name="name"]').val();
+        var email = $('input[name="email"]').val();
+        var phone = $('input[name="phone_1"]').val()+'-'+$('input[name="phone_2"]').val()+'-'+$('input[name="phone_3"]').val();
+        var title = $('input[name="title"]').val();
+        var content = $('textarea[name="content"]').val();
+        console.log(type, name, email, phone, title, content);
+        $.post('/inquiry_insert', {type: type, name: name, email: email, phone: phone, title: title, content: content});
+      }
     script(src='/bootstrap/js/bootstrap.min.js')
