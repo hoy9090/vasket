@@ -29,6 +29,7 @@ var service = require('./routes/service');
 var brand_like = require('./routes/brand_like');
 var inquiry = require('./routes/inquiry');
 var inquiry_insert = require('./routes/inquiry_insert');
+var inquiry_detail = require('./routes/inquiry_detail');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -83,6 +84,7 @@ app.use('/service', service);
 app.use('/brand_like', brand_like);
 app.use('/inquiry', inquiry);
 app.use('/inquiry_insert', inquiry_insert);
+app.use('/inquiry_detail', inquiry_detail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

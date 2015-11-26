@@ -153,3 +153,7 @@ block script_content
 			}
 		}
 		$(document).ready(setInitialLike);
+		(function setTab() {
+			if (location.hash)
+				change(location.hash.charAt(1));
+		})();

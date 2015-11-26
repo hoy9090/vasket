@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Vasket!
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body {background-color: #e9e9e9; padding-bottom: 20px;}
+      #nav {background-color: #FFFFFF; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
+      #nav h4 {float: clear; padding-right: 15px;}
+      #detail-title {width:100%; background-color:#ffffff; margin-top:10px; border-width:0px; border-bottom-width:1px; border-style:solid; border-color:#bbbbbb; border-right-width:1px;}
+      #Q {background-color:#ffffff;border-width:0px;border-bottom-width:1px; border-right-width:1px; border-style:solid;  border-color:#bbbbbb;}
+      #title {margin-bottom: 15px; font-weight: bold; padding-top:5px;}
+      .Q { border-style:solid; border-width:1px;  border-color:#ffa800; background-color:#ffa800; border-radius:50%;color:#ffffff; padding-top:4px; padding-bottom:4px; padding-left:6px; padding-right:6px; font-weight:bold;margin-right:5px;}
+      .A { border-style:solid; border-width:1px;  border-color:#003399; background-color:#003399; border-radius:50%;color:#ffffff; padding-top:4px; padding-bottom:4px; padding-left:6px; padding-right:6px; font-weight:bold;margin-right:5px;}
+      #A {background-color:#ffffff; border-width:0px;border-bottom-width:1px; border-right-width:1px; border-style:solid;  border-color:#bbbbbb; margin-bottom:10px;}
+      
+  body
+    #nav.col-xs-12
+      a(href='javascript:history.back();')
+        span.glyphicon.glyphicon-arrow-left
+      h4 1:1 문의 
+
+    #detail-title.col-xs-12
+      .row
+        .col-xs-12
+          h6 등록일 #{date}
+    #Q.col-xs-12
+      h6.Q(style="float:left;") Q
+      h5#title= title
+      p= content
+      
+    #A.col-xs-12
+      h6.A(style="float:left;") A
+      h5#title 바스켓
+
+    //- button.btn.btn-warning(style="width:100%;") 목록보러가기

@@ -65,7 +65,7 @@ html
     #one2-con.col-xs-12
       if (inquiry)
         each val in inquiry
-          #one2-list.col-xs-12
+          #one2-list.col-xs-12(onClick='showDetail(#{val.no});')
             .row
               .col-xs-9
                 h6= val.date
@@ -122,5 +122,8 @@ html
         var content = $('textarea[name="content"]').val();
         console.log(type, name, email, phone, title, content);
         $.post('/inquiry_insert', {type: type, name: name, email: email, phone: phone, title: title, content: content});
+      }
+      function showDetail(no) {
+        $.post('/inquiry_detail', {inquiryNo: no});
       }
     script(src='/bootstrap/js/bootstrap.min.js')

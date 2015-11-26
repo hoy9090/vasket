@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 	if (req.session.userNo) {
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select inquiryDate date, inquiryTitle title from inquiry where userNo='+req.session.userNo,
+			connection.query('select inquiryDate date, inquiryTitle title, inquiryNo no from inquiry where userNo='+req.session.userNo,
 				function(err, result, field) {
 				if (err) {
 					console.error('DB inquiry Selection error!!');
