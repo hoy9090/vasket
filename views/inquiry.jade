@@ -124,6 +124,6 @@ html
         $.post('/inquiry_insert', {type: type, name: name, email: email, phone: phone, title: title, content: content});
       }
       function showDetail(no) {
-        $.post('/inquiry_detail', {inquiryNo: no});
+        $.ajax({type: "POST", url: '/inquiry_detail', data: {inquiryNo: no}});
       }
     script(src='/bootstrap/js/bootstrap.min.js')

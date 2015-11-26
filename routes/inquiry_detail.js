@@ -17,8 +17,8 @@ router.post('/', function(req, res, next) {
 					console.error('DB inquiry selection error!!');
 					return;
 				}
-			connection.release();
-			res.render('inquiry_detail', {result: result});
+				connection.release();
+				res.render('inquiry_detail', {result: result});
 			});
 		});
 });
