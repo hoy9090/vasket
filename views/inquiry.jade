@@ -71,7 +71,7 @@ html
                 h6= val.date
                 p#title.yellow(style='margin-top:-10px;')= val.title
               .col-xs-3
-                button.btn.btn-danger(style='margin-top:20px;' onClick='post_to_url("/inquiry_do", {"do": "delete", "inquiryNo": #{val.no}});') 삭제
+                button.btn.btn-danger(style='margin-top:10px;' onClick='post_to_url("/inquiry_do", {"do": "delete", "inquiryNo": #{val.no}});') 삭제
 
     script(type='text/javascript').
       var count=1;
