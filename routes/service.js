@@ -29,6 +29,7 @@ router.get('/', function(req, res, next) {
 						return;
 					}
 					var brandLike = result;
+					connection.release();
 					res.render('service', {brand: brand, brandLike: brandLike});	
 				});
 			});

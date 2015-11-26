@@ -9,6 +9,7 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
+	req.method = 'get';
 	var content = req.body.content;
 	pool.getConnection(function(err, connection) {
 			if (err) {
