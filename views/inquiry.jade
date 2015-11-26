@@ -121,9 +121,10 @@ html
         var title = $('input[name="title"]').val();
         var content = $('textarea[name="content"]').val();
         console.log(type, name, email, phone, title, content);
-        $.post('/inquiry_insert', {type: type, name: name, email: email, phone: phone, title: title, content: content});
+        $.ajax({type: "POST", url: '/inquiry_insert', data: {type: type, name: name, email: email, phone: phone, title: title, content: content},
+        success: function(data){location.reload(); open_one(2)}});
       }
       function showDetail(no) {
-        $.ajax({type: "POST", url: '/inquiry_detail', data: {inquiryNo: no}});
+        $.post('/inquiry_detail', {inquiryNo: no});
       }
     script(src='/bootstrap/js/bootstrap.min.js')
