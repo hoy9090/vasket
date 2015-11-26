@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 	else {
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select brandName brand, brandContent content from brand inner join (select brandNo from brandlike where userNo='+req.session.userNo+') brandlike where brandlike.brandNo=brand.brandNo',
+			connection.query('select brandName brand, brandContent content from brand inner join (select brandNo from brandLikeList where userNo='+req.session.userNo+') brandlike where brandlike.brandNo=brand.brandNo',
 				function(err, result, field) {
 				if (err) {
 					console.error(err);
