@@ -70,8 +70,8 @@ html
         each val in inquiry
           #one2-list.col-xs-12
             .row
-              .col-xs-9
-                h6= val.date(onClick='showDetail(#{val.no});')
+              .col-xs-9(onClick='showDetail(#{val.no});')
+                h6= val.date
                 p#title.yellow(style='margin-top:-10px;')= val.title
               .col-xs-3
                 button.btn.btn-danger(style='margin-top:10px;' onClick='post_to_url("/inquiry_do", {"do": "delete", "inquiryNo": #{val.no}});') 삭제
