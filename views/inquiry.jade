@@ -122,9 +122,9 @@ html
         var content = $('textarea[name="content"]').val();
         console.log(type, name, email, phone, title, content);
         $.ajax({type: "POST", url: '/inquiry_insert', data: {type: type, name: name, email: email, phone: phone, title: title, content: content},
-        success: function(data) {document = data; open_one(2);}});
+        success: function(data) {$('html').html(data); open_one(2);}});
       }
       function showDetail(no) {
-        $.ajax({type: "POST", url: '/inquiry_detail', data: {inquiryNo: no}, success: function(data) {document = data;}});
+        $.ajax({type: "POST", url: '/inquiry_detail', data: {inquiryNo: no}, success: function(data) {$('html').html(data);}});
       }
     script(src='/bootstrap/js/bootstrap.min.js')
