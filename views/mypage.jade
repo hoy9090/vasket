@@ -34,3 +34,74 @@ block content
       center
         h4 전화문의 070-7706-5099
         h6(style='color:#bbbbbb;') 평일 09-18시 / 주말, 공휴일 휴무
+
+
+extends layout
+
+block style
+  style(type='text/css').
+    #box2 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
+    #box22 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; margin-top:13px;}
+    #box22 span {float: right; padding-top: 10px;}
+    #box2 span {float: right; padding-top: 10px;}
+    #box2_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;margin-bottom: 13px;}
+    #box2_ span {float: right; padding-top: 10px;}
+    #box1_ span {float: right; padding-top: 10px;}
+    #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;margin-bottom: 13px;margin-top: 13px;}
+    #myBrandList {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; display:none;}
+    #myBrand {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
+    #myBrand span {float: right; padding-top: 10px;}
+
+block content
+  .container
+    #box1_.col-xs-12
+      .row
+        .col-xs-2
+          h5(style='color:#636363;') ID
+        .col-xs-10
+          h5(style='float:left;') #{email}
+          span.glyphicon.glyphicon-cog
+    #box2.col-xs-12
+      h5(style='float:left;') 주문목록/배송조회
+      span.glyphicon.glyphicon-chevron-right
+    #box2_.col-xs-12
+      h5(style='float:left;') 취소/반품/환불내역
+      span.glyphicon.glyphicon-chevron-right
+    #myBrand.col-xs-12(onclick='brandOpen();')
+      h5(style='float:left;') MY 브랜드
+      span.glyphicon.glyphicon-chevron-down
+    #myBrandList.col-xs-12
+      .row
+        .col-xs-offset.col-xs-2
+          img(src="./images/Nike-logo.png" width="45px;")
+        .col-xs-6
+          h6 나이키
+    #box22.col-xs-12
+      h5(style='float:left;') 1:1 문의
+      span.glyphicon.glyphicon-chevron-right
+    #box2.col-xs-12
+      h5(style='float:left;') 고객센터
+      span.glyphicon.glyphicon-chevron-right
+    #box2_.col-xs-12
+      center
+        h4 전화문의 070-7706-5099
+        h6(style='color:#bbbbbb;') 평일 09-18시 / 주말, 공휴일 휴무
+
+block script_content
+  script(src='/javascripts/javascript.js')
+  script.
+    var count =0;
+      function brandOpen(){
+      var q = document.getElementById("myBrand");
+      var ans = document.getElementById("myBrandList");
+      if(count == 0){
+      q.innerHTML="<h5 style="+"\"float:left;\""+">MY 브랜드</h5>" +"<span "+"class="+"\"glyphicon glyphicon-chevron-up\""+"></span>";
+      ans.style.display ="block";
+      count=1;
+      }
+      else{
+      q.innerHTML="<h5 style="+"\"float:left;\""+">MY 브랜드</h5>" +"<span "+"class="+"\"glyphicon glyphicon-chevron-down\""+"></span>";
+      ans.style.display = "none";
+      count=0;
+      }
+      }
