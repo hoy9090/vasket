@@ -125,6 +125,22 @@ html
         success: function(data) {$('html').html(data); open_one(2);}});
       }
       function showDetail(no) {
-        $.ajax({type: "POST", url: '/inquiry_detail', data: {inquiryNo: no}, success: function(data) {$('html').html(data);}});
+        post_to_url('inquiry_detail', {'inquiryNo': no});
+      }
+      function post_to_url(path, params, method) {
+        method = method || "post";  //method 부분은 입력안하면 자동으로 post가 된다.
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+        //input type hidden name(key) value(params[key]);
+        for(var key in params) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+            form.appendChild(hiddenField);
+        }
+        document.body.appendChild(form);
+        form.submit();
       }
     script(src='/bootstrap/js/bootstrap.min.js')
