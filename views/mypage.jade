@@ -33,11 +33,14 @@ block content
       h5(style='float:left;') MY 브랜드
       span.glyphicon.glyphicon-chevron-down
     #myBrandList.col-xs-12
-      .row
-        .col-xs-offset.col-xs-2
-          img(src="./images/Nike-logo.png" width="45px;")
-        .col-xs-6
-          h6 나이키
+      if (result)
+        each val in result
+          .row
+            .col-xs-offset.col-xs-2
+              img(src="./images/Nike-logo.png" width="45px;")
+            .col-xs-6
+              h6= val.brand
+              h6(style='font-size: 80%;')= val.content
     #box22.col-xs-12
       h5(style='float:left;') 1:1 문의
       span.glyphicon.glyphicon-chevron-right
