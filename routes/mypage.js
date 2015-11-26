@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 			connection.query('select brandName brand, brandContent content from brand inner join (select brandNo from brandlike where userNo='+req.session.userNo+') brandlike where brandlike.brandNo=brand.brandNo',
 				function(err, result, field) {
 				if (err) {
-					console.error('DB inquiry Selection error!!');
+					console.error(err);
 					return;
 				}
 				connection.release();
