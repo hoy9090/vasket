@@ -71,7 +71,7 @@ html
                 h6= val.date
                 p#title.yellow(style='margin-top:-10px;')= val.title
               .col-xs-3
-                button(style='margin-top:20px;') 삭제
+                button.btn.btn-danger(style='margin-top:20px;' onClick='post_to_url("/inquiry_do", {"do": "delete", "inquiryNo": #{val.no}});') 삭제
 
     script(type='text/javascript').
       var count=1;
@@ -123,7 +123,7 @@ html
         var title = $('input[name="title"]').val();
         var content = $('textarea[name="content"]').val();
         console.log(type, name, email, phone, title, content);
-        post_to_url('/inquiry_insert', {'type': type, 'name': name, 'email': email, 'phone': phone, 'title': title, 'content': content});
+        post_to_url('/inquiry_do', {'do': 'insert', 'type': type, 'name': name, 'email': email, 'phone': phone, 'title': title, 'content': content});
       }
       function showDetail(no) {
         post_to_url('/inquiry_detail', {'inquiryNo': no});
