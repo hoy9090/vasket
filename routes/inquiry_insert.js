@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
 				return;
 			}
 			connection.release();
-			res.redirect('/inquiry');
+			res.redirect('/inquiry#2');
 		});
 	});
 });
