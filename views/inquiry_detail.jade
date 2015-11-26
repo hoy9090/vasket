@@ -33,11 +33,11 @@ html
     #detail-title.col-xs-12
       .row
         .col-xs-12
-          h6 등록일 #{result.date}
+          h6 등록일 #{result[0].date}
     #Q.col-xs-12
       h6.Q(style="float:left;") Q
-      h5#title= result.title
-      p= result.content
+      h5#title= result[0].title
+      p= result[0].content
       
     #A.col-xs-12
       h6.A(style="float:left;") A
