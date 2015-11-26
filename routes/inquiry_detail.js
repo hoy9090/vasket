@@ -9,6 +9,7 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
+	req.method = 'get';
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
 		connection.query('select date_format(inquiryDate, "%Y-%m-%d %H:%i:%s") date, inquiryTitle title, inquiryContent content from inquiry where inquiryNo='+req.body.inquiryNo,
