@@ -11,7 +11,7 @@ var pool = mysql.createPool({
 router.post('/', function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
-		connection.query('select date_format(inquiryDate, "%Y-%m-%d %H:%i:%s") date, inquryTitle title, inquryContent content from inquiry where inquiryNo='+req.body.inquiryNo,
+		connection.query('select date_format(inquiryDate, "%Y-%m-%d %H:%i:%s") date, inquiryTitle title, inquiryContent content from inquiry where inquiryNo='+req.body.inquiryNo,
 			function(err, result, field) {
 				if (err) {
 					console.error('DB inquiry selection error!!');
