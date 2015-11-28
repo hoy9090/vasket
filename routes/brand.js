@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 							return;
 						}
 						connection.release();
-						res.render('brand', {brand: brand, like: result[0].like});
+						res.render('brand', {brand: brand, like: result[0].like, brandNo: brandNo});
 					});
 			});
 		});
