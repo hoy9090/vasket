@@ -1,0 +1,122 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Vasket!
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body {background-color: #e7e7e7; padding-bottom: 20px;}
+      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
+      #nav h6 {float: clear; padding-right: 15px; font-weight:bold;}
+      .like {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:9px; background-color:#ffa800;padding-top:3px; padding-bottom:3px;}
+      .non_activated {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:9px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
+      #brand-activity {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffa800;height:50px; padding-top:7px; border-bottom-width:3px;}]
+      #brand-activity h6 {font-weight:bold; font-size:110%;}
+      #brand-contents {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
+      #brand-list {background-color:#ffffff; border-width:2px; border-top-width:4px; border-style:solid; border-color:#e7e7e7;padding:0px;height:151px;}
+      #brand-list img {width:100%; margin-right:0px;}
+      #activity-brand {display:block;}
+      #contents-brand {display:none;}
+  body
+    #nav.col-xs-12
+      .row
+        .col-xs-2
+          a(href='javascript:history.back()')
+            span.glyphicon.glyphicon-arrow-left
+        .col-xs-2
+          img(src="./images/Nike-logo.png" width="45px;")
+        .col-xs-5
+          h5= brand
+        .col-xs-3
+          p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
+    .col-xs-12
+      .row
+        #brand-activity.col-xs-6(onclick="change_(1);")
+          h6 활동
+        #brand-contents.col-xs-6(onclick="change_(2);")
+          h6 상품
+    #activity-brand
+      #brand-list.col-xs-6
+        center
+          img(src="./images/main_1.jpg" width="100%;")
+        h6 asdfsfsdkjhfsidfhskldfhsk
+      #brand-list.col-xs-6
+        img(src="./images/main_1.jpg" width="100%;")
+        h6 asdfsfsdkjhfsidfhskldfhsk
+        
+    #contents-brand
+      #brand-list.col-xs-6
+        center
+          img(src="./images/main_1.jpg" width="100%;")
+        h6 asdfsfsdkjhfsidfhskldfhsk
+      #brand-list.col-xs-6
+        img(src="./images/main_1.jpg" width="100%;")
+        h6 asdfsfsdkjhfsidfhskldfhsk
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(type='text/javascript').
+      var count=1;
+      function change_(num){
+        var copy_count=count;
+        var before_active;
+        var before_tab;
+        var after_active;
+        var after_tab;
+        count=num;
+        if(copy_count == 1){
+          before_active = "activity-brand"
+          before_tab = "brand_activity"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderColor="#ffffff";
+        }
+        else if(copy_count==2){
+          before_active = "contents-brand"
+          before_tab = "brand_contents"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderColor="#ffffff";
+        }
+        if(count == 1){
+          after_active = "activity-brand"
+          after_tab = "brand_activity"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderColor="#ffa800";
+        }
+        else if(count==2){
+          after_active = "contents-brand"
+          after_tab = "brand_contents"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderColor="#ffa800";
+        }
+      }
+      function like(num){
+        var like_id=$("#like");
+        if(like_id.className == "like"){
+          $.ajax({
+            type: "POST",
+            url: '/brand_like',
+            data: {command: "delete", brandNo: num},
+            success: function() {
+              like_id.className = "non_activated";
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/brand_like',
+            data: {command: "insert", brandNo: num},
+            success: function() {
+              like_id.className = "like";
+            }
+          });
+        }
+      }

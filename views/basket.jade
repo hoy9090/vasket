@@ -2,61 +2,95 @@ extends layout
 
 block style
   style(type='text/css').
-    #box1 {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
-    #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px;}
-    #box1_1 {background-color: #ffffff; width: 100%; padding-top: 9px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;margin-bottom: 13px; }
-    table tr td {text-align: right;}
+    body {background-color:#ffffff;}
+    #basket {background-color: #ffffff; padding-top: 10px; padding-left: left;width: 100%;margin-bottom: 15px; border-width:1px;border-color:#bbbbbb; border-style:solid; padding-bottom:10px;}
+    
+    
     button.btn {width: 100%;}
-    table {border: solid; border-color:#A6A6A6;border-width: 1px;}
-    #right { padding-top: 20px; padding-right: 10px;}
-    #hr {margin-top: -20px;}
+    table#table1 {border: solid; border-color:#A6A6A6;border-width: 1px; margin-top:10px; margin-left:0px;width:70px;}
+    table#table2 {width:170px;border: solid; border-color:#A6A6A6;border-width: 0px; margin-top:10px;background-color:#d5d5d5;}
+    table#table3 {font-size:80%; text-align:center; margin-top:10px;}
+    #footer { position:fixed; bottom:5px; right:0px;left:0px; background-color:#ffffff;  border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px;text-align:center;}
+    #footer h5 {font-weight:bold; color:#ffa800;}
+    #t1 {background-color:#ffffff; font-weight:bold; color:#747474; width:25px;text-align:center;}
+    #t2 {background-color:#ffffff; font-weight:bold; color:#000000; width:25px;text-align:center;}
+    #t3 {background-color:#ffffff; font-weight:bold; color:#747474;width:25px;text-align:center;}
+    #t4 {background-color:#ffffff; font-weight:bold; color:#747474;width:25px;text-align:center;}
 
 block content
   p 장바구니는 최대 60일간 보관되며, 딜종료시 사라집니다.
   form.form-inline
-    input(type='checkbox')
-    |  전체선택
-    #box1_1.col-xs-12
+    #basket.col-xs-12
       .row
-        .col-xs-1
-          input(type='checkbox')
-        .col-xs-2
-          img(src='/images/basic.jpg', width='60px;')
+        .col-xs-3
+           img(src="/images/basic.jpg" width="70px; margin-left:-10px;")
         .col-xs-7
-          h5 상품 소개란!! 특가!!
-          h6
-            red 0$
-          br
-        #right.col-xs-2
-          span.glyphicon.glyphicon-chevron-right
-      #hr.col-xs-12
-        hr
-      .col-xs-12
-        table.table
-          thead
-            tr
-              th 상품합계
-          tr
-            td
-              red 0$
-      br
-    #box1.col-xs-12
-      .col-xs-12
-        h5 결제금액
-    #box1.col-xs-12
-      .col-xs-11
-        p 주문금액
-      .col-xs-1
-        p 0$
-      .col-xs-11
-        p 배송비
-      .col-xs-1
-        p 0$
-    #box1_.col-xs-12
-      .col-xs-11
-        h4
-          red 결제예정금액
-      .col-xs-1
-        h4
-          red 0$
-    button.btn.btn-danger(type='submit') 구매하기
+           h6 상품설명구간
+        .col-xs-2
+          span.glyphicon.glyphicon-remove(style="float:right;")
+      .row
+        .col-xs-3
+          center
+            table#table1
+              tr
+                td#t1(onclick="Minus();").
+                  <span class="glyphicon glyphicon-minus">
+                td#t2 1
+                td#t3(onclick="Plus();").
+                  <span class="glyphicon glyphicon-plus">
+            table#table3
+              tr
+                td 총 할인금액
+              tr
+                td 0$
+        .col-xs-9
+          center
+            table#table2
+              tr
+                td#t4 SNS 공유
+                td#t4.
+                  <input type="checkbox">
+                td#t4 0$
+              tr
+                td#t4 A/S 불가
+                td#t4.
+                  <input type="checkbox">
+                td#t4 0$
+              tr
+                td#t4 반품 불가
+                td#t4.
+                  <input type="checkbox">
+                td#t4 0$
+      
+    #footer.col-xs-12
+      .row
+        .col-xs-6
+          h6 상품 금액
+        .col-xs-6
+          h6 0$
+      .row
+        .col-xs-6
+          h5 할인 금액
+        .col-xs-6
+          h5 0$
+      .row
+        .col-xs-6
+          h6 결제 금액
+        .col-xs-6
+          h6 0$
+      button.btn.btn-danger(type='submit') 구매하기
+
+block script_content
+  script.
+    var goodnum=1;
+    function Minus(){
+      if(goodnum>1){
+        goodnum = goodnum -1;
+        document.getElementById("t2").innerHTML=goodnum;
+      }
+    }
+    function Plus(){
+      goodnum = goodnum +1;
+      document.getElementById("t2").innerHTML=goodnum;
+      
+    }
