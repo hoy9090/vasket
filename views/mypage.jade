@@ -33,7 +33,7 @@ block content
       h5(style='float:left;') MY 브랜드
       span.glyphicon.glyphicon-chevron-down
     #myBrandList.col-xs-12
-      if (result)
+      if (result.length)
         - console.log(result);
         each val in result
           .row(onClick='location.href="/brand?brandNo=#{val.brandNo}";')
