@@ -30,7 +30,7 @@ html
     #nav.col-xs-12
       .row
         .col-xs-2
-          a(href='/service')
+          a(href='javascript:goBack();');
             span.glyphicon.glyphicon-arrow-left
         .col-xs-2
           img(src="./images/Nike-logo.png" width="45px;")
@@ -119,4 +119,16 @@ html
             }
           });
         }
+      }
+      String.prototype.endsWith = function(str)
+      {
+          var lastIndex = this.lastIndexOf(str);
+          return (lastIndex !== -1) && (lastIndex + str.length === this.length);
+      };
+
+      function goBack(){
+        if (document.referrer.endsWith("service"))
+          location.href = '/service';
+        else
+          history.back();
       }
