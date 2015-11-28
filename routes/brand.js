@@ -12,16 +12,17 @@ router.get('/', function(req, res, next) {
 	if (!req.session.userid)
 		res.redirect('/');
 	else {
+		var brandNo = req.query.brandNo;
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select brandName brand from brand where brandNo='+req.body.brandNo,
+			connection.query('select brandName brand from brand where brandNo='+brandNo,
 				function(err, result, field) {
 				if (err) {
 					console.error(err);
 					return;
 				}
 				var brand = result[0].brand;
-				connection.query('select count(*) like from brandLikeList where brandNo='+req.body.brandNo+'and userNo='+req.session.userNo,
+				connection.query('select count(*) like from brandLikeList where brandNo='+brandNo+'and userNo='+req.session.userNo,
 					function(err, result, field) {
 						if (err) {
 							console.error(err);
