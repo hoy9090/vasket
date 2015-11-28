@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 					return;
 				}
 				var brand = result[0].brand;
-				connection.query('select count(*) as like from brandLikeList where brandNo='+brandNo+' and userNo='+req.session.userNo,
+				connection.query('select count(*) as "like" from brandLikeList where brandNo='+brandNo+' and userNo='+req.session.userNo,
 					function(err, result, field) {
 						if (err) {
 							console.error(err);
