@@ -103,7 +103,7 @@ html
           $.ajax({
             type: "POST",
             url: '/brand_like',
-            data: {command: "delete", brandNo: brandNo},
+            data: {command: "delete", brandNo: #{brandNo}},
             success: function() {
               like_id.className = "non_activated";
             }
@@ -113,7 +113,7 @@ html
          $.ajax({
             type: "POST",
             url: '/brand_like',
-            data: {command: "insert", brandNo: brandNo},
+            data: {command: "insert", brandNo: #{brandNo}},
             success: function() {
               like_id.className = "like";
             }
