@@ -97,8 +97,8 @@ html
           document.getElementById(after_tab).style.borderColor="#ffa800";
         }
       }
-      function like(num){
-        var like_id=$("#like");
+      function like(){
+        var like_id=document.getElementById("like");
         if(like_id.className == "like"){
           $.ajax({
             type: "POST",
