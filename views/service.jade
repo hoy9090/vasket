@@ -39,9 +39,9 @@ block content
 			each val in brand
 				#brand-list.col-xs-12
 					.row
-						.col-xs-2
+						.col-xs-2(onclick="location.href='/brand?brandNo=#{val.brandNo}';")
 							img(src="./images/Nike-logo.png" width="45px;")
-						.col-xs-6
+						.col-xs-6(onclick="location.href='/brand?brandNo=#{val.brandNo}';")
 							h6= val.brandName
 						.col-xs-4
 							p.non_activated(id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
