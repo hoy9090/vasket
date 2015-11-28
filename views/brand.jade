@@ -129,6 +129,8 @@ html
       function goBack(){
         if (document.referrer.endsWith("service"))
           location.href = '/service';
+        else if (document.referrer.endsWith("mypage"))
+          location.href = '/mypage';
         else
           history.back();
       }
