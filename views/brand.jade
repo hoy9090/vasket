@@ -73,26 +73,26 @@ html
         var after_tab;
         count=num;
         if(copy_count == 1){
-          before_active = "activity-brand"
-          before_tab = "brand_activity"
+          before_active = "activity-brand";
+          before_tab = "brand-activity";
           document.getElementById(before_active).style.display="none";
           document.getElementById(before_tab).style.borderColor="#ffffff";
         }
         else if(copy_count==2){
-          before_active = "contents-brand"
-          before_tab = "brand_contents"
+          before_active = "contents-brand";
+          before_tab = "brand-contents";
           document.getElementById(before_active).style.display="none";
           document.getElementById(before_tab).style.borderColor="#ffffff";
         }
         if(count == 1){
-          after_active = "activity-brand"
-          after_tab = "brand_activity"
+          after_active = "activity-brand";
+          after_tab = "brand-activity";
           document.getElementById(after_active).style.display="block";
           document.getElementById(after_tab).style.borderColor="#ffa800";
         }
         else if(count==2){
-          after_active = "contents-brand"
-          after_tab = "brand_contents"
+          after_active = "contents-brand";
+          after_tab = "brand-contents";
           document.getElementById(after_active).style.display="block";
           document.getElementById(after_tab).style.borderColor="#ffa800";
         }
@@ -103,7 +103,7 @@ html
           $.ajax({
             type: "POST",
             url: '/brand_like',
-            data: {command: "delete", brandNo: num},
+            data: {command: "delete", brandNo: brandNo},
             success: function() {
               like_id.className = "non_activated";
             }
@@ -113,7 +113,7 @@ html
          $.ajax({
             type: "POST",
             url: '/brand_like',
-            data: {command: "insert", brandNo: num},
+            data: {command: "insert", brandNo: brandNo},
             success: function() {
               like_id.className = "like";
             }
