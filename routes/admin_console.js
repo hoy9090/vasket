@@ -19,7 +19,7 @@ router.post('/', function(req, res, next) {
 						return;
 					}
 					var user = result;
-					connection.query('select productName name, productNo no, brand.brandName brand, productPrice price, productState state, productComment comment from productlist left outer join brand where productlist.brandNo=brand.brandNo',
+					connection.query('select productName name, productNo no, brand.brandName brand, productPrice price, productState state, productComment comment from productlist left outer join brand on (productlist.brandNo=brand.brandNo)',
 						function(err, result, field) {
 							if (err) {
 								console.error(err);
