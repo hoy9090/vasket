@@ -1,0 +1,182 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Vasket! :: 관리자 콘솔
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body {padding-top:20px;}
+      #admin-table td { width:100px; color:#000000;}
+      #admin-table {width:900px; border-style:solid; border-width:0px; border-bottom-width:1px; border-color:#d5d5d5; text-align:center; font-weight:bold; margin-bottom:20px;}
+      #tb-1 {width:900px;border-style:solid; border-width:1px; border-bottom-width:1px; border-color:#333333;}
+      #tb-1 th {width:100px; text-align:center;border-style:solid; border-width:1px;border-color:#333333;}
+      #tb-1 td {border-style:solid; border-width:1px;border-color:#333333;}
+      #table1 {display:block;}
+      #tb-2 {width:900px;border-style:solid; border-width:1px; border-bottom-width:1px; border-color:#333333;}
+      #tb-2 th {width:100px; text-align:center;border-style:solid; border-width:1px;border-color:#333333;}
+      #tb-2 td {border-style:solid; border-width:1px;border-color:#333333;}
+      #table2 {display:none;}
+      #ad1 {border-width:1px; border-color:#d5d5d5; border-style:solid;}
+      #ad2 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad3 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad4 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad5 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad6 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad7 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+  body
+    center
+      table#admin-table
+        tr
+          td#ad1.
+            <a onclick="openTable(1);">고객 관리</a>
+          td#ad2.
+            <a onclick="openTable(2);">상품 관리</a>
+          td#ad3.
+            <a onclick="openTable(3);">주문 관리</a>
+          td#ad4.
+            <a onclick="openTable(4);">배송 관리</a>
+          td#ad5.
+            <a onclick="openTable(5);">제휴사 관리</a>
+          td#ad6.
+            <a onclick="openTable(6);">게시판 관리</a>
+          td#ad7.
+            <a onclick="openTable(7);">정산</a>
+    center
+      #table1
+        table#tb-1
+          thead
+            th 이름
+            th ID
+            th 가입일
+            th 이메일
+            th 회원등급
+          each val in user
+            tr
+              td= val.name
+              td= val.id
+              td= val.date
+              td= val.email
+              td 일반
+      #table2
+        table#tb-2
+          thead
+            th 상품명
+            th 상품코드
+            th 브랜드
+            th 원가
+            th 수량
+            th 최대할인율
+            th 판매상태
+            th 홍보 문구
+          each val in product
+            tr
+              td= val.name
+              td= val.no
+              td= val.brand
+              td= val.price
+              td 0
+              td= val.state
+              td= val.comment
+
+    script.
+      var count=1;
+      function openTable(num){
+        var copy_count=count;
+        var before_active;
+        var before_tab;
+        var after_active;
+        var after_tab;
+        count=num;
+        if(copy_count == 1){
+          before_active = "table1"
+          before_tab = "ad1"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else if(copy_count == 2){
+          before_active = "table2"
+          before_tab = "ad2"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else if(copy_count == 3){
+          before_active = "table3"
+          before_tab = "ad3"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else if(copy_count == 4){
+          before_active = "table4"
+          before_tab = "ad4"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else if(copy_count == 5){
+          before_active = "table5"
+          before_tab = "ad5"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else if(copy_count == 6){
+          before_active = "table6"
+          before_tab = "ad6"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else{
+          before_active = "table7"
+          before_tab = "ad7"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        if(count == 1){
+          after_active = "table1"
+          after_tab = "ad1"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else if(count == 2){
+          after_active = "table2"
+          after_tab = "ad2"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else if(count == 3){
+          after_active = "table3"
+          after_tab = "ad3"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else if(count == 4){
+          after_active = "table4"
+          after_tab = "ad4"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else if(count == 5){
+          after_active = "table5"
+          after_tab = "ad5"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else if(count == 6){
+          after_active = "table6"
+          after_tab = "ad6"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else{
+          after_active = "table7"
+          after_tab = "ad7"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+      }
+
