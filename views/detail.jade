@@ -9,87 +9,80 @@ block style
     .nav-pills {clear: both;}
     .nav-pills li {width: 32%; background-color: #d7d7d7;}
     #secC {padding-right: 10px;}
+    .bs-example {background-color:#ffffff; width:100%; padding-top:10px;}
+    
 block content
   .container
     .col-xs-12.contents
-      .col-xs-4
-        p 브랜드 로고
-      .col-xs-8
-        h4 브랜드명
-        p 브랜드 설명
-    .bs-example
-      ul.nav.nav-tabs
+      .row
+        .col-xs-2
+          img(src="./images/Nike-logo.png" width="45px;" style="margin-top:8px;")
+        .col-xs-6
+          h4(style="margin-top:15px;") 브랜드명
+        .col-xs-4
+          p#like(onclick="like();") 즐겨찾기
+    h5(style="font-weight:bold; margin-top:10px;") 상품구매
+    .bs-example.col-xs-12     
+      .row
+        #detail-product.col-xs-6
+          img(src='/images/basic.jpg', width='100%')
+        #detail-product.col-xs-6
+          h5 상품 이름
+          h6 상품 가격
+          button.btn.btn-default(style="margin-top:10px;") 추가할인
+      br
+      br
+      ul.nav.nav-pills
         li.active
-          a(data-toggle='tab', href='#sectionA') 컨텐츠
+          a(data-toggle='tab', href='#secA') 상세페이지
         li
-          a(data-toggle='tab', href='#sectionB') 상품구매
+          a(data-toggle='tab', href='#secB') 상품 안내
+        li
+          a(data-toggle='tab', href='#secC') 댓글
       .tab-content
-        #sectionA.tab-pane.fade.in.active
-          h3 컨텐츠
+        #secA.tab-pane.fade.in.active
+          h3 상세페이지
           p
-            | Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui. Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.
-        #sectionB.tab-pane.fade
-          h3 상품구매
-          #detail-product.col-xs-6
-            img(src='/images/basic.jpg', width='100%')
-          #detail-product.col-xs-6
-            h5  Lucky Box!!
-            br
-            br
-            button.btn.btn-default Event Go!
+        #secB.tab-pane.fade
+          h3 상품 안내
+          p
+        #secC.tab-pane.fade
+          h3 댓글
+          form(role='form', action='/reg_comment', method='post')
+            .form-group
+              textarea.form-control(rows='3', placeholder='댓글을 입력하세요', maxlength='100', name='content')
+            .form-group(align='right')
+              button.btn.btn-default(type='submit') 댓글 입력
           br
-          br
-          ul.nav.nav-pills
-            li.active
-              a(data-toggle='tab', href='#secA') 상세페이지
-            li
-              a(data-toggle='tab', href='#secB') 상품 안내
-            li
-              a(data-toggle='tab', href='#secC') 댓글
-          .tab-content
-            #secA.tab-pane.fade.in.active
-              h3 상세페이지
-              p
-            #secB.tab-pane.fade
-              h3 상품 안내
-              p
-            #secC.tab-pane.fade
-              h3 댓글
-              form(role='form', action='/reg_comment', method='post')
-                .form-group
-                  textarea.form-control(rows='3', placeholder='댓글을 입력하세요', maxlength='100', name='content')
-                .form-group(align='right')
-                  button.btn.btn-default(type='submit') 댓글 입력
-              br
-              table.table
-                thead
-                  th 댓글 목록
-                tbody
-                  each val in result
-                    tr
-                      td
-                        p(style='display:inline;')!= '<b>'+val.email+'</b>'
-                        p(style='float:right; font-size:10px; font-color:#A6A6A6;')= val.date
-                        p= val.content
-                tfoot
-                  tr
-                    td(style='text-align: center')
-                      - var listCount = 5;
-                      - var pageCount = Math.ceil(count / listCount);
-                      - var currentPage;
-                      - if (pageNo) {
-                      -   currentPage = pageNo;
-                      - } else {
-                      -   pageNo = currentPage = 1;
-                      - }
-                      - console.log(currentPage);
-                      - for (var page = 1; page <= pageCount; page++) {
-                      -   if (currentPage == page)    
-                            b #{page}
-                      -   else
-                            a(href ='/detail?pageNo=#{page}#secC') #{page}
-                          =' '
-                      - }
+          table.table
+            thead
+              th 댓글 목록
+            tbody
+              each val in result
+                tr
+                  td
+                    p(style='display:inline;')!= '<b>'+val.email+'</b>'
+                    p(style='float:right; font-size:10px; font-color:#A6A6A6;')= val.date
+                    p= val.content
+            tfoot
+              tr
+                td(style='text-align: center')
+                  - var listCount = 5;
+                  - var pageCount = Math.ceil(count / listCount);
+                  - var currentPage;
+                  - if (pageNo) {
+                  -   currentPage = pageNo;
+                  - } else {
+                  -   pageNo = currentPage = 1;
+                  - }
+                  - console.log(currentPage);
+                  - for (var page = 1; page <= pageCount; page++) {
+                  -   if (currentPage == page)    
+                        b #{page}
+                  -   else
+                        a(href ='/detail?pageNo=#{page}#secC') #{page}
+                      =' '
+                  - }
                     
 block script_content
   script.
