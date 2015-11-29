@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 			}
 			console.log('DB Service Connection Success!!');
 			connection.query('use vasket');
-			connection.query('select brandNo, brandName, brandContent from brand', function(err, result, field) {
+			connection.query('select brandNo, brandName, brandContent, brandImageName image from brand', function(err, result, field) {
 				if (err) {
 					console.error(err);
 					return;

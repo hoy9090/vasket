@@ -15,13 +15,14 @@ router.get('/', function(req, res, next) {
 		var brandNo = req.query.brandNo;
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select brandName brand from brand where brandNo='+brandNo,
+			connection.query('select brandName brand, brandImageName image from brand where brandNo='+brandNo,
 				function(err, result, field) {
 				if (err) {
 					console.error(err);
 					return;
 				}
 				var brand = result[0].brand;
+				var image = result[0].image;
 				connection.query('select count(*) as "like" from brandLikeList where brandNo='+brandNo+' and userNo='+req.session.userNo,
 					function(err, result, field) {
 						if (err) {
@@ -29,7 +30,7 @@ router.get('/', function(req, res, next) {
 							return;
 						}
 						connection.release();
-						res.render('brand', {brand: brand, like: result[0].like, brandNo: brandNo});
+						res.render('brand', {brand: brand, like: result[0].like, brandNo: brandNo, image: image});
 					});
 			});
 		});
