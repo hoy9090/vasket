@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 						return;
 					}
 					var brandLike = result;
-					connection.query('select productNo from productlist', function(err, result, field) {
+					connection.query('select productNo, productName, productPrice from productlist', function(err, result, field) {
 						if (err) {
 							console.error(err);
 							return;
