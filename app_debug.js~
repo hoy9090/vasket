@@ -44,8 +44,7 @@ var options = {
 var app = express();
 
 // view engine setup
-app.set('port1', 3000);
-app.set('port2', 3030);
+app.set('port', 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
