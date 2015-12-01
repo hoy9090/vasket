@@ -25,10 +25,10 @@ block content
     .bs-example.col-xs-12     
       .row
         #detail-product.col-xs-6
-          img(src='/images/basic.jpg', width='100%')
+          img(src='/images/product_image/#{productNo}/main.jpg', width='100%')
         #detail-product.col-xs-6
-          h5= product.productName
-          h6 #{product.productPrice} 원
+          h5= product[0].productName
+          h6 #{product[0].productPrice} 원
           button.btn.btn-default(style="margin-top:10px;") 추가할인
       br
       br
@@ -79,7 +79,7 @@ block content
                   -   if (currentPage == page)    
                         b #{page}
                   -   else
-                        a(href ='/detail?pageNo=#{page}#secC') #{page}
+                        a(href ='/detail?productNo=#{productNo}&pageNo=#{page}#secC') #{page}
                       =' '
                   - }
                     
