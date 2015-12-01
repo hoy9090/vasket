@@ -27,8 +27,8 @@ block content
         #detail-product.col-xs-6
           img(src='/images/basic.jpg', width='100%')
         #detail-product.col-xs-6
-          h5 상품 이름
-          h6 상품 가격
+          h5= product.productName
+          h6 #{product.productPrice} 원
           button.btn.btn-default(style="margin-top:10px;") 추가할인
       br
       br
@@ -41,8 +41,7 @@ block content
           a(data-toggle='tab', href='#secC') 댓글
       .tab-content
         #secA.tab-pane.fade.in.active
-          h3 상세페이지
-          p
+          img(src='./images/product_image/#{productNo}/detail.jpeg' width='100%')
         #secB.tab-pane.fade
           h3 상품 안내
           p
