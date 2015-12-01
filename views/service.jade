@@ -61,11 +61,11 @@ block content
 			.col-xs-12
 	#discount-con
 		each val in product
-			#discount-list.col-xs-12
-				a(href='/detail?productNo=#{val.productNo}')
+			a(href='/detail?productNo=#{val.productNo}')
+				#discount-list.col-xs-12
 					img(src="./images/product_image/#{val.productNo}/main.jpg" width="100%;")
-					h5= val.productName
-					h6(style='float: right;')= val.productPrice
+					h5(style='font-size: 200%;')= val.productName
+					h6(style='font-size: 150%; float: right;') #{val.productPrice} 원
 
 block script_content
 	script.
