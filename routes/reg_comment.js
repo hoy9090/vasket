@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 					return;
 				}
 				connection.release();
-				res.redirect('/detail#secC');
+				res.redirect('/detail?productNo='+req.body.productNo+'#secC');
 			});
 		});
 });
