@@ -25,10 +25,10 @@ block content
     .bs-example.col-xs-12     
       .row
         #detail-product.col-xs-6
-          img(src='/images/basic.jpg', width='100%')
+          img(src='/images/product_image/#{productNo}/main.jpg', width='100%')
         #detail-product.col-xs-6
-          h5 상품 이름
-          h6 상품 가격
+          h5= product[0].productName
+          h6 #{product[0].productPrice} 원
           button.btn.btn-default(style="margin-top:10px;") 추가할인
       br
       br
@@ -41,14 +41,14 @@ block content
           a(data-toggle='tab', href='#secC') 댓글
       .tab-content
         #secA.tab-pane.fade.in.active
-          h3 상세페이지
-          p
+          img(src='./images/product_image/#{productNo}/detail.jpeg' width='100%')
         #secB.tab-pane.fade
           h3 상품 안내
           p
         #secC.tab-pane.fade
           h3 댓글
           form(role='form', action='/reg_comment', method='post')
+            input(type='hidden' name='productNo' value='#{productNo}')
             .form-group
               textarea.form-control(rows='3', placeholder='댓글을 입력하세요', maxlength='100', name='content')
             .form-group(align='right')
@@ -80,7 +80,7 @@ block content
                   -   if (currentPage == page)    
                         b #{page}
                   -   else
-                        a(href ='/detail?pageNo=#{page}#secC') #{page}
+                        a(href ='/detail?productNo=#{productNo}&pageNo=#{page}#secC') #{page}
                       =' '
                   - }
                     
