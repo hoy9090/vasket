@@ -59,11 +59,12 @@ block content
 			.col-xs-12
 				img(src="./images/main_1.jpg" width="100%;")
 			.col-xs-12
-	#discount-con.col-xs-12
+	#discount-con
 		#discount-list.col-xs-12
-			.col-xs-12
-				img(src="./images/main_1.jpg" width="100%;")
-			.col-xs-12
+			each val in product
+				a(href='/detail?productNo=#{val.productNo}')
+					.col-xs-12
+						img(src="./images/product_image/#{val.productNo}/main.jpg" width="100%;")
 
 block script_content
 	script.

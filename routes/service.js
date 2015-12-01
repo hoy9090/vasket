@@ -29,8 +29,14 @@ router.get('/', function(req, res, next) {
 						return;
 					}
 					var brandLike = result;
-					connection.release();
-					res.render('service', {brand: brand, brandLike: brandLike});	
+					connection.query('select productNo from productlist', function(err, result, field) {
+						if (err) {
+							console.error(err);
+							return;
+						}
+						connection.release();
+						res.render('service', {brand: brand, brandLike: brandLike, product: result});	
+					});
 				});
 			});
 		});
