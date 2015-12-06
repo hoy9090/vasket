@@ -37,12 +37,20 @@ html
       #tb-7 {width:900px;border-style:solid; border-width:1px; border-bottom-width:1px; border-color:#333333;}
       #tb-7 th {width:100px; text-align:center;border-style:solid; border-width:1px;border-color:#333333;}
       #tb-7 td {border-style:solid; border-width:1px;border-color:#333333;}
+      #tb-8 {width:900px;border-style:solid; border-width:1px; border-bottom-width:1px; border-color:#333333;}
+      #tb-8 th {width:100px; text-align:center;border-style:solid; border-width:1px;border-color:#333333;}
+      #tb-8 td {border-style:solid; border-width:1px;border-color:#333333;}
+      #tb-9 {width:900px;border-style:solid; border-width:1px; border-bottom-width:1px; border-color:#333333;}
+      #tb-9 th {width:100px; text-align:center;border-style:solid; border-width:1px;border-color:#333333;}
+      #tb-9 td {border-style:solid; border-width:1px;border-color:#333333;}
       #table2 {display:none;}
       #table3 {display:none;}
       #table4 {display:none;}
       #table5 {display:none;}
       #table6 {display:none;}
       #table7 {display:none;}
+      #table8 {display:none;}
+      #table9 {display:none;}
       #ad1 {border-width:1px; border-color:#d5d5d5; border-style:solid;}
       #ad2 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
       #ad3 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
@@ -50,6 +58,8 @@ html
       #ad5 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
       #ad6 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
       #ad7 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad8 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
+      #ad9 {border-width:0px; border-color:#d5d5d5; border-style:solid;}
   body
     center
       table#admin-table
@@ -67,7 +77,11 @@ html
           td#ad6.
             <a onclick="openTable(6);">게시판 관리</a>
           td#ad7.
-            <a onclick="openTable(7);">정산</a>
+            <a onclick="openTable(7);">컨텐츠 관리</a>
+          td#ad8.
+            <a onclick="openTable(8);">브랜드 관리</a>
+          td#ad9.
+            <a onclick="openTable(9);">정산</a>
     center
       #table1
         table#tb-1
@@ -95,6 +109,7 @@ html
             th 최대할인율
             th 판매상태
             th 홍보 문구
+            th 수정
           each val in product
             tr
               td= val.name
@@ -105,6 +120,8 @@ html
               td 0
               td= val.state
               td= val.comment
+              td.
+                <button onclick="location.href=''"> 수정</button>
       #table3
         table#tb-3
           thead
@@ -123,6 +140,18 @@ html
             td 6
       #table4
         table#tb-4
+          thead
+            th 수령고객
+            th 주문상품
+            th 수량
+            th 배송상태
+            th 배송지
+          tr
+            td 1
+            td 2
+            td 3
+            td 4
+            td 5
 
       #table5
         table#tb-5
@@ -146,10 +175,66 @@ html
 
       #table6
         table#tb-6
+          thead
+            th 고객명    
+            th 카테고리
+            th 게시일
+            th 게시내용
+            th 답변상태
+          tr
+            td 1
+            td 2
+            td 3
+            td 4
+            td 5
 
       #table7
         table#tb-7
-
+          thead
+            th 컨텐츠제목
+            th 컨텐츠내용 
+            th 브랜드                                                                                                                  
+            th 컨텐츠코드
+            th 수정
+          tr
+            td 1
+            td 2
+            td 3
+            td 4
+            td.
+                <button onclick="location.href=''"> 수정</button>
+      #table8
+        table#tb-8
+          thead
+            th 브랜드이름
+            th 브랜드국적
+            th 브랜드소개 
+            th 브랜드카테고리
+          tr
+            td 1
+            td 2
+            td 3
+            td 4
+      #table9
+        table#tb-9
+          thead
+            th 업체명
+            th 업체종류
+            th 업체주소 
+            th 담당자명
+            th 담당자 연락처
+            th 담당자 이메일
+            th 제휴양식파일
+          tr
+            td 1
+            td 2
+            td 3
+            td 4
+            td 5
+            td 6
+            td 7
+      button 상품등록
+      button 컨텐츠등록
     script.
       var count=1;
       function openTable(num){
@@ -195,9 +280,21 @@ html
           document.getElementById(before_active).style.display="none";
           document.getElementById(before_tab).style.borderWidth="0px";
         }
-        else{
+        else if(copy_count == 7){
           before_active = "table7"
           before_tab = "ad7"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else if(copy_count == 8){
+          before_active = "table8"
+          before_tab = "ad8"
+          document.getElementById(before_active).style.display="none";
+          document.getElementById(before_tab).style.borderWidth="0px";
+        }
+        else{
+          before_active = "table9"
+          before_tab = "ad9"
           document.getElementById(before_active).style.display="none";
           document.getElementById(before_tab).style.borderWidth="0px";
         }
@@ -237,11 +334,24 @@ html
           document.getElementById(after_active).style.display="block";
           document.getElementById(after_tab).style.borderWidth="1px";
         }
-        else{
+        else if(count == 7){
           after_active = "table7"
           after_tab = "ad7"
           document.getElementById(after_active).style.display="block";
           document.getElementById(after_tab).style.borderWidth="1px";
         }
+        else if(count == 8){
+          after_active = "table8"
+          after_tab = "ad8"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+        else{
+          after_active = "table9"
+          after_tab = "ad9"
+          document.getElementById(after_active).style.display="block";
+          document.getElementById(after_tab).style.borderWidth="1px";
+        }
+
       }
 
