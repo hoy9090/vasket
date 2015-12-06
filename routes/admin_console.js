@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var pool = mysql.createPool({
-	host: 'vasket.co.kr',
+	host: 'localhost',
 	user: 'root',
 	password: '1012'
 });
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-	if (req.body.id == 'vasket_admin' && req.body.pw == 'vasket20151012') {
+	if (req.body.id == 'vasket_admin' && req.body.pw == '20151012') {
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
 			connection.query('select userName name, userID id, joindate date, email from user',
