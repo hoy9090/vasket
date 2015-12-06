@@ -94,7 +94,7 @@ app.use('/brand', brand);
 app.use('/admin', admin);
 app.use('/admin_console', admin_console);
 app.use('/contact_info', contact_info);
-app.use('/reg_partner');
+app.use('/reg_partner', reg_partner);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
