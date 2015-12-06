@@ -22,6 +22,7 @@ router.post('/',  upload.single('file'), function(req, res, next) {
 	var homepage = req.body.homepage;
 	console.log(homepage);
 	console.log('aaa');
+	console.log(req.file);
 	var file = req.file;
 	console.log('bbb');
 	var content = req.body.content;
