@@ -7,8 +7,33 @@ block style
 		th {width:200px; background-color:#f6f6f6; padding-top:4px;padding-bottom:4px;text-align:center;border-style:solid; border-width:1px; border-color:#d5d5d5;}
 		td {width:300px; background-color:#ffffff; padding-top:4px;padding-bottom:4px; padding-left:5px; border-style:solid; border-width:1px; border-color:#d5d5d5;}
 		.red {color:#b70000}
+		#btn1 {margin-top:20px; margin-bottom:20px; width:200px;}
+		#agreement { border-color:#d5d5d5; border-style:solid; border-width:1px; width:1000px; text-align:left; padding-top:10px; padding-bottom:10px; padding-left:10px;}
+		#agreement2 {width:1000px; text-align:left;}
 block content
 	center
+		img(src="/images/contact.jpg" width="1000px")
+		h5(style="font-weight:bold") 제휴문의 및 상담신청을 위한 정보 수집 동의
+		#agreement
+			p ㈜바스켓(이하 “회사”라 함)는 개인정보보호법, 정보통신망 이용촉진 및 정보보호 등에 관한 법률등 관련 법령상의 개인정보보호 규정을 준수하며, 바스켓 파트너의 개인정보 보호에 최선을 다하고 있습니다.
+			p(style="font-weight:bold") 1. 개인정보 수집 및 이용주체
+			p 제휴문의 및 상담신청을 통해 제공하신 정보는 “회사”가 직접 접수하고 관리합니다.
+			p 수집정보는 담당자 이외에는 권한 없이 열람할 수 없습니다.
+			p(style="font-weight:bold") 2. 동의를 거부할 권리 및 동의 거부에 따른 불이익
+			p 신청자는 개인정보제공 등에 관해 동의하지 않을 권리가 있습니다.
+			p 다만 이 경우 제휴문의 및 상담신청이 불가능합니다.
+			p(style="font-weight:bold") 3. 수집하는 개인정보 항목
+			p 신청자의 업체명, 업체주소, 담당자명, 담당자 연락처, 담당자 이메일 등 제휴문의 진행을 위한 사항
+			p(style="font-weight:bold") 4. 수집 및 이용목적
+			p 제휴사 검토, 공지사항의 전달 등
+			p(style="font-weight:bold") 5. 보유기간 및 이용기간
+			p 수집된 정보는 제휴문의 및 상담서비스가 종료되는 시점까지 보관됩니다.
+		#agreement2
+			p 바스켓은 서비스 제공을 위하여 필요한 개인정보를 최소한으로 수집하고 있으며 서비스 제공에 필요한 최소한의 정보 이 외의 개인정보 수집에 대하여는 동의하지 않을 수 있습니다. 단, 정보 제공을 거부하는 경우 해당 정보가 필요한 일부 서비스의 제공이 제한될 수 있습니다
+			input(type="checkbox" style="float:left;")
+			p(style="font-weight:bold") 제휴문의 및 상담신청을 위한 개인정보를 수집하는데 동의합니다
+
+
 		form(action='/reg_contact' method='post')
 			table()
 				tr
@@ -69,3 +94,5 @@ block content
 					th 제휴문의
 					td(colspan="3").
 						<textarea rows="5" style="width:800px;max-width:800px;"></textarea>
+
+			button#btn1.btn.btn-warning(type="submit") 문의하기
