@@ -118,3 +118,9 @@ block content
 						<textarea rows="5" style="width:800px;max-width:800px;"></textarea>
 
 			button#btn1.btn.btn-warning(type="submit") 문의하기
+
+block script_content
+	script.
+		document.getElementById("uploadBtn").onchange = function () {
+				document.getElementById("uploadFile").value = this.value;
+		};
