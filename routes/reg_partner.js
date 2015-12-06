@@ -25,7 +25,7 @@ router.post('/',  upload.single('file'), function(req, res, next) {
 	var file = req.file;
 	console.log('bbb');
 	var content = req.body.content;
-	var filePath = path.join(__dirname, 'files', file.name);
+	var filePath = path.join(__dirname, 'files', file.filename);
 	console.log(filePath);
 	fs.readFile(file.path, function(error, data) {
 		if (error)
