@@ -18,7 +18,8 @@ router.post('/', function(req, res, next) {
 					return;
 				}
 				connection.release();
-				res.send({id: 'vasket', pw: '20151012'});
+				req.body.id = 'vasket';
+				req.body.pw = '20151012';
 				res.redirect('/admin_console');
 		});
 	});
