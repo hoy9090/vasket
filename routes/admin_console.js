@@ -21,6 +21,7 @@ router.post('/', function(req, res, next) {
 					var user = result;
 					connection.query('select productName name, productNo no, brand.brandName brand, productPrice price, productInven inven, productState state, productComment comment from productlist left outer join brand on (productlist.brandNo=brand.brandNo)',
 						function(err, result, field) {
+
 							if (err) {
 								console.error(err);
 								return;
