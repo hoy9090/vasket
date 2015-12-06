@@ -19,6 +19,7 @@ router.post('/', function(req, res, next) {
 	var rep_email = req.body.rep_email_1+'@'+req.body.rep_email_2;
 	var homepage = req.body.homepage;
 	console.log('aaa');
+	console.log(req.files);
 	var file = req.files.file;
 	console.log('bbb');
 	var content = req.body.content;
