@@ -20,10 +20,9 @@ router.post('/', function(req, res, next) {
 	var homepage = req.body.homepage;
 	var file = req.files.file;
 	var content = req.body.content;
-
+	var filePath = path.join(__dirname, 'files', file.name);
+	console.log(filePath);
 	fs.readFile(file.path, function(error, data) {
-		var filePath = path.join(__dirname, 'files', file.name);
-		console.log(filePath);
 		if (error)
 			console.log('sex');
 		fs.writeFile(filePath, data, function(error) {
