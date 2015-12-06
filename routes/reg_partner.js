@@ -8,9 +8,11 @@ var pool = mysql.createPool({
 });
 var fs = require('fs');
 var path = require('path');
+var multer  = require('multer');
+var upload = multer({dest: 'files/'});
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
+router.post('/',  upload.single('file'), function(req, res, next) {
 	var name = req.body.name;
 	var type = req.body.type;
 	var addr = req.body.addr;
@@ -20,8 +22,7 @@ router.post('/', function(req, res, next) {
 	var homepage = req.body.homepage;
 	console.log(homepage);
 	console.log('aaa');
-	console.log(req.files);
-	var file = req.files.file;
+	var file = req.file;
 	console.log('bbb');
 	var content = req.body.content;
 	var filePath = path.join(__dirname, 'files', file.name);
