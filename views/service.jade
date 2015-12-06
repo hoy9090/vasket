@@ -21,7 +21,8 @@ block style
 		.like {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
 		.non_activated {font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:7px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
 		#event-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
-		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
+		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;
+		width: 100%; height: 60%;}
 block content
 	.col-xs-12
 		.row
@@ -63,7 +64,7 @@ block content
 		each val in product
 			a(href='/detail?productNo=#{val.productNo}')
 				#discount-list.col-xs-12
-					img(src="./images/product_image/#{val.productNo}/main.jpg" width="100%;" height="60%;")
+					img(src="./images/product_image/#{val.productNo}/main.jpg" width="100%;")
 					h5(style='font-size: 200%;')= val.productName
 					h6(style='font-size: 150%; float: right;') #{val.productPrice} 원
 
