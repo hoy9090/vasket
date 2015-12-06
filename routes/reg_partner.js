@@ -23,6 +23,8 @@ router.post('/', function(req, res, next) {
 
 	fs.readFile(file.path, function(error, data) {
 		var filePath = path.join(__dirname, 'files', file.name);
+		if (error)
+			console.log('sex');
 		fs.writeFile(filePath, data, function(error) {
 			if (error) {
 				throw err;
