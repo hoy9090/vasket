@@ -34,6 +34,7 @@ var brand = require('./routes/brand');
 var admin = require('./routes/admin');
 var admin_console = require('./routes/admin_console');
 var contact_info = require('./routes/contact_info');
+var reg_partner = require('./routes/reg_partner');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -93,6 +94,7 @@ app.use('/brand', brand);
 app.use('/admin', admin);
 app.use('/admin_console', admin_console);
 app.use('/contact_info', contact_info);
+app.use('/reg_partner');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
