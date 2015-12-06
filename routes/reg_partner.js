@@ -27,6 +27,7 @@ router.post('/', function(req, res, next) {
 			console.log('sex');
 		fs.writeFile(filePath, data, function(error) {
 			if (error) {
+				console.log('sex1');
 				throw err;
 			} else {
 				pool.getConnection(function(err, connection) {
