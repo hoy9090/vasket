@@ -87,8 +87,14 @@ block content
 					th 파일첨부
 					td(colspan="3").
 						<p class="red">*제휴양식 다운로드 후 작성하여 파일첨부 부탁드립니다. (파일 미 첨부 시에는 제휴문의가 불가합니다)</p>
-						<button>제휴양식 다운로드</button>
-						<input type="file">
+						<div class="btn">
+							<span>제휴양식 다운로드</span>
+						</div>
+						<div class="btn btn-primary">
+								<span>파일 첨부</span>
+								<input id="uploadBtn" type="file" class="upload" />
+						</div>
+						<input id="uploadFile" placeholder="파일을 첨부하세요" disabled="disabled" />
 				tr
 					th 제휴문의
 					td(colspan="3").
