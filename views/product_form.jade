@@ -20,8 +20,10 @@ html
 						<input type="text" name="code">
 				tr
 					th 브랜드
-					td.
-						<input type="text" name="brand">
+					td
+						select(name="brand")
+							each val in brand
+								option(value="#{val.brandNo}")= val.brandName
 				tr
 					th 원가
 					td.
