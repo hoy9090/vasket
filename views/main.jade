@@ -5,7 +5,6 @@ block style
     #main_img { width: 100%; }
     body{padding-left:0px; padding-right:0px;}
     #event {width:100%; padding-top:13px; padding-bottom:13px;}
-    #about {width: 100%; background-color:#ffffff; ; text-align:center; padding-bottom:10px; padding-top:0px;}
     #con1 h6 {font-size:90%; font-weight:bold;}
     #con1 {color:#505050; background-color:#ffffff; border-style:solid; border-color:#d5d5d5;border-width:1px;}
     #con2 {color:#505050; background-color:#ffffff; border-style:solid; border-color:#d5d5d5;border-width:1px; border-left-width:0px;}
@@ -27,10 +26,8 @@ block style
     #service {position: relative;}
     #about {position: relative;}
     #inner_btn {position: absolute; left: 38%; top: 76%; width: 24%; height: 15%;}
-    #inner_about1 {position: absolute; left: 15%; top: 30%; width: 35%; height: 30%; }
-    #inner_about2 {position: absolute; left: 53%; top: 30%; width: 35%; height: 30%; }
-    #inner_about3 {position: absolute; left: 15%; top: 64%; width: 35%; height: 30%; }
-    #inner_about4 {position: absolute; left: 53%; top: 64%; width: 35%; height: 30%; }
+    #inner_about1 {position: absolute; left: 38.8%; top: 88%; width: 22.5%; height: 7%; }
+    #inner_about2 {position: absolute; left: 45.1%; top: 90.4%; width: 9%; height: 6.5%; }
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img { width:70%; margin:auto;}
     .carousel-control.left, .carousel-control.right {background-image:none;} 
@@ -67,18 +64,10 @@ block content
     img#main_img(src='/images/main_banner1.jpg')
     a(href='login')
       #inner_btn
-  #about
-    img#main_img(src='/images/service_info.jpg')
-    a(href='/service#2')
-      #inner_about1
-    a(href='/service#1')
-      #inner_about2
-    a(href='/service#3')
-      #inner_about3
-    a(href='/service#4')
-      #inner_about4
   #info_1
     img#main_img(src='/images/info_1.jpg')
+    a(href='/service')
+      #inner_about1
   #info_2
     img#main_img(src='/images/info_2.jpg')
   #info_3
@@ -87,6 +76,8 @@ block content
     img#main_img(src='/images/info_4.jpg')
   #info_5
     img#main_img(src='/images/info_5.jpg')
+    a(href='/service')
+      #inner_about2
 
 block script_content
   script(src='/javascripts/javascript.js')
