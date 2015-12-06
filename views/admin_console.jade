@@ -134,14 +134,15 @@ html
             th 담당자 연락처
             th 담당자 이메일
             th 제휴양식파일
-          tr
-            td 1
-            td 2
-            td 3
-            td 4
-            td 5
-            td 6
-            td 7
+          each val in partner
+            tr
+              td= val.name
+              td= val.type
+              td= val.addr
+              td= val.rep_name
+              td= val.rep_phone
+              td= val.rep_email
+              td= val.file
 
       #table6
         table#tb-6

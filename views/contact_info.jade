@@ -51,7 +51,7 @@ block content
 			p(style="font-weight:bold") 제휴문의 및 상담신청을 위한 개인정보를 수집하는데 동의합니다
 
 
-		form(action='/reg_contact' method='post')
+		form(action='/reg_partner' method='post')
 			table()
 				tr
 					th 업체명
@@ -109,13 +109,13 @@ block content
 						</div>
 						<div class="fileUpload btn btn-primary">
 								<span>파일 첨부</span>
-								<input id="uploadBtn" type="file" class="upload" />
+								<input id="uploadBtn" name="file" type="file" class="upload" />
 						</div>
 						<input id="uploadFile" placeholder="파일을 첨부하세요" disabled="disabled" />
 				tr
 					th 제휴문의
 					td(colspan="3").
-						<textarea rows="5" style="width:800px;max-width:800px;"></textarea>
+						<textarea rows="5" name="content" style="width:800px;max-width:800px;"></textarea>
 
 			button#btn1.btn.btn-warning(type="submit") 문의하기
 

@@ -26,8 +26,16 @@ router.post('/', function(req, res, next) {
 								return;
 							}
 							var product = result;
-							connection.release();
-							res.render('admin_console', {user: user, product: product});
+							connection.query('select partnerName name, partnerType type, partnerAddr addr, repName rep_name, repPhone rep_phone, repEmail rep_email, file from partner',
+								function(err, result, field) {
+									if (err) {
+										console.error(err);
+										return;
+									}
+									var partner = result;
+									connection.release();
+									res.render('admin_console', {user: user, product: product, partner: partner});
+							});
 				});
 			});
 		});
