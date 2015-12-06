@@ -1,0 +1,41 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title Vasket! :: 관리자 콘솔
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		style(type='text/css').
+
+	body
+		form(action="/reg_product" method="post")
+			table
+				tr
+					th 상품명
+					td.
+						<input type="text" name="name">
+				tr
+					th 상품코드
+					td.
+						<input type="text" name="code">
+				tr
+					th 브랜드
+					td.
+						<input type="text" name="brand">
+				tr
+					th 원가
+					td.
+						<input type="text" name="price">
+				tr
+					th 수량
+					td.
+						<input type="text" name="inven">
+				tr
+					th 최대할인율
+					td.
+						<input type="text" name="discount">
+				tr
+					th 홍보 문구
+					td.
+						<input type="text" name="content">
+			input(type="submit" value="상품 등록")

@@ -1,0 +1,21 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title Vasket! :: 관리자 콘솔
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		style(type='text/css').
+
+	body
+		form(action="/reg_content" method="post" enctype="multipart/form-data")
+			table
+				tr
+					th 이미지 등록
+					td.
+						<input type="file" name="image" />
+				tr
+					th 컨텐츠 내용
+					td.
+						<textarea rows="5" name="content" style="width:800px;max-width:800px;"></textarea>
+			input(type="submit" value="컨텐츠 등록")
