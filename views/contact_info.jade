@@ -122,5 +122,5 @@ block content
 block script_content
 	script.
 		document.getElementById("uploadBtn").onchange = function () {
-				document.getElementById("uploadFile").value = this.value;
+				document.getElementById("uploadFile").value = this.value.replace("C:\\fakepath\\", "");
 		};
