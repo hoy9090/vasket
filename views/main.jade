@@ -33,8 +33,7 @@ block style
     #inner_about4 {position: absolute; left: 53%; top: 64%; width: 35%; height: 30%; }
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img { width:70%; margin:auto;}
-    .carousel-control.left, .carousel-control.right {background-image:none;}
-    .carousel-indicators {top: 90%;}
+    .carousel-control.left, .carousel-control.right {background-image:none;} 
 block content
   #D-day
     .D-day
@@ -43,7 +42,7 @@ block content
       #d-day
   #event
     #myCarousel.carousel.slide(data-ride="carousel")
-      ol.carousel-indicators
+      ol.carousel-indicators(style="margin-bottom:-10px;")
         li.active(data-target="#myCarousel" data-slide-to="0")
         li(data-target="#myCarousel" data-slide-to="1")
         li(data-target="#myCarousel" data-slide-to="2")
@@ -57,10 +56,10 @@ block content
           img(src="/images/main_1.jpg" )
         .item
           img(src="/images/main_2.jpg" )
-      a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev").
+      a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:-10px;").
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
         <span class="sr-only">Previous</span>
-      a.right.carousel-control(href="#myCarousel" role="button" data-slide="next").
+      a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:-10px;").
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
         <span class="sr-only">Next</span>
       
