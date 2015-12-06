@@ -18,7 +18,9 @@ router.post('/', function(req, res, next) {
 	var rep_phone = req.body.rep_phone_1+'-'+req.body.rep_phone_2+'-'+req.body.rep_phone_3;
 	var rep_email = req.body.rep_email_1+'@'+req.body.rep_email_2;
 	var homepage = req.body.homepage;
+	console.log('aaa');
 	var file = req.files.file;
+	console.log('bbb');
 	var content = req.body.content;
 	var filePath = path.join(__dirname, 'files', file.name);
 	console.log(filePath);
