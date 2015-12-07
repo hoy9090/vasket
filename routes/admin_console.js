@@ -27,7 +27,7 @@ router.post('/', function(req, res, next) {
 								return;
 							}
 							var product = result;
-							connection.query('select partnerName name, partnerType type, partnerAddr addr, repName rep_name, repPhone rep_phone, repEmail rep_email, file from partner',
+							connection.query('select partnerName name, partnerType type, partnerAddr addr, repName rep_name, repPhone rep_phone, repEmail rep_email, file, filename from partner',
 								function(err, result, field) {
 									if (err) {
 										console.error(err);
