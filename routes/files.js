@@ -6,7 +6,7 @@ var router = express.Router();
 router.get('/:filename', function(req, res, next) {
 	if (req.header('Referer') && req.header('Referer').endsWith('admin_console')) {
 		var filename = req.params.filename;
-	  var filepath = path.join(__dirname, '/files/', filename);
+	  var filepath = path.join(__dirname, '/../', '/files/', filename);
 	  res.download(filepath, req.query.filename);
 	} else {
 		res.redirect('back');
