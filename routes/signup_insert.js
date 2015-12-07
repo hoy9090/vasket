@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var pool = mysql.createPool({
 	host: 'localhost',
 	user: 'root',
-	password: '1012'
+	password: 'vasket1012'
 });
 
 function twoDigits(d) {

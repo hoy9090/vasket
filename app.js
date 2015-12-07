@@ -39,6 +39,7 @@ var product_form = require('./routes/product_form');
 var content_form = require('./routes/content_form');
 var reg_product = require('./routes/reg_product');
 var files = require('./routes/files');
+var content_box = require('./routes/content_box');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -103,11 +104,16 @@ app.use('/product_form', product_form);
 app.use('/content_form', content_form);
 app.use('/reg_product', reg_product);
 app.use('/files', files);
+app.use('/content_box', content_box);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
   var filepath = path.join(__dirname, '/download/', filename);
   res.download(filepath);
+});
+
+app.get('/content_box', function(req, res) {
+  res.render('content_box');
 });
 
 // catch 404 and forward to error handler
