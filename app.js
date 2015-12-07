@@ -102,6 +102,12 @@ app.use('/product_form', product_form);
 app.use('/content_form', content_form);
 app.use('/reg_product', reg_product);
 
+app.get('/download/:id', function(req, res) {
+  var filename = req.params.id;
+  var filepath = path.join(__dirname, '/download/', filename);
+  res.download(filepath);
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
