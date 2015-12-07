@@ -11,6 +11,8 @@ var pool = mysql.createPool({
 router.post('/', function(req, res, next) {
 	if (req.body.id == 'vasket_admin' && req.body.pw == '20151012') {
 		pool.getConnection(function(err, connection) {
+			if (err)
+				console.error(err);
 			connection.query('use vasket');
 			connection.query('select userName name, userID id, joindate date, email from user',
 				function(err, result, field) {
