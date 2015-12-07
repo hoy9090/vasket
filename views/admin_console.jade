@@ -171,7 +171,8 @@ html
               td= val.rep_name
               td= val.rep_phone
               td= val.rep_email
-              td= val.file
+              td.
+                <a href="/files/:#{val.file}?filename=#{val.filename}">val.filename</a>
 
       #table6
         table#tb-6

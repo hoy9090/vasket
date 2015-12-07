@@ -21,6 +21,7 @@ router.post('/',  upload.single('file'), function(req, res, next) {
 	var rep_email = req.body.rep_email_1+'@'+req.body.rep_email_2;
 	var homepage = req.body.homepage;
 	var file = req.file;
+	var filename = file.originalname;
 	var content = req.body.content;
 
 	pool.getConnection(function(err, connection) {
@@ -30,7 +31,7 @@ router.post('/',  upload.single('file'), function(req, res, next) {
 		}
 		console.log('DB Connection Success!!');
 		connection.query('use vasket');
-		connection.query('insert into partner(partnerName, partnerType, partnerAddr, repName, repPhone, repEmail, homepage, file, content) values(?, ?, ?, ?, ?, ?, ?, ?, ?)', [name, type, addr, rep_name, rep_phone, rep_email, homepage, file.filename, content],
+		connection.query('insert into partner(partnerName, partnerType, partnerAddr, repName, repPhone, repEmail, homepage, file, filename, content) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [name, type, addr, rep_name, rep_phone, rep_email, homepage, file.filename, filename, content],
 		function(err, result, field) {
 			if (err) {
 				console.error('DB Insertion error!!');
