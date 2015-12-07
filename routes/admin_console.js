@@ -76,7 +76,7 @@ router.get('/', function(req, res, next) {
 				});
 		});
 	else
-		res.end();
+		res.redirect('back');
 });
 
 module.exports = router;
