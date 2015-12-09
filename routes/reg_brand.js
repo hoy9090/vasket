@@ -8,19 +8,24 @@ var pool = mysql.createPool({
 });
 var path = require('path');
 var multer = require('multer');
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/images/brand_logo/');
-    },
-    filename: function (req, file, cb) {
-        cb(null, req.body.filename);
-  }
-});
-var upload = multer({ storage: storage });
+
 
 /* GET home page. */
 router.post('/', upload.single('file'), function(req, res, next) {
 	//fs.rename('public/images/brand_logo/'+req.file.name, 'public/images/brand_logo/')
+	var storage = multer.diskStorage({
+	    destination: function (req, file, cb) {
+	        cb(null, 'public/images/brand_logo/');
+	    },
+	    filename: function (req, file, cb) {
+	        cb(null, req.body.filename);
+	  }
+	});
+	var upload = multer({ storage: storage }).single('file');
+	upload(req, res, function (err) {
+	    if (err) {
+	      return;
+    }});
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
 		connection.query('insert into brand(brandName, brandNation, brandContent, brandCategory, brandImageName) values(?, ?, ?, ?, ?)', [req.body.name, req.body.nation, req.body.content, req.body.type, req.body.filename],
