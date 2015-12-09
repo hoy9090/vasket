@@ -165,7 +165,7 @@ block script_content
 			$("h6.price").each(function() {
 				$(this).html(function(index, currentcontent) {
 					return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-				} 
-			})
+				}); 
+			});
 		}
 		$(document).ready(comma);
