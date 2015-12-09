@@ -61,7 +61,7 @@ html
 								<input id="uploadBtn" name="file" type="file" class="upload" />
 						</div>
 						<input id="uploadFile" name="filename" placeholder="파일을 첨부하세요" disabled="disabled" />
-			button
+			input(type="submit" value="브랜드 등록")
 		script.
 			document.getElementById("uploadBtn").onchange = function () {
 					document.getElementById("uploadFile").value = this.value.replace("C:\\fakepath\\", "");
