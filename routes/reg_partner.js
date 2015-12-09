@@ -6,7 +6,6 @@ var pool = mysql.createPool({
 	user: 'root',
 	password: '1012'
 });
-var fs = require('fs');
 var path = require('path');
 var multer  = require('multer');
 var upload = multer({dest: 'files/'});
