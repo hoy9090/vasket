@@ -7,27 +7,12 @@ var pool = mysql.createPool({
 	password: '1012'
 });
 var path = require('path');
+var fs = require('fs');
 var multer = require('multer');
-
+var upload = multer({dest: 'public/images/brand_logo/'});
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
-	console.log(req.body.filename);
-	var filename = req.body.filename;
-	//fs.rename('public/images/brand_logo/'+req.file.name, 'public/images/brand_logo/')
-	var storage = multer.diskStorage({
-	    destination: function (req, file, cb) {
-	        cb(null, 'public/images/brand_logo/');
-	    },
-	    filename: function (req, file, cb) {
-	        cb(null, filename);
-	  }
-	});
-	var upload = multer({ storage: storage }).single('file');
-	upload(req, res, function (err) {
-	    if (err) {
-	      return;
-    }});
+router.post('/', upload.single('file'), function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
 		connection.query('insert into brand(brandName, brandNation, brandContent, brandCategory, brandImageName) values(?, ?, ?, ?, ?)', [req.body.name, req.body.nation, req.body.content, req.body.type, req.body.filename],
@@ -37,6 +22,7 @@ router.post('/', function(req, res, next) {
 					return;
 				}
 				connection.release();
+				fs.rename('public/images/brand_logo/'+req.file.name, 'public/images/brand_logo/'+req.body.filename);
 				res.redirect('/admin_console');
 		});
 	});
