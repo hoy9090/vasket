@@ -163,8 +163,9 @@ block script_content
 		})();
 		function comma() {
 			$("h6.price").each(function() {
-				console.log($(this));
-				$(this).html = $(this).html.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+				$(this).html(function(index, currentcontent) {
+					return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+				} 
 			})
 		}
 		$(document).ready(comma);
