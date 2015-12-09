@@ -13,6 +13,7 @@ var multer = require('multer');
 router.post('/', function(req, res, next) {
 	var upload = multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename) {
 						console.log(req.body.filename);
+						console.log('aaa');
 					    return req.body.filename;
 					}
 			}).single('file');
