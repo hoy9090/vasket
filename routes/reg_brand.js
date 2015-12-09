@@ -8,12 +8,11 @@ var pool = mysql.createPool({
 });
 var path = require('path');
 var multer = require('multer');
-
-router.use(multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename, req, res) {
+var upload = multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename, req, res) {
 							console.log(req.body.filename);
 					       return req.body.filename;
 					}
-			}));
+			});
 
 /* GET home page. */
 router.post('/', upload.single('file'), function(req, res, next) {
