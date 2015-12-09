@@ -8,7 +8,7 @@ var pool = mysql.createPool({
 });
 var path = require('path');
 var multer = require('multer');
-var upload = multer({dest: 'public/images/brand_logo/', rename: function (fieldname, filename, req, res) {
+var upload = multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename, req, res) {
 					       return req.body.filename;
 					}
 			});
