@@ -12,13 +12,15 @@ var multer = require('multer');
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
+	console.log(req.body.filename);
+	var filename = req.body.filename;
 	//fs.rename('public/images/brand_logo/'+req.file.name, 'public/images/brand_logo/')
 	var storage = multer.diskStorage({
 	    destination: function (req, file, cb) {
 	        cb(null, 'public/images/brand_logo/');
 	    },
-	    filename: function (request, file, cb) {
-	        cb(null, req.body.filename);
+	    filename: function (req, file, cb) {
+	        cb(null, filename);
 	  }
 	});
 	var upload = multer({ storage: storage }).single('file');
