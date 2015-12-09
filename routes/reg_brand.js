@@ -11,7 +11,7 @@ var multer = require('multer');
 
 
 /* GET home page. */
-router.post('/', upload.single('file'), function(req, res, next) {
+router.post('/', function(req, res, next) {
 	//fs.rename('public/images/brand_logo/'+req.file.name, 'public/images/brand_logo/')
 	var storage = multer.diskStorage({
 	    destination: function (req, file, cb) {
