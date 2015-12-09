@@ -79,9 +79,17 @@ router.get('/', function(req, res, next) {
 											return;
 										}
 										var partner = result;
-										connection.release();
-										res.render('admin_console', {user: user, product: product, partner: partner});
-								});
+										connection.query('select brandName name, brandNation nation, brandContent content, brandCategory type from brand',
+										function(err, result, field) {
+											if (err) {
+												console.error(err);
+												return;
+											}
+											var brand = result;
+											connection.release();
+											res.render('admin_console', {user: user, product: product, partner: partner, brand: brand});
+										});
+									});
 					});
 				});
 		});
