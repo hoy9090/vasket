@@ -99,6 +99,7 @@ html
               td= val.email
               td 일반
       #table2
+        button(onClick="location.href='/product_form';") 상품등록
         table#tb-2
           thead
             th 상품명
@@ -121,7 +122,7 @@ html
               td= val.state
               td= val.comment
               td.
-                <button onclick="location.href=''"> 수정</button>
+                <button onclick="location.href=''">수정</button>
       #table3
         table#tb-3
           thead
@@ -190,6 +191,7 @@ html
             td 5
 
       #table7
+        button(onClick="location.href='/content_form';") 컨텐츠등록
         table#tb-7
           thead
             th 컨텐츠제목
@@ -203,8 +205,9 @@ html
             td 3
             td 4
             td.
-                <button onclick="location.href=''"> 수정</button>
+                <button onclick="location.href=''">수정</button>
       #table8
+        button(onClick="location.href='/brand_form';") 브랜드등록
         table#tb-8
           thead
             th 브랜드이름
@@ -234,8 +237,6 @@ html
             td 5
             td 6
             td 7
-      button(onClick="location.href='/product_form';") 상품등록
-      button(onClick="location.href='/content_form';") 컨텐츠등록
     script.
       var count=1;
       function openTable(num){

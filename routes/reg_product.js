@@ -18,8 +18,6 @@ router.post('/', function(req, res, next) {
 					return;
 				}
 				connection.release();
-				req.body.id = 'vasket';
-				req.body.pw = '20151012';
 				res.redirect('/admin_console');
 		});
 	});

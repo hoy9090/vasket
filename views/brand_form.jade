@@ -1,0 +1,53 @@
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title Vasket! :: 관리자 콘솔
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		style(type='text/css').
+	
+	body
+		form(action="/reg_brand" method="post" enctype="multipart/form-data")
+			table
+				tr
+					th 브랜드이름
+					td.
+						<input type="name">
+				tr
+					th 브랜드국적
+					td
+						select(name="nation")
+							option 대한민국
+							option 미국
+							option 중국
+							option 일본
+				tr
+					th 브랜드소개
+					td.
+						<input name="content" type="text">
+				tr
+					th 브랜드카테고리
+					td.
+						<select name="type">
+							<option>선택</option>
+							<option>화장품/뷰티</option>
+							<option>악세사리</option>
+							<option>의류/신발</option>
+							<option>취미(영화,도서,악기,..)</option>
+							<option>IT</option>
+							<option>HOME/KIDS</option>
+						<select>
+				tr
+					th 이미지 등록
+					td.
+						<div class="fileUpload btn btn-primary">
+								<span>파일 첨부</span>
+								<input id="uploadBtn" name="file" type="file" class="upload" />
+						</div>
+						<input id="uploadFile" name="filename" placeholder="파일을 첨부하세요" disabled="disabled" />
+			button
+		script.
+			document.getElementById("uploadBtn").onchange = function () {
+					document.getElementById("uploadFile").value = this.value.replace("C:\\fakepath\\", "");
+			};

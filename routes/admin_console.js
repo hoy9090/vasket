@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/', function(req, res, next) {
-	if (req.header('Referer') && req.header('Referer').endsWith('product_form'))
+	if (req.header('Referer') && (req.header('Referer').endsWith('product_form') || req.header('Referer').endsWith('brand_form')))
 		pool.getConnection(function(err, connection) {
 				connection.query('use vasket');
 				connection.query('select userName name, userID id, joindate date, email from user',
