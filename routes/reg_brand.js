@@ -8,21 +8,15 @@ var pool = mysql.createPool({
 });
 var path = require('path');
 var multer = require('multer');
-
-/* GET home page. */
-router.post('/', function(req, res, next) {
-	var upload = multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename) {
+var upload = multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename) {
 						console.log(req.body.filename);
 						console.log('aaa');
 					    return req.body.filename;
 					}
-			}).single('file');
-	upload(req, res, function (err) {
-	    if (err) {
-	    	console.log('server dead');
-	      return;
-	    }
-	});
+			});
+
+/* GET home page. */
+router.post('/', upload.single('file'), function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
 		connection.query('insert into brand(brandName, brandNation, brandContent, brandCategory, brandImageName) values(?, ?, ?, ?, ?)', [req.body.name, req.body.nation, req.body.content, req.body.type, req.body.filename],
