@@ -65,8 +65,8 @@ block content
 				#discount-list.col-xs-12
 					img.discount(src="./images/product_image/#{val.productNo}/main.jpg" width='100%;')
 					h5(style='font-size: 200%;')= val.productName
-					h6(style='font-size: 150%; float: right;').
-						<script>comma(#{val.productPrice});</script> 원 
+					h6.price(style='font-size: 150%; float: right;')= #{val.productPrice}
+					h6(style='font-size: 150%; float: right;') 원
 
 block script_content
 	script.
@@ -161,6 +161,9 @@ block script_content
 			if (location.hash)
 				change(location.hash.charAt(1));
 		})();
-		function comma(x) {
-		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		function comma() {
+			$("h6.price").each(function() {
+				$("this").html = $("this").html.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			})
 		}
+		$(document).ready(comma);
