@@ -10,7 +10,7 @@ var path = require('path');
 var multer = require('multer');
 
 /* GET home page. */
-router.post('/', upload.single('file'), function(req, res, next) {
+router.post('/', function(req, res, next) {
 	var upload = multer({dest: 'public/images/brand_logo/', rename: function(fieldname, filename) {
 						console.log(req.body.filename);
 					    return req.body.filename;
