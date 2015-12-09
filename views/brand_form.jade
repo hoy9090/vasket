@@ -6,7 +6,22 @@ html
 		title Vasket! :: 관리자 콘솔
 		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
 		style(type='text/css').
-	
+			.fileUpload {
+			position: relative;
+			overflow: hidden;
+			margin: 10px;
+			}
+			.fileUpload input.upload {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			cursor: pointer;
+			opacity: 0;
+			filter: alpha(opacity=0);
+			}
 	body
 		form(action="/reg_brand" method="post" enctype="multipart/form-data")
 			table
