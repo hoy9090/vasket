@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
 	    destination: function (req, file, cb) {
 	        cb(null, 'public/images/brand_logo/');
 	    },
-	    filename: function (req, file, cb) {
+	    filename: function (request, file, cb) {
 	        cb(null, req.body.filename);
 	  }
 	});
