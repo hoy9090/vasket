@@ -28,7 +28,7 @@ block content
           img(src='/images/product_image/#{productNo}/main.jpg', width='100%')
         #detail-product.col-xs-6
           h5= product[0].productName
-          h6 #{product[0].productPrice} 원
+          h6.price= product[0].productPrice
           button.btn.btn-default(style="margin-top:10px;") 추가할인
       br
       br
@@ -96,3 +96,11 @@ block script_content
         hash && $('ul.nav a[href="' + hash + '"]').tab('show');
       }
     $(document).ready(reloadPage);
+    function comma() {
+      $("h6.price").each(function() {
+        $(this).html(function(index, currentcontent) {
+          return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
+        }); 
+      });
+    }
+    $(document).ready(comma);

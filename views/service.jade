@@ -65,7 +65,6 @@ block content
 				#discount-list.col-xs-12
 					img.discount(src="./images/product_image/#{val.productNo}/main.jpg" width='100%;')
 					h5(style='font-size: 200%;')= val.productName
-					h6(style='font-size: 150%; float: right;') 원
 					h6.price(style='font-size: 150%; float: right;')= val.productPrice
 
 block script_content
@@ -164,7 +163,7 @@ block script_content
 		function comma() {
 			$("h6.price").each(function() {
 				$(this).html(function(index, currentcontent) {
-					return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+					currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
 				}); 
 			});
 		}
