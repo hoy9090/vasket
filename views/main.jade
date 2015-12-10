@@ -21,7 +21,7 @@ block style
     .small_1 {font-size:60%; color:#454545;}
     .D-day {width: 100%; padding-top: 10px; padding-bottom: 10px; text-align: center; color:#ffffff; background-color: #3D3D3D; vertical-align: center;
     font-size: 20px;}
-    #d-day {}
+    .button {display: absolute; right: 0; top: 0;}
     button#date-button {float: right; border: none; background-color: #3D3D3D;}
     #service {position: relative;}
     #about {position: relative;}
@@ -35,8 +35,9 @@ block style
 block content
   #D-day
     .D-day
-      button#date-button(onclick='divClose()')
-        span.glyphicon.glyphicon-remove
+      .button
+        button#date-button(onclick='divClose()')
+          span.glyphicon.glyphicon-remove
       #d-day
   #event
     #myCarousel.carousel.slide(data-ride="carousel")
