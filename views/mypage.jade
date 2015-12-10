@@ -36,10 +36,10 @@ block content
       if (result.length)
         each val in result
           .row(style='height: 55px;' onClick='location.href="/brand?brandNo=#{val.brandNo}";')
-            .col-xs-2(style='height: 100%; display: inline-block; vertical-align: middle;')
+            .col-xs-2(style='height: 100%; white-space: nowrap; text-align: center;')
               span(style='display: inline-block; height: 100%; vertical-align: middle;')
               img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
-            .col-xs-6(style='height: 100%; display: inline-block; vertical-align: middle;')
+            .col-xs-6(style='height: 100%;')
               h6(style='font-weight: bold;')= val.brand
               h6(style='font-size: 80%;')= val.content
       else
