@@ -34,9 +34,9 @@ html
         .col-xs-2(style='height: 100%; white-space: nowrap; text-align: center;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
           img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
-        .col-xs-5(style='height: 100%; white-space: nowrap; text-align: center;')
-          span(style='display: inline-block; height: 100%; vertical-align: middle;')
-          h5(style='line-height: 100%; vertical-align: middle;')= brand
+        .col-xs-5(style='height: 100%;')
+          span(style='height: 100%;')
+            h5(style='line-height: 100%;')= brand
         .col-xs-3(style='height: 100%;')
           p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
     .col-xs-12
