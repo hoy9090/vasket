@@ -10,13 +10,12 @@ block style
 		#service-brand h6, #service-contents h6, #service-event h6, #service-discount h6 {font-size:100%; font-weight: bold;}
 		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb;}
 		#brand-list h6 {font-size:110%; } //font-weight:bold;}
-		#brand-list p {display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;}
 		#contents-list {padding: 0px; background-color:#ffffff; border-style:solid; border-width:3px; border-color:#e7e7e7;}
 		#brand-con {display:block;}
 		#contents-con {display:none; margin-top:3px;}
 		#event-con {display:none;}
 		#discount-con {display:none;}
-		.like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;} //font-weight:bold;
+		.like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;}
 		.non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
 		#event-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
@@ -47,7 +46,7 @@ block content
 						.col-xs-4(style='height: 100%; min-width: 115px !important; float: right;')
 							center(style='height: 100%;')
 								span(style='display: inline-block; height: 100%; vertical-align: middle;')
-								p.non_activated(id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
+								p.non_activated(style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
 	#contents-con.col-xs-12
 		.row
 			#contents-list.col-xs-6
