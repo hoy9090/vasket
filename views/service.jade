@@ -11,7 +11,7 @@ block style
 		#service-event h6 {font-size:80%;}
 		#service-discount {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff;border-left-width:0px;height:50px;border-bottom-width:3px;}
 		#service-discount h6 {font-size:80%;}
-		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb; padding-top:8px;}
+		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb;}
 		#brand-list h6 {margin-left: 30px; float: left; font-size:110%; font-weight:bold;}
 		#contents-list {padding: 0px; background-color:#ffffff; border-style:solid; border-width:3px; border-color:#e7e7e7;}
 		#brand-con {display:block;}
@@ -39,12 +39,13 @@ block content
 		if (brand)
 			each val in brand
 				#brand-list.col-xs-12
-					.row
-						.col-xs-2(onclick="location.href='/brand?brandNo=#{val.brandNo}';")
-							img(src="./images/brand_logo/#{val.image}" width="45px;")
-						.col-xs-6(onclick="location.href='/brand?brandNo=#{val.brandNo}';")
+					.row(style='height: 55px;')
+						.col-xs-2(style='height: 100%;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
+							span(style='display: inline-block; height: 100%; vertical-align: middle;')
+							img((style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
+						.col-xs-6(style='height: 100%;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
 							h6= val.brandName
-						.col-xs-4
+						.col-xs-4(style='height: 100%;')
 							p.non_activated(id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
 	#contents-con.col-xs-12
 		.row
