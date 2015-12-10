@@ -27,7 +27,7 @@ html
       #contents-brand {display:none;}
   body
     #nav.col-xs-12
-      .row(style='height: 45px;')
+      .row(style='height: 45px; position: relative')
         .col-xs-2(style='height: 100%;')
           a(href='javascript:goBack();')
             span(style='float: left; font-size: 20px; padding-top: 9px; color:black;').glyphicon.glyphicon-arrow-left
@@ -37,7 +37,7 @@ html
         .col-xs-6(style='height: 100%; text-align: center;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
           h5(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
-        .col-xs-3(style='height: 100%; top: 0px; float: right;')
+        .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
           p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
     .col-xs-12
       .row
