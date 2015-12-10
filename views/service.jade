@@ -45,7 +45,7 @@ block content
 							img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
 						.col-xs-6(style='height: 100%;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
 							span(style='display: inline-block; height: 100%; vertical-align: middle;')
-								h6(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= val.brandName
+							h6(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= val.brandName
 						.col-xs-4(style='height: 100%;')
 							span(style='display: inline-block; height: 100%; vertical-align: middle;')
 							p.non_activated(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
