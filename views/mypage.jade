@@ -36,7 +36,7 @@ block content
     #myBrandList.col-xs-12
       if (result.length)
         each val in result
-          .row(onClick='location.href="/brand?brandNo=#{val.brandNo}";')
+          .row(style='position: relative;' onClick='location.href="/brand?brandNo=#{val.brandNo}";')
             .col-xs-2(style='height: 100%; display: inline-block; vertical-align: middle;')
               img(src="./images/brand_logo/#{val.image}" width="45px;")
             .col-xs-6(style='display: inline-block; vertical-align: middle;')
