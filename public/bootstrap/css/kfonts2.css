@@ -15,4 +15,4 @@
   src:url("../fonts/nanumbarungothicregular.eot");
   src:local("☺"),url("../fonts/nanumbarungothicregular.woff") format("woff");
 }
-body, body * {font-family: nanumbarungothicregular !important;}
+body {font-family: nanumbarungothicregular}
