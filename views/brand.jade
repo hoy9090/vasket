@@ -15,9 +15,9 @@ html
     style(type='text/css').
       body {background-color: #e7e7e7; padding-bottom: 20px;}
       #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
-      #nav h5 {float: clear; padding-right: 15px; font-weight:bold; font-size: 120%;}
-      .like {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
-      .non_activated {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
+      #nav h5 {text-align: center; padding-right: 15px; font-weight:bold; font-size: 120%;}
+      .like {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+      .non_activated {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
       #brand-activity {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffa800;height:50px; padding-top:7px; border-bottom-width:3px;}
       #brand-activity h6, #brand-contents h6 {font-weight:bold; font-size:110%;}
       #brand-contents {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
@@ -31,10 +31,10 @@ html
         .col-xs-2(style='height: 100%;')
           a(href='javascript:goBack();')
             span(style='float: left; font-size: 20px; padding-top: 9px; color:black;').glyphicon.glyphicon-arrow-left
-        .col-xs-2(style='height: 100%; white-space: nowrap; text-align: center;')
+        .col-xs-1(style='height: 100%; white-space: nowrap; text-align: center;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
           img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
-        .col-xs-5(style='height: 100%;')
+        .col-xs-6(style='height: 100%;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
           h5(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
         .col-xs-3(style='height: 100%;')
