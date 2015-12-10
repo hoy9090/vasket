@@ -11,7 +11,6 @@ block style
     #box1_ span {float: right; padding-top: 10px;}
     #box1_ {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;padding-right: 10px;margin-bottom: 13px;margin-top: 13px;}
     #myBrandList {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; display:none;}
-    #myBrandList img {vertical-align: middle;}
     #myBrand {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
     #myBrand span {float: right; padding-top: 10px;}
 
@@ -38,7 +37,7 @@ block content
         each val in result
           .row(style='position: relative; height: 55px;' onClick='location.href="/brand?brandNo=#{val.brandNo}";')
             .col-xs-2(style='height: 100%; display: inline-block; vertical-align: middle;')
-              img(src="./images/brand_logo/#{val.image}" width="45px;")
+              img(style='vertical-align: middle;' src="./images/brand_logo/#{val.image}" width="45px;")
             .col-xs-6(style='display: inline-block; vertical-align: middle;')
               h6(style='font-weight: bold;')= val.brand
               h6(style='font-size: 80%;')= val.content
