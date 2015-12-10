@@ -15,7 +15,6 @@ html
     style(type='text/css').
       body {background-color: #e7e7e7; padding-bottom: 20px;}
       #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
-      #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
       #nav h6 {float: clear; padding-right: 15px; font-weight:bold;}
       .like {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
       .non_activated {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
@@ -31,7 +30,7 @@ html
       .row(style='height: 45px;')
         .col-xs-2(style='height: 100%;')
           a(href='javascript:goBack();')
-            span.glyphicon.glyphicon-arrow-left
+            span(style='float: left; font-size: 20px; padding-top: 9px; color:black;').glyphicon.glyphicon-arrow-left
         .col-xs-2(style='height: 100%; white-space: nowrap; text-align: center;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
           img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
