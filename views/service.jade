@@ -19,8 +19,8 @@ block style
 		#contents-con {display:none; margin-top:3px;}
 		#event-con {display:none;}
 		#discount-con {display:none;}
-		.like {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
-		.non_activated {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
+		.like {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+		.non_activated {float: right; width: 85px; font-size:90%; font-weight:bold; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
 		#event-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 block content
@@ -46,7 +46,7 @@ block content
 							img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
 						.col-xs-6(style='height: 100%;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
 							span
-							h6(style='')= val.brandName
+							h6= val.brandName
 						.col-xs-4(style='height: 100%;')
 							span
 							p.non_activated(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
