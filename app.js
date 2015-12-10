@@ -41,6 +41,7 @@ var brand_form = require('./routes/brand_form');
 var reg_product = require('./routes/reg_product');
 var files = require('./routes/files');
 var reg_brand = require('./routes/reg_brand');
+var community_post = require('./routes/community_post');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -108,6 +109,7 @@ app.use('/brand_form', brand_form);
 app.use('/reg_product', reg_product);
 app.use('/files', files);
 app.use('/reg_brand', reg_brand);
+app.use('/community_post', community_post);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
