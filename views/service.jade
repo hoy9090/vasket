@@ -40,7 +40,7 @@ block content
 			each val in brand
 				#brand-list.col-xs-12
 					.row(style='height: 55px;')
-						.col-xs-2(style='height: 100%;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
+						.col-xs-2(style='height: 100%; min-width: 45px;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
 							span(style='display: inline-block; height: 100%; vertical-align: middle;')
 							img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
 						.col-xs-6(style='height: 100%;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
