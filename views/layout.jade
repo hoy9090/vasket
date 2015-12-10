@@ -15,6 +15,7 @@ html
     style(type='text/css').
       body {padding-top: 50px; background-color: #F6F6F6;}
       nav {background-color: #ffa800;}
+      .navbar li {float: right;}
       .navbar li a {color:#000000;}
       .navbar li a:hover {background-color:#ffa800; color:#000000;}
       .navbar .navbar-toggle {
@@ -55,11 +56,7 @@ html
             a.navbar-brand(href='/')
               img(src='/images/logo.png', width='90px;')
           #myNavbar.collapse.navbar-collapse.navbar-right
-            ul.navbar-right.nav.navbar-nav
-              li
-                a(href='/') 홈  
-              li
-                a(href='/service') 서비스
+            ul.navbar-right.nav.navbar-nav 
               li
                 - if(loggedIn) {
                     a(href='logout')
@@ -74,6 +71,10 @@ html
                 - if(loggedIn) {
                     a(href='mypage') MY페이지
                 - }
+              li
+                a(href='/service') 서비스
+              li
+                a(href='/') 홈  
     
       block content
       #footer
