@@ -33,9 +33,9 @@ html
           a(href='javascript:goBack();')
             span.glyphicon.glyphicon-arrow-left
         .col-xs-2(style='height: 100%; white-space: nowrap; text-align: center;')
-          //span(style='display: inline-block; height: 100%; vertical-align: middle;')
-          img(style='height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}" width="45px;")
-        .col-xs-5(style='height: 100%;')
+          span(style='display: inline-block; height: 100%; vertical-align: middle;')
+          img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
+        .col-xs-5(style='height: 100%; vertical-align: middle;')
           h5= brand
         .col-xs-3(style='height: 100%;')
           p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
