@@ -83,7 +83,7 @@ html
         var brand = !{JSON.stringify(brand)};
         var arr = [];
         for (var val in brand) {
-          arr.append(val["brand"]);
+          arr.push(val["brand"]);
         }
         console.log(arr);
         $("#brand_search").autocomplete(arr,{ 
