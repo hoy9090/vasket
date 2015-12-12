@@ -16,7 +16,7 @@ router.get('/:productNo', function(req, res, next) {
 			req.session.basket = [];
 		req.session.basket.push({"no": parseInt(req.params.productNo), "count": 1, "sns": 0, "as": 0, "return": 0});
 		console.log(req.session.basket);
-		res.redirect('basket');
+		res.redirect('/basket');
 	} else {
 		res.redirect('back');
 	}
