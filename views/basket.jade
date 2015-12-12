@@ -85,7 +85,7 @@ block content
 block script_content
   script.
     function Minus(index){
-      var goodnum = $("#basket"+index+" > t2").html;
+      var goodnum = $("#basket"+index+" > t2").html();
       console.log(goodnum);
       if(goodnum>1){
         goodnum = goodnum -1;
@@ -93,7 +93,7 @@ block script_content
       }
     }
     function Plus(index){
-      var goodnum = $("#basket"+index+" > #t2").html;
+      var goodnum = $("#basket"+index+" > #t2").html();
       console.log(goodnum);
       goodnum = goodnum +1;
       $("#basket"+index+" #t2").html(goodnum);
