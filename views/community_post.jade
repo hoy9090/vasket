@@ -81,9 +81,12 @@ html
       });
       $(document).ready(function() {
         var brand = !{JSON.stringify(brand)};
-        var arr = JSON.parse(brand);
+        var arr = [];
+        for (var val in brand) {
+          arr.append(val["brand"]);
+        }
         console.log(arr);
-        $("#brand_search").autocomplete(brand,{ 
+        $("#brand_search").autocomplete(arr,{ 
             matchContains: true,
             selectFirst: false
         });
