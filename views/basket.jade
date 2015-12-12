@@ -37,7 +37,7 @@ block content
                 tr
                   td#t1(onclick="Minus(#{index});").
                     <span class="glyphicon glyphicon-minus">
-                  td#t2= val.count
+                  td#t2.count= val.count
                   td#t3(onclick="Plus(#{index});").
                     <span class="glyphicon glyphicon-plus">
               table#table3
@@ -85,17 +85,17 @@ block content
 block script_content
   script.
     function Minus(index){
-      var goodnum = $("#basket"+index+" > t2").html();
+      var goodnum = $("#basket"+index+" .count").html();
       console.log(goodnum);
       if(goodnum>1){
         goodnum = goodnum -1;
-        $("#basket"+index+" > t2").html(goodnum);
+        $("#basket"+index+" .count").html(goodnum);
       }
     }
     function Plus(index){
-      var goodnum = $("#basket"+index+" > #t2").html();
+      var goodnum = $("#basket"+index+" .count").html();
       console.log(goodnum);
       goodnum = goodnum +1;
       $("#basket"+index+" #t2").html(goodnum);
-      console.log($("#basket"+index+" > t2").html(goodnum));
+      console.log($("#basket"+index+" .count").html(goodnum));
     }
