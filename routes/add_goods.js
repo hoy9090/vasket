@@ -15,13 +15,13 @@ router.get('/:productNo', function(req, res, next) {
 		var productNo = parseInt(req.params.productNo);
 		if (!req.session.basket) {
 			req.session.basket = [];
-			req.session.basket.push({"no": productNo, "count": 1, "sns": 0, "as": 0, "return": 0});
+			req.session.basket.push({"no": productNo, "count": 1, "sns": 100, "as": 200, "return": 300});
 		} else 
 			for (var i = 0 ; i < req.session.basket.length ; i++) {
 				if (req.session.basket[i].no == productNo)
 					break;
 				if (i == req.session.basket.length-1)
-					req.session.basket.push({"no": productNo, "count": 1, "sns": 0, "as": 0, "return": 0});
+					req.session.basket.push({"no": productNo, "count": 1, "sns": 100, "as": 200, "return": 300});
 			}
 		console.log(req.session.basket);
 		res.redirect('/basket');
