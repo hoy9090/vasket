@@ -29,7 +29,7 @@ block content
         #detail-product.col-xs-6
           h5= product[0].productName
           h6.price= product[0].productPrice
-          button.btn.btn-default(style="margin-top:10px;") 추가할인
+          button.btn.btn-default(style="margin-top:10px;" onClick="location.href='/add_goods/#{productNo}'") 추가할인
       br
       br
       ul.nav.nav-pills
@@ -104,3 +104,6 @@ block script_content
       });
     }
     $(document).ready(comma);
+    function addGoods() {
+
+    }
