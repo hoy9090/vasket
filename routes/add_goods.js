@@ -7,6 +7,8 @@ var pool = mysql.createPool({
 	password: '1012'
 });
 
+String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
+
 /* GET home page. */
 router.get('/:productNo', function(req, res, next) {
 	if (req.header("Referer") && req.header("Referer").contains("/detail")) {
