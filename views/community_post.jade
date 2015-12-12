@@ -64,6 +64,7 @@ html
           input#brand_search(type="text" style="border-width:0px; width:100%;" placeholder="브랜드 이름을 입력해주세요")
     #communityContent.col-xs-12
       textarea(rows="5" style="border-width:0px; width:100%;" placeholder="간단한 글을 남겨주세요(100자)" maxlength="100")
+    link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='https://code.jquery.com/ui/1.11.4/jquery-ui.js')  
     script.
@@ -85,14 +86,8 @@ html
         for (var val in brand) {
           arr.push(brand[val]['brand']);
         }
-        $("#brand_search").autocomplete({source: brand},{ 
+        $("#brand_search").autocomplete({source: arr},{ 
             matchContains: true,
-            minChars: 0,
-            width: 172,
-            max: 10,
-            multiple: false,
-            scroll: true,
-            scrollHeight: 300,
-            formatItem: function(item){ return item['brand']; }
-          });
+            selectFirst: false
         });
+      });
