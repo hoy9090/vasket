@@ -85,8 +85,14 @@ html
         for (var val in brand) {
           arr.push(brand[val]['brand']);
         }
-        $("#brand_search").autocomplete({source: arr},{ 
+        $("#brand_search").autocomplete({source: brand},{ 
             matchContains: true,
-            selectFirst: false
+            minChars: 0,
+            width: 172,
+            max: 10,
+            multiple: false,
+            scroll: true,
+            scrollHeight: 300,
+            formatItem: function(item){ return item['brand']; }
+          });
         });
-      });
