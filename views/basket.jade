@@ -21,8 +21,8 @@ block style
 block content
   p 장바구니는 최대 60일간 보관되며, 딜종료시 사라집니다.
   form.form-inline
-    each val in basket
-      #basket.col-xs-12
+    each val, index in basket
+      #basket#{index}.col-xs-12
         .row
           .col-xs-3
              img(src="/images/product_image/#{val.no}/main.jpg" width="70px; margin-left:-10px;")
@@ -52,17 +52,17 @@ block content
                   td#t4 SNS 공유
                   td#t4.
                     <input type="checkbox">
-                  td#t4 #{val.sns} 원
+                  td#t4 -#{val.sns} 원
                 tr
                   td#t4 A/S 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4 #{val.as} 원
+                  td#t4 -#{val.as} 원
                 tr
                   td#t4 반품 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4 #{val.return} 원
+                  td#t4 -#{val.return} 원
       
     #footer5.col-xs-12
       .row
