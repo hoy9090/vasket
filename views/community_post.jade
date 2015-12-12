@@ -39,7 +39,7 @@ html
       opacity: 0;
       filter: alpha(opacity=0);
       }
-      .bold-text {font-weight: bold;}
+      .bold-text {font-weight: bold; font-color: #FF5E00}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -87,9 +87,8 @@ html
         for (var val in brand) {
           arr.push(brand[val]['brand']);
         }
-        $("#brand_search").autocomplete({source: arr},{ 
+        $("#brand_search").autocomplete({highlightClass: "bold-text", source: arr},{ 
             matchContains: true,
             selectFirst: false,
-            highlightClass: "bold-text"
         });
       });
