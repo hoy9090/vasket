@@ -4,8 +4,6 @@ block style
   style(type='text/css').
     body {background-color:#ffffff;}
     .basket {background-color: #ffffff; padding-top: 10px; padding-left: left;width: 100%;margin-bottom: 15px; border-width:1px;border-color:#bbbbbb; border-style:solid; padding-bottom:10px;}
-    
-    
     button.btn {width: 100%;}
     table#table1 {border: solid; border-color:#A6A6A6;border-width: 1px; margin-top:10px; margin-left:0px;width:70px;}
     table#table2 {width:200px;border: solid; border-color:#A6A6A6;border-width: 0px; margin-top:10px;background-color:#d5d5d5;}
@@ -97,5 +95,5 @@ block script_content
       $("#basket"+index+" .count").html(goodnum);
     }
     function disappear(index){
-      $("#basket"+index).empty();
+      $("#basket"+index).css('display', 'none');
     }
