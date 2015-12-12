@@ -29,7 +29,7 @@ block content
           .col-xs-7
              h6 상품설명구간
           .col-xs-2
-            span.glyphicon.glyphicon-remove(style="float:right;" onClick="delete(#{index});")
+            span.glyphicon.glyphicon-remove(style="float:right;" onClick="disappear(#{index});")
         .row
           .col-xs-3
             center(style='float: left; width: 70px;')
@@ -96,6 +96,6 @@ block script_content
       goodnum = goodnum +1;
       $("#basket"+index+" .count").html(goodnum);
     }
-    function delete(index){
+    function disappear(index){
       $("#basket"+index).empty();
     }
