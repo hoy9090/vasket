@@ -22,7 +22,7 @@ block content
   p 장바구니는 최대 60일간 보관되며, 딜종료시 사라집니다.
   form.form-inline
     each val, index in basket
-      #basket#{index}.col-xs-12
+      .col-xs-12(id="basket#{index}")
         .row
           .col-xs-3
              img(src="/images/product_image/#{val.no}/main.jpg" width="70px; margin-left:-10px;")
@@ -35,10 +35,10 @@ block content
             center(style='float: left; width: 70px;')
               table#table1
                 tr
-                  td#t1(onclick="Minus();").
+                  td#t1(onclick="Minus(#{index});").
                     <span class="glyphicon glyphicon-minus">
                   td#t2= val.count
-                  td#t3(onclick="Plus();").
+                  td#t3(onclick="Plus(#{index});").
                     <span class="glyphicon glyphicon-plus">
               table#table3
                 tr
@@ -85,14 +85,13 @@ block content
 block script_content
   script.
     var goodnum=1;
-    function Minus(){
+    function Minus(index){
       if(goodnum>1){
         goodnum = goodnum -1;
-        document.getElementById("t2").innerHTML=goodnum;
+        $("#basket"+index+" t2").html(goodnum);
       }
     }
-    function Plus(){
+    function Plus(#{index}){
       goodnum = goodnum +1;
-      document.getElementById("t2").innerHTML=goodnum;
-      
+      $("#basket"+index+" t2").html(goodnum);
     }
