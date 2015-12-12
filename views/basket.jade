@@ -21,47 +21,48 @@ block style
 block content
   p 장바구니는 최대 60일간 보관되며, 딜종료시 사라집니다.
   form.form-inline
-    #basket.col-xs-12
-      .row
-        .col-xs-3
-           img(src="/images/basic.jpg" width="70px; margin-left:-10px;")
-        .col-xs-7
-           h6 상품설명구간
-        .col-xs-2
-          span.glyphicon.glyphicon-remove(style="float:right;")
-      .row
-        .col-xs-3
-          center(style='float: left; width: 70px;')
-            table#table1
-              tr
-                td#t1(onclick="Minus();").
-                  <span class="glyphicon glyphicon-minus">
-                td#t2 1
-                td#t3(onclick="Plus();").
-                  <span class="glyphicon glyphicon-plus">
-            table#table3
-              tr
-                td 총 할인금액
-              tr
-                td 0$
-        .col-xs-9
-          center
-            table#table2
-              tr
-                td#t4 SNS 공유
-                td#t4.
-                  <input type="checkbox">
-                td#t4 0$
-              tr
-                td#t4 A/S 불가
-                td#t4.
-                  <input type="checkbox">
-                td#t4 0$
-              tr
-                td#t4 반품 불가
-                td#t4.
-                  <input type="checkbox">
-                td#t4 0$
+    each val in basket
+      #basket.col-xs-12
+        .row
+          .col-xs-3
+             img(src="/images/product_image/#{val.no}/main.jpg" width="70px; margin-left:-10px;")
+          .col-xs-7
+             h6 상품설명구간
+          .col-xs-2
+            span.glyphicon.glyphicon-remove(style="float:right;")
+        .row
+          .col-xs-3
+            center(style='float: left; width: 70px;')
+              table#table1
+                tr
+                  td#t1(onclick="Minus();").
+                    <span class="glyphicon glyphicon-minus">
+                  td#t2= val.count
+                  td#t3(onclick="Plus();").
+                    <span class="glyphicon glyphicon-plus">
+              table#table3
+                tr
+                  td 총 할인금액
+                tr
+                  td 0$
+          .col-xs-9
+            center
+              table#table2
+                tr
+                  td#t4 SNS 공유
+                  td#t4.
+                    <input type="checkbox">
+                  td#t4 0$
+                tr
+                  td#t4 A/S 불가
+                  td#t4.
+                    <input type="checkbox">
+                  td#t4 0$
+                tr
+                  td#t4 반품 불가
+                  td#t4.
+                    <input type="checkbox">
+                  td#t4 0$
       
     #footer5.col-xs-12
       .row
