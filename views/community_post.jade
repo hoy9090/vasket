@@ -81,6 +81,8 @@ html
       });
       $(document).ready(function() {
         var brand = !{JSON.stringify(brand)};
+        var arr = JSON.parse(brand);
+        console.log(arr);
         $("#brand_search").autocomplete(brand,{ 
             matchContains: true,
             selectFirst: false
