@@ -96,3 +96,6 @@ block script_content
       goodnum = goodnum +1;
       $("#basket"+index+" .count").html(goodnum);
     }
+    function delete(index){
+      $("#basket"+index).empty();
+    }
