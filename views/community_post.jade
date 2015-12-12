@@ -78,3 +78,10 @@ html
       $("#uploadBtn").change(function(){
           readURL(this);
       });
+      $(document).ready(function() {
+        var brand = !{JSON.stringify(brand)};
+        $("#searchbox").autocomplete(brand,{ 
+            matchContains: true,
+            selectFirst: false
+        });
+      });
