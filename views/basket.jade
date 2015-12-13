@@ -103,13 +103,13 @@ block script_content
     function disappear(index){
       $("#basket"+index).css('display', 'none');
     }
-    function comma() {
-      $(this).html(function(index, currentcontent) {
+    function comma(a) {
+      a.html(function(index, currentcontent) {
           return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
         });
     }
     function commaAll() {
-      $(".price").each(comma);
+      $(".price").each(comma($(this)));
     }
-    $(document).ready(comma);
-    $(".price").onchange(comma);
+    $(document).ready(commaAll);
+    $(".price").change(comma);
