@@ -48,7 +48,7 @@ block content
                 tr
                   td.discount 총 할인금액
                 tr
-                  td.price.discount 0$
+                  td.price.discount 0
           .col-xs-9
             center
               table#table2
@@ -111,6 +111,8 @@ block script_content
       });
     }
     $(document).ready(comma);
-    $(".price").onchange(function() {
-      
+    $(".price").change(function() {
+      $(this).html(function(index, currentcontent) {
+          return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
+        }); 
     });
