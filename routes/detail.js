@@ -18,6 +18,9 @@ router.get('/', function(req, res, next) {
 			connection.query('use vasket');
 			connection.query('select brandNo, brand.brandName brandName, brand.brandImageName brandImage, (select count(*) from brandLikeList where brandNo=productlist.brandNo and userNo=?) brandlike,productName, productPrice from productlist inner join brand on productlist.brandNo=brand.brandNo and productNo='+productNo, [req.session.userNo],
 				function(err, result, field) {
+					if (err) {
+						console.error(err);
+					}
 					var product = result;
 					connection.query('select (select email from user where user.userno=comment.userno) email, content, date_format(date, "%Y-%m-%d %H:%i:%s") date from comment order by commentNo desc limit '+5*(pageNo-1)+', 5;',
 						function(err, result, field) {
