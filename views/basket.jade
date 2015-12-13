@@ -25,7 +25,9 @@ block content
           .col-xs-3
              img(src="/images/product_image/#{val.no}/main.jpg" width="70px; margin-left:-10px;")
           .col-xs-7
-             h6 상품설명구간
+             h6= info[index].name
+             h6= info[index].comment
+             h6= info[index].price
           .col-xs-2
             span.glyphicon.glyphicon-remove(style="float:right;" onClick="disappear(#{index});")
         .row
