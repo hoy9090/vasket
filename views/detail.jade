@@ -10,17 +10,25 @@ block style
     .nav-pills li {width: 32%; background-color: #d7d7d7;}
     #secC {padding-right: 10px;}
     .bs-example {background-color:#ffffff; width:100%; padding-top:10px;}
+    #brand-list { background-color:#ffffff;height:55px; }
+    #brand-list h6 {font-size:110%; }
+    .like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;}
+    .non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
     
 block content
   .container
-    .col-xs-12.contents
-      .row
-        .col-xs-2
-          img(src="./images/Nike-logo.png" width="45px;" style="margin-top:8px;")
-        .col-xs-6
-          h4(style="margin-top:15px;") 브랜드명
-        .col-xs-4
-          p#like(onclick="like();") 즐겨찾기
+    #brand-list.col-xs-12
+      .row(style='height: 55px;')
+        .col-xs-2(style='height: 100%; min-width: 75px !important;' onclick="location.href='/brand?brandNo=#{product[0].brandNo}';")
+          span(style='display: inline-block; height: 100%; vertical-align: middle;')
+          img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{product[0].brandImage}")
+        .col-xs-6(style='width: auto; height: 100%;' onclick="location.href='/brand?brandNo=#{product[0].brandNo}';")
+          span(style='display: inline-block; height: 100%; vertical-align: middle;')
+          h6(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= product[0].brandName
+        .col-xs-4(style='height: 100%; min-width: 115px !important; float: right;')
+          center(style='height: 100%;')
+            span(style='display: inline-block; height: 100%; vertical-align: middle;')
+            p#like(onclick="like();" class=(like==1 ? "like" : "non_activated") style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;') 즐겨찾기
     h5(style="font-weight:bold; margin-top:10px;") 상품구매
     .bs-example.col-xs-12     
       .row
@@ -104,3 +112,26 @@ block script_content
       });
     }
     $(document).ready(comma);
+    function like(){
+        var like_id=document.getElementById("like");
+        if(like_id.className == "like"){
+          $.ajax({
+            type: "POST",
+            url: '/brand_like',
+            data: {command: "delete", brandNo: #{product[0].brandNo}},
+            success: function() {
+              like_id.className = "non_activated";
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/brand_like',
+            data: {command: "insert", brandNo: #{product[0].brandNo}},
+            success: function() {
+              like_id.className = "like";
+            }
+          });
+        }
+      }
