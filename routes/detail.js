@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 		var productNo = req.query.productNo;
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
-			connection.query('select brandNo, brand.brandName brandName, brand.brandImageName brandImage, (select count(*) from brandLikeList where brandNo=productlist.brandNo and userNo=?) brandlike,productName, productPrice from productlist inner join brand on productlist.brandNo=brand.brandNo and productNo='+productNo, [req.session.userNo],
+			connection.query('select productlist.brandNo, brand.brandName brandName, brand.brandImageName brandImage, (select count(*) from brandLikeList where brandNo=productlist.brandNo and userNo=?) brandlike,productName, productPrice from productlist inner join brand on productlist.brandNo=brand.brandNo and productNo='+productNo, [req.session.userNo],
 				function(err, result, field) {
 					if (err) {
 						console.error(err);
