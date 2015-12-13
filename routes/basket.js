@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
 			basket = [];
 		var queryString = "";
 		for (var index in basket) {
-			queryString += basket[index]+",";
+			queryString += basket[index].no+",";
 		}
 		queryString = queryString.substring(0, queryString.length-1);
 		pool.getConnection(function(err, connection) {
