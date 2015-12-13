@@ -18,6 +18,7 @@ router.get('/', function(req, res, next) {
 			queryString += basket[index].no+",";
 		}
 		queryString = queryString.substring(0, queryString.length-1);
+		console.log('select productName name, productComment comment, productPrice price from productlist where productNo in ('+queryString+') order by find_in_set(productNo, `'+queryString+'`)');
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
 			connection.query('select productName name, productComment comment, productPrice price from productlist where productNo in ('+queryString+') order by find_in_set(productNo, `'+queryString+'`)', function(err, result, field) {
