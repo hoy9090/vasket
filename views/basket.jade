@@ -111,8 +111,8 @@ block script_content
       });
     }
     $(document).ready(comma);
-    $(".price").change(function() {
+    $(document).ready($(".price").change(function() {
       $(this).html(function(index, currentcontent) {
           return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
         }); 
-    });
+    }));
