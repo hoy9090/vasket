@@ -8,6 +8,10 @@ block style
     table#table1 {border: solid; border-color:#A6A6A6;border-width: 1px; margin-top:10px; margin-left:0px;width:70px;}
     table#table2 {width:200px;border: solid; border-color:#A6A6A6;border-width: 0px; margin-top:10px;background-color:#d5d5d5;}
     table#table3 {font-size:80%; text-align:center; margin-top:10px;}
+    .name {margin-top: 3px;}
+    .bold {font-weight: bold;}
+    .right {text-align: right;}
+    .discount {font-size: 130%;}
     #footer5 { position:fixed; bottom:5px; right:0px;left:0px; background-color:#ffffff;  border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px;text-align:center;}
     #footer5 h5 {font-weight:bold; color:#ffa800;}
     #t1 {background-color:#ffffff; font-weight:bold; color:#747474; width:25px;text-align:center;}
@@ -23,11 +27,11 @@ block content
       .basket.col-xs-12(id="basket#{index}")
         .row
           .col-xs-3
-             img(src="/images/product_image/#{val.no}/main.jpg" width="70px; margin-left:-10px;")
+             img(src="/images/product_image/#{val.no}/main.jpg" width="70px" height="70px")
           .col-xs-7
-             h4= info[index].name
+             h4.name.bold= info[index].name
              h6= info[index].comment
-             h5= info[index].price
+             h5.price.bold= info[index].price
           .col-xs-2
             span.glyphicon.glyphicon-remove(style="float:right;" onClick="disappear(#{index});")
         .row
@@ -42,9 +46,9 @@ block content
                     <span class="glyphicon glyphicon-plus">
               table#table3
                 tr
-                  td 총 할인금액
+                  td.discount 총 할인금액
                 tr
-                  td 0$
+                  td.price.discount 0$
           .col-xs-9
             center
               table#table2
@@ -52,34 +56,34 @@ block content
                   td#t4 SNS 공유
                   td#t4.
                     <input type="checkbox">
-                  td#t4 -#{val.sns} 원
+                  td#t4.price.right -#{val.sns}
                 tr
                   td#t4 A/S 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4 -#{val.as} 원
+                  td#t4.price.right -#{val.as}
                 tr
                   td#t4 반품 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4 -#{val.return} 원
+                  td#t4.price.right -#{val.return}
       
     #footer5.col-xs-12
       .row
         .col-xs-6
           h6 상품 금액
         .col-xs-6
-          h6 0$
+          h6.price 0
       .row
         .col-xs-6
           h5 할인 금액
         .col-xs-6
-          h5 0$
+          h5.price 0
       .row
         .col-xs-6
           h6 결제 금액
         .col-xs-6
-          h6 0$
+          h6.price 0
       button.btn.btn-danger(type='submit') 구매하기
 
 block script_content
@@ -99,3 +103,13 @@ block script_content
     function disappear(index){
       $("#basket"+index).css('display', 'none');
     }
+    function comma() {
+      $(this).html(function(index, currentcontent) {
+          return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
+        });
+    }
+    function commaAll() {
+      $(".price").each(comma);
+    }
+    $(document).ready(comma);
+    $(".price").onchange(comma);
