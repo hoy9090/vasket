@@ -66,7 +66,7 @@ block content
                   td#t4 반품 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4.price.right -#{val.return}
+                  td#t4.price.right -#{val.return}00
       
     #footer5.col-xs-12
       .row
@@ -103,16 +103,11 @@ block script_content
     function disappear(index){
       $("#basket"+index).css('display', 'none');
     }
-    function comma() {
+    function commaAll() {
       $(".price").each(function() {
         $(this).html(function(index, currentcontent) {
           return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
         }); 
       });
     }
-    $(document).ready(comma);
-    $(document).ready($(".price").change(function() {
-      $(this).html(function(index, currentcontent) {
-          return currentcontent.toString().replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,')+" 원";
-        }); 
-    }));
+    $(document).ready(commaAll);
