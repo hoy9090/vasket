@@ -18,22 +18,23 @@ router.get('/', function(req, res, next) {
 			queryString += basket[index].no+",";
 		}
 		queryString = queryString.substring(0, queryString.length-1);
-		pool.getConnection(function(err, connection) {
-			connection.query('use vasket');
-			connection.query('select productName name, productComment comment, productPrice price, snsPrice sns, asPrice "as", returnPrice "return" from productlist where productNo in ('+queryString+') order by find_in_set(productNo, "'+queryString+'")', function(err, result, field) {
-				if (err)
-					console.error(err);
-				req.session.total_amount = 0;
-				req.session.discount_amount = [];
-				for (var index in result) {
-					req.session.total_amount += result[index].price*basket[index].count;
-					req.session.discount_amount.push({sns: result[index].sns*basket[index].count, as: result[index].as*basket[index].count, return: result[index].return*basket[index].count});
+		if (queryString !== "")
+			pool.getConnection(function(err, connection) {
+				connection.query('use vasket');
+				connection.query('select productName name, productComment comment, productPrice price, snsPrice sns, asPrice "as", returnPrice "return" from productlist where productNo in ('+queryString+') order by find_in_set(productNo, "'+queryString+'")', function(err, result, field) {
+					if (err)
+						console.error(err);
+					req.session.total_amount = 0;
+					req.session.discount_amount = [];
+					for (var index in result) {
+						req.session.total_amount += result[index].price*basket[index].count;
+						req.session.discount_amount.push({sns: result[index].sns*basket[index].count, as: result[index].as*basket[index].count, return: result[index].return*basket[index].count});
 
-				}
-				connection.release();
-				res.render('basket', {basket: basket, info: result, discount: req.session.discount_amount, total_amount: req.session.total_amount});
-			});
-	  	});
+					}
+					connection.release();
+					res.render('basket', {basket: basket, info: result, discount: req.session.discount_amount, total_amount: req.session.total_amount});
+				});
+		  	});
 	}
   	else
   		res.redirect('/');

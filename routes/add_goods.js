@@ -13,7 +13,7 @@ String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 router.get('/:productNo', function(req, res, next) {
 	if (req.header("Referer") && req.header("Referer").contains("/detail")) {
 		var productNo = parseInt(req.params.productNo);
-		if (!req.session.basket || req.session.basket == []) {
+		if (!req.session.basket || !req.session.basket.length) {
 			req.session.basket = [];
 			req.session.basket.push({"no": productNo, "count": 1, "sns": false, "as": false, "return": false});
 		} else 
