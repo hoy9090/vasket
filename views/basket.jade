@@ -31,7 +31,7 @@ block content
           .col-xs-7
              h4.name.bold= info[index].name
              h6= info[index].comment
-             h5.price.bold= info[index].price
+             h5.price.bold= info[index].price*val.count
           .col-xs-2
             span.glyphicon.glyphicon-remove(style="float:right;" onClick="disappear(#{index});")
         .row
@@ -48,7 +48,7 @@ block content
                 tr
                   td.discount 총 할인금액
                 tr
-                  td.price.discount 15000
+                  td.price.discount 0
           .col-xs-9
             center
               table#table2
@@ -56,17 +56,17 @@ block content
                   td#t4 SNS 공유
                   td#t4.
                     <input type="checkbox">
-                  td#t4.price.right -#{val.sns}
+                  td#t4.price.right -#{discount[index].sns_amount}
                 tr
                   td#t4 A/S 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4.price.right -#{val.as}
+                  td#t4.price.right -#{discount[index].as_amount}
                 tr
                   td#t4 반품 불가
                   td#t4.
                     <input type="checkbox">
-                  td#t4.price.right -#{val.return}
+                  td#t4.price.right -#{discount[index].return_amount}
       
     #footer5.col-xs-12
       .row
