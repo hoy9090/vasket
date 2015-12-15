@@ -3,13 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	console.log(req.session);
-	req.session = null;
-	// .userid = null;
-	// req.session.email = null;
-	// req.session.name = null;
-	// req.session.userNo = null;
-  res.redirect('/');
+	req.session.destroy();
+  	res.redirect('/');
 });
 
 module.exports = router;
