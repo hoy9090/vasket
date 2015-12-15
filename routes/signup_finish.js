@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 	});
 
 	var mailOptions = {
-	    from: 'Vasket <noreply@vasket.co.kr>',
+	    from: '"Vasket" <noreply@vasket.co.kr>',
 	    to: req.session.email,
 	    subject: '바스켓 무료 코드 발급~~~',
 	    text: md5(new Date().getTime()+"vasket")
