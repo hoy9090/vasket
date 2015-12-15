@@ -55,9 +55,7 @@ router.post('/minus', function(req, res, next) {
 router.post('/discount', function(req, res, next) {
 	var type = req.body.type;
 	var index = req.body.index;
-	var isDiscount = req.body.isDiscount;
-	console.log(isDiscount);
-	console.log(isDiscount+1);
+	var isDiscount = req.body.isDiscount == 'true' ? true : false; 
 	req.session.basket[index][type] = isDiscount;
 	res.end();
 });
