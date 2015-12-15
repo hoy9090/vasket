@@ -37,8 +37,11 @@ router.post('/', function(req, res, next) {
 	var code = md5(new Date().getTime()+"vasket");
 
 	var mailOptions = {
-	    from: 'Vasket <noreply@vasket.co.kr>',
-	    to: req.session.email,
+	    from: {
+		    name: 'Vasket',
+		    address: 'noreply@vasket.co.kr'
+		},
+	    to: email,
 	    subject: '바스켓 무료 코드 발급~~~',
 	    text: code
 	};
