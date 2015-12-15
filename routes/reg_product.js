@@ -11,7 +11,7 @@ var pool = mysql.createPool({
 router.post('/', function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
-		connection.query('insert into productlist(brandNo, productPrice, snsPrice, asPrice, returnPrice, productName, productComment, productState, productInven, uploadDate) values(?, ?, ?, ?, "판매중", ?, sysdate())', [req.body.brand, req.body.price, req.body.sns, req.body.as, req.body.return, req.body.name, req.body.content, req.body.inven],
+		connection.query('insert into productlist(brandNo, productPrice, snsPrice, asPrice, returnPrice, productName, productComment, productState, productInven, uploadDate) values(?, ?, ?, ?, ? ,? , ?, "판매중", ?, sysdate())', [req.body.brand, req.body.price, req.body.sns, req.body.as, req.body.return, req.body.name, req.body.content, req.body.inven],
 			function(err, result, field) {
 				if (err) {
 					console.error(err);
