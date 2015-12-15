@@ -69,11 +69,11 @@ router.post('/', function(req, res, next) {
 			req.session.userid = userid;
 			req.session.email = email;
 			req.session.name = name;
-			connection.query('select userNo, grade, userBirth, phone from user where userID=?', 
+			connection.query('select userNo, grade, date_format(userBirth, "%Y-%m-%d") birth, phone from user where userID=?', 
 			[userid], function(err, result, field) {
 				req.session.userNo = result[0].userNo;
 				req.session.grade = result[0].grade;
-				req.session.birth = result[0].userBirth;
+				req.session.birth = result[0].birth;
 				req.session.phone = result[0].phone;
 				res.redirect('signup_finish');
 				connection.release();

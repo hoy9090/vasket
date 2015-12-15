@@ -21,6 +21,7 @@ router.post('/', function(req, res, next) {
 			var db_code = result[0].code;
 			if (code == db_code && grade == '일반') {
 				connection.query('update user set grade="프리미엄" where userNo='+req.session.userNo);
+				req.session.grade = "프리미엄";
 				res.send({text: "코드 인증이 완료되었습니다", color: "#000000"});
 			} else if (code == db_code) {
 				res.send({text: "이미 코드 인증을 완료하셨습니다", color: "#000000"});

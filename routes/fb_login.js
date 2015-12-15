@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
 			}
 			console.log('DB Connection Success!!');
 			connection.query('use vasket');
-			connection.query('select count(*) result, userNo, grade, userBirth, phone from user where userID=?', 
+			connection.query('select count(*) result, userNo, grade, date_format(userBirth, "%Y-%m-%d") birth, phone from user where userID=?', 
 			[userid], function(err, result, field) {
 				var isAlreadyUser = result[0].result;
 				console.log(isAlreadyUser);
@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
 					req.session.name = req.body.name;
 					req.session.userNo = result[0].userNo;
 					req.session.grade = result[0].grade;
-					req.session.birth = result[0].userBirth;
+					req.session.birth = result[0].birth;
 					req.session.phone = result[0].phone;
 					console.log('DB FB Login Success!!');
 					res.end();
