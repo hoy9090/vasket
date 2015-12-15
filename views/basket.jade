@@ -19,7 +19,7 @@ block style
     #t1 {background-color:#ffffff; font-weight:bold; color:#747474; width:25px;text-align:center;}
     #t2 {background-color:#ffffff; font-weight:bold; color:#000000; width:25px;text-align:center;}
     #t3 {background-color:#ffffff; font-weight:bold; color:#747474;width:25px;text-align:center;}
-    #t4 {background-color:#ffffff; font-weight:bold; color:#747474;width:25px;text-align:center;}
+    #t4 {background-color:#ffffff; font-weight:bold; color:#747474;width:25px;text-align:right;}
     #footer {display: none;}
 
 block content
@@ -58,17 +58,17 @@ block content
                   td#t4 SNS 공유
                   td#t4
                     input.sns(type="checkbox" value="#{index}" checked=(val.sns ? "checked" : undefined))
-                  td#t4.price.right -#{discount[index].sns}
+                  td#t4.price -#{discount[index].sns}
                 tr
                   td#t4 A/S 불가
                   td#t4
                     input.as(type="checkbox" value="#{index}" checked=(val.as ? "checked" : undefined))
-                  td#t4.price.right -#{discount[index].as}
+                  td#t4.price -#{discount[index].as}
                 tr
                   td#t4 반품 불가
                   td#t4
                     input.return(type="checkbox" value="#{index}" checked=(val.return ? "checked" : undefined))
-                  td#t4.price.right -#{discount[index].return}
+                  td#t4.price -#{discount[index].return}
       
     #footer5.col-xs-12
       .row
