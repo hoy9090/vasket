@@ -89,9 +89,14 @@ block content
 block script_content
   script.
     function Minus(index){
-      var goodnum = parseInt($("#basket"+index+" .count").html());
-      goodnum = goodnum +1;
-      $("#basket"+index+" .count").html(goodnum);
+      $.ajax({
+        type: "POST",
+        url: '/basket/minus',
+        data: {index: index},
+        success: function() {
+          location.href = "/basket";
+        }
+      });
     }
     function Plus(index){
       $.ajax({
