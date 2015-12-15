@@ -41,6 +41,7 @@ html
           url: '/reg_code',
           data: {code: $('#code').val()},
           success: function(data) {
+            console.log(data);
             $('text').html(data.text);
             $('text').css("color: "+data.color);
             $('code').val('');
