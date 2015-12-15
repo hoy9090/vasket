@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 	var smtpTransport = nodemailer.createTransport("SMTP", {
 	    service: 'Gmail',
 	    auth: {
-	        user: 'sklee7753',
+	        user: 'sklee7753@gmail.com',
 	        pass: '121314aaaa'
 	    }
 	});
