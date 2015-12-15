@@ -75,7 +75,7 @@ block content
         .col-xs-6
           h5.total_amount 상품 금액
         .col-xs-6
-          h5.total_amount.price= total_amount
+          h5.total_amount.price.right(style="padding-right: 30%;")= total_amount
       .row
         .col-xs-6
           h5.discount_amount 할인 금액
@@ -84,12 +84,12 @@ block content
           - for (var index in discount) {
           -   discount_amount += discount[index].sns*basket[index].sns+discount[index].as*basket[index].as+discount[index].return*basket[index].return;
           - }
-          h5.discount_amount.price= discount_amount
+          h5.discount_amount.price.right(style="padding-right: 30%;")= discount_amount
       .row
         .col-xs-6
           h5.pay_amount 결제 금액
         .col-xs-6
-          h5.pay_amount.price= total_amount-discount_amount
+          h5.pay_amount.price.right(style="padding-right: 30%;")= total_amount-discount_amount
       button.btn.btn-danger(type='submit') 구매하기
 
 block script_content
