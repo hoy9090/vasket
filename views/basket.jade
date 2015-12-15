@@ -90,15 +90,18 @@ block script_content
   script.
     function Minus(index){
       var goodnum = parseInt($("#basket"+index+" .count").html());
-      if(goodnum>1){
-        goodnum = goodnum -1;
-        $("#basket"+index+" .count").html(goodnum);
-      }
-    }
-    function Plus(index){
-      var goodnum = parseInt($("#basket"+index+" .count").html());
       goodnum = goodnum +1;
       $("#basket"+index+" .count").html(goodnum);
+    }
+    function Plus(index){
+      $.ajax({
+        type: "POST",
+        url: '/basket/plus',
+        data: {index: index},
+        success: function() {
+          location.href = "/basket";
+        }
+      });
     }
     function disappear(index){
       $("#basket"+index).css('display', 'none');

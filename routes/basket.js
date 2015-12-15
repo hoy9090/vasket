@@ -35,4 +35,9 @@ router.get('/', function(req, res, next) {
   		res.redirect('/');
 });
 
+router.post('/plus', function(req, res, next) {
+	req.session.basket[req.body.index]++;
+	res.end();
+});
+
 module.exports = router;
