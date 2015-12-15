@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/plus', function(req, res, next) {
-	req.session.basket[req.body.index]++;
+	req.session.basket[req.body.index].count++;
 	res.end();
 });
 
