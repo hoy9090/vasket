@@ -32,12 +32,13 @@ html
       #box.col-xs-12
         h5 로그인 정보
       #box_.col-xs-12
-        button.btn.btn-warning 로그아웃
+        button.btn.btn-warning(onClick='location.href="/logout";') 로그아웃
       #box.col-xs-12
         h5 회원 상태
       #box_.col-xs-12
-        h6.rank 프리미엄
-        h6.expirationDate 만료일: 2015.12.31
+        h6.rank= grade
+        if (grade == '프리미엄')
+          h6.expirationDate 만료일: 2016-4-30
       #box.col-xs-12
         h5 회원 정보
       #box_.col-xs-12
@@ -45,21 +46,21 @@ html
           .col-xs-3
             h6 이름
           .col-xs-9
-            input(type="text" style="width:100%;" disabled)
+            input(type="text" style="width:100%;" readonly value="#{name}")
         .row
           .col-xs-3
             h6 생일
           .col-xs-9
-            input(type="text" style="width:100%;" disabled)
+            input(type="text" style="width:100%;" readonly value="#{birth}")
         .row
           .col-xs-3
             h6 메일
           .col-xs-9
-            input(type="text" style="width:100%;")
+            input(type="text" style="width:100%;" value="#{email}")
         .row
           .col-xs-3
             h6 휴대폰
           .col-xs-9
-            input(type="text" style="width:100%;")
+            input(type="text" style="width:100%;" value="#{phone}")
       .col-xs-offset-3.col-xs-6
         button.btn.btn-warning(style="width:100%;") 수정완료
