@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var smtpTransport = nodemailer.createTransport("SMTP", {
+	var smtpTransport = nodemailer.createTransport({
 	    service: 'Gmail',
 	    auth: {
 	        user: 'sklee7753@gmail.com',
