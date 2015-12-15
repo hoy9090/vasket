@@ -36,12 +36,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/plus', function(req, res, next) {
-	req.session.basket[req.body.index.parseInt()].count++;
+	req.session.basket[parseInt(req.body.index)].count++;
 	res.end();
 });
 
 router.post('/minus', function(req, res, next) {
-	var index = req.body.index.parseInt();
+	var index = parseInt(req.body.index);
 	if (req.session.basket[index].count > 1)
 		req.session.basket[index].count--;
 	res.end();
