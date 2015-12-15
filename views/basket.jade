@@ -78,12 +78,16 @@ block content
         .col-xs-6
           h5 할인 금액
         .col-xs-6
-          h5.price 0
+          - var discount_amount = 0;
+          - for (var index in discount) {
+          -   discount_amount += discount[index].sns*basket[index].sns+discount[index].as*basket[index].as+discount[index].return*basket[index].return;
+          - }
+          h5.price= discount_amount
       .row
         .col-xs-6
           h6 결제 금액
         .col-xs-6
-          h6.price
+          h6.price= total_amount-discount_amount
       button.btn.btn-danger(type='submit') 구매하기
 
 block script_content
