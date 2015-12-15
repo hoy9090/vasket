@@ -48,25 +48,25 @@ block content
                 tr
                   td.discount 총 할인금액
                 tr
-                  td.price.discount 0
+                  td.price.discount= discount[index].sns*val.sns+discount[index].as*val.as+discount[index].return*val.return;
           .col-xs-9
             center
               table#table2
                 tr
                   td#t4 SNS 공유
-                  td#t4.
-                    <input type="checkbox">
-                  td#t4.price.right -#{discount[index].sns_amount}
+                  td#t4
+                    input.sns(type="checkbox" value="#{index}" checked=(val.sns ? "checked" : undefined))
+                  td#t4.price.right -#{discount[index].sns}
                 tr
                   td#t4 A/S 불가
-                  td#t4.
-                    <input type="checkbox">
-                  td#t4.price.right -#{discount[index].as_amount}
+                  td#t4
+                    input.as(type="checkbox" value="#{index}" checked=(val.as ? "checked" : undefined))
+                  td#t4.price.right -#{discount[index].as}
                 tr
                   td#t4 반품 불가
-                  td#t4.
-                    <input type="checkbox">
-                  td#t4.price.right -#{discount[index].return_amount}
+                  td#t4
+                    input.return(type="checkbox" value="#{index}" checked=(val.return ? "checked" : undefined))
+                  td#t4.price.right -#{discount[index].return}
       
     #footer5.col-xs-12
       .row
@@ -119,3 +119,28 @@ block script_content
       });
     }
     $(document).ready(commaAll);
+    $(document).ready(function() {
+      $('.sns, .as, .return').change(function() {
+        var type = $(this).attr('class');
+        var index = parseInt($(this).val());
+        if($(this).is(":checked")) {
+          $.ajax({
+            type: "POST",
+            url: '/basket/discount',
+            data: {index: index, type: type, isDiscount: true},
+            success: function() {
+              location.href = "/basket";
+            }
+          });
+        } else {
+          $.ajax({
+            type: "POST",
+            url: '/basket/discount',
+            data: {index: index, type: type, isDiscount: false},
+            success: function() {
+              location.href = "/basket";
+            }
+          });
+        }
+      });
+    });

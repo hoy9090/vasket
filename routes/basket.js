@@ -27,7 +27,8 @@ router.get('/', function(req, res, next) {
 				req.session.discount_amount = [];
 				for (var index in result) {
 					req.session.total_amount += result[index].price*basket[index].count;
-					req.session.discount_amount.push({sns_amount: result[index].sns*basket[index].count, as_amount: result[index].as*basket[index].count, return_amount: result[index].return*basket[index].count});
+					req.session.discount_amount.push({sns: result[index].sns*basket[index].count, as: result[index].as*basket[index].count, return: result[index].return*basket[index].count});
+
 				}
 				connection.release();
 				res.render('basket', {basket: basket, info: result, discount: req.session.discount_amount, total_amount: req.session.total_amount});
@@ -48,6 +49,14 @@ router.post('/minus', function(req, res, next) {
 	var index = parseInt(req.body.index);
 	if (req.session.basket[index].count > 1)
 		req.session.basket[index].count--;
+	res.end();
+});
+
+router.post('/discount', function(req, res, next) {
+	var type = req.body.type;
+	var index = req.body.index;
+	var isDiscount = req.body.isDiscount;
+	req.session.basket[index][type] = isDiscount;
 	res.end();
 });
 
