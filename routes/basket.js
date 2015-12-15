@@ -23,7 +23,11 @@ router.get('/', function(req, res, next) {
 			connection.query('select productName name, productComment comment, productPrice price from productlist where productNo in ('+queryString+') order by find_in_set(productNo, "'+queryString+'")', function(err, result, field) {
 				if (err)
 					console.error(err);
-				res.render('basket', {basket: basket, info: result});	
+				req.session.total_amount = 0;
+				for (var index in result) {
+					req.session.total_amount += result[index].price*basket[index].count;
+				}
+				res.render('basket', {basket: basket, info: result, total_amount: req.session.total_amount});	
 			});
 	  	});
 	}
