@@ -56,6 +56,8 @@ router.post('/discount', function(req, res, next) {
 	var type = req.body.type;
 	var index = req.body.index;
 	var isDiscount = req.body.isDiscount;
+	console.log(isDiscount);
+	console.log(isDiscount+1);
 	req.session.basket[index][type] = isDiscount;
 	res.end();
 });
