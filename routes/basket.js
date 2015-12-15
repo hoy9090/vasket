@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 		console.log(3);
 		queryString = queryString.substring(0, queryString.length-1);
 		console.log(4);
-		if (queryString !== "")
+		if (queryString.length !== 0)
 			pool.getConnection(function(err, connection) {
 				console.log(5);
 				connection.query('use vasket');
