@@ -11,9 +11,11 @@ block style
     .name {margin-top: 3px;}
     .bold {font-weight: bold;}
     .right {text-align: right;}
-    .discount {font-size: 130%;}
+    .discount {font-size: 130%; color: #ffa800;}
     #footer5 { position:fixed; bottom:0px; right:0px;left:0px; background-color:#ffffff;  border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px;text-align:center;}
-    #footer5 h5 {font-weight:bold; color:#ffa800;}
+    #footer5 h5 {font-weight:bold;}
+    .pay_amount {color: #DE0018}
+    .discount_amount {color: #ffa800;}
     #t1 {background-color:#ffffff; font-weight:bold; color:#747474; width:25px;text-align:center;}
     #t2 {background-color:#ffffff; font-weight:bold; color:#000000; width:25px;text-align:center;}
     #t3 {background-color:#ffffff; font-weight:bold; color:#747474;width:25px;text-align:center;}
@@ -71,23 +73,23 @@ block content
     #footer5.col-xs-12
       .row
         .col-xs-6
-          h6 상품 금액
+          h5.total_amount 상품 금액
         .col-xs-6
-          h6.price= total_amount
+          h5.total_amount.price= total_amount
       .row
         .col-xs-6
-          h5 할인 금액
+          h5.discount_amount 할인 금액
         .col-xs-6
           - var discount_amount = 0;
           - for (var index in discount) {
           -   discount_amount += discount[index].sns*basket[index].sns+discount[index].as*basket[index].as+discount[index].return*basket[index].return;
           - }
-          h5.price= discount_amount
+          h5.discount_amount.price= discount_amount
       .row
         .col-xs-6
-          h6 결제 금액
+          h5.pay_amount 결제 금액
         .col-xs-6
-          h6.price= total_amount-discount_amount
+          h5.pay_amount.price= total_amount-discount_amount
       button.btn.btn-danger(type='submit') 구매하기
 
 block script_content
