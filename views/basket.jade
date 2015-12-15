@@ -35,7 +35,7 @@ block content
              h6= info[index].comment
              h5.price.bold= info[index].price*val.count
           .col-xs-2
-            span.glyphicon.glyphicon-remove(style="float:right;" onClick="disappear(#{index});")
+            span.glyphicon.glyphicon-remove(style="float:right;" onClick="delete(#{index});")
         .row
           .col-xs-3(style="padding-right: 0;")
             center(style="float: left;")
@@ -114,8 +114,15 @@ block script_content
         }
       });
     }
-    function disappear(index){
-      $("#basket"+index).css('display', 'none');
+    function delete(index){
+      $.ajax({
+        type: "POST",
+        url: '/basket/delete',
+        data: {index: index},
+        success: function() {
+          location.href = "/basket";
+        }
+      });
     }
     function commaAll() {
       $(".price").each(function() {

@@ -52,6 +52,13 @@ router.post('/minus', function(req, res, next) {
 	res.end();
 });
 
+router.post('/delete', function(req, res, next) {
+	var index = parseInt(req.body.index);
+	req.session.basket.splice(index, 1);
+	req.session.discount_amount.splice(index, 1);
+	res.end();
+});
+
 router.post('/discount', function(req, res, next) {
 	var type = req.body.type;
 	var index = req.body.index;
