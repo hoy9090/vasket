@@ -35,7 +35,7 @@ block content
              h6= info[index].comment
              h5.price.bold= info[index].price*val.count
           .col-xs-2
-            span.glyphicon.glyphicon-remove(style="float:right;" onClick="delete(#{index});")
+            span.glyphicon.glyphicon-remove(style="float:right;" onClick="Delete(#{index});")
         .row
           .col-xs-3(style="padding-right: 0;")
             center(style="float: left;")
@@ -114,7 +114,7 @@ block script_content
         }
       });
     }
-    function delete(index){
+    function Delete(index){
       $.ajax({
         type: "POST",
         url: '/basket/delete',
