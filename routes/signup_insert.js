@@ -43,7 +43,30 @@ router.post('/', function(req, res, next) {
 		},
 	    to: email,
 	    subject: '바스켓 무료 코드 발급~~~',
-	    html: "<doctype html>		<html>			<head>				<meta charset='UTF-8'>				<style type='text/css'>				body {text-align: center;}				#title { border-color: #ffa800; border-width: 0px; border-top-width: 3px; border-bottom-width: 3px; border-style: solid; margin-bottom: 20px; height: 70px; width: 700px;}				#title-p {font-size: 110%; font-weight: bold; float: right; padding-top: 25px;}				#codeSec {width: 70%; border-style: solid; border-color: #ffffff; border-width: 4px; width: 500px; padding-top: 4px; padding-bottom: 4px; background-color: #ffffff;}				#codeButton {background-color: #bbbbbb; color:#000000; border-color: #ffa800; font-weight: bold; font-size:110%; padding-top: 6px; padding-bottom: 6px; width: 250px; }				#aa { padding-bottom: 30px; border-width: 0px; border-color: #ffa800; border-style: solid; border-bottom-width: 3px; width: 700px; margin-top: 15px;}				#bb { background-color:#ffa800; border-radius: 10px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 20px; }				</style>			</head>			<body>				<center>				<div id='title'>					<img src='../public/images/logo_beta.jpg' style='float:left; padding-top:10px;'' width='200px;'>					<p id='title-p'>브랜드 전문 최저가 소셜커머스</p>				</div>				<div>					<img src='../public/images/mail_detail.jpg' width='600px;'>				</div>				<div id='aa'>					<div id='bb'>						<h1 style='font-weight:bold;'>6개월 무료 코드</h1>						<h3 id='codeSec'>"+code+"</h3>						<button id='codeButton'> 코드 입력 하러 가기</button>					</div>				</div>				</center>			</body>		</html>",
+	    html: "<doctype html>
+		<html>
+			<head>
+				<meta charset='UTF-8'>
+			</head>
+			<body>
+				<center>
+				<div id='title' style='border-color: #ffa800; border-width: 0px; border-top-width: 3px; border-bottom-width: 3px; border-style: solid; margin-bottom: 20px; height: 70px; width: 700px;'>
+					<img src='http://vasket.co.kr/download/mail/logo_beta.jpg' style='float:left; padding-top:10px;'' width='200px;'>
+					<p id='title-p' style='font-size: 110%; font-weight: bold; float: right; padding-top: 25px;'>브랜드 전문 최저가 소셜커머스</p>
+				</div>
+				<div>
+					<img src='http://vasket.co.kr/download/mail/mail_detail.jpg' width='600px;'>
+				</div>
+				<div id='aa' style='padding-bottom: 30px; border-width: 0px; border-color: #ffa800; border-style: solid; border-bottom-width: 3px; width: 700px; margin-top: 15px;'>
+					<div id='bb' style='background-color:#ffa800; border-radius: 10px; margin-bottom: 20px; padding-top: 10px; padding-bottom: 20px;'>
+						<h1 style='font-weight:bold;'>6개월 무료 코드</h1>
+						<h3 id='codeSec' style='width: 70%; border-style: solid; border-color: #ffffff; border-width: 4px; width: 500px; padding-top: 4px; padding-bottom: 4px; background-color: #ffffff;'>"+code+"</h3>
+						<button id='codeButton' style='background-color: #bbbbbb; color:#000000; border-color: #ffa800; font-weight: bold; font-size:110%; padding-top: 6px; padding-bottom: 6px; width: 250px; '> 코드 입력 하러 가기</button>
+					</div>
+				</div>
+				</center>
+			</body>
+		</html>",
 	    text: code
 	};
 

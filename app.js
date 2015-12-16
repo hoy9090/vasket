@@ -125,6 +125,12 @@ app.get('/download/:id', function(req, res) {
   res.download(filepath);
 });
 
+app.get('/download/mail/:id', function(req, res) {
+  var filename = req.params.id;
+  var filepath = path.join(__dirname, '/download/mail/', filename);
+  res.download(filepath);
+});
+
 app.get('/content_box', function(req, res) {
   res.render('content_box');
 });
