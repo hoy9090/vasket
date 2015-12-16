@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
 	    //     pass: '121314aaaa'
 	    // }
 	    host: 'localhost',
-        port: 587,
+        port: 25,
         auth: {
             user: 'vasket',
             pass: '1012'
@@ -47,7 +47,7 @@ router.post('/', function(req, res, next) {
 	var mailOptions = {
 	    from: {
 		    name: 'Vasket',
-		    address: 'noreply@vasket.co.kr'
+		    address: 'vasket@vasket.co.kr'
 		},
 	    to: email,
 	    subject: 'Vasket 회원 코드를 입력해주세요.',
