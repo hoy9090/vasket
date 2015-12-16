@@ -27,11 +27,19 @@ router.post('/', function(req, res, next) {
 	console.log(userid, year, month, day, name, gender, email);
 
 	var smtpTransport = nodemailer.createTransport({
-	    service: 'Gmail',
-	    auth: {
-	        user: 'sklee7753@gmail.com',
-	        pass: '121314aaaa'
-	    }
+	    // service: 'Gmail',
+	    // auth: {
+	    //     user: 'sklee7753@gmail.com',
+	    //     pass: '121314aaaa'
+	    // }
+	    host: 'vasket.co.kr',
+        port: 587,
+        auth: {
+            user: 'vasket@vasket.co.kr',
+            pass: '1012'
+        },
+        tls: {rejectUnauthorized: false},
+        debug:true
 	});
 
 	var code = md5(new Date().getTime()+"vasket");
