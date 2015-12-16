@@ -32,10 +32,10 @@ router.post('/', function(req, res, next) {
 	    //     user: 'sklee7753@gmail.com',
 	    //     pass: '121314aaaa'
 	    // }
-	    host: 'vasket.co.kr',
+	    host: 'localhost',
         port: 587,
         auth: {
-            user: 'vasket@vasket.co.kr',
+            user: 'vasket',
             pass: '1012'
         },
         tls: {rejectUnauthorized: false},
