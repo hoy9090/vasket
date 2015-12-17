@@ -35,8 +35,10 @@ router.get('/', function(req, res, next) {
 			});
 	  	});
 	}
-  	else
+  	else {
+  		console.log(req.originalUrl);
   		res.redirect('back');
+  	}
 });
 
 router.post('/plus', function(req, res, next) {

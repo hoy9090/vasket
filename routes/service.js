@@ -60,7 +60,7 @@ router.get('/', function(req, res, next) {
 						return;
 					}
 					connection.release();
-					res.render('service', {brand: brand, product: result});	
+					res.render('service', {brand: brand, brandlike: 0, product: result});	
 				});
 			});
 		});
