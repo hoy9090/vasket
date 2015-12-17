@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 				var image = result[0].image;
 				
 				connection.release();
-				res.render('brand', {brand: brand, like: -1, brandNo: brandNo, image: image});
+				res.render('brand', {brand: brand, brandNo: brandNo, image: image});
 			});
 		});
 	} else {
