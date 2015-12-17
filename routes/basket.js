@@ -36,7 +36,6 @@ router.get('/', function(req, res, next) {
 	  	});
 	}
   	else {
-  		console.log(req.originalUrl);
   		res.redirect('back');
   	}
 });

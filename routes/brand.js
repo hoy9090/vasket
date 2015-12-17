@@ -9,10 +9,25 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	if (!req.session.userid)
+	var brandNo = req.query.brandNo;
+	if (!req.session.userid) {
+		pool.getConnection(function(err, connection) {
+			connection.query('use vasket');
+			connection.query('select brandName brand, brandImageName image from brand where brandNo='+brandNo,
+				function(err, result, field) {
+				if (err) {
+					console.error(err);
+					return;
+				}
+				var brand = result[0].brand;
+				var image = result[0].image;
+				
+				connection.release();
+				res.render('brand', {brand: brand, like: -1, brandNo: brandNo, image: image});
+			});
+		});
 		res.redirect('/');
-	else {
-		var brandNo = req.query.brandNo;
+	} else {
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
 			connection.query('select brandName brand, brandImageName image from brand where brandNo='+brandNo,

@@ -37,8 +37,9 @@ html
         .col-xs-6(style='height: 100%; text-align: center;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
           h5(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
-        .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
-          p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
+        if (like == -1)
+          .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
+            p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
     .col-xs-12
       .row
         #brand-activity.col-xs-6(onclick="change_(1);")
@@ -128,10 +129,10 @@ html
       };
 
       function goBack(){
-        if (document.referrer.endsWith("service"))
-          location.href = '/service';
-        else if (document.referrer.endsWith("mypage"))
-          location.href = '/mypage';
-        else
+        //- if (document.referrer.endsWith("service"))
+        //-   location.href = '/service';
+        //- else if (document.referrer.endsWith("mypage"))
+        //-   location.href = '/mypage';
+        //- else
           history.back();
       }
