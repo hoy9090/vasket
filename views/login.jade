@@ -93,7 +93,7 @@ html(lang='ko-kr')
                     form.submit();
                   },
                   error: function(request, status, error) {
-                    window.location.href='/';
+                    location.href=document.referrer;
                   }
                 });
               }
