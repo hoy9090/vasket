@@ -150,14 +150,7 @@ block script_content
 				});
 			}
 		}
-		function setInitialLike() {
-			if (!{brandLike} != 0)
-					var brandLike = !{JSON.stringify(brandLike)};
-					for (var val in brandLike) {
-						$("#brand"+brandLike[val]['brandNo']).attr('class', 'like');
-					}
-		}
-		$(document).ready(setInitialLike);
+		
 		(function setTab() {
 			if (location.hash)
 				change(location.hash.charAt(1));
@@ -170,3 +163,12 @@ block script_content
 			});
 		}
 		$(document).ready(comma);
+	if (loggedIn)
+		script.
+			function setInitialLike() {
+					var brandLike = !{JSON.stringify(brandLike)};
+					for (var val in brandLike) {
+						$("#brand"+brandLike[val]['brandNo']).attr('class', 'like');
+					}
+			}
+			$(document).ready(setInitialLike);
