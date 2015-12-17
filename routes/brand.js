@@ -26,7 +26,6 @@ router.get('/', function(req, res, next) {
 				res.render('brand', {brand: brand, like: -1, brandNo: brandNo, image: image});
 			});
 		});
-		res.redirect('/');
 	} else {
 		pool.getConnection(function(err, connection) {
 			connection.query('use vasket');
