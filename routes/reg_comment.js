@@ -9,24 +9,28 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
-	var content = req.body.content;
-	pool.getConnection(function(err, connection) {
-			if (err) {
-				console.error('DB Connection error!!');
-				return;
-			}
-			console.log('DB Connection Success!!');
-			connection.query('use vasket');
-			connection.query('insert into comment(userNo, content, date) values(?, ?, now())', 
-			[req.session.userNo, content], function(err, result, field) {
+	if (req.session.userid) {
+		var content = req.body.content;
+		pool.getConnection(function(err, connection) {
 				if (err) {
-					console.error('DB Insertion error!!');
+					console.error('DB Connection error!!');
 					return;
 				}
-				connection.release();
-				res.redirect('/detail?productNo='+req.body.productNo+'#secC');
+				console.log('DB Connection Success!!');
+				connection.query('use vasket');
+				connection.query('insert into comment(userNo, content, date) values(?, ?, now())', 
+				[req.session.userNo, content], function(err, result, field) {
+					if (err) {
+						console.error('DB Insertion error!!');
+						return;
+					}
+					connection.release();
+					res.redirect('/detail?productNo='+req.body.productNo+'#secC');
+				});
 			});
-		});
+	} else {
+		res.redirect('back');
+	}
 });
 
 module.exports = router;

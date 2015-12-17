@@ -11,7 +11,7 @@ String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 
 /* GET home page. */
 router.get('/:productNo', function(req, res, next) {
-	if (req.header("Referer") && req.header("Referer").contains("/detail")) {
+	if (req.session.userid && req.header("Referer") && req.header("Referer").contains("/detail")) {
 		var productNo = parseInt(req.params.productNo);
 		if (!req.session.basket || !req.session.basket.length) {
 			req.session.basket = [];
