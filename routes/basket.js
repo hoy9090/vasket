@@ -36,7 +36,7 @@ router.get('/', function(req, res, next) {
 	  	});
 	}
   	else
-  		res.redirect('/');
+  		res.redirect('back');
 });
 
 router.post('/plus', function(req, res, next) {
