@@ -61,13 +61,12 @@ block content
 		#event-list.col-xs-12
 			.col-xs-12
 				img(src="./images/event_sample.jpg" width="100%;")
-			.col-xs-12
 		#conEnroll.col-xs-12
-			button.btn.btn-waring 게시글 올리기
+			button.btn.btn-warning 게시글 올리기
 	#discount-con
 		each val in product
 			a(href='/detail?productNo=#{val.productNo}')
-				#discount-list.col-xs-12
+				#discount-list.col-xs-12.col-sm-6
 					img.discount(src="./images/product_image/#{val.productNo}/main.jpg" width='100%;')
 					h5(style='font-size: 200%;')= val.productName
 					h6.price(style='font-size: 150%; float: right;')= val.productPrice
@@ -82,6 +81,7 @@ block script_content
 			var after_active;
 			var after_tab;
 			count=num;
+			location.hash = "#"+num;
 			if(copy_count == 1){
 				before_active = "brand-con"
 				before_tab = "service-brand"
