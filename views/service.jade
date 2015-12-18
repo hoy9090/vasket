@@ -20,6 +20,8 @@ block style
 		.non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
 		#event-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
+		#conEnroll {position:fixed; bottom:0px; left:0px; right:0px;}
+		#conEnroll button {width:100%;}
 block content
 	.col-xs-12
 		.row.menu
@@ -60,6 +62,8 @@ block content
 			.col-xs-12
 				img(src="./images/event_sample.jpg" width="100%;")
 			.col-xs-12
+		#conEnroll.col-xs-12
+			button.btn.btn-waring 게시글 올리기
 	#discount-con
 		each val in product
 			a(href='/detail?productNo=#{val.productNo}')
