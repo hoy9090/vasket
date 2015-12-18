@@ -22,7 +22,7 @@ html
       #text {text-align: center;}
   body
     #nav.col-xs-12
-      a(href='javascript:history.back();')
+      a(href='javascript:goBack();')
         span.glyphicon.glyphicon-arrow-left
       h4 회원코드 입력
     #enrollBlock.col-xs-12
@@ -49,4 +49,11 @@ html
             $('#code').val('');
           }
         });
+      }
+      function goBack() {
+        if (history.length > 1)
+          history.back();
+        else {
+          location.href = "/mypage";
+        }
       }
