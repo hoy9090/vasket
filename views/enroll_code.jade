@@ -51,7 +51,9 @@ html
         });
       }
       function goBack() {
-        if (history.length > 1)
+        if (document.referrer.endsWith('login'))
+          location.href = "/mypage";
+        else if (history.length > 1)
           history.back();
         else {
           location.href = "/mypage";
