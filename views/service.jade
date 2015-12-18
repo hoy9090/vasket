@@ -22,6 +22,9 @@ block style
 		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
 		#conEnroll {position:fixed; bottom:0px; left:0px; right:0px;}
 		#conEnroll button {width:100%;}
+		#titleBlock {background-color:#ffffff; width:100%; height:50px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:10px;}
+		#imgBlock {background-color:#ffffff; width:100%;}
+		#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
 block content
 	.col-xs-12
 		.row.menu
@@ -59,8 +62,30 @@ block content
 				h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
 	#event-con
 		#event-list.col-xs-12
-			.col-xs-12
-				img(src="./images/event_sample.jpg" width="100%;")
+			.row
+				.col-xs-6
+					#titleBlock.col-xs-12
+						.row
+							.col-xs-2
+								img(src='./images/nike.png' width='30px;')
+							.col-xs-7
+								h6 NIKE
+							.col-xs-3
+								h6 coco2638
+					#imgBlock.col-xs-12
+						img(src='./images/camera-icon.png' width="100%;")
+					#likeBlock.col-xs-12
+						.row
+							.col-xs-4
+								img(src='./images/heart.png' width='25px;')
+								h6 32
+							.col-xs-4
+								img(src='./images/speech.png' width='25px;')
+								h6 12
+							.col-xs-4
+								img(src='./images/view.png' width='25px;')
+								h6 123
+				.col-xs-6
 		#conEnroll.col-xs-12
 			button.btn.btn-warning 게시글 올리기
 	#discount-con
