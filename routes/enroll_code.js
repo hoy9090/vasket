@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
 	if (req.session.userid)
 		res.render('enroll_code');
 	else {
-		res.redirect('login');
+		res.redirect('login#code');
 	}
 });
 

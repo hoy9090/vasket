@@ -93,7 +93,10 @@ html(lang='ko-kr')
                     form.submit();
                   },
                   error: function(request, status, error) {
-                    location.href=document.referrer;
+                    if (location.hash === "#code")
+                      location.href = "/enroll_code";  
+                    else
+                      location.href = document.referrer;
                   }
                 });
               }
