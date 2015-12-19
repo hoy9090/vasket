@@ -136,7 +136,7 @@ block content
 					- }
 				- }
 		#conEnroll.col-xs-12
-			button.btn.btn-warning 게시글 올리기
+			button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
 	#discount-con
 		each val in product
 			a(href='/detail?productNo=#{val.productNo}')

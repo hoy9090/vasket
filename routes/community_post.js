@@ -9,17 +9,20 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	pool.getConnection(function(err, connection) {
-		if (err) {
-			console.error('DB Connection error!!');
-			return;
-		}
-		connection.query('use vasket');
-		connection.query('select brandName brand from brand', function(err, result, field) {
-			connection.release();
-			res.render('community_post', {brand: result});
+	if (req.session.userid)
+		pool.getConnection(function(err, connection) {
+			if (err) {
+				console.error('DB Connection error!!');
+				return;
+			}
+			connection.query('use vasket');
+			connection.query('select brandName brand from brand', function(err, result, field) {
+				connection.release();
+				res.render('community_post', {brand: result});
+			});
 		});
-	});
+	else
+		res.redirect('back');
 });
 
 module.exports = router;
