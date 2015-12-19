@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 				console.error(err);
 			connection.query('use vasket');
 			connection.query('update community set view=view+1 where communityNo='+communityNo);
-			connection.query('select brandImageName brandImage, brandName, email, image, community.content content, view from community join user on community.userNo=user.userNo join brand on community.brandNo=brand.brandNo where communityNo='+communityNo, function(err, result, field) {
+			connection.query('select brandImageName brandImage, brandName, email, image, community.content content, view, (select count(commentNo) from community, communityComment where community.communityNo = communityComment.commentNo) as count, (select count(*) from communityLikeList, community where communityLikeList.communityNo = community.communityNo) as `like` from community join user on community.userNo=user.userNo join brand on community.brandNo=brand.brandNo where communityNo='+communityNo, function(err, result, field) {
 				connection.release();
 				var at_index = result[0].email.indexOf('@');
 				result[0].email = result[0].email.substr(0, 2)+'***@'+result[0].email.substr(at_index+1, 2);
