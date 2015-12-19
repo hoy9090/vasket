@@ -46,6 +46,7 @@ block style
 		display: flex; }
 		.email {float: right;}
 		.email h6 {float: right;}
+		.email image {float: right; padding-top: 6px; margin-right: 3px;}
 		.tab-bar {position: fixed; top: 50px; z-index: 1;}
 
 block content
@@ -96,8 +97,8 @@ block content
 								.hidden-xs.col-sm-4
 									h6= community[index].brandName
 								.col-xs-9.col-sm-6.email
-									img(src='./images/user.png' width="20px")
 									h6= community[index].email
+									img(src='./images/user.png' width="15px")
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
 						#likeBlock.col-xs-12
@@ -121,6 +122,7 @@ block content
 										h6= community[index+1].brandName
 									.col-xs-9.col-sm-6.email
 										h6= community[index+1].email
+										img(src='./images/user.png' width="15px")
 							#imgBlock.col-xs-12
 								img(src='./images/community/#{community[index+1].image}' width="100%;")
 							#likeBlock.col-xs-12
