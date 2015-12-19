@@ -44,6 +44,7 @@ block style
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
+		.email {float: right;}
 		.email h6 {float: right;}
 
 block content
@@ -93,7 +94,7 @@ block content
 									img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
 								.hidden-xs.col-sm-4
 									h6= community[index].brandName
-								.col-xs-10.col-sm-6.email
+								.col-xs-9.col-sm-6.email
 									h6= community[index].email
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
@@ -116,7 +117,7 @@ block content
 										img(src='./images/brand_logo/#{community[index+1].brandImageName}' width='25px;')
 									.hidden-xs.col-sm-4
 										h6= community[index+1].brandName
-									.col-xs-10.col-sm-6.email
+									.col-xs-9.col-sm-6.email
 										h6= community[index+1].email
 							#imgBlock.col-xs-12
 								img(src='./images/community/#{community[index+1].image}' width="100%;")
