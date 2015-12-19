@@ -13,15 +13,15 @@ block content
 	#titleBlock.col-xs-12
 		.row
 			.col-xs-2
-				img(src='./images/nike.png' width='30px;')
+				img(src='./images/brand_logo/#{community.brandImage}' width='30px;')
 			.col-xs-7
-				h6 NIKE
+				h6= community.brandName
 			.col-xs-3
-				h6 coco2638
+				h6= community.email
 	#imgBlock.col-xs-12
-		img(src='./images/camera-icon.png' width="100%;")
+		img(src='./images/community/#{community.image}' width="100%;")
 	#commentBlock.col-xs-12
-		p this is my nike shoes~~~~~ 
+		p= community.content
 	#likeBlock.col-xs-12
 		.row
 			.col-xs-4
@@ -32,6 +32,6 @@ block content
 				h6 12
 			.col-xs-4
 				img(src='./images/view.png' width='25px;')
-				h6 123
+				h6= community.view
 
 
