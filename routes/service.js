@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
 							return;
 						}
 						var product = result;
-						connection.query('select community.communityNo, email, brandName, brandImageName, image, view, community.content, count(commentNo) count from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo join communityComment on community.communityNo = communityComment.communityNo order by communityNo desc', function(err, result, field) {
+						connection.query('select community.communityNo, email, brandName, brandImageName, image, view, community.content, count(commentNo) count from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo left join communityComment on community.communityNo = communityComment.communityNo order by communityNo desc', function(err, result, field) {
 							if (err) {
 								console.error(err);
 							}
@@ -70,12 +70,11 @@ router.get('/', function(req, res, next) {
 						return;
 					}
 					var product = result;
-					connection.query('select community.communityNo, email, brandName, brandImageName, image, view, community.content, count(commentNo) count from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo join communityComment on community.communityNo = communityComment.communityNo order by communityNo desc', function(err, result, field) {
+					connection.query('select community.communityNo, email, brandName, brandImageName, image, view, community.content, count(commentNo) count from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo left join communityComment on community.communityNo = communityComment.communityNo order by communityNo desc', function(err, result, field) {
 						if (err) {
 							console.error(err);
 						}
 						for (var index in result) {
-							console.log(result[index].email);
 							var at_index = result[index].email.indexOf('@');
 							result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index+1, 2);
 						}
