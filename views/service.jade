@@ -74,30 +74,31 @@ block content
 	#event-con
 		#event-list.col-xs-12
 			each val, index in community
-				if (index % 2 == 0)
-					.row
-				.col-xs-6.community-box
-					#titleBlock.col-xs-12
-						.row
-							.col-xs-2
-								img(src='./images/brand_logo/#{val.brandImageName}' width='30px;')
-							.col-xs-4
-								h6= val.brandName
-							.col-xs-6
-								h6= val.email
-					#imgBlock.col-xs-12
-						img(src='./images/community/#{val.image}' width="100%;")
-					#likeBlock.col-xs-12
-						.row
-							.col-xs-4
-								img(src='./images/heart.png' width='25px;')
-								h6 32
-							.col-xs-4
-								img(src='./images/speech.png' width='25px;')
-								h6 12
-							.col-xs-4
-								img(src='./images/view.png' width='25px;')
-								h6= val.view
+				- if (index % 2 == 0) {
+				.row
+				- }
+					.col-xs-6.community-box
+						#titleBlock.col-xs-12
+							.row
+								.col-xs-2
+									img(src='./images/brand_logo/#{val.brandImageName}' width='30px;')
+								.col-xs-4
+									h6= val.brandName
+								.col-xs-6
+									h6= val.email
+						#imgBlock.col-xs-12
+							img(src='./images/community/#{val.image}' width="100%;")
+						#likeBlock.col-xs-12
+							.row
+								.col-xs-4
+									img(src='./images/heart.png' width='25px;')
+									h6 32
+								.col-xs-4
+									img(src='./images/speech.png' width='25px;')
+									h6 12
+								.col-xs-4
+									img(src='./images/view.png' width='25px;')
+									h6= val.view
 		#conEnroll.col-xs-12
 			button.btn.btn-warning 게시글 올리기
 	#discount-con
