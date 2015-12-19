@@ -62,6 +62,8 @@ block style
 		.email h6 {float: right;}
 		.email img {float: right; padding-top: 6px; margin-right: 3px;}
 		.tab-bar {position: fixed; top: 50px; z-index: 1;}
+		.discount-box h5 {font-size: 200%;}
+		.discount-box h6 {font-size: 150%; float: right;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 
@@ -163,13 +165,13 @@ block content
 			.row.discount-row
 				.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 					img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
-					h5(style='font-size: 200%;')= product[index].productName
-					h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
+					h5= product[index].productName
+					h6.price= product[index].productPrice
 				- if (index+1 < product.length) {
 					.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 						img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
-						h5(style='font-size: 200%;')= product[index+1].productName
-						h6.price(style='font-size: 150%; float: right;')= product[index+1].productPrice
+						h5= product[index+1].productName
+						h6.price= product[index+1].productPrice
 				- }
 			- }
 
