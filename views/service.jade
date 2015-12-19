@@ -126,7 +126,7 @@ block content
 							.row
 								.col-xs-4
 									img(src='./images/heart.png' width='20px;')
-									h6 32
+									h6= community[index].like
 								.col-xs-4
 									img(src='./images/speech.png' width='20px;')
 									h6= community[index].count
@@ -150,7 +150,7 @@ block content
 								.row
 									.col-xs-4
 										img(src='./images/heart.png' width='20px;')
-										h6 32
+										h6 community[index+1].like
 									.col-xs-4
 										img(src='./images/speech.png' width='20px;')
 										h6= community[index+1].count
