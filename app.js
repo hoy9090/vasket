@@ -48,7 +48,7 @@ var user_settings = require('./routes/user_settings');
 var reg_code = require('./routes/reg_code');
 var community_box = require('./routes/community_box');
 var reg_community = require('./routes/reg_community');
-var community_like = require('./community_like');
+var community_like = require('./routes/community_like');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
