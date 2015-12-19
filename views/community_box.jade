@@ -9,15 +9,19 @@ block style
 		.blue { color:#0100ff; font-weight:bold; font-size:100%;}
 		.userName{float:left;}
 		#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
+		#user_img {float: right; padding-top: 6px; margin-right: 3px;}
+		#email {float: right;}
+		
 block content
 	#titleBlock.col-xs-12
 		.row
 			.col-xs-2
 				img(src='./images/brand_logo/#{community.brandImage}' width='30px;')
-			.col-xs-7
+			.col-xs-4
 				h6= community.brandName
-			.col-xs-3
-				h6= community.email
+			.col-xs-6
+				h6#email= community.email
+				img#user_img(src='./images/user.png' width="15px")
 	#imgBlock.col-xs-12
 		img(src='./images/community/#{community.image}' width="100%;")
 	#commentBlock.col-xs-12
