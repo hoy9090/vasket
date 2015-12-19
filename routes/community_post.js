@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
 			});
 		});
 	else
-		res.redirect('back');
+		res.redirect('/service#3');
 });
 
 module.exports = router;
