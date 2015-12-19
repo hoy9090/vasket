@@ -48,11 +48,21 @@ block style
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
+		.discount-list:after {
+		    content: "";
+		    position: absolute;
+		    top: 5px;
+		    left: 5px;
+		    right: 5px;
+		    bottom: 5px;
+		    display: block;
+		    border: 1px solid #c3c3c3;
+		}
 		.email {float: right;}
 		.email h6 {float: right;}
 		.email img {float: right; padding-top: 6px; margin-right: 3px;}
 		.tab-bar {position: fixed; top: 50px; z-index: 1;}\
-		@media (max-width:768px) {#discount-list {width: 50%;}}
+		@media (max-width:768px) {#discount-list h5, #discount-list h6 {font-size: 70%;}}
 
 
 block content
@@ -150,12 +160,12 @@ block content
 		each val, index in product
 			- if (index % 2 == 0) {
 			.row.discount-row
-				#discount-list.col-xs-12.col-sm-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
+				#discount-list.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 					img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
 					h5(style='font-size: 200%;')= product[index].productName
 					h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
 				- if (index+1 < product.length) {
-					#discount-list.col-xs-12.col-sm-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
+					#discount-list.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 						img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
 						h5(style='font-size: 200%;')= product[index+1].productName
 						h6.price(style='font-size: 150%; float: right;')= product[index+1].productPrice
