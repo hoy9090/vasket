@@ -15,11 +15,11 @@ block style
 		#brand-con {display:block; padding-top: 47px;}
 		#contents-con {display:none; margin-top:3px; padding-top: 47px;}
 		#event-con {display:none; backgroung-color:#f6f6f6;}
-		#discount-con {display:none; padding-top: 47px;}
+		#discount-con {display:none; padding: 5px; padding-top: 53px;}
 		.like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;}
 		.non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
 		#event-list {padding: 5px; padding-top: 100px; background-color:#F6F6F6; }
-		#discount-list {padding: 0px; background-color:#ffffff; border-width:0px; border-bottom-width:5px; border-style:solid; border-color:#bbbbbb;}
+		#discount-list {background-color: #FFFFFF;background-clip: content-box;padding: 5px;webkit-flex: 1;-ms-flex: 1;flex: 1; }
 		#conEnroll {position:fixed; background-color:#f6f6f6; padding: 10px; top:100px; left:0px; right:0px;}
 		#conEnroll button {width:100%;}
 		#titleBlock {background-color:#ffffff; width:100%; height:50px; padding-top:10px;}
@@ -41,6 +41,10 @@ block style
 		    border: 1px solid #c3c3c3;
 		}
 		.community-row {margin: 0px;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex; }
+		.discount-row {margin: 0px;
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
@@ -140,13 +144,24 @@ block content
 				- }
 		#conEnroll.col-xs-12
 			button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
-	#discount-con
-		each val in product
-			a(href='/detail?productNo=#{val.productNo}')
-				#discount-list.col-xs-12.col-sm-6
-					img.discount(src="./images/product_image/#{val.productNo}/main.jpg" width='100%;')
-					h5(style='font-size: 200%;')= val.productName
-					h6.price(style='font-size: 150%; float: right;')= val.productPrice
+	#discount-con.col-xs-12
+		each val, index in product
+			- if (index % 2 == 0) {
+			.row.discount-row
+				a(href='/detail?productNo=#{product[index].productNo}')
+					#discount-list.col-xs-12.col-sm-6
+						img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
+						h5(style='font-size: 200%;')= product[index].productName
+						h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
+				- if (index+1 < product.length) {
+					a(href='/detail?productNo=#{product[index].productNo}')
+						#discount-list.col-xs-12.col-sm-6
+							img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
+							h5(style='font-size: 200%;')= product[index].productName
+							h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
+				- }
+			- }
+
 
 block script_content
 	script.
