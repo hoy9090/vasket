@@ -113,7 +113,7 @@ block content
 									img(src='./images/view.png' width='20px;')
 									h6= community[index].view
 					- if (index+1 < community.length) {
-						.col-xs-6.community-box(onClick="location.href='/commmunity_box?communityNo=#{community[index].communityNo}';")
+						.col-xs-6.community-box(onClick="location.href='/community_box?communityNo=#{community[index+1].communityNo}';")
 							#titleBlock.col-xs-12
 								.row
 									.col-xs-2
