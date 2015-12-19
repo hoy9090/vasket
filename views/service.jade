@@ -88,7 +88,7 @@ block content
 			each val, index in community
 				- if (index % 2 == 0) {
 				.row.community-row
-					.col-xs-6.community-box(onClick="location.href='/commmunity_box?communityNo=#{community[index].communityNo}';")
+					.col-xs-6.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
 						#titleBlock.col-xs-12
 							.row
 								.col-xs-2
@@ -96,6 +96,7 @@ block content
 								.hidden-xs.col-sm-4
 									h6= community[index].brandName
 								.col-xs-9.col-sm-6.email
+									img(src='./images/user.png' width="20px")
 									h6= community[index].email
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
