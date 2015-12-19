@@ -19,7 +19,7 @@ block style
 		.like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;}
 		.non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
 		#event-list {padding: 5px; padding-top: 100px; background-color:#F6F6F6; }
-		#discount-list {background-color: #FFFFFF;background-clip: content-box;padding: 5px;webkit-flex: 1;-ms-flex: 1;flex: 1; }
+		.discount-box {background-color: #FFFFFF;background-clip: content-box;padding: 5px;webkit-flex: 1;-ms-flex: 1;flex: 1; }
 		#conEnroll {position:fixed; background-color:#f6f6f6; padding: 10px; top:100px; left:0px; right:0px;}
 		#conEnroll button {width:100%;}
 		#titleBlock {background-color:#ffffff; width:100%; height:50px; padding-top:10px;}
@@ -48,7 +48,7 @@ block style
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
-		.discount-list:after {
+		.discount-box:after {
 		    content: "";
 		    position: absolute;
 		    top: 5px;
@@ -62,7 +62,7 @@ block style
 		.email h6 {float: right;}
 		.email img {float: right; padding-top: 6px; margin-right: 3px;}
 		.tab-bar {position: fixed; top: 50px; z-index: 1;}\
-		@media (max-width:768px) {#discount-list h5, #discount-list h6 {font-size: 70%;}}
+		@media (max-width:768px) {#discount-list h5, #discount-list h6 {font-size: 100%;}}
 
 
 block content
@@ -160,12 +160,12 @@ block content
 		each val, index in product
 			- if (index % 2 == 0) {
 			.row.discount-row
-				#discount-list.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
+				.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 					img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
 					h5(style='font-size: 200%;')= product[index].productName
 					h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
 				- if (index+1 < product.length) {
-					#discount-list.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
+					.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 						img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
 						h5(style='font-size: 200%;')= product[index+1].productName
 						h6.price(style='font-size: 150%; float: right;')= product[index+1].productPrice
