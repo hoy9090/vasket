@@ -38,7 +38,6 @@ router.get('/', function(req, res, next) {
 						connection.query('select community.communityNo, email, brandName, brandImageName, image, view, community.content, count(commentNo) count from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo join communityComment on community.communityNo = communityComment.communityNo order by communityNo desc', function(err, result, field) {
 							if (err) {
 								console.error(err);
-								return;
 							}
 							for (var index in result) {
 								var at_index = result[index].email.indexOf('@');
@@ -74,7 +73,6 @@ router.get('/', function(req, res, next) {
 					connection.query('select community.communityNo, email, brandName, brandImageName, image, view, community.content, count(commentNo) count from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo join communityComment on community.communityNo = communityComment.communityNo order by communityNo desc', function(err, result, field) {
 						if (err) {
 							console.error(err);
-							return;
 						}
 						for (var index in result) {
 							var at_index = result[index].email.indexOf('@');
