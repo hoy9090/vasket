@@ -72,6 +72,10 @@ router.get('/', function(req, res, next) {
 							console.error(err);
 							return;
 						}
+						for (var index in result) {
+							var at_index = result[index].email.indexOf('@');
+							result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index+1, 2);
+						}
 						connection.release();
 						res.render('service', {brand: brand, brandLike: 0, product: product, community: result});
 					});	
