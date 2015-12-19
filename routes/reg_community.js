@@ -7,7 +7,7 @@ var pool = mysql.createPool({
 	password: '1012'
 });
 var multer = require('multer');
-var upload = multer({dest: 'files/community/'});
+var upload = multer({dest: 'public/images/community/'});
 
 /* GET home page. */
 router.post('/', upload.single('file'), function(req, res, next) {

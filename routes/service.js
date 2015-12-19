@@ -34,8 +34,15 @@ router.get('/', function(req, res, next) {
 							console.error(err);
 							return;
 						}
-						connection.release();
-						res.render('service', {brand: brand, brandLike: brandLike, product: result});	
+						var product = result;
+						connection.query('select email, brandName, brandImageName, image, view, community.content from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo', function(err, result, field) {
+							if (err) {
+								console.error(err);
+								return;
+							}
+							connection.release();
+							res.render('service', {brand: brand, brandLike: brandLike, product: product, community: result});
+						});	
 					});
 				});
 			});
@@ -59,8 +66,15 @@ router.get('/', function(req, res, next) {
 						console.error(err);
 						return;
 					}
-					connection.release();
-					res.render('service', {brand: brand, brandLike: 0, product: result});	
+					var product = result;
+					connection.query('select email, brandName, brandImageName, image, view, community.content from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo', function(err, result, field) {
+						if (err) {
+							console.error(err);
+							return;
+						}
+						connection.release();
+						res.render('service', {brand: brand, brandLike: 0, product: product, community: result});
+					});	
 				});
 			});
 		});
