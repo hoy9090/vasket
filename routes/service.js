@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
 							return;
 						}
 						var product = result;
-						connection.query('select email, brandName, brandImageName, image, view, community.content from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo', function(err, result, field) {
+						connection.query('select communityNo, email, brandName, brandImageName, image, view, community.content from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo order by communityNo desc', function(err, result, field) {
 							if (err) {
 								console.error(err);
 								return;
@@ -71,7 +71,7 @@ router.get('/', function(req, res, next) {
 						return;
 					}
 					var product = result;
-					connection.query('select email, brandName, brandImageName, image, view, community.content from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo', function(err, result, field) {
+					connection.query('select communityNo, email, brandName, brandImageName, image, view, community.content from community join user on community.userNo = user.userNo join brand on community.brandNo = brand.brandNo order by communityNo desc', function(err, result, field) {
 						if (err) {
 							console.error(err);
 							return;

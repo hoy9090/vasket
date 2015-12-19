@@ -85,10 +85,10 @@ block content
 				h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
 	#event-con
 		#event-list.col-xs-12
-			each val, index in community
+			each index in community
 				- if (index % 2 == 0) {
 				.row.community-row
-					.col-xs-6.community-box
+					.col-xs-6.community-box(onClick="location.href='/commmunity_box?communityNo=#{community[index].communityNo}';")
 						#titleBlock.col-xs-12
 							.row
 								.col-xs-2
@@ -111,7 +111,7 @@ block content
 									img(src='./images/view.png' width='20px;')
 									h6= community[index].view
 					- if (index+1 < community.length) {
-						.col-xs-6.community-box
+						.col-xs-6.community-box(onClick="location.href='/commmunity_box?communityNo=#{community[index].communityNo}';")
 							#titleBlock.col-xs-12
 								.row
 									.col-xs-2
