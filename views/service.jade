@@ -154,11 +154,11 @@ block content
 						h5(style='font-size: 200%;')= product[index].productName
 						h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
 				- if (index+1 < product.length) {
-					a(href='/detail?productNo=#{product[index].productNo}')
+					a(href='/detail?productNo=#{product[index+1].productNo}')
 						#discount-list.col-xs-12.col-sm-6
-							img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
-							h5(style='font-size: 200%;')= product[index].productName
-							h6.price(style='font-size: 150%; float: right;')= product[index].productPrice
+							img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
+							h5(style='font-size: 200%;')= product[index+1].productName
+							h6.price(style='font-size: 150%; float: right;')= product[index+1].productPrice
 				- }
 			- }
 
