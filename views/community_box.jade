@@ -1,41 +1,59 @@
-extends layout
+doctype html
+html
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		title Vasket!
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+		link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+		// WARNING: Respond.js doesn't work if you view the page via file://
+		//if lt IE 9
+			script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+			script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+		style(type='text/css').
+			body {background-color: #f6f6f6; padding-bottom: 20px;}
+			#nav {background-color: #ffffff; padding-top: 7px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; margin-bottom:10px;}
+			#nav span {float: left; font-size: 20px; padding-top: 7px; color:black;}
+			#nav h4 {position: absolute; margin-left: -15px; width: 100%;}
+			#titleBlock {background-color:#ffffff; width:100%; height:50px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:10px;}
+			#imgBlock {background-color:#ffffff; width:100%;}
+			#commentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:20px;}
+			.blue { color:#0100ff; font-weight:bold; font-size:100%;}
+			.userName{float:left;}
+			#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
+			#user_img {float: right; padding-top: 6px; margin-right: 3px;}
+			#email {float: right;}
 
-block style
-	style(type='text/css').
-		body {background-color:#f6f6f6; padding-top:70px;}
-		#titleBlock {background-color:#ffffff; width:100%; height:50px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:10px;}
-		#imgBlock {background-color:#ffffff; width:100%;}
-		#commentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:20px;}
-		.blue { color:#0100ff; font-weight:bold; font-size:100%;}
-		.userName{float:left;}
-		#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
-		#user_img {float: right; padding-top: 6px; margin-right: 3px;}
-		#email {float: right;}
-		
-block content
-	#titleBlock.col-xs-12
-		.row
-			.col-xs-2
-				img(src='./images/brand_logo/#{community.brandImage}' width='30px;')
-			.col-xs-4
-				h6= community.brandName
-			.col-xs-6
-				h6#email= community.email
-				img#user_img(src='./images/user.png' width="15px")
-	#imgBlock.col-xs-12
-		img(src='./images/community/#{community.image}' width="100%;")
-	#commentBlock.col-xs-12
-		p= community.content
-	#likeBlock.col-xs-12
-		.row
-			.col-xs-4
-				img(src='./images/heart.png' width='25px;')
-				h6 32
-			.col-xs-4
-				img(src='./images/speech.png' width='25px;')
-				h6 12
-			.col-xs-4
-				img(src='./images/view.png' width='25px;')
-				h6= community.view
+	body
+		#nav.col-xs-12
+        a(href='javascript:history.back()')
+          span.glyphicon.glyphicon-arrow-left
+        h4 커뮤니티
+		#titleBlock.col-xs-12
+			.row
+				.col-xs-2
+					img(src='./images/brand_logo/#{community.brandImage}' width='30px;')
+				.col-xs-4
+					h6= community.brandName
+				.col-xs-6
+					h6#email= community.email
+					img#user_img(src='./images/user.png' width="15px")
+		#imgBlock.col-xs-12
+			img(src='./images/community/#{community.image}' width="100%;")
+		#commentBlock.col-xs-12
+			p= community.content
+		#likeBlock.col-xs-12
+			.row
+				.col-xs-4
+					img(src='./images/heart.png' width='25px;')
+					h6 32
+				.col-xs-4
+					img(src='./images/speech.png' width='25px;')
+					h6 12
+				.col-xs-4
+					img(src='./images/view.png' width='25px;')
+					h6= community.view
 
 
