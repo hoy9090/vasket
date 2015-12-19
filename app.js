@@ -47,6 +47,7 @@ var enroll_code = require('./routes/enroll_code');
 var user_settings = require('./routes/user_settings');
 var reg_code = require('./routes/reg_code');
 var community_box = require('./routes/community_box');
+var reg_community = require('./routes/reg_community');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -120,6 +121,7 @@ app.use('/enroll_code', enroll_code);
 app.use('/user_settings', user_settings);
 app.use('/reg_code', reg_code);
 app.use('/community_box', community_box);
+app.use('/reg_community', reg_community);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
