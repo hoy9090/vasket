@@ -36,6 +36,7 @@ block style
 		    display: block;
 		    border: 1px solid #c3c3c3;
 		}
+		.community-row {margin: 0px;}
 block content
 	.col-xs-12
 		.row.menu
@@ -75,7 +76,7 @@ block content
 		#event-list.col-xs-12
 			each val, index in community
 				- if (index % 2 == 0) {
-				.row
+				.row.community-row
 					.col-xs-6.community-box
 						#titleBlock.col-xs-12
 							.row
