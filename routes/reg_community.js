@@ -21,6 +21,8 @@ router.post('/', upload.single('file'), function(req, res, next) {
 		var file = req.file;
 		connection.query('use vasket');
 		connection.query('insert into community(userNo, brandNo, image, content, regdate) values(?, (select brandNo from brand where brandName=?), ?, ?, sysdate())', [req.session.userNo, brand, file.filename, content], function(err, result, field) {
+			if (err)
+				console.error(err);
 			connection.release();
 			res.redirect('/service#3');
 		});
