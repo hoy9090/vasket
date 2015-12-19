@@ -25,6 +25,7 @@ html
 			#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
 			#user_img {float: right; padding-top: 6px; margin-right: 3px;}
 			#email {float: right;}
+			#like {z-index: 1; cursor: pointer;}
 
 	body
 		#nav.col-xs-12
@@ -46,8 +47,12 @@ html
 			p= community.content
 		#likeBlock.col-xs-12
 			.row
-				.col-xs-4
-					img(src='./images/heart.png' width='25px;')
+				if (loggedIn)
+					.col-xs-4#like(onClick='like();')
+						img#like_img(src=(community.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(community.user_like==1 ? 'like' : 'no_like') width='25px;')
+				else
+					.col-xs-4
+						img(src='./images/heart.png' width='25px;')
 					h6= community.like
 				.col-xs-4
 					img(src='./images/speech.png' width='25px;')
@@ -55,5 +60,31 @@ html
 				.col-xs-4
 					img(src='./images/view.png' width='25px;')
 					h6= community.view
-
-
+		script.
+			function like(){
+				var like_id = $('#like_img');
+				if(like_id.attr('class') == "like"){
+				  $.ajax({
+				    type: "POST",
+				    url: '/community_like',
+				    data: {command: "delete", communityNo: #{communityNo}},
+				    success: function(data) {
+				    	like_id.attr('class', 'no_like');
+				    	like_id.attr('src', './images/heart.png');
+				      like_id.html(data.count);
+				    }
+				  });
+				}
+				else{
+				 $.ajax({
+				    type: "POST",
+				    url: '/community_like',
+				    data: {command: "insert", communityNo: #{communityNo}},
+				    success: function() {
+				    	like_id.attr('class', 'like');
+				      like_id.attr('src', './images/heart_on.png');
+				      like_id.html(data.count);
+				    }
+				  });
+				}
+			}
