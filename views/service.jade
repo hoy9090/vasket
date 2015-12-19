@@ -44,6 +44,7 @@ block style
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
+		.email {float: right;}
 
 block content
 	.col-xs-12
@@ -89,10 +90,10 @@ block content
 						#titleBlock.col-xs-12
 							.row
 								.col-xs-2
-									img(src='./images/brand_logo/#{community[index].brandImageName}' width='30px;')
-								.col-xs-4
+									img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
+								.xs-hidden.col-sm-4
 									h6= community[index].brandName
-								.col-xs-6
+								.col-xs-10.col-sm-6.email
 									h6= community[index].email
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
