@@ -43,6 +43,7 @@ block style
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
+		.fill-space {overflow: hidden;}
 block content
 	.col-xs-12
 		.row.menu
@@ -94,6 +95,7 @@ block content
 									h6= community[index].email
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
+						.fill-space.col-xs-12
 						#likeBlock.col-xs-12
 							.row
 								.col-xs-4
@@ -117,6 +119,7 @@ block content
 										h6= community[index+1].email
 							#imgBlock.col-xs-12
 								img(src='./images/community/#{community[index+1].image}' width="100%;")
+							.fill-space
 							#likeBlock.col-xs-12
 								.row
 									.col-xs-4
