@@ -74,7 +74,7 @@ html
 				    success: function(data) {
 				    	like_id.attr('class', 'no_like');
 				    	like_id.attr('src', './images/heart.png');
-				      like_id.html(data.count);
+				      $('#like h6').html(data.count);
 				    }
 				  });
 				}
@@ -86,7 +86,7 @@ html
 				    success: function(data) {
 				    	like_id.attr('class', 'like');
 				      like_id.attr('src', './images/heart_on.png');
-				      like_id.html(data.count);
+				      $('#like h6').html(data.count);
 				    }
 				  });
 				}
