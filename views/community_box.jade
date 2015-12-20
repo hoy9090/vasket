@@ -83,7 +83,7 @@ html
 				    type: "POST",
 				    url: '/community_like',
 				    data: {command: "insert", communityNo: #{communityNo}},
-				    success: function() {
+				    success: function(data) {
 				    	like_id.attr('class', 'like');
 				      like_id.attr('src', './images/heart_on.png');
 				      like_id.html(data.count);
