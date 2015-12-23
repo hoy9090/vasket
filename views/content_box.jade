@@ -18,6 +18,12 @@ html
       #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
       #nav h4 {float: clear; padding-right: 15px;}
       #contentBox { margin-top:10px;}
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img { width:100%; margin:auto;}
+      .carousel-control.left, .carousel-control.right {background-image:none;}
+      #likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
+      #commentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:10px;}
+
       
   body
     #nav.col-xs-12
@@ -25,7 +31,43 @@ html
         span.glyphicon.glyphicon-arrow-left
       h4 Content
 
-    #contentBox.col-xs-12
-      h4 Content-title
-      img(src="")
-      h6 blabla~
+    
+    #myCarousel.carousel.slide(data-ride="carousel")
+      ol.carousel-indicators(style="margin-bottom:-10px;")
+        li.active(data-target="#myCarousel" data-slide-to="0")
+        li(data-target="#myCarousel" data-slide-to="1")
+        li(data-target="#myCarousel" data-slide-to="2")
+        li(data-target="#myCarousel" data-slide-to="3")
+      .carousel-inner(role="listbox")
+        .item.active
+          img(src="/images/main_1.jpg")
+        .item
+          img(src="/images/main_1.jpg")
+        .item
+          img(src="/images/main_1.jpg")
+        .item
+          img(src="/images/main_1.jpg")
+      a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:40px;").
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+        <span class="sr-only">Previous</span>
+      a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:40px;").
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+        <span class="sr-only">Next</span>
+    #commentBlock.col-xs-12
+      p sdfsdfsdfsdfsdfs
+    #likeBlock.col-xs-12
+      .row
+        .col-xs-2
+          img(src='./images/heart.png' width='18px;')
+          h6 32
+        .col-xs-2
+          img(src='./images/speech.png' width='18px;')
+          h6 12
+        .col-xs-2
+          img(src='./images/clip.png' width='18px;')
+          h6 123
+        .col-xs-offset-4.col-xs-2
+          img(src='./images/eye.png' width='18px;')
+          h6 12
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
