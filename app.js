@@ -50,6 +50,7 @@ var community_box = require('./routes/community_box');
 var reg_community = require('./routes/reg_community');
 var community_like = require('./routes/community_like');
 var my_activity = require('./routes/my_activity');
+var brand_product = require('./routes/brand_product');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -126,6 +127,7 @@ app.use('/community_box', community_box);
 app.use('/reg_community', reg_community);
 app.use('/community_like', community_like);
 app.use('/my_activity', my_activity);
+app.use('/brand_product', brand_product);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
