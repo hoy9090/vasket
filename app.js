@@ -49,6 +49,7 @@ var reg_code = require('./routes/reg_code');
 var community_box = require('./routes/community_box');
 var reg_community = require('./routes/reg_community');
 var community_like = require('./routes/community_like');
+var my_activity = require('./routes/my_activity');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -124,6 +125,7 @@ app.use('/reg_code', reg_code);
 app.use('/community_box', community_box);
 app.use('/reg_community', reg_community);
 app.use('/community_like', community_like);
+app.use('/my_activity', my_activity);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
