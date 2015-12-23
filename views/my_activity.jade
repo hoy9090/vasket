@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title vasket!
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    style(type='text/css').
+      body {background-color: #f6f6f6; padding-bottom: 20px;}
+      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
+      #nav h4 {float: clear; padding-right: 15px;}
+      #activityTab {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffa800;height:50px; padding-top:7px; border-bottom-width:3px;}
+      #likeTab {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffffff;height:50px; padding-top:7px; border-bottom-width:3px;}
+      #activity_con {display:block;}
+      #like_con {display:none;}
+      #titleBlock {background-color:#ffffff; width:100%; height:50px; border-width:1px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:10px;}
+      #imgBlock {background-color:#ffffff; width:100%;border-width:1px; border-style:solid; border-color:#bbbbbb; border-top-width:0px;border-bottom-width:0px;}
+      #likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;border-width:1px; border-style:solid; border-color:#bbbbbb; border-top-width:0px;}
+      
+  body
+    #nav.col-xs-12
+      a(href='javascript:history.back()')
+        span.glyphicon.glyphicon-arrow-left
+      h4 나의 활동
+    .col-xs-12
+      .row
+        #activityTab.col-xs-6(onClick="change(1);")
+          h6 내가 쓴 글
+        #likeTab.col-xs-6(onClick="change(2);")
+          h6 좋아요
+    #activity_con.col-xs-12
+      .row
+        .col-xs-6
+          #titleBlock.col-xs-12
+            .row
+              .col-xs-2
+                img(src='./images/nike.png' width='30px;')
+              .col-xs-7
+                h6 NIKE
+              .col-xs-3
+                h6 coco2638
+          #imgBlock.col-xs-12
+            img(src='./images/camera-icon.png' width="100%;")
+          #likeBlock.col-xs-12
+            .row
+              .col-xs-4
+                img(src='./images/heart.png' width='25px;')
+                h6 32
+              .col-xs-4
+                img(src='./images/speech.png' width='25px;')
+                h6 12
+              .col-xs-4
+                img(src='./images/view.png' width='25px;')
+                h6 123
+        .col-xs-6
+    #like_con.col-xs-6
+      .row
+        .col-xs-6
+          
+        .col-xs-6
+
+
+    script(type='text/javascript').
+      var count=1;
+      function change(num){
+        var copy = count;
+        count=num;
+
+        if(num==copy);
+        else if(num==1){
+          document.getElementById('likeTab').style.borderColor = "#ffffff";
+          document.getElementById('like_con').style.display="none";
+          document.getElementById('activityTab').style.borderColor="#ffa800";
+          document.getElementById('activity_con').style.display="block";
+        }
+        else{
+          document.getElementById('activityTab').style.borderColor="#ffffff";
+          document.getElementById('activity_con').style.display="none";
+          document.getElementById('likeTab').style.borderColor = "#ffa800";
+          document.getElementById('like_con').style.display="block";
+        }
+      }
