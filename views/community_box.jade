@@ -19,10 +19,11 @@ html
 			#nav h4 {position: absolute; margin-left: -15px; width: 100%;}
 			#titleBlock {background-color:#ffffff; width:100%; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:10px;}
 			#imgBlock {background-color:#ffffff; width:100%;}
-			#commentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:20px;}
+			#contentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:20px;}
 			.blue { color:#0100ff; font-weight:bold; font-size:100%;}
 			.userName{float:left;}
-			#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
+			#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; }
+			#commentBlock {background-color:#ffffff; width: 100%;}
 			#user_img {float: right; padding-top: 6px; margin-right: 3px;}
 			#email {float: right;}
 			#like {z-index: 1; cursor: pointer;}
@@ -43,7 +44,7 @@ html
 					img#user_img(src='./images/user.png' width="15px")
 		#imgBlock.col-xs-12
 			img(src='./images/community/#{community.image}' width="100%;")
-		#commentBlock.col-xs-12
+		#contentBlock.col-xs-12
 			p= community.content
 		#likeBlock.col-xs-12
 			.row
@@ -61,6 +62,10 @@ html
 				.col-xs-4
 					img(src='./images/view.png' width='25px;')
 					h6= community.view
+		each val in comment
+			#commentBlock.col-xs-12
+				h6(style='display: inline;')= val.email
+				h6= val.comment
 
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 		script.
