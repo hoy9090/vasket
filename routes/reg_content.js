@@ -24,7 +24,7 @@ router.post('/', upload.array('file'), function(req, res, next) {
 				}
 				connection.release();
 				for (var index in req.files)
-					fs.rename('public/images/contents/'+image_path+'/'+req.file[index].filename, 'public/images/contents/'+image_path+'/'+index);
+					fs.rename('public/images/contents/'+image_path+'/'+req.files[index].filename, 'public/images/contents/'+image_path+'/'+index);
 				res.redirect('/admin_console');
 		});
 	});
