@@ -19,17 +19,15 @@ html
 			#content-body
 				textarea(rows="5" name="content" style="width:800px; max-width:800px;")
 			#img-body
-				input.inputImg(type="file" name="file0")
+				input.inputImg(type="file" name="file")
 				br
 			#img-plus
 				p(onclick="imgPlus();") 이미지 추가+
 
 			input(type='submit' value='컨텐츠 등록')
 		script.
-			var num = 1;
 			function imgPlus(){
 				var before = document.getElementById('img-body').innerHTML;
-				var plus ="<input type='file' name='file"+num+"'><br>"
-				num++;
+				var plus ="<input class='inputImg' type='file' name='file'><br>"
 				document.getElementById('img-body').innerHTML=before+plus;
 			}
