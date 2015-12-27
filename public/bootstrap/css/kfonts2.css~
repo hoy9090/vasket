@@ -1,7 +1,19 @@
 @font-face{
-  font-family:'NanumBarunGothic';
-  src:url("../fonts/NanumBarunGothic.eot");
-  src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+  font-family:'NanumGothic';
+  src:url("../fonts/NanumGothic.eot");
+  src:local("☺"),url("../fonts/NanumGothic.woff") format("woff");
 }
 
-body {font-family: 'NanumBarunGothic'; }
+@font-face{
+  font-family:'nanumbarungothicbold';
+  src:url("../fonts/nanumbarungothicbold.eot");
+  src:local("☺"),url("../fonts/nanumbarungothicbold.woff") format("woff");
+}
+
+@font-face{
+  font-family:'nanumbarungothicregular';
+  src:url("../fonts/nanumbarungothicregular.eot");
+  src:local("☺"),url("../fonts/nanumbarungothicregular.woff") format("woff");
+}
+body {font-family: nanumbarungothicregular}
+.bold {font-family: nanumbarungothicregular}

@@ -16,3 +16,4 @@
   src:local("☺"),url("../fonts/nanumbarungothicregular.woff") format("woff");
 }
 body {font-family: nanumbarungothicregular}
+.bold {font-family: nanumbarungothicbold}
