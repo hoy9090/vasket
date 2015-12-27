@@ -24,6 +24,10 @@ html
 			.userName{float:left;}
 			#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; }
 			#commentBlock {background-color:#ffffff; width: 100%; padding-top: 3px; padding-bottom: 3px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px;}
+			#commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
+			#comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
+			#commentField {width: 90%; resize: none; height: 45px;}
+			#commentBtn {width: 10%; height: 45px; top: 0; position: absolute; border-radius: 0;}
 			#user_img {float: right; padding-top: 6px; margin-right: 3px;}
 			#email {float: right;}
 			#like {z-index: 1; cursor: pointer;}
@@ -62,11 +66,15 @@ html
 				.col-xs-4
 					img(src='./images/view.png' width='25px;')
 					h6= community.view
-		each val in comment
-			#commentBlock.col-xs-12
-				h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-				h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
-				h5(style='display: inline;')= val.content
+		#commentBlock.col-xs-12
+			#commentInput
+				textarea#commentField(maxlength="70")
+				button.btn.btn-warning#commentBtn 입력
+			each val in comment
+				#comment
+					h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+					h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
+					h5(style='display: inline;')= val.content
 
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 		script.
