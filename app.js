@@ -129,7 +129,7 @@ app.use('/reg_community', reg_community);
 app.use('/community_like', community_like);
 app.use('/my_activity', my_activity);
 app.use('/brand_product', brand_product);
-app.use('reg_comm_comment', reg_comm_comment);
+app.use('/reg_comm_comment', reg_comm_comment);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
