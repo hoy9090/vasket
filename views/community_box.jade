@@ -83,7 +83,10 @@ html
 				$.ajax({
 					type: "POST",
 					url: '/reg_comm_comment',
-					data: {communityNo: #{communityNo}, content: $("#commentField").val()}
+					data: {communityNo: #{communityNo}, content: $("#commentField").val()},
+					success: function() {
+						location.reload();
+					}
 				});
 			}
 			function like(){
