@@ -23,7 +23,7 @@ html
 			.blue { color:#0100ff; font-weight:bold; font-size:100%;}
 			.userName{float:left;}
 			#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; }
-			#commentBlock {background-color:#ffffff; width: 100%;}
+			#commentBlock {background-color:#ffffff; width: 100%; padding-top: 3px; padding-bottom: 3px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px;}
 			#user_img {float: right; padding-top: 6px; margin-right: 3px;}
 			#email {float: right;}
 			#like {z-index: 1; cursor: pointer;}
@@ -64,8 +64,8 @@ html
 					h6= community.view
 		each val in comment
 			#commentBlock.col-xs-12
-				h6(style='display: inline;')= val.email
-				h6= val.content
+				h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+				h5(style='display: inline;')= val.content
 
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 		script.
