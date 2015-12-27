@@ -10,26 +10,26 @@ html
 			#content-body { }
 			#img-body {}
 			#img-plus {}
-			#inputImg { width:300px;}
+			.inputImg { width:300px;}
 			#inputButton {width:100px;}
 
 	body
 		h3 컨텐츠 등록
-		form
+		form(method="post" action="/reg_content" enctype="multipart/form-data")
 			#content-body
-				textarea(rows="5" style="width:800px; max-width:800px;")
+				textarea(rows="5" name="content" style="width:800px; max-width:800px;")
 			#img-body
-				input#inputImg(type="text" disabled)
-				button#inputButton 등록
+				input.inputImg(type="file" name="file0")
 				br
 			#img-plus
 				p(onclick="imgPlus();") 이미지 추가+
 
 			input(type='submit' value='컨텐츠 등록')
-
 		script.
+			var num = 1;
 			function imgPlus(){
 				var before = document.getElementById('img-body').innerHTML;
-				var plus ="<input type='text' id='inputImg' disabled>"+"<button id='inputButton'>등록</button> <br>"
+				var plus ="<input type='file' name='file"+num+"'><br>"
+				num++;
 				document.getElementById('img-body').innerHTML=before+plus;
 			}
