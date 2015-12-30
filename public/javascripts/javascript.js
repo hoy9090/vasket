@@ -26,7 +26,8 @@ function _getDate(){
 	var min = Math.floor((time / (1000*60)) % 60);
 	var sec = Math.floor((time / 1000) % 60);
 
-	document.getElementById("d-day").innerHTML="서비스 오픈: D - "+day+"일 "+("0"+hour).slice(-2)+":"+("0"+min).slice(-2)+":"+("0"+sec).slice(-2)+"<br /><h5>(바스켓 서비스는 모바일에 최적화되어있습니다)</h5>";
+	//document.getElementById("d-day").innerHTML="서비스 오픈: D - "+day+"일 "+("0"+hour).slice(-2)+":"+("0"+min).slice(-2)+":"+("0"+sec).slice(-2)+"<br /><h5>(바스켓 서비스는 모바일에 최적화되어있습니다)</h5>";
+	document.getElementById("d-day").innerHTML="<h5>바스켓 서비스는 모바일에 최적화되어있습니다</h5>";
 }
 
 function divClose() {
