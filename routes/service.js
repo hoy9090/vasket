@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
 								var at_index = community[index].email.indexOf('@');
 								community[index].email = community[index].email.substr(0, 2)+'***@'+community[index].email.substr(at_index+1, 2);
 							}
-							connection.query('select c.contentNo, c.image, c.title, c.view, (select count(*) from contentComment where contentComment.contentNo = c.contentNo) as `count`, (select count(*) from contentLikeList where contentLikeList.contentNo = c.contentNo) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo = c.contentNo) user_like from content c join user ON c.userNo = user.userNo order by c.contentNo desc;', [req.session.userNo], function(err, result, field) {
+							connection.query('select c.contentNo, c.image, c.title, c.view, (select count(*) from contentComment where contentComment.contentNo = c.contentNo) as `count`, (select count(*) from contentLikeList where contentLikeList.contentNo = c.contentNo) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo = c.contentNo) user_like from content c order by c.contentNo desc;', [req.session.userNo], function(err, result, field) {
 								if (err) {
 								console.error(err);
 								}
@@ -78,7 +78,7 @@ router.get('/', function(req, res, next) {
 							var at_index = community[index].email.indexOf('@');
 							community[index].email = community[index].email.substr(0, 2)+'***@'+community[index].email.substr(at_index+1, 2);
 						}
-						connection.query('select c.contentNo, c.image, c.title, c.view, (select count(*) from contentComment where contentComment.contentNo = c.contentNo) as `count`, (select count(*) from contentLikeList where contentLikeList.contentNo = c.contentNo) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo = c.contentNo) user_like from content c join user ON c.userNo = user.userNo order by c.contentNo desc;', [req.session.userNo], function(err, result, field) {
+						connection.query('select c.contentNo, c.image, c.title, c.view, (select count(*) from contentComment where contentComment.contentNo = c.contentNo) as `count`, (select count(*) from contentLikeList where contentLikeList.contentNo = c.contentNo) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo = c.contentNo) user_like from content c order by c.contentNo desc;', [req.session.userNo], function(err, result, field) {
 							if (err) {
 								console.error(err);
 							}
