@@ -24,6 +24,10 @@ router.get('/', function(req, res, next) {
 					if (err) {
 						console.error(err);
 					}
+					for (var index in result) {
+						var at_index_ = result[index].email.indexOf('@');
+						result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index_+1, 2);
+					}
 					connection.release();
 					res.render('brand', {brand: brand, brandNo: brandNo, image: image, community: result});
 				});
@@ -47,6 +51,10 @@ router.get('/', function(req, res, next) {
 						connection.query('select c.communityNo, email, image, c.content content, view, (select count(*) from communityComment where communityComment.communityNo = c.communityNo) as `count`, (select count(*) from communityLikeList where communityLikeList.communityNo = c.communityNo) as `like`, (select count(*) from communityLikeList where userNo=? and communityNo = c.communityNo) user_like from community c join user ON c.userNo = user.userNo join brand ON c.brandNo = brand.brandNo where c.brandNo = ? order by c.communityNo desc;', [req.session.userNo, brandNo], function(err, result, field) {
 							if (err) {
 								console.error(err);
+							}
+							for (var index in result) {
+								var at_index_ = result[index].email.indexOf('@');
+								result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index_+1, 2);
 							}
 							connection.release();
 							res.render('brand', {brand: brand, like: result[0].like, brandNo: brandNo, image: image, community: result});
