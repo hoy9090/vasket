@@ -17,7 +17,7 @@ var upload = multer({dest: 'public/images/contents/'+image_path});
 router.post('/', upload.array('file'), function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		connection.query('use vasket');
-		connection.query('insert into content(image, imageCount, content, regdate) values(?, ?, ?, now())', [image_path, req.files.length, req.body.content],
+		connection.query('insert into content(image, imageCount, title, content, regdate) values(?, ?, ?, ?, now())', [image_path, req.files.length, req.body.title, req.body.content],
 			function(err, result, field) {
 				if (err) {
 					console.error(err);

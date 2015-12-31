@@ -16,7 +16,11 @@ html
 	body
 		h3 컨텐츠 등록
 		form(method="post" action="/reg_content" enctype="multipart/form-data")
+			#title
+				p 제목
+				input(type="text" name="title" style="width: 800px; max-width: 800px;")
 			#content-body
+				p 내용
 				textarea(rows="5" name="content" style="width:800px; max-width:800px;")
 			#img-body
 				input.inputImg(type="file" name="file")
