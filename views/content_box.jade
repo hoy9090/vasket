@@ -45,7 +45,7 @@ html
           img(src="/images/contents/#{content.image}/0")
         - for (var i=1; i<content.imageCount; i++) {
           .item
-            img(src="/images/contents/#{content.image}/{i}")
+            img(src="/images/contents/#{content.image}/#{i}")
         - }
       a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:40px;").
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
