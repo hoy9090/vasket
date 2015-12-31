@@ -147,10 +147,6 @@ app.get('/download/mail/:id', function(req, res) {
   res.download(filepath);
 });
 
-app.get('/content_box', function(req, res) {
-  res.render('content_box');
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
