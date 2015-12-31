@@ -1,6 +1,4 @@
-
-_getDate();
-setInterval(function(){_getDate();},1000);
+var timer = setInterval(function(){_getDate();},1000);
 
 function _getDate(){
 	// var date = new Date();
@@ -31,6 +29,7 @@ function _getDate(){
 }
 
 function divClose() {
+	clearInterval(timer);
 	$("#D-day").empty();
 }
 /*
