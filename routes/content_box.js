@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 					console.error(err);
 				connection.query('use vasket');
 				connection.query('update content set view=view+1 where contentNo='+contentNo);
-				connection.query('select image, content, view, (select count(*) from contentComment where contentNo=?) as count, (select count(*) from contentLikeList where contentNo=?) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo=?) user_like from content where contentNo='+contentNo, [contentNo, contentNo, req.session.userNo, contentNo] ,function(err, result, field) {
+				connection.query('select image, imageCount, content, view, (select count(*) from contentComment where contentNo=?) as count, (select count(*) from contentLikeList where contentNo=?) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo=?) user_like from content where contentNo='+contentNo, [contentNo, contentNo, req.session.userNo, contentNo] ,function(err, result, field) {
 					var content = result[0];
 					connection.query('SELECT email, content FROM contentComment c join user u on c.userNo = u.userNo where contentNo='+contentNo, function(err, result, field) {
 						connection.release();
@@ -35,10 +35,8 @@ router.get('/', function(req, res, next) {
 					console.error(err);
 				connection.query('use vasket');
 				connection.query('update content set view=view+1 where contentNo='+contentNo);
-				connection.query('select image, content, view, (select count(*) from contentComment where contentNo=?) as count, (select count(*) from contentLikeList where contentNo=?) as `like` from content where contentNo='+contentNo, [contentNo, contentNo], function(err, result, field) {
+				connection.query('select image, imageCount, content, view, (select count(*) from contentComment where contentNo=?) as count, (select count(*) from contentLikeList where contentNo=?) as `like` from content where contentNo='+contentNo, [contentNo, contentNo], function(err, result, field) {
 					var content = result[0];
-					var at_index = content.email.indexOf('@');
-					content.email = content.email.substr(0, 2)+'***@'+content.email.substr(at_index+1, 2);
 					connection.query('SELECT email, content FROM contentComment c join user u on c.userNo = u.userNo where contentNo='+contentNo, function(err, result, field) {
 						connection.release();
 						for (var index in result) {
