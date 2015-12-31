@@ -1,5 +1,5 @@
 doctype html
-html
+html(style="background-color: #f6f6f6;")
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -27,6 +27,8 @@ html
       #contents-brand {display:none; padding: 5px; background-color: #F6F6F6;}
       #titleBlock {background-color:#ffffff; width:100%; height:50px; padding-top:10px;}
       #imgBlock {background-color:#ffffff; width:100%; padding-bottom: 60px;}
+      #likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px; padding-right: 25px; position: absolute; bottom: 5px; background-clip: content-box; }
+      #imgBlock {background-color:#ffffff; width:100%; padding-bottom: 30px;}
       #likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px; padding-right: 25px; position: absolute; bottom: 5px; background-clip: content-box; }
       .community-box {background-color: #FFFFFF;
       background-clip: content-box;padding: 5px;
@@ -118,14 +120,18 @@ html
           - }
         - }
         
-    #contents-brand
-      #brand-list.col-xs-6
-        center
-          img(src="./images/event_sample.jpg" width="100%;")
-        h6 asdfsfsdkjhfsidfhskldfhsk
-      #brand-list.col-xs-6
-        img(src="./images/event_sample.jpg" width="100%;")
-        h6 asdfsfsdkjhfsidfhskldfhsk
+    #contents-brand.col-xs-12
+      .row.community-row
+        .col-xs-6.community-box
+          #conImgBlock.col-xs-12
+            img(src='./images/event_sample.jpg' width="100%;")
+          #conLikeBlock.col-xs-12
+            h6 상품 준비중 1
+        .col-xs-6.community-box
+          #conImgBlock.col-xs-12
+            img(src='./images/event_sample.jpg' width="100%;")
+          #conLikeBlock.col-xs-12
+            h6 상품 준비중 2
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(type='text/javascript').
