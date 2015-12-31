@@ -54,17 +54,17 @@ html
 			.row
 				if (loggedIn)
 					.col-xs-4#like(onClick='like();')
-						img#like_img(src=(community.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(community.user_like==1 ? 'like' : 'no_like') width='25px;')
+						img#like_img(src=(community.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(community.user_like==1 ? 'like' : 'no_like') width='18px;')
 						h6= community.like
 				else
 					.col-xs-4
-						img(src='./images/heart.png' width='25px;')
+						img(src='./images/heart.png' width='18px;')
 						h6= community.like
 				.col-xs-4
-					img(src='./images/speech.png' width='25px;')
+					img(src='./images/speech.png' width='18px;')
 					h6= community.count
 				.col-xs-4
-					img(src='./images/view.png' width='25px;')
+					img(src='./images/view.png' width='18px;')
 					h6= community.view
 		#commentBlock.col-xs-12
 			if (loggedIn)

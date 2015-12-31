@@ -28,6 +28,7 @@ html
       #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
       #commentField {width: 85%; resize: none; height: 45px;}
       #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
+      #like {z-index: 1; cursor: pointer;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -57,9 +58,14 @@ html
       p= content.content
     #likeBlock.col-xs-12
       .row
-        .col-xs-2
-          img(src='./images/heart.png' width='18px;')
-          h6= content.like
+        if (loggedIn)
+          .col-xs-2#like(onClick='like();')
+            img#like_img(src=(content.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(content.user_like==1 ? 'like' : 'no_like') width='18px;')
+            h6= content.like
+        else
+          .col-xs-2
+            img(src='./images/heart.png' width='18px;')
+            h6= content.like
         .col-xs-2
           img(src='./images/speech.png' width='18px;')
           h6= content.count
@@ -67,7 +73,7 @@ html
           img(src='./images/clip.png' width='18px;')
           h6 0
         .col-xs-offset-4.col-xs-2
-          img(src='./images/eye.png' width='18px;')
+          img(src='./images/view.png' width='18px;')
           h6= content.view
     #commentBlock.col-xs-12
       if (loggedIn)
@@ -91,4 +97,31 @@ html
             }
           });
         }
+      function like(){
+        var like_id = $('#like_img');
+        if(like_id.attr('class') == "like"){
+          $.ajax({
+            type: "POST",
+            url: '/content_like',
+            data: {command: "delete", contentNo: #{contentNo}},
+            success: function(data) {
+              like_id.attr('class', 'no_like');
+              like_id.attr('src', './images/heart.png');
+              $('#like h6').html(data.count);
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/content_like',
+            data: {command: "insert", contentNo: #{contentNo}},
+            success: function(data) {
+              like_id.attr('class', 'like');
+              like_id.attr('src', './images/heart_on.png');
+              $('#like h6').html(data.count);
+            }
+          });
+        }
+      }
     script(src='/bootstrap/js/bootstrap.min.js')
