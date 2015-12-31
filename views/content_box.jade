@@ -22,14 +22,17 @@ html
       .carousel-inner > .item > a > img { width:100%; margin:auto;}
       .carousel-control.left, .carousel-control.right {background-image:none;}
       #likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px;}
-      #commentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:10px;}
-
-      
+      #contentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:10px;}
+      #commentBlock {background-color:#ffffff; width: 100%; padding-top: 3px; padding-bottom: 3px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px;}
+      #commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
+      #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
+      #commentField {width: 85%; resize: none; height: 45px;}
+      #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
         span.glyphicon.glyphicon-arrow-left
-      h4 Content
+      h4.bold Content
 
     
     #myCarousel.carousel.slide(data-ride="carousel")
@@ -53,7 +56,7 @@ html
       a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:40px;").
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
         <span class="sr-only">Next</span>
-    #commentBlock.col-xs-12
+    #contentBlock.col-xs-12
       p sdfsdfsdfsdfsdfs
     #likeBlock.col-xs-12
       .row
@@ -69,5 +72,26 @@ html
         .col-xs-offset-4.col-xs-2
           img(src='./images/eye.png' width='18px;')
           h6 12
+    #commentBlock.col-xs-12
+      if (loggedIn)
+        #commentInput
+          textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
+          button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
+      each val in comment
+        #comment
+          h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+          h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
+          h5(style='display: inline;')= val.content
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script.
+      function reg_comment(){
+          $.ajax({
+            type: "POST",
+            url: '/reg_cont_comment',
+            data: {communityNo: #{communityNo}, content: $("#commentField").val()},
+            success: function() {
+              location.reload();
+            }
+          });
+        }
     script(src='/bootstrap/js/bootstrap.min.js')

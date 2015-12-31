@@ -11,9 +11,8 @@ block style
 		#service-brand h6, #service-contents h6, #service-event h6, #service-discount h6 {font-size:100%; font-family: nanumbarungothicbold;}
 		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb;}
 		#brand-list h6 {font-size:110%; } 
-		#contents-list {padding: 0px; background-color:#ffffff; border-style:solid; border-width:3px; border-color:#e7e7e7;}
 		#brand-con {display:none; padding-top: 47px;}
-		#contents-con {display:none; margin-top:3px; padding-top: 47px;}
+		#contents-con {display:none; padding: 5px; padding-top: 53px;}
 		#event-con {display:none; backgroung-color:#f6f6f6;}
 		#discount-con {display:none; padding: 5px; padding-top: 53px;}
 		.like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;}
@@ -30,6 +29,11 @@ block style
 		webkit-flex: 1;
 		-ms-flex: 1;
 		flex: 1; }
+		.content-box {background-color: #FFFFFF;
+		background-clip: content-box;padding: 5px;
+		webkit-flex: 1;
+		-ms-flex: 1;
+		flex: 1; }
 		.community-box:after {
 		    content: "";
 		    position: absolute;
@@ -42,6 +46,21 @@ block style
 		    cursor: pointer;
 		}
 		.community-row {margin: 0px;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex; }
+		.content-box:after {
+		    content: "";
+		    position: absolute;
+		    top: 5px;
+		    left: 5px;
+		    right: 5px;
+		    bottom: 5px;
+		    display: block;
+		    border: 1px solid #c3c3c3;
+		    cursor: pointer;
+		}
+		.content-row {margin: 0px;
 		display: -ms-flexbox;
 		display: -webkit-flex;
 		display: flex; }
@@ -98,13 +117,40 @@ block content
 									span(style='display: inline-block; height: 100%; vertical-align: middle;')
 									p.non_activated(style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
 	#contents-con.col-xs-12
-		.row
-			#contents-list.col-xs-6
-				img(src="./images/event_sample.jpg" width="100%;")
-				h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
-			#contents-list.col-xs-6
-				img(src="./images/event_sample.jpg" width="100%;")
-				h6 한 주를 뜨겁게 달군 흥미로운 영화이슈
+		each val, index in content
+			- if (index % 2 == 0) {
+			.row.content-row
+				.col-xs-6.content-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
+					#imgBlock.col-xs-12
+						img(src='./images/contents/#{content[index].image}/0' width="100%;")
+					#likeBlock.col-xs-12
+						.row
+							.col-xs-4
+								img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
+								h6= content[index].like
+							.col-xs-4
+								img(src='./images/speech.png' width='20px;')
+								h6= content[index].count
+							.col-xs-4
+								img(src='./images/view.png' width='20px;')
+								h6= content[index].view
+				- if (index+1 < content.length) {
+					.col-xs-6.content-box(onClick="location.href='/content_box?contentNo=#{content[index+1].contentNo}';")
+						#imgBlock.col-xs-12
+							img(src='./images/contents/#{content[index+1].image}/0' width="100%;")
+						#likeBlock.col-xs-12
+							.row
+								.col-xs-4
+									img(src=(content[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
+									h6= content[index+1].like
+								.col-xs-4
+									img(src='./images/speech.png' width='20px;')
+									h6= content[index+1].count
+								.col-xs-4
+									img(src='./images/view.png' width='20px;')
+									h6= content[index+1].view
+				- }
+			- }
 	#event-con
 		#event-list.col-xs-12
 			each val, index in community

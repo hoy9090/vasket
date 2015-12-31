@@ -13,38 +13,40 @@ router.get('/', function(req, res, next) {
 		pool.getConnection(function(err, connection) {
 			if (err) {
 				console.error('DB Connection error!!');
-				return;
 			}
 			console.log('DB Service Connection Success!!');
 			connection.query('use vasket');
 			connection.query('select brandNo, brandName, brandContent, brandImageName image from brand', function(err, result, field) {
 				if (err) {
 					console.error(err);
-					return;
 				}
 				var brand = result;
 				connection.query('select brandNo from brandLikeList where userNo=?', [req.session.userNo], function(err, result, field) {
 					if (err) {
 						console.error(err);
-						return;
 					}
 					var brandLike = result;
 					connection.query('select productNo, productName, productPrice from productlist', function(err, result, field) {
 						if (err) {
 							console.error(err);
-							return;
 						}
 						var product = result;
 						connection.query('select c.communityNo, brandImageName, brandName, email, image, c.content content, view, (select count(*) from communityComment where communityComment.communityNo = c.communityNo) as `count`, (select count(*) from communityLikeList where communityLikeList.communityNo = c.communityNo) as `like`, (select count(*) from communityLikeList where userNo=? and communityNo = c.communityNo) user_like from community c join user ON c.userNo = user.userNo join brand ON c.brandNo = brand.brandNo order by c.communityNo desc;', [req.session.userNo], function(err, result, field) {
 							if (err) {
 								console.error(err);
 							}
-							for (var index in result) {
-								var at_index = result[index].email.indexOf('@');
-								result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index+1, 2);
+							var community = result;
+							for (var index in community) {
+								var at_index = community[index].email.indexOf('@');
+								community[index].email = community[index].email.substr(0, 2)+'***@'+community[index].email.substr(at_index+1, 2);
 							}
-							connection.release();
-							res.render('service', {brand: brand, brandLike: brandLike, product: product, community: result});
+							connection.query('select c.contentNo, c.image, c.title, c.view, (select count(*) from contentComment where contentComment.contentNo = c.contentNo) as `count`, (select count(*) from contentLikeList where contentLikeList.contentNo = c.contentNo) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo = c.contentNo) user_like from content c join user ON c.userNo = user.userNo order by c.contentNo desc;', [req.session.userNo], function(err, result, field) {
+								if (err) {
+								console.error(err);
+								}
+								connection.release();
+								res.render('service', {brand: brand, brandLike: brandLike, product: product, community: community, content: result});
+							});
 						});	
 					});
 				});
@@ -54,32 +56,35 @@ router.get('/', function(req, res, next) {
 		pool.getConnection(function(err, connection) {
 			if (err) {
 				console.error('DB Connection error!!');
-				return;
 			}
 			console.log('DB Service Connection Success!!');
 			connection.query('use vasket');
 			connection.query('select brandNo, brandName, brandContent, brandImageName image from brand', function(err, result, field) {
 				if (err) {
 					console.error(err);
-					return;
 				}
 				var brand = result;
 				connection.query('select productNo, productName, productPrice from productlist', function(err, result, field) {
 					if (err) {
 						console.error(err);
-						return;
 					}
 					var product = result;
 					connection.query('select c.communityNo, brandImageName, brandName, email, image, c.content content, view, (select count(*) from communityComment where communityComment.communityNo = c.communityNo) as `count`, (select count(*) from communityLikeList where communityLikeList.communityNo = c.communityNo) as `like` from community c join user ON c.userNo = user.userNo join brand ON c.brandNo = brand.brandNo order by c.communityNo desc;', function(err, result, field) {
 						if (err) {
 							console.error(err);
 						}
-						for (var index in result) {
-							var at_index = result[index].email.indexOf('@');
-							result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index+1, 2);
+						var community = result;
+						for (var index in community) {
+							var at_index = community[index].email.indexOf('@');
+							community[index].email = community[index].email.substr(0, 2)+'***@'+community[index].email.substr(at_index+1, 2);
 						}
-						connection.release();
-						res.render('service', {brand: brand, brandLike: 0, product: product, community: result});
+						connection.query('select c.contentNo, c.image, c.title, c.view, (select count(*) from contentComment where contentComment.contentNo = c.contentNo) as `count`, (select count(*) from contentLikeList where contentLikeList.contentNo = c.contentNo) as `like`, (select count(*) from contentLikeList where userNo=? and contentNo = c.contentNo) user_like from content c join user ON c.userNo = user.userNo order by c.contentNo desc;', [req.session.userNo], function(err, result, field) {
+							if (err) {
+								console.error(err);
+							}
+							connection.release();
+							res.render('service', {brand: brand, brandLike: 0, product: product, community: community, content: result});
+						});
 					});	
 				});
 			});
