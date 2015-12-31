@@ -17,13 +17,16 @@ router.get('/', function(req, res, next) {
 				function(err, result, field) {
 				if (err) {
 					console.error(err);
-					return;
 				}
 				var brand = result[0].brand;
 				var image = result[0].image;
-				
-				connection.release();
-				res.render('brand', {brand: brand, brandNo: brandNo, image: image});
+				connection.query('select c.communityNo, email, image, c.content content, view, (select count(*) from communityComment where communityComment.communityNo = c.communityNo) as `count`, (select count(*) from communityLikeList where communityLikeList.communityNo = c.communityNo) as `like` from community c join user ON c.userNo = user.userNo join brand ON c.brandNo = brand.brandNo where c.brandNo = ? order by c.communityNo desc;', [brandNo], function(err, result, field) {
+					if (err) {
+						console.error(err);
+					}
+					connection.release();
+					res.render('brand', {brand: brand, brandNo: brandNo, image: image, community: result});
+				});
 			});
 		});
 	} else {
@@ -33,7 +36,6 @@ router.get('/', function(req, res, next) {
 				function(err, result, field) {
 				if (err) {
 					console.error(err);
-					return;
 				}
 				var brand = result[0].brand;
 				var image = result[0].image;
@@ -41,10 +43,14 @@ router.get('/', function(req, res, next) {
 					function(err, result, field) {
 						if (err) {
 							console.error(err);
-							return;
 						}
-						connection.release();
-						res.render('brand', {brand: brand, like: result[0].like, brandNo: brandNo, image: image});
+						connection.query('select c.communityNo, email, image, c.content content, view, (select count(*) from communityComment where communityComment.communityNo = c.communityNo) as `count`, (select count(*) from communityLikeList where communityLikeList.communityNo = c.communityNo) as `like`, (select count(*) from communityLikeList where userNo=? and communityNo = c.communityNo) user_like from community c join user ON c.userNo = user.userNo join brand ON c.brandNo = brand.brandNo where c.brandNo = ? order by c.communityNo desc;', [req.session.userNo, brandNo], function(err, result, field) {
+							if (err) {
+								console.error(err);
+							}
+							connection.release();
+							res.render('brand', {brand: brand, like: result[0].like, brandNo: brandNo, image: image, community: result});
+						});
 					});
 			});
 		});

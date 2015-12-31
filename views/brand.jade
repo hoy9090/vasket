@@ -23,8 +23,34 @@ html
       #brand-contents {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
       #brand-list {background-color:#ffffff; border-width:2px; border-top-width:4px; border-style:solid; border-color:#e7e7e7;padding:0px;height:151px;}
       #brand-list img {width:100%; margin-right:0px;}
-      #activity-brand {display:block;}
-      #contents-brand {display:none;}
+      #activity-brand {display:block; padding: 5px; background-color: #F6F6F6;}
+      #contents-brand {display:none; padding: 5px; background-color: #F6F6F6;}
+      #titleBlock {background-color:#ffffff; width:100%; height:50px; padding-top:10px;}
+      #imgBlock {background-color:#ffffff; width:100%; padding-bottom: 60px;}
+      #likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px; padding-right: 25px; position: absolute; bottom: 5px; background-clip: content-box; }
+      .community-box {background-color: #FFFFFF;
+      background-clip: content-box;padding: 5px;
+      webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1; }
+      .community-box:after {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        display: block;
+        border: 1px solid #c3c3c3;
+        cursor: pointer;
+      }
+      .community-row {margin: 0px;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex; }
+      .email {float: right;}
+      .email h6 {float: right;}
+      .email img {float: right; padding-top: 6px; margin-right: 3px;}
   body
     #nav.col-xs-12
       .row(style='height: 45px; position: relative')
@@ -46,14 +72,51 @@ html
           h6 활동
         #brand-contents.col-xs-6(onclick="change_(2);")
           h6 상품
-    #activity-brand
-      #brand-list.col-xs-6
-        center
-          img(src="./images/event_sample.jpg" width="100%;")
-        h6 asdfsfsdkjhfsidfhskldfhsk
-      #brand-list.col-xs-6
-        img(src="./images/event_sample.jpg" width="100%;")
-        h6 asdfsfsdkjhfsidfhskldfhsk
+    #activity-brand.col-xs-12
+      each val, index in community
+        - if (index % 2 == 0) {
+        .row.community-row
+          .col-xs-6.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+            #titleBlock.col-xs-12
+              .row
+                .col-xs-12.email
+                  h6= community[index].email
+                  img(src='./images/user.png' width="15px")
+            #imgBlock.col-xs-12
+              img(src='./images/community/#{community[index].image}' width="100%;")
+            #likeBlock.col-xs-12
+              .row
+                .col-xs-4
+                  img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='18px;')
+                  h6= community[index].like
+                .col-xs-4
+                  img(src='./images/speech.png' width='18px;')
+                  h6= community[index].count
+                .col-xs-4
+                  img(src='./images/view.png' width='18px;')
+                  h6= community[index].view
+          - if (index+1 < community.length) {
+            .col-xs-6.community-box(onClick="location.href='/community_box?communityNo=#{community[index+1].communityNo}';")
+              #titleBlock.col-xs-12
+                .row
+                  .col-xs-12.email
+                    h6= community[index+1].email
+                    img(src='./images/user.png' width="15px")
+              #imgBlock.col-xs-12
+                img(src='./images/community/#{community[index+1].image}' width="100%;")
+              #likeBlock.col-xs-12
+                .row
+                  .col-xs-4
+                    img(src=(community[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='18px;')
+                    h6= community[index+1].like
+                  .col-xs-4
+                    img(src='./images/speech.png' width='18px;')
+                    h6= community[index+1].count
+                  .col-xs-4
+                    img(src='./images/view.png' width='18px;')
+                    h6= community[index+1].view
+          - }
+        - }
         
     #contents-brand
       #brand-list.col-xs-6
