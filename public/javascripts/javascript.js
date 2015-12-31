@@ -1,3 +1,4 @@
+_getDate();
 var timer = setInterval(function(){_getDate();},1000);
 
 function _getDate(){
