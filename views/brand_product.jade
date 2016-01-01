@@ -95,21 +95,22 @@ html
         #productInfo.col-xs-6(onClick='change(2)')
           h6 제품정보
     #community-con.col-xs-12
-      #heart.col-xs-12
-        .row
-          #heartSection.col-xs-5
-            span#h1(onClick='heart(1)')
-              img(src='./images/heart_on.png' width='18px')
-            span#h2(onClick='heart(2)')
-              img(src='./images/heart_on.png' width='18px')
-            span#h3(onClick='heart(3)')
-              img(src='./images/heart_on.png' width='18px')
-            span#h4(onClick='heart(4)')
-              img(src='./images/heart_on.png' width='18px')
-            span#h5(onClick='heart(5)')
-              img(src='./images/heart_on.png' width='18px')
-          .col-xs-7
-            h5#grade 별점을 선택하세요
+      if (loggedIn)
+        #heart.col-xs-12
+          .row
+            #heartSection.col-xs-5
+              span#h1(onClick='heart(1)')
+                img(src='./images/heart_on.png' width='18px')
+              span#h2(onClick='heart(2)')
+                img(src='./images/heart_on.png' width='18px')
+              span#h3(onClick='heart(3)')
+                img(src='./images/heart_on.png' width='18px')
+              span#h4(onClick='heart(4)')
+                img(src='./images/heart_on.png' width='18px')
+              span#h5(onClick='heart(5)')
+                img(src='./images/heart_on.png' width='18px')
+            .col-xs-7
+              h5#grade 별점을 선택하세요
       #commentBlock.col-xs-12
         if (loggedIn)
           #commentInput
