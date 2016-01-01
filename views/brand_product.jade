@@ -4,7 +4,7 @@ html
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    title vasket!
+    title Vasket!
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
     link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
     link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
@@ -14,7 +14,7 @@ html
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     style(type='text/css').
       body {background-color: #f6f6f6; padding-bottom: 20px;}
-      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
       #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
       #nav h4 {float: clear; padding-right: 15px;}
       #contentBox { margin-top:10px;}
@@ -39,7 +39,7 @@ html
     #nav.col-xs-12
       a(href='javascript:history.back()')
         span.glyphicon.glyphicon-arrow-left
-      h4 Content
+      h4.bold 상품
 
     
     #myCarousel.carousel.slide(data-ride="carousel")
@@ -78,12 +78,11 @@ html
         .col-xs-1
           img(src='./images/clip.png' width='18px;' )
         .col-xs-1
-          h6(style=' font-size:70%') 123
+          h6(style=' font-size:70%') 0
         .col-xs-offset-2.col-sm-offset-3.col-xs-1
-          img(src='./images/eye.png' width='18px;' style='float:right;')
+          img(src='./images/view.png' width='18px;' style='float:right;')
         .col-xs-1.col-md-1
           h6(style='float:right; font-size:70%') 12
-
     #productBlock.col-xs-12
       .row
         #community.col-xs-6(onClick='change(1)')
