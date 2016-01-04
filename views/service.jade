@@ -96,6 +96,7 @@ block style
 		.discount-box h5 {font-size: 200%;}
 		.discount-box h6 {font-size: 150%; float: right;}
 		.no-padding {padding: 0;}
+		.width-100-no-margin {width: 100%; margin: 0;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
@@ -137,7 +138,7 @@ block content
 					#contTitleBlock.col-xs-12
 						h6= content[index].title
 					#likeBlock
-						.row(style="width: 100%; margin: 0;")
+						.row.width-100-no-margin
 							.col-xs-3.no-padding
 								img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
 								h6= content[index].like
@@ -157,7 +158,7 @@ block content
 						#contTitleBlock.col-xs-12
 							h6= content[index+1].title
 						#likeBlock
-							.row(style="width: 100%; margin: 0;")
+							.row.width-100-no-margin
 								.col-xs-3.no-padding
 									img(src=(content[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
 									h6= content[index+1].like
@@ -190,7 +191,7 @@ block content
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
 						#likeBlock
-							.row
+							.row.width-100-no-margin
 								.col-xs-4
 									img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
 									h6= community[index].like
@@ -214,7 +215,7 @@ block content
 							#imgBlock.col-xs-12
 								img(src='./images/community/#{community[index+1].image}' width="100%;")
 							#likeBlock
-								.row
+								.row.width-100-no-margin
 									.col-xs-4
 										img(src=(community[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
 										h6= community[index+1].like
