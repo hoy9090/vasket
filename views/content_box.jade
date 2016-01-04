@@ -69,9 +69,14 @@ html
         .col-xs-2
           img(src='./images/speech.png' width='18px;')
           h6= content.count
-        .col-xs-2
-          img(src='./images/clip.png' width='18px;')
-          h6 0
+        if (loggedIn)
+          .col-xs-2#clip(onClick='clip();')
+            img#clip_img(src=(content.user_clip==1 ? './images/clip.png' : './images/heart.png') class=(content.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
+            h6= content.clip
+        else
+          .col-xs-2
+            img(src='./images/heart.png' width='18px;')
+            h6= content.clip
         .col-xs-offset-4.col-xs-2
           img(src='./images/view.png' width='18px;')
           h6= content.view
@@ -120,6 +125,33 @@ html
               like_id.attr('class', 'like');
               like_id.attr('src', './images/heart_on.png');
               $('#like h6').html(data.count);
+            }
+          });
+        }
+      }
+      function clip(){
+        var like_id = $('#clip_img');
+        if(like_id.attr('class') == "clip"){
+          $.ajax({
+            type: "POST",
+            url: '/content_clip',
+            data: {command: "delete", contentNo: #{contentNo}},
+            success: function(data) {
+              like_id.attr('class', 'no_clip');
+              like_id.attr('src', './images/heart.png');
+              $('#clip h6').html(data.count);
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/content_clip',
+            data: {command: "insert", contentNo: #{contentNo}},
+            success: function(data) {
+              like_id.attr('class', 'clip');
+              like_id.attr('src', './images/clip.png');
+              $('#clip h6').html(data.count);
             }
           });
         }

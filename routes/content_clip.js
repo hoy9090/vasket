@@ -16,20 +16,20 @@ router.post('/', function(req, res, next) {
 		console.log('DB Service Connection Success!!');
 		connection.query('use vasket');
 		if (req.body.command == 'insert') {
-			connection.query('insert into contentLikeList(contentNo, userNo) values(?, ?)', [req.body.contentNo, req.session.userNo], function(err, result, field) {
+			connection.query('insert into contentClipList(contentNo, userNo) values(?, ?)', [req.body.contentNo, req.session.userNo], function(err, result, field) {
 				if (err)
 					console.error(err);
-				connection.query('select count(*) as `count` from contentLikeList where contentNo='+req.body.contentNo, function (err, result, field) {
+				connection.query('select count(*) as `count` from contentClipList where contentNo='+req.body.contentNo, function (err, result, field) {
 					res.send({count: result[0].count});
 					console.log('LIKE change success!!');
 					connection.release();
 				});
 			});
 		} else if (req.body.command == 'delete') {
-			connection.query('delete from contentLikeList where userNo=? and contentNo=?', [req.session.userNo, req.body.contentNo], function(err, result, field) {
+			connection.query('delete from contentClipList where userNo=? and contentNo=?', [req.session.userNo, req.body.contentNo], function(err, result, field) {
 				if (err)
 					console.error(err);
-				connection.query('select count(*) as `count` from contentLikeList where contentNo='+req.body.contentNo, function (err, result, field) {
+				connection.query('select count(*) as `count` from contentClipList where contentNo='+req.body.contentNo, function (err, result, field) {
 					res.send({count: result[0].count});
 					console.log('LIKE change success!!');
 					connection.release();
