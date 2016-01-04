@@ -95,6 +95,7 @@ block style
 		.tab-bar {position: fixed; top: 50px; z-index: 1;}
 		.discount-box h5 {font-size: 200%;}
 		.discount-box h6 {font-size: 150%; float: right;}
+		.no-padding {padding: 0;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
@@ -136,15 +137,18 @@ block content
 					#contTitleBlock.col-xs-12
 						h6= content[index].title
 					#likeBlock.col-xs-12
-						.row
-							.col-xs-4
-								img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
+						.row(style="width: 100%; margin: 0;")
+							.col-xs-3.no-padding
+								img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
 								h6= content[index].like
-							.col-xs-4
-								img(src='./images/speech.png' width='20px;')
+							.col-xs-3.no-padding
+								img(src='./images/speech.png' width='15px;')
 								h6= content[index].count
-							.col-xs-4
-								img(src='./images/view.png' width='20px;')
+							.col-xs-3.no-padding
+								img(src=(content[index].user_clip ? './images/clip.png' : './images/heart.png') width='15px;')
+								h6= content[index].clip
+							.col-xs-3.no-padding
+								img(src='./images/view.png' width='15px;')
 								h6= content[index].view
 				- if (index+1 < content.length) {
 					.col-xs-6.content-box(onClick="location.href='/content_box?contentNo=#{content[index+1].contentNo}';")
@@ -153,15 +157,18 @@ block content
 						#contTitleBlock.col-xs-12
 							h6= content[index+1].title
 						#likeBlock.col-xs-12
-							.row
-								.col-xs-4
-									img(src=(content[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
+							.row(style="width: 100%; margin: 0;")
+								.col-xs-3.no-padding
+									img(src=(content[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
 									h6= content[index+1].like
-								.col-xs-4
-									img(src='./images/speech.png' width='20px;')
+								.col-xs-3.no-padding
+									img(src='./images/speech.png' width='15px;')
 									h6= content[index+1].count
-								.col-xs-4
-									img(src='./images/view.png' width='20px;')
+								.col-xs-3.no-padding
+									img(src=(content[index+1].user_clip ? './images/clip.png' : './images/heart.png') width='15px;')
+									h6= content[index+1].clip
+								.col-xs-3.no-padding
+									img(src='./images/view.png' width='15px;')
 									h6= content[index+1].view
 				- }
 			- }
