@@ -24,7 +24,7 @@ block style
 		#titleBlock {background-color:#ffffff; width:100%; height:50px; padding-top:10px;}
 		#imgBlock {background-color:#ffffff; width:100%; padding-bottom: 60px;}
 		#contImgBlock {background-color:#ffffff; width:100%; padding-bottom: 100px; padding-top: 15px;}
-		#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px; padding-right: 25px; position: absolute; bottom: 5px; background-clip: content-box; }
+		#likeBlock {background-color:#ffffff; text-align:center; width:100%; padding-top:5px; padding-right: 10px; position: absolute; bottom: 5px; background-clip: content-box; }
 		#contTitleBlock {
 			background-color: #ffffff;
 			width: 100%;
@@ -136,7 +136,7 @@ block content
 						img(src='./images/contents/#{content[index].image}/0' width="100%;")
 					#contTitleBlock.col-xs-12
 						h6= content[index].title
-					#likeBlock.col-xs-12
+					#likeBlock
 						.row(style="width: 100%; margin: 0;")
 							.col-xs-3.no-padding
 								img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
@@ -156,7 +156,7 @@ block content
 							img(src='./images/contents/#{content[index+1].image}/0' width="100%;")
 						#contTitleBlock.col-xs-12
 							h6= content[index+1].title
-						#likeBlock.col-xs-12
+						#likeBlock
 							.row(style="width: 100%; margin: 0;")
 								.col-xs-3.no-padding
 									img(src=(content[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
@@ -189,7 +189,7 @@ block content
 									img(src='./images/user.png' width="15px")
 						#imgBlock.col-xs-12
 							img(src='./images/community/#{community[index].image}' width="100%;")
-						#likeBlock.col-xs-12
+						#likeBlock
 							.row
 								.col-xs-4
 									img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
@@ -213,7 +213,7 @@ block content
 										img(src='./images/user.png' width="15px")
 							#imgBlock.col-xs-12
 								img(src='./images/community/#{community[index+1].image}' width="100%;")
-							#likeBlock.col-xs-12
+							#likeBlock
 								.row
 									.col-xs-4
 										img(src=(community[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
