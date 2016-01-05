@@ -40,10 +40,9 @@ block style
 		-ms-flex: 1;
 		flex: 1; }
 		.community-box {background-color: #FFFFFF; overflow: auto; float: left;
-		background-clip: content-box; margin: 5px; border: 1px solid #c3c3c3; cursor: pointer;}
+		background-clip: content-box; margin: 5px; border: 1px solid #c3c3c3; cursor: pointer;width: 50%; float: left; overflow: auto;}
 		.no-margin {margin: 0;}
 		.community-row {width: 100%; margin: 0;}
-		.community-col {width: 50%; margin: 0; float: left; overflow: auto;}
 		.content-box:after {
 				content: "";
 				position: absolute;
@@ -162,33 +161,31 @@ block content
 	#event-con
 		#event-list.col-xs-12
 			span.community-row
-				span.community-col
-					each val, index in community
-						- if (index % 2 == 0)
-							span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-								#titleBlock.col-xs-12
-									.row
-										.col-xs-2
-											img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
-										.hidden-xs.col-sm-4
-											h6= community[index].brandName
-										.col-xs-9.col-sm-6.email
-											h6= community[index].email
-											img(src='./images/user.png' width="15px")
-								#imgBlock.col-xs-12
-									img(src='./images/community/#{community[index].image}' width="100%;")
-								#likeBlock
-									.row.width-100-no-margin
-										.col-xs-4
-											img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-											h6= community[index].like
-										.col-xs-4
-											img(src='./images/speech.png' width='15px;')
-											h6= community[index].count
-										.col-xs-4
-											img(src='./images/view.png' width='15px;')
-											h6= community[index].view
-				span.community-col
+				each val, index in community
+					span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+						#titleBlock.col-xs-12
+							.row
+								.col-xs-2
+									img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
+								.hidden-xs.col-sm-4
+									h6= community[index].brandName
+								.col-xs-9.col-sm-6.email
+									h6= community[index].email
+									img(src='./images/user.png' width="15px")
+						#imgBlock.col-xs-12
+							img(src='./images/community/#{community[index].image}' width="100%;")
+						#likeBlock
+							.row.width-100-no-margin
+								.col-xs-4
+									img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+									h6= community[index].like
+								.col-xs-4
+									img(src='./images/speech.png' width='15px;')
+									h6= community[index].count
+								.col-xs-4
+									img(src='./images/view.png' width='15px;')
+									h6= community[index].view
+				//span.community-col
 					each val, index in community
 						- if (index % 2 == 1)
 							span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
