@@ -44,41 +44,42 @@ html
       .bold-text {font-weight: bold; color: #FF5E00}
       #selectCategory { width:100%;}
   body
-    #nav.col-xs-12
-      a(href='javascript:history.back()')
-        span.glyphicon.glyphicon-arrow-left
-      button.btn.btn-warning(type="submit" style="float:right; z-index: 1;") 등록
-      h4 아이템
-      
-    #imgSec.col-xs-12
-      center
-        .fileUpload(style="padding: 0; width: 100px;")
-          span
-            img#cameraImg(src="./images/camera-icon.png" style="width:100px; border-style:solid; border-width:5px; border-color:#bbbbbb;  border-radius:5px; padding:5px;")
-          input#uploadBtn.upload(name="file" type="file")
-          
+    form(action='/reg_community' method='post' enctype='multipart/form-data')
+      #nav.col-xs-12
+        a(href='javascript:history.back()')
+          span.glyphicon.glyphicon-arrow-left
+        button.btn.btn-warning(type="submit" style="float:right; z-index: 1;") 등록
+        h4 아이템
+        
+      #imgSec.col-xs-12
+        center
+          .fileUpload(style="padding: 0; width: 100px;")
+            span
+              img#cameraImg(src="./images/camera-icon.png" style="width:100px; border-style:solid; border-width:5px; border-color:#bbbbbb;  border-radius:5px; padding:5px;")
+            input#uploadBtn.upload(name="file" type="file")
+            
 
-    #communityBrand.col-xs-12
-      .row
-        .col-xs-4(style="position: relative;")
-          span.glyphicon.glyphicon-tag
-          h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 브랜드
-        .col-xs-8(style="padding-top:6px; border-width:0px;")
-          input#brand_search(type="text" style="border-width:0px; width:100%;" placeholder="브랜드 이름을 입력해주세요")
-    #category.col-xs-12
-      .row
-        .col-xs-4
-          span.glyphicon.glyphicon-tree-deciduous
-          h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 카테고리
-        .col-xs-8
-          select#selectCategory
-            option(disabled selected) 카테고리 목록
-            option 시계
-            option 화장품
-            option 신발
-            option 옷
-    #communityContent.col-xs-12
-      textarea(rows="5" style="border-width:0px; width:100%;" placeholder="간단한 글을 남겨주세요(100자)" maxlength="100")
+      #communityBrand.col-xs-12
+        .row
+          .col-xs-4(style="position: relative;")
+            span.glyphicon.glyphicon-tag
+            h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 브랜드
+          .col-xs-8(style="padding-top:6px; border-width:0px;")
+            input#brand_search(name="brand" type="text" style="border-width:0px; width:100%;" placeholder="브랜드 이름을 입력해주세요")
+      #category.col-xs-12
+        .row
+          .col-xs-4
+            span.glyphicon.glyphicon-tree-deciduous
+            h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 카테고리
+          .col-xs-8
+            select#selectCategory
+              option(disabled selected) 카테고리 목록
+              option 시계
+              option 화장품
+              option 신발
+              option 옷
+      #communityContent.col-xs-12
+        textarea(name="content" rows="5" style="border-width:0px; width:100%;" placeholder="간단한 글을 남겨주세요(100자)" maxlength="100")
     link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='https://code.jquery.com/ui/1.11.4/jquery-ui.js')
