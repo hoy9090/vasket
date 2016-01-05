@@ -29,6 +29,9 @@ html
       webkit-flex: 1;
       -ms-flex: 1;
       flex: 1; }
+      .activity-box {background-color: #FFFFFF;
+      background-clip: content-box;padding: 5px;
+      }
       .community-box:after {
           content: "";
           position: absolute;
@@ -103,12 +106,12 @@ html
                     h6= community[index+1].view
           - }
         - }
-    #like_con.col-xs-6
-      .row
-        .col-xs-6
+    #like_con.col-xs-12
+      div(style="width: 100%; margin: 0;")
+        div(style="width: 50%; margin: 0;")
           each val, index in community
             - if (index % 2 == 0)
-              span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+              span.activity-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
                 #titleBlock.col-xs-12
                   .row
                     .col-xs-2
@@ -131,7 +134,7 @@ html
         .col-xs-6
           each val, index in community
             - if (index % 2 == 1)
-              span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+              span.activity-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
                 #titleBlock.col-xs-12
                   .row
                     .col-xs-2
