@@ -109,48 +109,48 @@ html
           each val, index in community
             - if (index % 2 == 0)
               span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-              #titleBlock.col-xs-12
-                .row
-                  .col-xs-2
-                    img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
-                  .hidden-xs.col-sm-4
-                    h6= community[index].brandName
-              #imgBlock.col-xs-12
-                img(src='./images/community/#{community[index].image}' width="100%;")
-              #likeBlock.col-xs-12
-                .row
-                  .col-xs-4
-                    img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
-                    h6= community[index].like
-                  .col-xs-4
-                    img(src='./images/speech.png' width='20px;')
-                    h6= community[index].count
-                  .col-xs-4
-                    img(src='./images/view.png' width='20px;')
-                    h6= community[index].view
+                #titleBlock.col-xs-12
+                  .row
+                    .col-xs-2
+                      img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
+                    .hidden-xs.col-sm-4
+                      h6= community[index].brandName
+                #imgBlock.col-xs-12
+                  img(src='./images/community/#{community[index].image}' width="100%;")
+                #likeBlock.col-xs-12
+                  .row
+                    .col-xs-4
+                      img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
+                      h6= community[index].like
+                    .col-xs-4
+                      img(src='./images/speech.png' width='20px;')
+                      h6= community[index].count
+                    .col-xs-4
+                      img(src='./images/view.png' width='20px;')
+                      h6= community[index].view
         .col-xs-6
           each val, index in community
             - if (index % 2 == 1)
               span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-              #titleBlock.col-xs-12
-                .row
-                  .col-xs-2
-                    img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
-                  .hidden-xs.col-sm-4
-                    h6= community[index].brandName
-              #imgBlock.col-xs-12
-                img(src='./images/community/#{community[index].image}' width="100%;")
-              #likeBlock.col-xs-12
-                .row
-                  .col-xs-4
-                    img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
-                    h6= community[index].like
-                  .col-xs-4
-                    img(src='./images/speech.png' width='20px;')
-                    h6= community[index].count
-                  .col-xs-4
-                    img(src='./images/view.png' width='20px;')
-                    h6= community[index].view
+                #titleBlock.col-xs-12
+                  .row
+                    .col-xs-2
+                      img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
+                    .hidden-xs.col-sm-4
+                      h6= community[index].brandName
+                #imgBlock.col-xs-12
+                  img(src='./images/community/#{community[index].image}' width="100%;")
+                #likeBlock.col-xs-12
+                  .row
+                    .col-xs-4
+                      img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='20px;')
+                      h6= community[index].like
+                    .col-xs-4
+                      img(src='./images/speech.png' width='20px;')
+                      h6= community[index].count
+                    .col-xs-4
+                      img(src='./images/view.png' width='20px;')
+                      h6= community[index].view
 
 
     script(type='text/javascript').
