@@ -87,7 +87,7 @@ router.get('/', function(req, res, next) {
 								result[index].user_like = 0;
 								result[index].user_clip = 0;
 							}
-							res.render('service', {brand: brand, brandLike: 0, product: product, community: community, content: result});
+							res.render('service_', {brand: brand, brandLike: 0, product: product, community: community, content: result});
 						});
 					});	
 				});
