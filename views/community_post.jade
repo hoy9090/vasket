@@ -16,10 +16,12 @@ html
       body {background-color: #f6f6f6; padding-bottom: 20px;}
       #nav {background-color: #ffffff; padding-top: 7px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; margin-bottom:10px;}
       #nav span {float: left; font-size: 20px; padding-top: 7px; color:black;}
-      #nav h4 {position: absolute; width: 50%; left: 25%;}
+      #nav h4 {position: absolute; margin-left: -15px; width: 100%;}
       #imgSec {background-color:#ffffff; width:100%; margin-bottom:10px;}
       #communityBrand { background-color:#ffffff; width:100%;vertical-align:center; height:50px; padding-top:9px;}
       #communityBrand span {float:left; padding-top:10px;border-style:solid; border-width:3px; border-color:#747474; background-color:#ffffff; border-radius:50%; padding:5px;margin-right:10px;}
+      #category span {float:left; padding-top:10px;border-style:solid; border-width:3px; border-color:#747474; background-color:#ffffff; border-radius:50%; padding:5px;margin-right:10px;}
+      #category { background-color:#ffffff; width:100%;vertical-align:center; height:50px; padding-top:9px;}
       #communityContent {background-color:#ffffff; width:100%;vertical-align:center;}
       #imgSec #cameraImg:active {background-color:#bbbbbb;}
       .fileUpload {
@@ -40,34 +42,47 @@ html
       filter: alpha(opacity=0);
       }
       .bold-text {font-weight: bold; color: #FF5E00}
+      #selectCategory { width:100%;}
   body
-    form(action='/reg_community' method='post' enctype='multipart/form-data')
-      #nav.col-xs-12
-        a(href='javascript:history.back()')
-          span.glyphicon.glyphicon-arrow-left
-        button.btn.btn-warning(type="submit" style="float:right;") 등록
-        h4 아이템
+    #nav.col-xs-12
+      a(href='javascript:history.back()')
+        span.glyphicon.glyphicon-arrow-left
+      input(type="submit" value="등록" style="font-weight:bold; float:right; background-color:#ffffff; border-style:solid; border-radius:5px; border-width:3px; border-color:#747474; margin-top:4px;")
+      h4 아이템
+      
 
-      #imgSec.col-xs-12
-        center
-          .fileUpload(style="padding: 0; width: 100px;")
-            span
-              img#cameraImg(src="./images/camera-icon.png" style="width:100px; border-style:solid; border-width:5px; border-color:#bbbbbb;  border-radius:5px; padding:5px;")
-            input#uploadBtn.upload(name="file" type="file")
+    #imgSec.col-xs-12
+      center
+        .fileUpload(style="padding: 0; width: 100px;")
+          span
+            img#cameraImg(src="./images/camera-icon.png" style="width:100px; border-style:solid; border-width:5px; border-color:#bbbbbb;  border-radius:5px; padding:5px;")
+          input#uploadBtn.upload(name="file" type="file")
+          
 
-      #communityBrand.col-xs-12
-        .row
-          .col-xs-4(style="position: relative;")
-            span.glyphicon.glyphicon-tag
-            h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 브랜드
-          .col-xs-8(style="padding-top:6px; border-width:0px;")
-            input#brand_search(name="brand" type="text" style="border-width:0px; width:100%;" placeholder="브랜드 이름을 입력해주세요")
-      #communityContent.col-xs-12
-        textarea(name="content" rows="5" style="border-width:0px; width:100%;" placeholder="간단한 글을 남겨주세요(100자)" maxlength="100")
-
+    #communityBrand.col-xs-12
+      .row
+        .col-xs-4(style="position: relative;")
+          span.glyphicon.glyphicon-tag
+          h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 브랜드
+        .col-xs-8(style="padding-top:6px; border-width:0px;")
+          input#brand_search(type="text" style="border-width:0px; width:100%;" placeholder="브랜드 이름을 입력해주세요")
+    #category.col-xs-12
+      .row
+        .col-xs-4
+          span.glyphicon.glyphicon-tree-deciduous
+          h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 카테고리
+        .col-xs-8
+          select#selectCategory
+            option(disabled selected) 카테고리 목록
+            option 시계
+            option 화장품
+            option 신발
+            option 옷
+    #communityContent.col-xs-12
+      textarea(rows="5" style="border-width:0px; width:100%;" placeholder="간단한 글을 남겨주세요(100자)" maxlength="100")
     link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src='https://code.jquery.com/ui/1.11.4/jquery-ui.js')  
+    script(src='https://code.jquery.com/ui/1.11.4/jquery-ui.js')
     script.
       function readURL(input) {
           if (input.files && input.files[0]) {
@@ -81,6 +96,17 @@ html
       $("#uploadBtn").change(function(){
           readURL(this);
       });
+      //- $(document).ready(function() {
+      //-   var brand = !{JSON.stringify(brand)};
+      //-   var arr = [];
+      //-   for (var val in brand) {
+      //-     arr.push(brand[val]['brand']);
+      //-   }
+      //-   $("#brand_search").autocomplete({highlightClass: "bold-text", source: arr},{ 
+      //-       matchContains: true,
+      //-       selectFirst: false,
+      //-   });
+      //- });
       (function( $ ) {
         var brand = !{JSON.stringify(brand)};
         var arr = [];
