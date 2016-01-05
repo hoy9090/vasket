@@ -45,15 +45,15 @@ block style
 		.community-row {width: 100%; margin: 0;}
 		.community-col {width: 50%; margin: 0; float: left; overflow: auto;}
 		.content-box:after {
-		    content: "";
-		    position: absolute;
-		    top: 5px;
-		    left: 5px;
-		    right: 5px;
-		    bottom: 5px;
-		    display: block;
-		    border: 1px solid #c3c3c3;
-		    cursor: pointer;
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				right: 5px;
+				bottom: 5px;
+				display: block;
+				border: 1px solid #c3c3c3;
+				cursor: pointer;
 		}
 		.content-row {margin: 0px;
 		display: -ms-flexbox;
@@ -64,15 +64,15 @@ block style
 		display: -webkit-flex;
 		display: flex; }
 		.discount-box:after {
-		    content: "";
-		    position: absolute;
-		    top: 5px;
-		    left: 5px;
-		    right: 5px;
-		    bottom: 5px;
-		    display: block;
-		    border: 1px solid #c3c3c3;
-		    cursor: pointer;
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				right: 5px;
+				bottom: 5px;
+				display: block;
+				border: 1px solid #c3c3c3;
+				cursor: pointer;
 		}
 		.email {float: right;}
 		.email h6 {float: right;}
@@ -162,12 +162,12 @@ block content
 	#event-con
 		#event-list.col-xs-12
 			span.community-row
-        span.community-col
-          each val, index in community
-            - if (index % 2 == 0)
-              span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-                #titleBlock.col-xs-12
-                  .row
+				span.community-col
+					each val, index in community
+						- if (index % 2 == 0)
+							span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+								#titleBlock.col-xs-12
+									.row
 										.col-xs-2
 											img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
 										.hidden-xs.col-sm-4
@@ -175,9 +175,9 @@ block content
 										.col-xs-9.col-sm-6.email
 											h6= community[index].email
 											img(src='./images/user.png' width="15px")
-                #imgBlock.col-xs-12
-                  img(src='./images/community/#{community[index].image}' width="100%;")
-                #likeBlock
+								#imgBlock.col-xs-12
+									img(src='./images/community/#{community[index].image}' width="100%;")
+								#likeBlock
 									.row.width-100-no-margin
 										.col-xs-4
 											img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
@@ -188,12 +188,12 @@ block content
 										.col-xs-4
 											img(src='./images/view.png' width='15px;')
 											h6= community[index].view
-        span.community-col
-          each val, index in community
-            - if (index % 2 == 1)
-              span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-                #titleBlock.col-xs-12
-                  .row
+				span.community-col
+					each val, index in community
+						- if (index % 2 == 1)
+							span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+								#titleBlock.col-xs-12
+									.row
 										.col-xs-2
 											img(src='./images/brand_logo/#{community[index].brandImageName}' width='25px;')
 										.hidden-xs.col-sm-4
@@ -201,9 +201,9 @@ block content
 										.col-xs-9.col-sm-6.email
 											h6= community[index].email
 											img(src='./images/user.png' width="15px")
-                #imgBlock.col-xs-12
-                  img(src='./images/community/#{community[index].image}' width="100%;")
-                #likeBlock
+								#imgBlock.col-xs-12
+									img(src='./images/community/#{community[index].image}' width="100%;")
+								#likeBlock
 									.row.width-100-no-margin
 										.col-xs-4
 											img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
@@ -307,7 +307,7 @@ block script_content
 			}
 			else{
 			 $.ajax({
-			 		type: "POST",
+					type: "POST",
 					url: '/brand_like',
 					data: {command: "insert", brandNo: num},
 					success: function() {
