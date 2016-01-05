@@ -14,7 +14,6 @@ router.post('/', upload.single('file'), function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		if (err) {
 			console.error('DB Connection error!!');
-			return;
 		}
 		var brand = req.body.brand;
 		var content = req.body.content;

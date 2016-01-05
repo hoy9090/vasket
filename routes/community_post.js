@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
 		pool.getConnection(function(err, connection) {
 			if (err) {
 				console.error('DB Connection error!!');
-				return;
 			}
 			connection.query('use vasket');
 			connection.query('select brandName brand from brand', function(err, result, field) {

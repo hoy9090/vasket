@@ -3,157 +3,83 @@ html
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title Vasket!
+    title Vasket! :: 관리자 콘솔
     link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
-    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
-    // WARNING: Respond.js doesn't work if you view the page via file://
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     style(type='text/css').
-      body {background-color: #f6f6f6; padding-bottom: 20px;}
-      #nav {background-color: #ffffff; padding-top: 7px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; margin-bottom:10px;}
-      #nav span {float: left; font-size: 20px; padding-top: 7px; color:black;}
-      #nav h4 {position: absolute; margin-left: -15px; width: 100%;}
-      #imgSec {background-color:#ffffff; width:100%; margin-bottom:10px;}
-      #communityBrand { background-color:#ffffff; width:100%;vertical-align:center; height:50px; padding-top:9px;}
-      #communityBrand span {float:left; padding-top:10px;border-style:solid; border-width:3px; border-color:#747474; background-color:#ffffff; border-radius:50%; padding:5px;margin-right:10px;}
-      #category span {float:left; padding-top:10px;border-style:solid; border-width:3px; border-color:#747474; background-color:#ffffff; border-radius:50%; padding:5px;margin-right:10px;}
-      #category { background-color:#ffffff; width:100%;vertical-align:center; height:50px; padding-top:9px;}
-      #communityContent {background-color:#ffffff; width:100%;vertical-align:center;}
-      #imgSec #cameraImg:active {background-color:#bbbbbb;}
-      .fileUpload {
-      position: relative;
-      overflow: hidden;
-      margin: 10px;
-      }
-      .fileUpload input.upload {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      right: 0;
-      margin: 0;
-      padding: 0;
-      cursor: pointer;
-      opacity: 0;
-      filter: alpha(opacity=0);
-      }
-      .bold-text {font-weight: bold; color: #FF5E00}
-      #selectCategory { width:100%;}
+      body {text-align:center;}
+      #content-body { }
+      #img-body {}
+      #img-plus {}
+      .inputImg { width:300px;}
+      #inputButton {width:100px;}
+      table tr { width:800px;}
+      table th {width:30%;}
   body
-    #nav.col-xs-12
-      a(href='javascript:history.back()')
-        span.glyphicon.glyphicon-arrow-left
-      input(type="submit" value="등록" style="font-weight:bold; float:right; background-color:#ffffff; border-style:solid; border-radius:5px; border-width:3px; border-color:#747474; margin-top:4px;")
-      h4 아이템
-      
+    h3 브랜드 상품 등록
+    form(method="post" action="/reg_product" enctype="multipart/form-data")
+      #title
+        p 제목
+        input(type="text" name="title" style="width: 800px; max-width: 800px;")
+      #content-body
+        p 내용
+        textarea(rows="5" name="content" style="width:800px; max-width:800px;")
+      #productDetail
+        p 세부사항
+        table
+          tr
+            th 상품명
+            td.
+              <input type='text' name='productName'>
+          tr
+            th 상품번호
+            td.
+              <input type='text' name='code'>
+          tr
+            th 카테고리
+            td.
+              <input type='text' name='category'>
+          tr
+            th 브랜드
+            td.
+              <input type='text' name='brand'>
+          tr
+            th 사이즈
+            td.
+              <input type='text' name='size'>
+          tr
+            th 제조국
+            td.
+              <input type='text' name='nation'>
+          tr
+            th 가격
+            td.
+              <input type='text' name='price'>
+          tr
+            th 재료, 원단
+            td.
+              <input type='text' name='material'>
+          tr
+            th 방수
+            td.
+              <input type='text' name='waterproof'>
+          tr
+            th 성별(남/여/공용)
+            td.
+              <input type='text' name='sex'>
+          tr
+            th 설명
+            td.
+              <input type='text' name='description'>
+      #img-body
+        input.inputImg(type="file" name="file")
+        br
+      #img-plus
+        p(onclick="imgPlus();") 이미지 추가+
 
-    #imgSec.col-xs-12
-      center
-        .fileUpload(style="padding: 0; width: 100px;")
-          span
-            img#cameraImg(src="./images/camera-icon.png" style="width:100px; border-style:solid; border-width:5px; border-color:#bbbbbb;  border-radius:5px; padding:5px;")
-          input#uploadBtn.upload(name="file" type="file")
-          
-
-    #communityBrand.col-xs-12
-      .row
-        .col-xs-4(style="position: relative;")
-          span.glyphicon.glyphicon-tag
-          h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 브랜드
-        .col-xs-8(style="padding-top:6px; border-width:0px;")
-          input#brand_search(type="text" style="border-width:0px; width:100%;" placeholder="브랜드 이름을 입력해주세요")
-    #category.col-xs-12
-      .row
-        .col-xs-4
-          span.glyphicon.glyphicon-tree-deciduous
-          h5(style="position: absolute; left: 45px; font-weight:bold; margin-left:10px; word-break: keep-all; width: 70px;") 카테고리
-        .col-xs-8
-          select#selectCategory
-            option 카테고리 목록
-            option 시계
-            option 화장품
-            option 신발
-            option 옷
-    #communityContent.col-xs-12
-      textarea(rows="5" style="border-width:0px; width:100%;" placeholder="간단한 글을 남겨주세요(100자)" maxlength="100")
-    link(rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css")
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src='https://code.jquery.com/ui/1.11.4/jquery-ui.js')
+      input(type='submit' value='컨텐츠 등록')
     script.
-      function readURL(input) {
-          if (input.files && input.files[0]) {
-              var reader = new FileReader();
-              reader.onload = function (e) {
-                  $('#cameraImg').attr('src', e.target.result);
-              }
-              reader.readAsDataURL(input.files[0]);
-          }
+      function imgPlus(){
+        var before = document.getElementById('img-body').innerHTML;
+        var plus ="<input class='inputImg' type='file' name='file'><br>"
+        document.getElementById('img-body').innerHTML=before+plus;
       }
-      $("#uploadBtn").change(function(){
-          readURL(this);
-      });
-      //- $(document).ready(function() {
-      //-   var brand = !{JSON.stringify(brand)};
-      //-   var arr = [];
-      //-   for (var val in brand) {
-      //-     arr.push(brand[val]['brand']);
-      //-   }
-      //-   $("#brand_search").autocomplete({highlightClass: "bold-text", source: arr},{ 
-      //-       matchContains: true,
-      //-       selectFirst: false,
-      //-   });
-      //- });
-      (function( $ ) {
-        var brand = !{JSON.stringify(brand)};
-        var arr = [];
-        for (var val in brand) {
-          arr.push(brand[val]['brand']);
-        }
-        // Custom autocomplete instance.
-        $.widget( "app.autocomplete", $.ui.autocomplete, {
-            
-            // Which class get's applied to matched text in the menu items.
-            options: {
-                highlightClass: "ui-state-highlight"
-            },
-            
-            _renderItem: function( ul, item ) {
-
-                // Replace the matched text with a custom span. This
-                // span uses the class found in the "highlightClass" option.
-                var re = new RegExp( "(" + this.term + ")", "gi" ),
-                    cls = this.options.highlightClass,
-                    template = "<span class='" + cls + "'>$1</span>",
-                    label = item.label.replace( re, template ),
-                    $li = $( "<li/>" ).appendTo( ul );
-                
-                // Create and return the custom menu item content.
-                $( "<a/>" ).attr( "href", "#" )
-                           .html( label )
-                           .appendTo( $li );
-                
-                return $li;
-                
-            }
-            
-        });
-
-        // Create autocomplete instances.
-        $(function() {
-            
-            //- $( "#brand_search" ).autocomplete({
-            //-     source: tags    
-            //- });
-
-            $( "#brand_search" ).autocomplete({
-                highlightClass: "bold-text",
-                source: arr
-              });
-              
-          });
-          
-      })( jQuery ); 
