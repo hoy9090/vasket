@@ -39,7 +39,7 @@ html
       #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
       #commentField {width: 85%; resize: none; height: 45px;}
       #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
-
+      #like, #clip {z-index: 1; cursor: pointer;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -248,7 +248,7 @@ html
             data: {command: "delete", productNo: #{productNo}},
             success: function(data) {
               like_id.attr('class', 'no_clip');
-              like_id.attr('src', './images/heart.png');
+              like_id.attr('src', './images/clip.png');
               $('#clip h6').html(data.count);
             }
           });
@@ -260,7 +260,7 @@ html
             data: {command: "insert", productNo: #{productNo}},
             success: function(data) {
               like_id.attr('class', 'clip');
-              like_id.attr('src', './images/clip.png');
+              like_id.attr('src', './images/clip_on.png');
               $('#clip h6').html(data.count);
             }
           });
