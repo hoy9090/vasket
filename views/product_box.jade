@@ -48,18 +48,16 @@ html
     #myCarousel.carousel.slide(data-ride="carousel")
       ol.carousel-indicators(style="margin-bottom:-10px;")
         li.active(data-target="#myCarousel" data-slide-to="0")
-        li(data-target="#myCarousel" data-slide-to="1")
-        li(data-target="#myCarousel" data-slide-to="2")
-        li(data-target="#myCarousel" data-slide-to="3")
+        - for (var i=1; i<product.imageCount; i++) {
+          li(data-target="#myCarousel" data-slide-to="#{i}")
+        - }
       .carousel-inner(role="listbox")
         .item.active
-          img(src="/images/main_1.jpg")
-        .item
-          img(src="/images/main_1.jpg")
-        .item
-          img(src="/images/main_1.jpg")
-        .item
-          img(src="/images/main_1.jpg")
+          img(src="/images/products/#{product.image}/0")
+        - for (var i=1; i<product.imageCount; i++) {
+          .item
+            img(src="/images/products/#{product.image}/#{i}")
+        - }
       a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:40px;").
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
         <span class="sr-only">Previous</span>
@@ -67,25 +65,32 @@ html
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
         <span class="sr-only">Next</span>
     #contentBlock.col-xs-12
-      p sdfsdfsdfsdfsdfs
+      p= product.content
     #likeBlock.col-xs-12
       .row
-        .col-xs-1
-          img(src='./images/heart.png' width='18px;' )
-        .col-xs-1
-          h6(style=' font-size:70%') 32
-        .col-xs-1
-          img(src='./images/speech.png' width='18px;' )
-        .col-xs-1
-          h6(style=' font-size:70%') 12
-        .col-xs-1
-          img(src='./images/clip.png' width='18px;' )
-        .col-xs-1
-          h6(style=' font-size:70%') 0
-        .col-xs-offset-2.col-sm-offset-3.col-xs-1
-          img(src='./images/view.png' width='18px;' style='float:right;')
-        .col-xs-1.col-md-1
-          h6(style='float:right; font-size:70%') 12
+        .row
+        if (loggedIn)
+          .col-xs-2#like(onClick='like();')
+            img#like_img(src=(product.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(product.user_like==1 ? 'like' : 'no_like') width='18px;')
+            h6= product.like
+        else
+          .col-xs-2
+            img(src='./images/heart.png' width='18px;')
+            h6= product.like
+        .col-xs-2
+          img(src='./images/speech.png' width='18px;')
+          h6= product.count
+        if (loggedIn)
+          .col-xs-2#clip(onClick='clip();')
+            img#clip_img(src=(product.user_clip==1 ? './images/clip.png' : './images/heart.png') class=(product.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
+            h6= product.clip
+        else
+          .col-xs-2
+            img(src='./images/heart.png' width='18px;')
+            h6= product.clip
+        .col-xs-offset-4.col-xs-2
+          img(src='./images/view.png' width='18px;')
+          h6= product.view
     #productBlock.col-xs-12
       .row
         #community.col-xs-6(onClick='change(1)')
@@ -114,7 +119,7 @@ html
           #commentInput
             textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
             button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
-          //each val in comment
+          each val in comment
             #comment
               h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
               h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
@@ -175,4 +180,68 @@ html
           document.getElementById(id).innerHTML="<img src='./images/heart.png' width='18px')>";
         }
         //document.getElementById('grade').innerHTML = num+'점';
+      }
+      function reg_comment(){
+          $.ajax({
+            type: "POST",
+            url: '/reg_prod_comment',
+            data: {productNo: #{productNo}, content: $("#commentField").val()},
+            success: function() {
+              location.reload();
+            }
+          });
+        }
+      function like(){
+        var like_id = $('#like_img');
+        if(like_id.attr('class') == "like"){
+          $.ajax({
+            type: "POST",
+            url: '/product_like',
+            data: {command: "delete", productNo: #{productNo}},
+            success: function(data) {
+              like_id.attr('class', 'no_like');
+              like_id.attr('src', './images/heart.png');
+              $('#like h6').html(data.count);
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/product_like',
+            data: {command: "insert", productNo: #{productNo}},
+            success: function(data) {
+              like_id.attr('class', 'like');
+              like_id.attr('src', './images/heart_on.png');
+              $('#like h6').html(data.count);
+            }
+          });
+        }
+      }
+      function clip(){
+        var like_id = $('#clip_img');
+        if(like_id.attr('class') == "clip"){
+          $.ajax({
+            type: "POST",
+            url: '/product_clip',
+            data: {command: "delete", productNo: #{productNo}},
+            success: function(data) {
+              like_id.attr('class', 'no_clip');
+              like_id.attr('src', './images/heart.png');
+              $('#clip h6').html(data.count);
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/product_clip',
+            data: {command: "insert", productNo: #{productNo}},
+            success: function(data) {
+              like_id.attr('class', 'clip');
+              like_id.attr('src', './images/clip.png');
+              $('#clip h6').html(data.count);
+            }
+          });
+        }
       }
