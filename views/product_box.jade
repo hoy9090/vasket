@@ -33,9 +33,9 @@ html
       table tr td, table tr th {padding-bottom:5px; padding-top:5px;}
       table tr th {text-align:center; width:30%;}
       #starAvg {width:100%; background-color:#ffffff; margin-bottom: 15px; padding-top: 10px;}
-      #heart {width:100%; background-color:#ffffff; margin-bottom:15px;}
-      #heartSection {padding-top:10px;}
-      #commentBlock {background-color:#ffffff; width: 100%; padding-top: 3px; padding-bottom: 3px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px;}
+      #heart {width:100%; background-color:#ffffff; margin-bottom:15px; padding-bottom: 10px;}
+      #heartSection {padding-top:10px; padding-right: 0;}
+      #commentBlock {background-color:#ffffff; width: 100%; padding-top: 3px; padding-bottom: 3px; }
       #commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
       #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
       #commentField {width: 85%; resize: none; height: 45px;}
@@ -45,6 +45,8 @@ html
       #red-bg {height: 30px; background-color: #F00; float: left;}
       #white-bg {height: 30px; background-color: #FFF; float: right;}
       #star-5 {text-align: center; }
+      #likeNunlike {float: right;}
+      #like, unlike {width:40px; height: 20px; background-color: #FFF; border: 1px solid #c3c3c3;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -127,12 +129,22 @@ html
                 img(src='./images/star_on.png' width='18px')
             .col-xs-7
               h5#grade 별점을 선택하세요
-      #commentBlock.col-xs-12
-        if (loggedIn)
           #commentInput
             textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
             button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
-        each val in comment
+      each val in comment
+        #commentBlock.col-xs-12
+          h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+          #likeNunlike
+            #like
+              img(src='./images/good.png')
+              h6 0
+            #unlike
+              img(src='./images/bad.png')
+              h6 0
+          #content
+            h5(style='display: inline;')= val.content
+        //each val in comment
           #comment
             h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
             h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
@@ -184,6 +196,7 @@ html
       $('#red-bg').css('width', red_width+"px");
       $('#white-bg').css('width', (150-red_width)+"px");
       var count=1;
+      var star = 5;
       function change(num){
         var copy = count;
         count=num;
@@ -208,6 +221,7 @@ html
       function heart(num){
         var i;
         var id;
+        star = num;
         for(i=1;i<=num;i++){
           id='h'+i;
           document.getElementById(id).innerHTML="<img src='./images/star_on.png' width='18px')>";
@@ -222,7 +236,7 @@ html
           $.ajax({
             type: "POST",
             url: '/reg_prod_comment',
-            data: {productNo: #{productNo}, content: $("#commentField").val()},
+            data: {productNo: #{productNo}, content: $("#commentField").val(), star: star},
             success: function() {
               location.reload();
             }
