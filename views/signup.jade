@@ -53,7 +53,7 @@ html(lang='ko-kr')
       padding: 0 !important;
       margin: 0 !important;
       }
-      #sex { width: 100%; text-align: left; height: 35px; margin-top: 4px;}
+      #sex, #select { width: 100%; text-align: left; height: 35px; margin-top: 4px;}
       #box1 {background-color: #ffffff; width: 100%; padding-top: 0px; padding-left: 10px; padding-bottom: 5px; border-width:1px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; height:35px;margin-top:10px;}
       #box1 span {float: right; padding-top: 9px;}
       #box1_ {overflow-y:scroll; background-color: #ffffff; width: 100%;; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:1px; border-top-width: 0px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; margin-bottom: 20px;height:300px; display: none; text-align:left;}
@@ -105,7 +105,20 @@ html(lang='ko-kr')
                     label.radio-inline
                       input(type='radio', name='sex', value='female', checked=('#{gender}'==='female' ? "checked" : undefined))
                       | 여
-                
+              .col-xs-12.form-control
+                #select
+                  #label_1.col-xs-4
+                    | 손목두께
+                  #label_2.col-xs-8
+                    label.radio-inline
+                      input(type='radio', name='wrist', value='thin', checked='')
+                      | 얇은편
+                    label.radio-inline
+                      input(type='radio', name='wrist', value='normal', checked='')
+                      | 보통
+                    label.radio-inline
+                      input(type='radio', name='wrist', value='thick', checked='')
+                      | 두꺼운편
             #box1.col-xs-12(onclick='open_1();')
               h5(style='float:left;') 이용약관    
               span.glyphicon.glyphicon-chevron-down

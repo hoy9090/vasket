@@ -103,15 +103,15 @@ html
           .row
             #heartSection.col-xs-5
               span#h1(onClick='heart(1)')
-                img(src='./images/heart_on.png' width='18px')
+                img(src='./images/star_on.png' width='18px')
               span#h2(onClick='heart(2)')
-                img(src='./images/heart_on.png' width='18px')
+                img(src='./images/star_on.png' width='18px')
               span#h3(onClick='heart(3)')
-                img(src='./images/heart_on.png' width='18px')
+                img(src='./images/star_on.png' width='18px')
               span#h4(onClick='heart(4)')
-                img(src='./images/heart_on.png' width='18px')
+                img(src='./images/star_on.png' width='18px')
               span#h5(onClick='heart(5)')
-                img(src='./images/heart_on.png' width='18px')
+                img(src='./images/star_on.png' width='18px')
             .col-xs-7
               h5#grade 별점을 선택하세요
       #commentBlock.col-xs-12
@@ -194,11 +194,11 @@ html
         var id;
         for(i=1;i<=num;i++){
           id='h'+i;
-          document.getElementById(id).innerHTML="<img src='./images/heart_on.png' width='18px')>";
+          document.getElementById(id).innerHTML="<img src='./images/star_on.png' width='18px')>";
         }
         for(i=num+1;i<=5;i++){
           id='h'+i;
-          document.getElementById(id).innerHTML="<img src='./images/heart.png' width='18px')>";
+          document.getElementById(id).innerHTML="<img src='./images/star.png' width='18px')>";
         }
         //document.getElementById('grade').innerHTML = num+'점';
       }
