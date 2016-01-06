@@ -17,8 +17,8 @@ router.post('/', function(req, res, next) {
 			}
 			console.log('DB Connection Success!!');
 			connection.query('use vasket');
-			connection.query('insert into productComment(productNo, userNo, content, regdate) values(?, ?, ?, now())', 
-			[req.body.productNo, req.session.userNo, content], function(err, result, field) {
+			connection.query('insert into productComment(productNo, userNo, content, star, regdate) values(?, ?, ?, ?, now())', 
+			[req.body.productNo, req.session.userNo, content, req.body.star], function(err, result, field) {
 				if (err) {
 					console.error('DB Insertion error!!');
 				}
