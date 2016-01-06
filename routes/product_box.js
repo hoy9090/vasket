@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						connection.query('SELECT email, content FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo', function(err, result, field) {
+						connection.query('SELECT email, content, `like`, `unlike`, star FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo', function(err, result, field) {
 							connection.release();
 							for (var index in result) {
 								var at_index_ = result[index].email.indexOf('@');
@@ -50,7 +50,7 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						connection.query('SELECT email, content FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo', function(err, result, field) {
+						connection.query('SELECT email, content, `like`, `unlike`, star FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo', function(err, result, field) {
 							connection.release();
 							for (var index in result) {
 								var at_index_ = result[index].email.indexOf('@');

@@ -50,6 +50,7 @@ html
       #good {margin-right: 5px;}
       #good h6, #bad h6 {display: inline; float: right; padding-right: 5px; margin-top: 6px;}
       #good img, #bad img {margin-left: 5px; width: 15px; }
+      #comment_star img {width: 15px;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -141,10 +142,15 @@ html
           #goodbad
             #good
               img(src='./images/good.png')
-              h6 0
+              h6= val.like
             #bad
               img(src='./images/bad.png')
-              h6 0
+              h6= val.unlike
+          #comment_star
+            - for (var i=0; i<val.star; i++)
+              img(src='./images/star_on.png')
+            - for (var i=val.star; i<5; i++)
+              img(src='./images/star.png')
           #content
             h5(style='display: inline;')= val.content
         //each val in comment
