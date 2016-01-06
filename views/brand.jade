@@ -92,11 +92,7 @@ html(style="background-color: #f6f6f6;")
               span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
                 #titleBlock.col-xs-12
                   .row
-                    .col-xs-2
-                      img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-                    .hidden-xs.col-sm-4
-                      h6= community[index].brandName
-                    .col-xs-9.col-sm-6.email
+                    .col-xs-12.email
                       h6= community[index].email
                       img(src='./images/user.png' width="15px")
                 #imgBlock.col-xs-12
@@ -114,17 +110,47 @@ html(style="background-color: #f6f6f6;")
                       h6= community[index].view
         
     #contents-brand.col-xs-12
-      .row.community-row
-        .col-xs-6.community-box
-          #conImgBlock.col-xs-12
-            img(src='./images/event_sample.jpg' width="100%;")
-          #conLikeBlock.col-xs-12
-            h6 상품 준비중 1
-        .col-xs-6.community-box
-          #conImgBlock.col-xs-12
-            img(src='./images/event_sample.jpg' width="100%;")
-          #conLikeBlock.col-xs-12
-            h6 상품 준비중 2
+      span.community-row
+        span.community-col
+          each val, index in product
+            - if (index % 2 == 0)
+              span.community-box(onClick="location.href='/product_box?productNo=#{product[index].productNo}';")
+                #imgBlock.col-xs-12
+                  img(src='./images/products/#{product[index].image}/0}' width="100%;")
+                #likeBlock
+                  .row.width-100-no-margin
+                    .col-xs-3
+                      img(src=(product[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+                      h6= product[index].like
+                    .col-xs-3
+                      img(src='./images/speech.png' width='15px;')
+                      h6= product[index].count
+                    .col-xs-3
+                      img(src=(product[index].user_clip ? './images/clip.png' : './images/heart.png') width='15px;')
+                      h6= product[index].count
+                    .col-xs-3
+                      img(src='./images/view.png' width='15px;')
+                      h6= product[index].view
+        span.community-col
+          each val, index in product
+            - if (index % 2 == 1)
+              span.community-box(onClick="location.href='/product_box?productNo=#{product[index].productNo}';")
+                #imgBlock.col-xs-12
+                  img(src='./images/products/#{product[index].image}/0' width="100%;")
+                #likeBlock
+                  .row.width-100-no-margin
+                    .col-xs-3
+                      img(src=(product[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+                      h6= product[index].like
+                    .col-xs-3
+                      img(src='./images/speech.png' width='15px;')
+                      h6= product[index].count
+                    .col-xs-3
+                      img(src=(product[index].user_clip ? './images/clip.png' : './images/heart.png') width='15px;')
+                      h6= product[index].count
+                    .col-xs-3
+                      img(src='./images/view.png' width='15px;')
+                      h6= product[index].view
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(type='text/javascript').

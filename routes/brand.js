@@ -24,12 +24,22 @@ router.get('/', function(req, res, next) {
 					if (err) {
 						console.error(err);
 					}
-					for (var index in result) {
-						var at_index_ = result[index].email.indexOf('@');
-						result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index_+1, 2);
+					var community = result;
+					for (var index in community) {
+						var at_index_ = community[index].email.indexOf('@');
+						community[index].email = community[index].email.substr(0, 2)+'***@'+community[index].email.substr(at_index_+1, 2);
 					}
-					connection.release();
-					res.render('brand', {brand: brand, brandNo: brandNo, image: image, community: result});
+					connection.query('select productNo, image, title, content, view, (select count(*) from productComment where productComment.productNo=p.productNo) as `count`, (select count(*) from productLikeList where productLikeList.productNo=p.productNo) as `like`, (select count(*) from productClipList where productClipList.productNo=p.productNo) clip from product p where p.brandNo=? order by p.productNo desc;', [brandNo], function(err, result, field) {
+						if (err) {
+							console.error(err);
+						}
+						connection.release();
+						for (var index in result) {
+							result[index].user_like = 0;
+							result[index].user_clip = 0;
+						}
+						res.render('brand', {brand: brand, brandNo: brandNo, image: image, community: community, product: result});	
+					});
 				});
 			});
 		});
@@ -53,12 +63,18 @@ router.get('/', function(req, res, next) {
 							if (err) {
 								console.error(err);
 							}
-							for (var index in result) {
-								var at_index_ = result[index].email.indexOf('@');
-								result[index].email = result[index].email.substr(0, 2)+'***@'+result[index].email.substr(at_index_+1, 2);
+							var community = result;
+							for (var index in community) {
+								var at_index_ = community[index].email.indexOf('@');
+								community[index].email = community[index].email.substr(0, 2)+'***@'+community[index].email.substr(at_index_+1, 2);
 							}
-							connection.release();
-							res.render('brand', {brand: brand, like: like, brandNo: brandNo, image: image, community: result});
+							connection.query('select productNo, image, title, content, view, (select count(*) from productComment where productComment.productNo=p.productNo) as `count`, (select count(*) from productLikeList where productLikeList.productNo=p.productNo) as `like`, (select count(*) from productClipList where productClipList.productNo=p.productNo) clip, (select count(*) from productLikeList where userNo=? and productNo = p.productNo) user_like, (select count(*) from productClipList where userNo=? and productNo = p.productNo) user_clip from product p where p.brandNo=? order by p.productNo desc;', [req.session.userNo, req.session.userNo, brandNo], function(err, result, field) {
+								if (err) {
+									console.error(err);
+								}
+								connection.release();
+								res.render('brand', {brand: brand, like: like, brandNo: brandNo, image: image, community: community, product: result});
+							});
 						});
 					});
 			});
