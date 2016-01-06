@@ -82,7 +82,7 @@ html
           h6= product.count
         if (loggedIn)
           .col-xs-2#clip(onClick='clip();')
-            img#clip_img(src=(product.user_clip==1 ? './images/clip.png' : './images/heart.png') class=(product.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
+            img#clip_img(src=(product.user_clip==1 ? './images/clip_on.png' : './images/clip.png') class=(product.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
             h6= product.clip
         else
           .col-xs-2
@@ -119,11 +119,11 @@ html
           #commentInput
             textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
             button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
-          each val in comment
-            #comment
-              h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-              h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
-              h5(style='display: inline;')= val.content
+        each val in comment
+          #comment
+            h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+            h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
+            h5(style='display: inline;')= val.content
     #info-con.col-xs-12
       table.table
         if (product.code)
