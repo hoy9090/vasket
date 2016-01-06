@@ -70,11 +70,7 @@ html(style="background-color: #f6f6f6;")
               span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
                 #titleBlock.col-xs-12
                   .row
-                    .col-xs-2
-                      img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-                    .hidden-xs.col-sm-4
-                      h6= community[index].brandName
-                    .col-xs-9.col-sm-6.email
+                    .col-xs-12.email
                       h6= community[index].email
                       img(src='./images/user.png' width="15px")
                 #imgBlock.col-xs-12
