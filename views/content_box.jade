@@ -71,7 +71,7 @@ html
           h6= content.count
         if (loggedIn)
           .col-xs-2#clip(onClick='clip();')
-            img#clip_img(src=(content.user_clip==1 ? './images/clip.png' : './images/heart.png') class=(content.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
+            img#clip_img(src=(content.user_clip==1 ? './images/clip_on.png' : './images/clip.png') class=(content.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
             h6= content.clip
         else
           .col-xs-2
