@@ -125,22 +125,43 @@ html
               h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
               h5(style='display: inline;')= val.content
     #info-con.col-xs-12
-      table
-        tr#tr1
-          th 카테고리
-          td clothes
-        tr#tr1
-          th 제조국
-          td Korea
-        tr#tr1
-          th 사이즈정보
-          td 100
-        tr#tr1
-          th 제품소재
-          td --
-        tr#tr2
-          th 제품설명
-          td --
+      table.table
+        if (product.code)
+          tr
+            th 품번
+            td= product.code
+        if (product.price)
+          tr
+            th 가격
+            td= product.price
+        if (product.category)
+          tr
+            th 카테고리
+            td= product.category
+        if (product.nation)  
+          tr
+            th 제조국
+            td= product.nation
+        if (product.size)  
+          tr
+            th 사이즈
+            td= product.size
+        if (product.material)  
+          tr
+            th 소재
+            td= product.material
+        if (product.waterproof)  
+          tr
+            th 방수
+            td= product.waterproof
+        if (product.gender)  
+          tr
+            th 성별
+            td= product.gender
+        if (product.description)  
+          tr
+            th 제품설명
+            td= product.description
 
 
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')

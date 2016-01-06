@@ -116,7 +116,7 @@ html(style="background-color: #f6f6f6;")
             - if (index % 2 == 0)
               span.community-box(onClick="location.href='/product_box?productNo=#{product[index].productNo}';")
                 #imgBlock.col-xs-12
-                  img(src='./images/products/#{product[index].image}/0}' width="100%;")
+                  img(src='./images/products/#{product[index].image}/0' width="100%;")
                 #likeBlock
                   .row.width-100-no-margin
                     .col-xs-3
@@ -127,7 +127,7 @@ html(style="background-color: #f6f6f6;")
                       h6= product[index].count
                     .col-xs-3
                       img(src=(product[index].user_clip ? './images/clip.png' : './images/heart.png') width='15px;')
-                      h6= product[index].count
+                      h6= product[index].clip
                     .col-xs-3
                       img(src='./images/view.png' width='15px;')
                       h6= product[index].view
@@ -147,7 +147,7 @@ html(style="background-color: #f6f6f6;")
                       h6= product[index].count
                     .col-xs-3
                       img(src=(product[index].user_clip ? './images/clip.png' : './images/heart.png') width='15px;')
-                      h6= product[index].count
+                      h6= product[index].clip
                     .col-xs-3
                       img(src='./images/view.png' width='15px;')
                       h6= product[index].view

@@ -57,6 +57,8 @@ var reg_cont_comment = require('./routes/reg_cont_comment');
 var content_box = require('./routes/content_box');
 var content_like = require('./routes/content_like');
 var content_clip = require('./routes/content_clip');
+var product_like = require('./routes/product_like');
+var reg_prod_comment = require('./routes/reg_prod_comment');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -140,6 +142,8 @@ app.use('/reg_cont_comment', reg_cont_comment);
 app.use('/content_box', content_box);
 app.use('/content_like', content_like);
 app.use('/content_clip', content_clip);
+app.use('/product_like', product_like);
+app.use('/reg_prod_comment', reg_prod_comment);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
