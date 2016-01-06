@@ -45,10 +45,11 @@ html
       #red-bg {height: 30px; background-color: #F00; float: left;}
       #white-bg {height: 30px; background-color: #FFF; float: right;}
       #star-5 {text-align: center; }
-      #likeNunlike {float: right; width: 125px;}
-      #like, #unlike {width:60px; height: 30px; background-color: #FFF; border: 1px solid #c3c3c3; float: left;}
-      #like {margin-right: 5px;}
-      #like h6, #unlike h6 {display: inline; float: right; padding-right: 5px;}
+      #goodbad {float: right; width: 125px;}
+      #good, #bad {width:60px; height: 25px; background-color: #FFF; border: 1px solid #DEDEDE; float: left;}
+      #good {margin-right: 5px;}
+      #good h6, #bad h6 {display: inline; float: right; padding-right: 5px; margin-top: 6px;}
+      #good img, #bad img {margin-left: 5px; width: 15px; }
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -137,11 +138,11 @@ html
       each val in comment
         #commentBlock.col-xs-12
           h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-          #likeNunlike
-            #like
+          #goodbad
+            #good
               img(src='./images/good.png')
               h6 0
-            #unlike
+            #bad
               img(src='./images/bad.png')
               h6 0
           #content
