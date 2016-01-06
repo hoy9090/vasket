@@ -81,7 +81,7 @@ html
           td#ad8.
             <a onclick="openTable(8);">브랜드 관리</a>
           td#ad9.
-            <a onclick="openTable(9);">정산</a>
+            <a onclick="openTable(9);">브랜드상품</a>
     center
       #table1
         table#tb-1
@@ -221,6 +221,7 @@ html
               td= val.content
               td= val.type
       #table9
+        button(onClick="location.href='/product_form';") 상품등록
         table#tb-9
           thead
             th 업체명
