@@ -32,7 +32,8 @@ html
       table {width:100%;}
       table tr td, table tr th {padding-bottom:5px; padding-top:5px;}
       table tr th {text-align:center; width:30%;}
-      #heart {width:100%; background-color:#ffffff; margin-top:10px;}
+      #starAvg {width:100%; background-color:#ffffff;}
+      #heart {width:100%; background-color:#ffffff; margin-top:15px;}
       #heartSection {padding-top:10px;}
       #commentBlock {background-color:#ffffff; width: 100%; padding-top: 3px; padding-bottom: 3px; border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px;}
       #commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
@@ -40,6 +41,10 @@ html
       #commentField {width: 85%; resize: none; height: 45px;}
       #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
       #like, #clip {z-index: 1; cursor: pointer;}
+      #star-bg {width: 150px; height: 30px; position: absolute; top: 10px; left: 0; right: 0; margin-left: auto; margin-right: auto;}
+      #red-bg {height: 30px; background-color: #F00; float: left;}
+      #white-bg {height: 30px; background-color: #FFF; float: right;}
+      #star-5 {text-align: center;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -98,6 +103,14 @@ html
         #productInfo.col-xs-6(onClick='change(2)')
           h6 제품정보
     #community-con.col-xs-12
+      #starAvg.col-xs-12
+        #star-bg
+          #red-bg
+          #white-bg
+        #star-5.col-xs-12
+          img(src='./images/star_5.png' width='150px')
+        .col-xs-12(style="text-align: center;")
+          h5 평균 별점 #{star}
       if (loggedIn)
         #heart.col-xs-12
           .row
