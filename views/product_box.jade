@@ -117,7 +117,7 @@ html
         #star-5.col-xs-12
           img(src='./images/star_5.png' width='150px')
         .col-xs-12(style="text-align: center;")
-          h5 평균 별점 #{star.star}
+          h5 평균 별점 !{star.star? star.star : "0"}
       if (loggedIn)
         #heart.col-xs-12
           .row
