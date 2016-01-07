@@ -12,7 +12,6 @@ router.post('/', function(req, res, next) {
 	pool.getConnection(function(err, connection) {
 		if (err) {
 			console.error('DB Connection error!!');
-			return;
 		}
 		console.log('DB Service Connection Success!!');
 		connection.query('use vasket');

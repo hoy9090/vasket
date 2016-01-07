@@ -35,22 +35,23 @@ html
       #starAvg {width:100%; background-color:#ffffff; margin-bottom: 15px; padding-top: 10px;}
       #heart {width:100%; background-color:#ffffff; margin-bottom:15px; padding-bottom: 10px;}
       #heartSection {padding-top:10px; padding-right: 0;}
-      #commentBlock {background-color:#ffffff; width: 100%; padding-top: 10px; padding-bottom: 10px; margin-bottom:15px;}
+      #commentBlock {background-color:#ffffff; width: 100%; padding: 10px; margin-bottom:15px;}
       #commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
       #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
-      #commentField {width: 85%; resize: none; height: 45px;}
+      #commentField {width: 85%; resize: none; height: 45px; -webkit-appearance: none; border-radius: 0;}
       #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
       #like, #clip {z-index: 1; cursor: pointer;}
       #star-bg {width: 150px; height: 30px; position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right: auto; padding-top: 10px;}
       #red-bg {height: 30px; background-color: #F00; float: left;}
       #white-bg {height: 30px; background-color: #FFF; float: right;}
       #star-5 {text-align: center; }
-      #goodbad {float: right; width: 125px;}
-      #good, #bad {width:60px; height: 25px; background-color: #FFF; border: 1px solid #DEDEDE; float: left;}
-      #good {margin-right: 5px;}
-      #good h6, #bad h6 {display: inline; float: right; padding-right: 5px; margin-top: 6px;}
-      #good img, #bad img {margin-left: 5px; width: 15px; }
-      #comment_star img {width: 15px;}
+      .goodbad {float: right; width: 115px;}
+      .good, .bad {width:55px; height: 25px; background-color: #FFF; border: 1px solid #DEDEDE; float: left; cursor: pointer;}
+      .good {margin-right: 5px;}
+      .good h6, .bad h6 {display: inline; float: right; padding-right: 5px; margin-top: 6px;}
+      .good img, .bad img {margin-left: 5px; width: 15px; }
+      .comment_star img {width: 15px;}
+      .bad img {padding-top: 7px;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -139,14 +140,14 @@ html
       each val in comment
         #commentBlock.col-xs-12
           h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-          #goodbad
-            #good
+          .goodbad
+            .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}')
               img(src='./images/good.png')
-              h6= val.like
-            #bad
+              h6= val.good
+            .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}')
               img(src='./images/bad.png')
-              h6= val.unlike
-          #comment_star
+              h6= val.bad
+          .comment_star
             - for (var i=0; i<val.star; i++)
               img(src='./images/star_on.png')
             - for (var i=val.star; i<5; i++)
@@ -251,6 +252,38 @@ html
             }
           });
         }
+      function good(commentNo) {
+        $.ajax({
+            type: "POST",
+            url: '/comment_goodbad',
+            data: {command: "good", commentNo: commentNo},
+            success: function(data) {
+              if (data.result == 'error')
+                alert('이미 공감 혹은 비공감하셨습니다.');
+              else {
+                $('#good'+commentNo+' h6').html(data.good);
+                $('#bad'+commentNo+' h6').html(data.bad);
+                $('#good'+commentNo).css('border', '2px solid #FF0000');
+              }
+            }
+          });
+      }
+      function bad(commentNo) {
+        $.ajax({
+            type: "POST",
+            url: '/comment_goodbad',
+            data: {command: "bad", commentNo: commentNo},
+            success: function(data) {
+              if (data.result == 'error')
+                alert('이미 공감 혹은 비공감하셨습니다.');
+              else {
+                $('#good'+commentNo+' h6').html(data.good);
+                $('#bad'+commentNo+' h6').html(data.bad);
+                $('#bad'+commentNo).css('border', '2px solid #0000FF');
+              }
+            }
+          });
+      }
       function like(){
         var like_id = $('#like_img');
         if(like_id.attr('class') == "like"){
