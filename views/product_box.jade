@@ -216,7 +216,7 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script(src='/bootstrap/js/bootstrap.min.js')
     script.
-      var red_width = Math.round(#{star.star} / 5 * 150);
+      var red_width = Math.round(!{star.star ? star.star : 0} / 5 * 150);
       $('#red-bg').css('width', red_width+"px");
       $('#white-bg').css('width', (150-red_width)+"px");
       var count=1;
