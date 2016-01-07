@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						connection.query('SELECT commentNo, email, content, good, bad, star FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo desc', function(err, result, field) {
+						connection.query('SELECT commentNo, email, content, good, bad, star, (select isGood from productCommentGoodBad where userNo=? and commentNo = c.commentNo) isGood FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo desc', [req.session.userNo], function(err, result, field) {
 							connection.release();
 							for (var index in result) {
 								var at_index_ = result[index].email.indexOf('@');

@@ -137,28 +137,42 @@ html
           #commentInput
             textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
             button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
-      each val in comment
-        #commentBlock.col-xs-12
-          h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-          .goodbad
-            .good(onClick=(loggedIn ? 'good(#{val.commentNo});' : "alert('공감하시려면 로그인하세요.');") id='good#{val.commentNo}')
-              img(src='./images/good.png')
-              h6= val.good
-            .bad(onClick=(loggedIn ? 'bad(#{val.commentNo});' : "alert('공감하시려면 로그인하세요.');") id='bad#{val.commentNo}')
-              img(src='./images/bad.png')
-              h6= val.bad
-          .comment_star
-            - for (var i=0; i<val.star; i++)
-              img(src='./images/star_on.png')
-            - for (var i=val.star; i<5; i++)
-              img(src='./images/star.png')
-          #content
-            h5(style='display: inline;')= val.content
-        //each val in comment
-          #comment
+      if (loggedIn)
+        each val in comment
+          #commentBlock.col-xs-12
             h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-            h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
-            h5(style='display: inline;')= val.content
+            .goodbad
+              .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood ? (val.isGood == 1 ? "border: 2px solid #FF0000;" : "") : ""))
+                img(src='./images/good.png')
+                h6= val.good
+              .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood ? (val.isGood == 0 ? "border: 2px solid #0000FF;" : "") : ""))
+                img(src='./images/bad.png')
+                h6= val.bad
+            .comment_star
+              - for (var i=0; i<val.star; i++)
+                img(src='./images/star_on.png')
+              - for (var i=val.star; i<5; i++)
+                img(src='./images/star.png')
+            #content
+              h5(style='display: inline;')= val.content
+      else
+        each val in comment
+          #commentBlock.col-xs-12
+            h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+            .goodbad
+              .good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
+                img(src='./images/good.png')
+                h6= val.good
+              .bad(onClick="alert('비공감하시려면 로그인하세요.');" id='bad#{val.commentNo}')
+                img(src='./images/bad.png')
+                h6= val.bad
+            .comment_star
+              - for (var i=0; i<val.star; i++)
+                img(src='./images/star_on.png')
+              - for (var i=val.star; i<5; i++)
+                img(src='./images/star.png')
+            #content
+              h5(style='display: inline;')= val.content
     #info-con.col-xs-12
       table.table
         if (product.code)
