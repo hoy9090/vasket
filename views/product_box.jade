@@ -142,10 +142,10 @@ html
           #commentBlock.col-xs-12
             h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
             .goodbad
-              .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood ? (val.isGood == 1 ? "border: 2px solid #FF0000;" : "") : ""))
+              .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
                 img(src='./images/good.png')
                 h6= val.good
-              .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood ? (val.isGood == 0 ? "border: 2px solid #0000FF;" : "") : ""))
+              .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood == 0 ? "border: 2px solid #0000FF;" : ""))
                 img(src='./images/bad.png')
                 h6= val.bad
             .comment_star
