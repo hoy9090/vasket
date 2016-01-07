@@ -141,10 +141,10 @@ html
         #commentBlock.col-xs-12
           h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
           .goodbad
-            .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}')
+            .good(onClick=(loggedIn ? 'good(#{val.commentNo});' : "alert('공감하시려면 로그인하세요.');") id='good#{val.commentNo}')
               img(src='./images/good.png')
               h6= val.good
-            .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}')
+            .bad(onClick=(loggedIn ? 'bad(#{val.commentNo});' : "alert('공감하시려면 로그인하세요.');") id='bad#{val.commentNo}')
               img(src='./images/bad.png')
               h6= val.bad
           .comment_star
