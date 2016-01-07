@@ -52,6 +52,12 @@ html
       .good img, .bad img {margin-left: 5px; width: 15px; }
       .comment_star img {width: 15px;}
       .bad img {padding-top: 7px;}
+      .shadow {
+        -webkit-box-shadow: 1px 1px 1px 1px #BCBCBC;
+        -moz-box-shadow: 1px 1px 1px 1px #BCBCBC;
+        box-shadow: 1px 1px 1px 1px #BCBCBC;
+        border-radius: 1px;
+      }
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -110,7 +116,7 @@ html
         #productInfo.col-xs-6(onClick='change(2)')
           h6 제품정보
     #community-con.col-xs-12
-      #starAvg.col-xs-12
+      #starAvg.col-xs-12.shadow
         #star-bg
           #red-bg
           #white-bg
@@ -119,7 +125,7 @@ html
         .col-xs-12(style="text-align: center;")
           h5 평균 별점 !{star.star? star.star : "0"}
       if (loggedIn)
-        #heart.col-xs-12
+        #heart.col-xs-12.shadow
           .row
             #heartSection.col-xs-5
               span#h1(onClick='heart(1)')
@@ -139,7 +145,7 @@ html
             button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
       if (loggedIn)
         each val in comment
-          #commentBlock.col-xs-12
+          #commentBlock.col-xs-12.shadow
             h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
             .goodbad
               .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
