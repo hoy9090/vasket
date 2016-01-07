@@ -52,6 +52,7 @@ html(style="background-color: #f6f6f6;")
         border: 1px solid #c3c3c3;
         cursor: pointer;
       }
+      .no-padding {padding: 0;}
   body
     #nav.col-xs-12
       .row(style='height: 45px; position: relative')
@@ -88,13 +89,13 @@ html(style="background-color: #f6f6f6;")
                   img(src='./images/community/#{community[index].image}' width="100%;")
                 #likeBlock
                   .row.width-100-no-margin
-                    .col-xs-4
+                    .col-xs-4.no-padding
                       img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
                       h6= community[index].like
-                    .col-xs-4
+                    .col-xs-4.no-padding
                       img(src='./images/speech.png' width='15px;')
                       h6= community[index].count
-                    .col-xs-4
+                    .col-xs-4.no-padding
                       img(src='./images/view.png' width='15px;')
                       h6= community[index].view
         span.community-col
@@ -110,13 +111,13 @@ html(style="background-color: #f6f6f6;")
                   img(src='./images/community/#{community[index].image}' width="100%;")
                 #likeBlock
                   .row.width-100-no-margin
-                    .col-xs-4
+                    .col-xs-4.no-padding
                       img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
                       h6= community[index].like
-                    .col-xs-4
+                    .col-xs-4.no-padding
                       img(src='./images/speech.png' width='15px;')
                       h6= community[index].count
-                    .col-xs-4
+                    .col-xs-4.no-padding
                       img(src='./images/view.png' width='15px;')
                       h6= community[index].view
         
@@ -130,16 +131,16 @@ html(style="background-color: #f6f6f6;")
                   img(src='./images/products/#{product[index].image}/0' width="100%;")
                 #likeBlock
                   .row.width-100-no-margin
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src=(product[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
                       h6= product[index].like
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src='./images/speech.png' width='15px;')
                       h6= product[index].count
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src=(product[index].user_clip ? './images/clip_on.png' : './images/clip.png') width='15px;')
                       h6= product[index].clip
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src='./images/view.png' width='15px;')
                       h6= product[index].view
         span.community-col
@@ -150,16 +151,16 @@ html(style="background-color: #f6f6f6;")
                   img(src='./images/products/#{product[index].image}/0' width="100%;")
                 #likeBlock
                   .row.width-100-no-margin
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src=(product[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
                       h6= product[index].like
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src='./images/speech.png' width='15px;')
                       h6= product[index].count
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src=(product[index].user_clip ? './images/clip_on.png' : './images/clip.png') width='15px;')
                       h6= product[index].clip
-                    .col-xs-3
+                    .col-xs-3.no-padding
                       img(src='./images/view.png' width='15px;')
                       h6= product[index].view
 
