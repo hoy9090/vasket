@@ -41,7 +41,18 @@ block style
 		-ms-flex: 1;
 		flex: 1; }
 		.community-box {background-color: #FFFFFF; overflow: auto; float: left;
-		background-clip: content-box; margin: 5px; border: 1px solid #c3c3c3; cursor: pointer;}
+		background-clip: content-box; padding: 5px; width: 100%;}
+		.community-box:after {
+				content: "";
+				position: absolute;
+				top: 5px;
+				left: 5px;
+				right: 5px;
+				bottom: 5px;
+				display: block;
+				border: 1px solid #c3c3c3;
+				cursor: pointer;
+		}
 		.no-margin {margin: 0;}
 		.community-row {width: 100%; margin: 0;}
 		.community-col {width: 50%; margin: 0; float: left; overflow: auto;}
