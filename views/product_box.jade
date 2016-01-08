@@ -14,9 +14,13 @@ html
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
     style(type='text/css').
       body {background-color: #f6f6f6; padding-bottom: 20px;}
-      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
-      #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
-      #nav h4 {float: clear; padding-right: 15px;}
+      //- #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
+      //- #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
+      //- #nav h4 {float: clear; padding-right: 15px;}
+      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
+      #nav h5 {font-weight:bold; font-size: 120%;}
+      .like {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+      .non_activated {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
       #contentBox { margin-top:10px;}
       .carousel-inner > .item > img,
       .carousel-inner > .item > a > img { width:100%; margin:auto;}
@@ -59,10 +63,24 @@ html
         border-radius: 1px;
       }
   body
-    #nav.col-xs-12
+    //#nav.col-xs-12
       a(href='javascript:history.back()')
         span.glyphicon.glyphicon-arrow-left
       h4.bold 상품
+    #nav.col-xs-12
+      .row(style='height: 45px; position: relative')
+        .col-xs-2(style='height: 100%;')
+          a(href='javascript:goBack();')
+            span(style='float: left; font-size: 20px; padding-top: 9px; color:black;').glyphicon.glyphicon-arrow-left
+        .col-xs-1(style='height: 100%; white-space: nowrap; text-align: center;')
+          span(style='display: inline-block; height: 100%; vertical-align: middle;')
+          img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
+        .col-xs-6(style='height: 100%; text-align: center;')
+          span(style='display: inline-block; height: 100%; vertical-align: middle;')
+          h5(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
+        if (loggedIn)
+          .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
+            p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
     #myCarousel.carousel.slide(data-ride="carousel")
       ol.carousel-indicators(style="margin-bottom:-10px;")
         li.active(data-target="#myCarousel" data-slide-to="0")
@@ -227,6 +245,29 @@ html
       $('#white-bg').css('width', (150-red_width)+"px");
       var count=1;
       var star = 5;
+      function like_(){
+        var like_id=document.getElementById("like");
+        if(like_id.className == "like"){
+          $.ajax({
+            type: "POST",
+            url: '/brand_like',
+            data: {command: "delete", brandNo: #{brandNo}},
+            success: function() {
+              like_id.className = "non_activated";
+            }
+          });
+        }
+        else{
+         $.ajax({
+            type: "POST",
+            url: '/brand_like',
+            data: {command: "insert", brandNo: #{brandNo}},
+            success: function() {
+              like_id.className = "like";
+            }
+          });
+        }
+      }
       function change(num){
         var copy = count;
         count=num;
