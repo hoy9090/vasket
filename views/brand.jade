@@ -15,7 +15,7 @@ html(style="background-color: #f6f6f6;")
     style(type='text/css').
       body {background-color: #e7e7e7; padding-bottom: 20px;}
       #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid;}
-      #nav h5 {font-weight:bold; font-size: 120%;}
+      #nav h5 {font-size: 120%;}
       .like {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
       .non_activated {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
       #brand-activity {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffa800;height:50px; padding-top:7px; border-bottom-width:3px;}
@@ -64,7 +64,7 @@ html(style="background-color: #f6f6f6;")
           img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
         .col-xs-6(style='height: 100%; text-align: center;')
           span(style='display: inline-block; height: 100%; vertical-align: middle;')
-          h5(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
+          h5.bold(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
         if (loggedIn)
           .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
             p#like(onclick="like();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
