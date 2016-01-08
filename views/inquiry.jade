@@ -26,6 +26,8 @@ html
       .yellow {color:#ffa800; font-weight:bold;}
       #one2-con {width:100%; background-color:#e9e9e9; display:none;}
       #one2-list {width:100%; background-color:#ffffff; margin-top:10px; border-width:0px; border-bottom-width:1px; border-style:solid; border-color:#bbbbbb; border-right-width:1px;}
+      input, textarea {-webkit-appearance: none; border-radius: 0;}
+      textarea {resize: none;}
   body
     #nav.col-xs-12
       a(href='http://vasket.co.kr/mypage')
@@ -40,7 +42,7 @@ html
           h6 1:1 문의내역
     #one1-con.col-xs-12
       select#selec.form-control(name='type')
-        option 문의유형 선택
+        option(disabled selected) 문의유형 선택
         option 취소문의
         option 교환문의
         option 배송문의
