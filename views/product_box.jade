@@ -247,7 +247,7 @@ html
       var star = 5;
       function like_(){
         var like_id=document.getElementById("like_");
-        if(like_id.className == "like"){
+        if(like_id.className == "like_"){
           $.ajax({
             type: "POST",
             url: '/brand_like',
@@ -263,7 +263,7 @@ html
             url: '/brand_like',
             data: {command: "insert", brandNo: #{brandNo}},
             success: function() {
-              like_id.className = "like";
+              like_id.className = "like_";
             }
           });
         }
