@@ -127,6 +127,51 @@ block content
 									span(style='display: inline-block; height: 100%; vertical-align: middle;')
 									p.non_activated(style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
 	#contents-con.col-xs-12
+		span.community-row
+      span.community-col
+        each val, index in content
+        	- if (index % 2 == 0)
+	          span.community-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
+	            #imgBlock.col-xs-12
+	              img(src='./images/contents/#{content[index].image}/0' width="100%;")
+	            #contTitleBlock.col-xs-12
+	              h6= content[index].title
+	            #likeBlock
+	              .row.width-100-no-margin
+	                .col-xs-3.no-padding
+	                  img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+	                  h6= content[index].like
+	                .col-xs-3.no-padding
+	                  img(src='./images/speech.png' width='15px;')
+	                  h6= content[index].count
+	                .col-xs-3.no-padding
+	                  img(src='./images/clip_on.png' width='15px;')
+	                  h6= content[index].clip
+	                .col-xs-3.no-padding
+	                  img(src='./images/view.png' width='15px;')
+	                  h6= content[index].view
+	    span.community-col
+        each val, index in content
+        	- if (index % 2 == 1)
+	          span.community-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
+	            #imgBlock.col-xs-12
+	              img(src='./images/contents/#{content[index].image}/0' width="100%;")
+	            #contTitleBlock.col-xs-12
+	              h6= content[index].title
+	            #likeBlock
+	              .row.width-100-no-margin
+	                .col-xs-3.no-padding
+	                  img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+	                  h6= content[index].like
+	                .col-xs-3.no-padding
+	                  img(src='./images/speech.png' width='15px;')
+	                  h6= content[index].count
+	                .col-xs-3.no-padding
+	                  img(src='./images/clip_on.png' width='15px;')
+	                  h6= content[index].clip
+	                .col-xs-3.no-padding
+	                  img(src='./images/view.png' width='15px;')
+	                  h6= content[index].view
 		each val, index in content
 			- if (index % 2 == 0) {
 			.row.content-row
