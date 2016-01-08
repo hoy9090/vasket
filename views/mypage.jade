@@ -13,35 +13,35 @@ block style
     #myBrandList {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px; display:none;}
     #myBrand {background-color: #ffffff; width: 100%; padding-top: 4px; padding-left: 10px; padding-bottom: 5px; border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; padding-right: 10px;}
     #myBrand span {float: right; padding-top: 10px;}
-
+    .pointer {cursor: pointer;}
 block content
   .container
-    #box1_.col-xs-12(onclick='location.href="/user_settings";')
+    #box1_.col-xs-12.pointer(onclick='location.href="/user_settings";')
       .row
         .col-xs-2
           h5(style='color:#636363;') ID
         .col-xs-10
           h5(style='float:left;') #{email}
           span.glyphicon.glyphicon-cog
-    #box2.col-xs-12
-      h5(style='float:left;' onClick='location.href="/my_activity";') 나의 활동
+    #box2.col-xs-12.pointer(onClick='location.href="/my_activity";')
+      h5(style='float:left;') 나의 활동
       span.glyphicon.glyphicon-chevron-right
-    #box2.col-xs-12
-      h5(style='float:left;' onClick="window.alert('정식 서비스는 준비중입니다.');") 주문목록/배송조회
+    #box2.col-xs-12.pointer(onClick="window.alert('정식 서비스는 준비중입니다.');")
+      h5(style='float:left;') 주문목록/배송조회
       span.glyphicon.glyphicon-chevron-right
-    #box2.col-xs-12
-      h5(style='float:left;' onClick="window.alert('정식 서비스는 준비중입니다.');") 취소/반품/환불내역
+    #box2.col-xs-12.pointer(onClick="window.alert('정식 서비스는 준비중입니다.');")
+      h5(style='float:left;') 취소/반품/환불내역
       span.glyphicon.glyphicon-chevron-right
-    #box2_.col-xs-12(onclick='location.href="/enroll_code";')
+    #box2_.col-xs-12.pointer(onclick='location.href="/enroll_code";')
       h5(style='float:left;') 회원코드 입력
       span.glyphicon.glyphicon-chevron-right
-    #myBrand.col-xs-12(onclick='brandOpen();')
+    #myBrand.pointer.col-xs-12(onclick='brandOpen();')
       h5(style='float:left;') MY 브랜드
       span.glyphicon.glyphicon-chevron-down
     #myBrandList.col-xs-12
       if (result.length)
         each val in result
-          .row(style='height: 55px;' onClick='location.href="/brand?brandNo=#{val.brandNo}";')
+          .row.pointer(style='height: 55px;' onClick='location.href="/brand?brandNo=#{val.brandNo}";')
             .col-xs-2(style='height: 100%; white-space: nowrap; text-align: center;')
               span(style='display: inline-block; height: 100%; vertical-align: middle;')
               img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
@@ -54,10 +54,10 @@ block content
             center
               p.
                 즐겨찾기한 브랜드가 없습니다.<br> <a href='/service'>브랜드 목록으로 이동하기</a>
-    #box22.col-xs-12(onclick="location.href='https://vasket.co.kr/inquiry';")
+    #box22.pointer.col-xs-12(onclick="location.href='https://vasket.co.kr/inquiry';")
       h5(style='float:left;') 1:1 문의
       span.glyphicon.glyphicon-chevron-right
-    #box2.col-xs-12
+    #box2.pointer.col-xs-12
       h5(style='float:left;') 고객센터
       span.glyphicon.glyphicon-chevron-right
     #box2_.col-xs-12
