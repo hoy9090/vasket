@@ -43,7 +43,7 @@ router.get('/', function(req, res, next) {
 									if (err)
 										console.error(err);
 									connection.release();
-									res.render('product_box', {product: product, productNo: productNo, comment: comment, star: star, brand: brand, brandNo: brandNo, image: image});
+									res.render('product_box', {product: product, productNo: productNo, comment: comment, star: star, brand: brand, brandNo: brandNo, image: image, like: result[0].like});
 								});								
 							});
 						});
