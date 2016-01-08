@@ -19,7 +19,7 @@ html
       //- #nav h4 {float: clear; padding-right: 15px;}
       #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
       #nav h5 {font-size: 120%;}
-      .like {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+      .like_ {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
       .non_activated {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
       #contentBox { margin-top:10px;}
       .carousel-inner > .item > img,
@@ -80,7 +80,7 @@ html
           h5.bold(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
         if (loggedIn)
           .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
-            p#like_(onclick="like_();" class=(like==1 ? "like" : "non_activated")) 즐겨찾기
+            p#like_(onclick="like_();" class=(like==1 ? "like_" : "non_activated")) 즐겨찾기
     #myCarousel.carousel.slide(data-ride="carousel")
       ol.carousel-indicators(style="margin-bottom:-10px;")
         li.active(data-target="#myCarousel" data-slide-to="0")
