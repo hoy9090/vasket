@@ -174,7 +174,7 @@ html
                 textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
               .modal-footer
                 .alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
-                  a.close(href="#" data-dismiss="alert" aria-label="close") &times;
+                  a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
                   | 내용을 10자 이상 입력해주세요
                 button.btn.btn-warning(type="button" onClick="reg_comment();") 등록
       if (loggedIn)
