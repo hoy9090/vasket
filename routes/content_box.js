@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 				connection.query('update content set view=view+1 where contentNo='+contentNo);
 				connection.query('select image, imageCount, content, view, (select count(*) from contentComment where contentNo=?) as count, (select count(*) from contentLikeList where contentNo=?) as `like`, (select count(*) from contentClipList where contentNo=?) as `clip`, (select count(*) from contentClipList where userNo=? and contentNo=?) user_clip, (select count(*) from contentLikeList where userNo=? and contentNo=?) user_like from content where contentNo='+contentNo, [contentNo, contentNo, contentNo, req.session.userNo, contentNo, req.session.userNo, contentNo] ,function(err, result, field) {
 					var content = result[0];
-					connection.query('SELECT email, content FROM contentComment c join user u on c.userNo = u.userNo where contentNo='+contentNo+' order by c.commentNo', function(err, result, field) {
+					connection.query('SELECT email, content, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM contentComment c join user u on c.userNo = u.userNo where contentNo='+contentNo+' order by c.commentNo', function(err, result, field) {
 						connection.release();
 						for (var index in result) {
 							var at_index_ = result[index].email.indexOf('@');
@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
 				connection.query('update content set view=view+1 where contentNo='+contentNo);
 				connection.query('select image, imageCount, content, view, (select count(*) from contentComment where contentNo=?) as count, (select count(*) from contentLikeList where contentNo=?) as `like`, (select count(*) from contentClipList where contentNo=?) as `clip` from content where contentNo='+contentNo, [contentNo, contentNo, contentNo], function(err, result, field) {
 					var content = result[0];
-					connection.query('SELECT email, content FROM contentComment c join user u on c.userNo = u.userNo where contentNo='+contentNo+' order by c.commentNo', function(err, result, field) {
+					connection.query('SELECT email, content, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM contentComment c join user u on c.userNo = u.userNo where contentNo='+contentNo+' order by c.commentNo', function(err, result, field) {
 						connection.release();
 						for (var index in result) {
 							var at_index_ = result[index].email.indexOf('@');

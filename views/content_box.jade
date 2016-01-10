@@ -29,6 +29,11 @@ html
       #commentField {width: 85%; resize: none; height: 45px; -webkit-appearance: none; border-radius: 0;}
       #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
       #like, #clip {z-index: 1; cursor: pointer;}
+      .comment-header {padding: 0;}
+      .reg-comment {padding: 0; margin-bottom: 15px;}
+      .date {float: right; }
+      .date p {font-size:10px; color:#A6A6A6;}
+      #comment {background-color:#f9f9f9; width: 100%; padding: 10px; margin-bottom:15px;}
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -81,15 +86,16 @@ html
           img(src='./images/view.png' width='18px;')
           h6= content.view
     #commentBlock.col-xs-12
-      if (loggedIn)
-        #commentInput
-          textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
-          button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
+      #commentInput
+        textarea#commentField(onClick=(loggedIn? "" : "goLogin();") maxlength="70" placeholder="댓글을 입력하세요")
+        button.btn.btn-warning#commentBtn(onClick=(loggedIn? "reg_comment();" : "goLogin();")) 입력
       each val in comment
-        #comment
-          h5(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-          h5(style='display: inline;') &nbsp;&nbsp;&nbsp;
-          h5(style='display: inline;')= val.content
+        .comment-header.col-xs-12
+          h5.bold(style='display: inline; color: #1F50B5')= val.email
+        #comment.col-xs-12
+          .date
+            p= val.date
+          h6(style='display: inline;')= val.content
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script.
       function reg_comment(){
@@ -155,5 +161,10 @@ html
             }
           });
         }
+      }
+      function goLogin() {
+        var r = confirm("로그인이 필요합니다.\n로그인하시겠습니까?");
+        if (r == true)
+          location.href="/login";
       }
     script(src='/bootstrap/js/bootstrap.min.js')
