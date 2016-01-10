@@ -229,13 +229,13 @@ block content
 					img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
 					h5= product[index].productName
 					h6.price= product[index].productPrice
-		//		- if (index+1 < product.length) {
+				- if (index+1 < product.length) {
 					.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
 						img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
 						h5= product[index+1].productName
 						h6.price= product[index+1].productPrice
-		//		- }
-		//	- }
+				- }
+			- }
 
 
 block script_content
