@@ -163,50 +163,6 @@ block content
 									.col-xs-3.no-padding
 										img(src='./images/view.png' width='15px;')
 										h6= content[index].view
-		each val, index in content
-			- if (index % 2 == 0) {
-			.row.content-row
-				.col-xs-6.content-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
-					#contImgBlock.col-xs-12
-						img(src='./images/contents/#{content[index].image}/0' width="100%;")
-					#contTitleBlock.col-xs-12
-						h6= content[index].title
-					#likeBlock
-						.row.width-100-no-margin
-							.col-xs-3.no-padding
-								img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-								h6= content[index].like
-							.col-xs-3.no-padding
-								img(src='./images/speech.png' width='15px;')
-								h6= content[index].count
-							.col-xs-3.no-padding
-								img(src=(content[index].user_clip ? './images/clip_on.png' : './images/clip.png') width='15px;')
-								h6= content[index].clip
-							.col-xs-3.no-padding
-								img(src='./images/view.png' width='15px;')
-								h6= content[index].view
-				- if (index+1 < content.length) {
-					.col-xs-6.content-box(onClick="location.href='/content_box?contentNo=#{content[index+1].contentNo}';")
-						#contImgBlock.col-xs-12
-							img(src='./images/contents/#{content[index+1].image}/0' width="100%;")
-						#contTitleBlock.col-xs-12
-							h6= content[index+1].title
-						#likeBlock
-							.row.width-100-no-margin
-								.col-xs-3.no-padding
-									img(src=(content[index+1].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-									h6= content[index+1].like
-								.col-xs-3.no-padding
-									img(src='./images/speech.png' width='15px;')
-									h6= content[index+1].count
-								.col-xs-3.no-padding
-									img(src=(content[index+1].user_clip ? './images/clip_on.png' : './images/clip.png') width='15px;')
-									h6= content[index+1].clip
-								.col-xs-3.no-padding
-									img(src='./images/view.png' width='15px;')
-									h6= content[index+1].view
-				- }
-			- }
 	#event-con
 		#event-list.col-xs-12
 			span.community-row

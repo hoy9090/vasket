@@ -10,7 +10,7 @@ var pool = mysql.createPool({
 /* GET home page. */
 router.post('/', function(req, res, next) {
 	if (req.session.userid) {
-		var content = req.body.content;
+		var content = req.body.content.trim();
 		if (content.length < 10) {
 			res.send({status: "error", code: "length"});
 		}
