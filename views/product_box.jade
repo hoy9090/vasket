@@ -164,14 +164,15 @@ html
             button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
       if (loggedIn)
         each val in comment
-          h6(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-          .goodbad
-            .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
-              img(src='./images/good.png')
-              h6= val.good
-            .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood == 0 ? "border: 2px solid #0000FF;" : ""))
-              img(src='./images/bad.png')
-              h6= val.bad
+          .col-xs-12
+            h6(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+            .goodbad
+              .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
+                img(src='./images/good.png')
+                h6= val.good
+              .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood == 0 ? "border: 2px solid #0000FF;" : ""))
+                img(src='./images/bad.png')
+                h6= val.bad
           #commentBlock.col-xs-12
             .comment_star
               - for (var i=0; i<val.star; i++)
@@ -182,14 +183,15 @@ html
               h6(style='display: inline;')= val.content
       else
         each val in comment
-          h6(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
-          .goodbad
-            .good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
-              img(src='./images/good.png')
-              h6= val.good
-            .bad(onClick="alert('비공감하시려면 로그인하세요.');" id='bad#{val.commentNo}')
-              img(src='./images/bad.png')
-              h6= val.bad
+          .col-xs-12
+            h6(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
+            .goodbad
+              .good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
+                img(src='./images/good.png')
+                h6= val.good
+              .bad(onClick="alert('비공감하시려면 로그인하세요.');" id='bad#{val.commentNo}')
+                img(src='./images/bad.png')
+                h6= val.bad
           #commentBlock.col-xs-12
             .comment_star
               - for (var i=0; i<val.star; i++)
