@@ -63,6 +63,8 @@ html
         border-radius: 1px;
       }
       .comment-header {padding: 0;}
+      .reg-comment {padding: 0; }
+      .modal-dialog {margin-top: 50%;}
   body
     //#nav.col-xs-12
       a(href='javascript:history.back()')
@@ -144,8 +146,12 @@ html
         .col-xs-12(style="text-align: center;")
           h5(style="display: inline;") !{star.star? star.star : "0"}
           h6(style="display: inline;") (총 #{product.count}명 평가)
-      .col-xs-12
-        button.btn.btn-warning(data-toggle="modal" data-target="#commentModal") 
+      if (loggedIn)
+        .col-xs-12.reg-comment
+          button.btn.btn-warning(data-toggle="modal" data-target="#commentModal") 미니 프리뷰 등록
+      else
+        .col-xs-12.reg-comment
+          button.btn.btn-warning(onClick="goLogin();") 미니 프리뷰 등록
       if (loggedIn)
         .modal.fade#commentModal(role="dialog")
           .modal-dialog
@@ -168,26 +174,7 @@ html
                 h6 글 입력
                 textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
               .modal-footer
-                button.btn.btn-warning(type="button" data-dismiss="modal") 등록
-      //
-        #heart.col-xs-12
-          .row
-            #heartSection.col-xs-5
-              span#h1(onClick='heart(1)')
-                img(src='./images/star_on.png' width='18px')
-              span#h2(onClick='heart(2)')
-                img(src='./images/star_on.png' width='18px')
-              span#h3(onClick='heart(3)')
-                img(src='./images/star_on.png' width='18px')
-              span#h4(onClick='heart(4)')
-                img(src='./images/star_on.png' width='18px')
-              span#h5(onClick='heart(5)')
-                img(src='./images/star_on.png' width='18px')
-            .col-xs-7
-              h5#grade 별점을 선택하세요
-          #commentInput
-            textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
-            button.btn.btn-warning#commentBtn(onClick="reg_comment();") 입력
+                button.btn.btn-warning(type="button" onClick="reg_comment();" data-dismiss="modal") 등록
       if (loggedIn)
         each val in comment
           .comment-header.col-xs-12
@@ -430,4 +417,9 @@ html
       }
       function goBack(){
           history.back();
+      }
+      function goLogin() {
+        var r = confirm("로그인이 필요합니다.\n로그인하시겠습니까?");
+        if (r == true)
+          location.href="/login";
       }
