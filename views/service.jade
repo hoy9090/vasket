@@ -221,7 +221,8 @@ block content
 		#conEnroll.col-xs-12
 			button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
 	#discount-con.col-xs-12
-		each val, index in product
+		h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
+		//each val, index in product
 			- if (index % 2 == 0) {
 			.row.discount-row
 				.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
