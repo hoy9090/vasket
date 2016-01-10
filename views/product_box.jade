@@ -148,16 +148,16 @@ html
           h6(style="display: inline;") (총 #{product.count}명 평가)
       if (loggedIn)
         .col-xs-12.reg-comment
-          button.btn.btn-warning(data-toggle="modal" data-target="#commentModal") 미니 프리뷰 등록
+          button.btn.btn-warning(style="width: 100%;" data-toggle="modal" data-target="#commentModal") 미니 프리뷰 등록
       else
         .col-xs-12.reg-comment
-          button.btn.btn-warning(onClick="goLogin();") 미니 프리뷰 등록
+          button.btn.btn-warning(style="width: 100%;" onClick="goLogin();") 미니 프리뷰 등록
       if (loggedIn)
         .modal.fade#commentModal(role="dialog")
           .modal-dialog
             .modal-content
               .modal-header
-                button.cloas(type="button" data-dismiss="modal") &times;
+                button.close(type="button" data-dismiss="modal") &times;
                 h5.modal-title 미니 프리뷰
               .modal-body
                 h6 별점 선택
