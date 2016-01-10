@@ -92,10 +92,10 @@ html
       each val in comment
         .comment-header.col-xs-12
           h5.bold(style='display: inline; color: #1F50B5')= val.email
-        #comment.col-xs-12
           .date
             p= val.date
-          h6(style='display: inline;')= val.content
+        #comment.col-xs-12
+          h6(style='display: inline; word-break: all;')= val.content
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
     script.
       function reg_comment(){
