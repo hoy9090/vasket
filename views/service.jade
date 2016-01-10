@@ -46,7 +46,7 @@ block style
 		}
 		.no-margin {margin: 0;}
 		.community-row {width: 100%; margin: 0;}
-		.community-col {width: 50%; margin: 0; float: left; overflow: auto;}
+		.community-col {width: 50%; margin: 0; float: left; overflow: auto; padding-bottom: 5px;}
 		.content-box:after {
 				content: "";
 				position: absolute;
@@ -86,6 +86,7 @@ block style
 		.no-padding {padding: 0;}
 		.width-100-no-margin {width: 100%; margin: 0;}
 		#likeBlock h6 {margin-top: 0;}
+		.container-fluid {background-color: #f6f6f6;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
@@ -118,7 +119,7 @@ block content
 									center(style='height: 100%;')
 										span(style='display: inline-block; height: 100%; vertical-align: middle;')
 										p.non_activated(style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
-		#contents-con.col-xs-12
+		#contents-con
 			span.community-row
 				span.community-col
 					each val, index in content
@@ -165,7 +166,7 @@ block content
 											img(src='./images/view.png' width='15px;')
 											h6= content[index].view
 		#event-con
-			#event-list.col-xs-12
+			#event-list
 				span.community-row
 					span.community-col
 						each val, index in community
