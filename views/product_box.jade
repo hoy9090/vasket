@@ -179,7 +179,7 @@ html
               - for (var i=val.star; i<5; i++)
                 img(src='./images/star.png')
             #content
-              h5(style='display: inline;')= val.content
+              h6(style='display: inline;')= val.content
       else
         each val in comment
           h6(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
@@ -197,7 +197,7 @@ html
               - for (var i=val.star; i<5; i++)
                 img(src='./images/star.png')
             #content
-              h5(style='display: inline;')= val.content
+              h6(style='display: inline;')= val.content
     #info-con.col-xs-12
       table.table
         if (product.code)
