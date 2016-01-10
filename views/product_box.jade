@@ -64,6 +64,9 @@ html
       }
       .comment-header {padding: 0;}
       .reg-comment {padding: 0; margin-bottom: 15px;}
+      .date {float: right;}
+      .date p {font-size:10px; font-color:#A6A6A6;}
+
   body
     //#nav.col-xs-12
       a(href='javascript:history.back()')
@@ -213,6 +216,8 @@ html
                 img(src='./images/star_on.png')
               - for (var i=val.star; i<5; i++)
                 img(src='./images/star.png')
+            .date
+              p= val.date
             #content
               h6(style='display: inline;')= val.content
     #info-con.col-xs-12
