@@ -3,7 +3,7 @@ extends layout
 block style
 	style(type='text/css').
 		body {padding-top:53px; background-color:#e7e7e7;}
-		.menu {word-break: keep-all}
+		.menu {word-break: keep-all; max-width: 1200px;}
 		#service-brand {text-align:center; background-color:#ffffff; border-width:0px; border-style:solid; border-color:#ffa800;height:50px; padding-top:7px; border-bottom-width:3px;}
 		#service-contents {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
 		#service-event {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;border-bottom-width:3px; padding-top:7px;}
@@ -12,12 +12,12 @@ block style
 		#brand-list { background-color:#ffffff;height:55px; border-style:solid;border-width:0px; border-bottom-width:1px; border-color:#bbbbbb;}
 		#brand-list h6 {font-size:110%; } 
 		#brand-con {display:none; padding-top: 47px;}
-		#contents-con {display:none; padding: 5px; padding-top: 53px; background-color: #F6F6F6;}
+		#contents-con {display:none; padding: 5px; padding-top: 53px; background-color: #F6F6F6; max-width: 1200px;}
 		#event-con {display:none; backgroung-color:#f6f6f6;}
 		#discount-con {display:none; padding: 5px; padding-top: 53px; background-color: #F6F6F6;}
 		.like {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffa800; padding-top: 3px; padding-bottom: 3px;}
 		.non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
-		#event-list {padding: 5px; padding-top: 100px; background-color:#F6F6F6; }
+		#event-list {padding: 5px; padding-top: 100px; background-color:#F6F6F6; max-width: 1200px;}
 		.discount-box {background-color: #FFFFFF;background-clip: content-box;padding: 5px;webkit-flex: 1;-ms-flex: 1;flex: 1; }
 		#conEnroll {position:fixed; background-color:#f6f6f6; padding: 10px; top:100px; left:0px; right:0px;}
 		#conEnroll button {width:100%;}
@@ -101,126 +101,127 @@ block content
 				h6 커뮤니티
 			#service-discount.col-xs-3(onclick="change(4);")
 				h6 커머스
-	#brand-con
-		if (brand)
-			each val in brand
-				#brand-list.col-xs-12
-					.row(style='height: 55px;')
-						.col-xs-2(style='height: 100%; min-width: 75px !important;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
-							span(style='display: inline-block; height: 100%; vertical-align: middle;')
-							img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
-						.col-xs-6(style='height: 100%; width: auto;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
-							span(style='display: inline-block; height: 100%; vertical-align: middle;')
-							h6(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= val.brandName
-						if (loggedIn)
-							.col-xs-4(style='height: 100%; min-width: 115px !important; float: right; position: absolute; top: 0; right: 0;')
-								center(style='height: 100%;')
-									span(style='display: inline-block; height: 100%; vertical-align: middle;')
-									p.non_activated(style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
-	#contents-con.col-xs-12
-		span.community-row
-			span.community-col
-				each val, index in content
-					- if (index % 2 == 0)
-						span.community-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
-							#imgBlock.col-xs-12
-								img(src='./images/contents/#{content[index].image}/0' width="100%;")
-							#contTitleBlock.col-xs-12
-								h6= content[index].title
-							#likeBlock
-								.row.width-100-no-margin
-									.col-xs-3.no-padding
-										img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-										h6= content[index].like
-									.col-xs-3.no-padding
-										img(src='./images/speech.png' width='15px;')
-										h6= content[index].count
-									.col-xs-3.no-padding
-										img(src='./images/clip_on.png' width='15px;')
-										h6= content[index].clip
-									.col-xs-3.no-padding
-										img(src='./images/view.png' width='15px;')
-										h6= content[index].view
-			span.community-col
-				each val, index in content
-					- if (index % 2 == 1)
-						span.community-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
-							#imgBlock.col-xs-12
-								img(src='./images/contents/#{content[index].image}/0' width="100%;")
-							#contTitleBlock.col-xs-12
-								h6= content[index].title
-							#likeBlock
-								.row.width-100-no-margin
-									.col-xs-3.no-padding
-										img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-										h6= content[index].like
-									.col-xs-3.no-padding
-										img(src='./images/speech.png' width='15px;')
-										h6= content[index].count
-									.col-xs-3.no-padding
-										img(src='./images/clip_on.png' width='15px;')
-										h6= content[index].clip
-									.col-xs-3.no-padding
-										img(src='./images/view.png' width='15px;')
-										h6= content[index].view
-	#event-con
-		#event-list.col-xs-12
+	center
+		#brand-con
+			if (brand)
+				each val in brand
+					#brand-list.col-xs-12
+						.row(style='height: 55px;')
+							.col-xs-2(style='height: 100%; min-width: 75px !important;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
+								span(style='display: inline-block; height: 100%; vertical-align: middle;')
+								img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{val.image}")
+							.col-xs-6(style='height: 100%; width: auto;' onclick="location.href='/brand?brandNo=#{val.brandNo}';")
+								span(style='display: inline-block; height: 100%; vertical-align: middle;')
+								h6(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= val.brandName
+							if (loggedIn)
+								.col-xs-4(style='height: 100%; min-width: 115px !important; float: right; position: absolute; top: 0; right: 0;')
+									center(style='height: 100%;')
+										span(style='display: inline-block; height: 100%; vertical-align: middle;')
+										p.non_activated(style='display: inline-block; height: 26px; margin: 0; vertical-align: middle; line-height: 20px;' id="brand#{val.brandNo}" onclick="like(#{val.brandNo});") 즐겨찾기
+		#contents-con.col-xs-12
 			span.community-row
 				span.community-col
-					each val, index in community
+					each val, index in content
 						- if (index % 2 == 0)
-							span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-								#titleBlock.col-xs-12
-									.row
-										.col-xs-2
-											img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-										.hidden-xs.col-sm-4
-											h6= community[index].brandName
-										.col-xs-9.col-sm-6.email
-											h6= community[index].email
-											img(src='./images/user.png' width="15px")
+							span.community-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
 								#imgBlock.col-xs-12
-									img(src='./images/community/#{community[index].image}' width="100%;")
+									img(src='./images/contents/#{content[index].image}/0' width="100%;")
+								#contTitleBlock.col-xs-12
+									h6= content[index].title
 								#likeBlock
 									.row.width-100-no-margin
-										.col-xs-4
-											img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-											h6= community[index].like
-										.col-xs-4
+										.col-xs-3.no-padding
+											img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+											h6= content[index].like
+										.col-xs-3.no-padding
 											img(src='./images/speech.png' width='15px;')
-											h6= community[index].count
-										.col-xs-4
+											h6= content[index].count
+										.col-xs-3.no-padding
+											img(src='./images/clip_on.png' width='15px;')
+											h6= content[index].clip
+										.col-xs-3.no-padding
 											img(src='./images/view.png' width='15px;')
-											h6= community[index].view
+											h6= content[index].view
 				span.community-col
-					each val, index in community
+					each val, index in content
 						- if (index % 2 == 1)
-							span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-								#titleBlock.col-xs-12
-									.row
-										.col-xs-2
-											img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-										.hidden-xs.col-sm-4
-											h6= community[index].brandName
-										.col-xs-9.col-sm-6.email
-											h6= community[index].email
-											img(src='./images/user.png' width="15px")
+							span.community-box(onClick="location.href='/content_box?contentNo=#{content[index].contentNo}';")
 								#imgBlock.col-xs-12
-									img(src='./images/community/#{community[index].image}' width="100%;")
+									img(src='./images/contents/#{content[index].image}/0' width="100%;")
+								#contTitleBlock.col-xs-12
+									h6= content[index].title
 								#likeBlock
 									.row.width-100-no-margin
-										.col-xs-4
-											img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-											h6= community[index].like
-										.col-xs-4
+										.col-xs-3.no-padding
+											img(src=(content[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+											h6= content[index].like
+										.col-xs-3.no-padding
 											img(src='./images/speech.png' width='15px;')
-											h6= community[index].count
-										.col-xs-4
+											h6= content[index].count
+										.col-xs-3.no-padding
+											img(src='./images/clip_on.png' width='15px;')
+											h6= content[index].clip
+										.col-xs-3.no-padding
 											img(src='./images/view.png' width='15px;')
-											h6= community[index].view
-		#conEnroll.col-xs-12
-			button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
-	#discount-con.col-xs-12
+											h6= content[index].view
+		#event-con
+			#event-list.col-xs-12
+				span.community-row
+					span.community-col
+						each val, index in community
+							- if (index % 2 == 0)
+								span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+									#titleBlock.col-xs-12
+										.row
+											.col-xs-2
+												img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
+											.hidden-xs.col-sm-4
+												h6= community[index].brandName
+											.col-xs-9.col-sm-6.email
+												h6= community[index].email
+												img(src='./images/user.png' width="15px")
+									#imgBlock.col-xs-12
+										img(src='./images/community/#{community[index].image}' width="100%;")
+									#likeBlock
+										.row.width-100-no-margin
+											.col-xs-4
+												img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+												h6= community[index].like
+											.col-xs-4
+												img(src='./images/speech.png' width='15px;')
+												h6= community[index].count
+											.col-xs-4
+												img(src='./images/view.png' width='15px;')
+												h6= community[index].view
+					span.community-col
+						each val, index in community
+							- if (index % 2 == 1)
+								span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+									#titleBlock.col-xs-12
+										.row
+											.col-xs-2
+												img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
+											.hidden-xs.col-sm-4
+												h6= community[index].brandName
+											.col-xs-9.col-sm-6.email
+												h6= community[index].email
+												img(src='./images/user.png' width="15px")
+									#imgBlock.col-xs-12
+										img(src='./images/community/#{community[index].image}' width="100%;")
+									#likeBlock
+										.row.width-100-no-margin
+											.col-xs-4
+												img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+												h6= community[index].like
+											.col-xs-4
+												img(src='./images/speech.png' width='15px;')
+												h6= community[index].count
+											.col-xs-4
+												img(src='./images/view.png' width='15px;')
+												h6= community[index].view
+			#conEnroll.col-xs-12
+				button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
+		#discount-con.col-xs-12
 		h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
 		//- each val, index in product
 		//- 	- if (index % 2 == 0) {
