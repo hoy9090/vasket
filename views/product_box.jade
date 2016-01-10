@@ -175,7 +175,7 @@ html
               .modal-footer
                 .alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
                   a.close(href="#" data-dismiss="alert" aria-label="close") &times;
-                  "내용을 10자 이상 입력해주세요"
+                | 내용을 10자 이상 입력해주세요
                 button.btn.btn-warning(type="button" onClick="reg_comment();") 등록
       if (loggedIn)
         each val in comment
