@@ -29,7 +29,7 @@ html
       #contentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:10px;}
       #community {background-color: #ffa800; text-align:center; border-style:solid; border-color:#ffa800; border-width:2px; color: #ffffff;}
       #productInfo {background-color: #ffffff; text-align:center; border-style:solid; border-color:#ffa800; border-width:2px; border-left-width:0px; color:#ffa800;}
-      #community-con {display:block; padding-top: 15px;}
+      #community-con {display:block; padding-top: 15px; background-color:#ffffff;}
       #info-con {display:none; background-color:#ffffff; border-color:#bbbbbb; border-width:1px; border-style:solid; width:100%; padding-top:10px;}
       #tr1{padding-bottom:5px; padding-top:5px; border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px;}
       #tr2 {padding-bottom:5px; padding-top:5px; border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px; border-bottom-width:2px;}
@@ -190,7 +190,7 @@ html
             .bad(onClick="alert('비공감하시려면 로그인하세요.');" id='bad#{val.commentNo}')
               img(src='./images/bad.png')
               h6= val.bad
-          #commentBlock.col-xs-12.shadow
+          #commentBlock.col-xs-12
             .comment_star
               - for (var i=0; i<val.star; i++)
                 img(src='./images/star_on.png')
