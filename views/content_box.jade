@@ -108,7 +108,7 @@ html
             type: "POST",
             url: '/reg_cont_comment',
             data: {contentNo: #{contentNo}, content: $("#commentField").val()},
-            success: function() {
+            success: function(data) {
               if (data.status == "error") {
                 $('#commentField').css('border', '2px solid #FF9191');
                 $('#commentAlert').fadeIn('fast');
