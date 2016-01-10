@@ -196,7 +196,7 @@ html
               h6(style='display: inline;')= val.content
       else
         each val in comment
-          .col-xs-12
+          .comment-header.col-xs-12
             h6(style='display: inline; font-weight: bold; color: #1F50B5')= val.email
             .goodbad
               .good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
