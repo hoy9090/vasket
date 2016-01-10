@@ -91,17 +91,17 @@ block style
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
 
 block content
-	.col-xs-12.tab-bar
-		.row.menu
-			#service-brand.col-xs-3(onclick="change(1);")
-				h6 브랜드
-			#service-contents.col-xs-3(onclick="change(2);")
-				h6 컨텐츠
-			#service-event.col-xs-3(onclick="change(3);")
-				h6 커뮤니티
-			#service-discount.col-xs-3(onclick="change(4);")
-				h6 커머스
 	center
+		.col-xs-12.tab-bar
+			.row.menu
+				#service-brand.col-xs-3(onclick="change(1);")
+					h6 브랜드
+				#service-contents.col-xs-3(onclick="change(2);")
+					h6 컨텐츠
+				#service-event.col-xs-3(onclick="change(3);")
+					h6 커뮤니티
+				#service-discount.col-xs-3(onclick="change(4);")
+					h6 커머스
 		#brand-con
 			if (brand)
 				each val in brand
@@ -222,7 +222,7 @@ block content
 			#conEnroll.col-xs-12
 				button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
 		#discount-con.col-xs-12
-		h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
+			h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
 		//- each val, index in product
 		//- 	- if (index % 2 == 0) {
 		//- 	.row.discount-row
