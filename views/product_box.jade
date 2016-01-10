@@ -330,7 +330,7 @@ html
               if (data.status == "error") {
                 $('#commentField').css('border', '2px solid #FF9191');
                 $('#commentAlert').fadeIn('fast');
-              else if (data.status == "success") {
+              } else if (data.status == "success") {
                 $('#commentModal').modal('hide');
                 location.reload();
               }
