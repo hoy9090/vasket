@@ -222,20 +222,20 @@ block content
 			button.btn.btn-warning(onClick="location.href='/community_post';") 게시글 올리기
 	#discount-con.col-xs-12
 		h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
-		//each val, index in product
-		//	- if (index % 2 == 0) {
-			.row.discount-row
-				.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
-					img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
-					h5= product[index].productName
-					h6.price= product[index].productPrice
-		//		- if (index+1 < product.length) {
-					.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
-						img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
-						h5= product[index+1].productName
-						h6.price= product[index+1].productPrice
-		//		- }
-		//	- }
+		//- each val, index in product
+		//- 	- if (index % 2 == 0) {
+		//- 	.row.discount-row
+		//- 		.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
+		//- 			img.discount(src="./images/product_image/#{product[index].productNo}/main.jpg" width='100%;')
+		//- 			h5= product[index].productName
+		//- 			h6.price= product[index].productPrice
+		//- 		- if (index+1 < product.length) {
+		//- 			.discount-box.col-xs-6(onClick="location.href='/detail?productNo=#{product[index].productNo}';")
+		//- 				img.discount(src="./images/product_image/#{product[index+1].productNo}/main.jpg" width='100%;')
+		//- 				h5= product[index+1].productName
+		//- 				h6.price= product[index+1].productPrice
+		//- 		- }
+		//- 	- }
 
 
 block script_content
