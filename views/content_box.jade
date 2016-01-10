@@ -34,6 +34,7 @@ html
       .date {float: right; }
       .date p {font-size:10px; color:#A6A6A6;}
       #comment {background-color:#f9f9f9; width: 100%; padding: 10px; margin-bottom:15px;}
+
   body
     #nav.col-xs-12
       a(href='javascript:history.back()')
@@ -89,6 +90,10 @@ html
       #commentInput
         textarea#commentField(onClick=(loggedIn? "" : "goLogin();") maxlength="70" placeholder="댓글을 입력하세요")
         button.btn.btn-warning#commentBtn(onClick=(loggedIn? "reg_comment();" : "goLogin();")) 입력
+      if (loggedIn)
+        .alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
+          a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
+          | 내용을 10자 이상 입력해주세요
       each val in comment
         .comment-header.col-xs-12
           h5.bold(style='display: inline; color: #1F50B5')= val.email
@@ -104,7 +109,12 @@ html
             url: '/reg_cont_comment',
             data: {contentNo: #{contentNo}, content: $("#commentField").val()},
             success: function() {
-              location.reload();
+              if (data.status == "error") {
+                $('#commentField').css('border', '2px solid #FF9191');
+                $('#commentAlert').fadeIn('fast');
+              } else if (data.status == "success") {
+                location.reload();
+              }
             }
           });
         }
