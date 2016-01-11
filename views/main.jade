@@ -36,8 +36,10 @@ block style
     h1, h2, h3, h4, h5, h6 {word-break: keep-all;}
     @media only screen and (min-width: 768px) { .clearfix {display: none;} }
     .container-fluid {background-color: #ffffff;}
-    .func {border: 2px solid #f6f6f6; height: 200px; padding: 20px; }
+    .func {border: 2px solid #dedede; height: 200px; padding: 20px; }
     @media only screen and (min-width: 500px) and (max-width: 768px) { .func {height: 250px;} }
+    .grid-table {max-width: 1000px; border: 2px solid #dedede;}
+
 block content
   #D-day
     .D-day
@@ -48,32 +50,33 @@ block content
   .info
     img#main_img(src='/images/main_top.jpg')
   #event
-    h3 바스켓 스토리
-    #myCarousel.carousel.slide(data-ride="carousel")
-      ol.carousel-indicators(style="margin-bottom:-10px;")
-        li.active(data-target="#myCarousel" data-slide-to="0")
-        li(data-target="#myCarousel" data-slide-to="1")
-        li(data-target="#myCarousel" data-slide-to="2")
-        li(data-target="#myCarousel" data-slide-to="3")
-      .carousel-inner(role="listbox")
-        .item.active
-          a(href='/detail?productNo=1')
-            img(src="/images/main_product/main_product_1.jpg")
-        .item
-          a(href='/detail?productNo=3')
-            img(src="/images/main_product/main_product_2.jpg")
-        .item
-          a(href='/detail?productNo=4')
-            img(src="/images/main_product/main_product_3.jpg")
-        .item
-          a(href='/detail?productNo=5')
-            img(src="/images/main_product/main_product_4.jpg")
-      a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:-10px;").
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
-        <span class="sr-only">Previous</span>
-      a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:-10px;").
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
-        <span class="sr-only">Next</span>
+    center
+      h3.bold(style="text-align: center; color: #8200ff; width: 150px; border-bottom: 5px solid #8200ff;") 바스켓 스토리
+      #myCarousel.carousel.slide(data-ride="carousel")
+        ol.carousel-indicators(style="margin-bottom:-10px;")
+          li.active(data-target="#myCarousel" data-slide-to="0")
+          li(data-target="#myCarousel" data-slide-to="1")
+          li(data-target="#myCarousel" data-slide-to="2")
+          li(data-target="#myCarousel" data-slide-to="3")
+        .carousel-inner(role="listbox")
+          .item.active
+            a(href='/detail?productNo=1')
+              img(src="/images/main_product/main_product_1.jpg")
+          .item
+            a(href='/detail?productNo=3')
+              img(src="/images/main_product/main_product_2.jpg")
+          .item
+            a(href='/detail?productNo=4')
+              img(src="/images/main_product/main_product_3.jpg")
+          .item
+            a(href='/detail?productNo=5')
+              img(src="/images/main_product/main_product_4.jpg")
+        a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:-10px;").
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+          <span class="sr-only">Previous</span>
+        a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:-10px;").
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+          <span class="sr-only">Next</span>
   //.info
     img#main_img(src='/images/info_1.jpg')
     a(href='/service')
@@ -98,7 +101,7 @@ block content
       img(src='/images/service-info_2.png' width="100%")
   .info.col-xs-12
     h3 주요 기능
-    .col-xs-12
+    .col-xs-12.grid-table
       .row
         .col-xs-6.col-sm-3.func
           img(src='/images/func_1.png' width="50%")
