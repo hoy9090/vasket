@@ -41,6 +41,7 @@ block style
     @media only screen and (max-width: 358px) { .adj1 {min-height: 52px !important;} }
     @media only screen and (max-width: 655px) { .adj2 {min-height: 39px !important;} }
     @media only screen and (max-width: 411px) { .info2 h4 {min-height: 38px !important;} }
+    @media only screen and (min-width: 768px) { .adj3 {max-width: 242.5px !important;} .adj4 {max-width: 485px !important;} }
     .no-padding {padding: 0;}
     .grid-table > .row {max-width: 1000px; border: 2px solid #dedede;}
     .grid-table {padding-bottom: 50px;}
@@ -85,22 +86,22 @@ block content
     img#main_img(src='/images/info_1.jpg')
     a(href='/service')
       #inner_about1
-  .col-xs-12(style="margin: auto; text-align: center;")
-    .info1.col-xs-12
+  .info1.col-xs-12
+    center
       h3.bold(style="width: 128px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff;") 서비스 소개
       .col-xs-12.visible-xs.no-padding
         h3 브랜드 프리뷰
         h6 간단한 댓글형식의 미니 프리뷰 상품 사진 공유는 포토 프리뷰
         img(src='/images/service-info_3.png' width="100%")
-      .col-xs-6.col-sm-3.no-padding
+      .col-xs-6.col-sm-3.no-padding.adj3
         h3 브랜드 즐겨찾기
         h6.adj2 내가 원하는 브랜드를 즐겨찾기하고 상품, 정보, 이벤트 받아보기
         img(src='/images/service-info_1.png' width="100%")
-      .hidden-xs.col-sm-6.no-padding
+      .hidden-xs.col-sm-6.no-padding.adj4
         h3 브랜드 프리뷰
         h6 간단한 댓글형식의 미니 프리뷰 상품 사진 공유는 포토 프리뷰
         img(src='/images/service-info_3.png' width="100%")
-      .col-xs-6.col-sm-3.no-padding
+      .col-xs-6.col-sm-3.no-padding.adj3
         h3.adj1 브랜드 득템
         h6.adj2 활동에 따른 포인트 지급으로 브랜드 상품을 득템
         img(src='/images/service-info_2.png' width="100%")
