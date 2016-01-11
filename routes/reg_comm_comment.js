@@ -10,22 +10,26 @@ var pool = mysql.createPool({
 /* GET home page. */
 router.post('/', function(req, res, next) {
 	if (req.session.userid) {
-		var content = req.body.content;
-		pool.getConnection(function(err, connection) {
-			if (err) {
-				console.error('DB Connection error!!');
-			}
-			console.log('DB Connection Success!!');
-			connection.query('use vasket');
-			connection.query('insert into communityComment(communityNo, userNo, content, regdate) values(?, ?, ?, now())', 
-			[req.body.communityNo, req.session.userNo, content], function(err, result, field) {
+		var content = req.body.content.trim();
+		if (content.length < 10) {
+			res.send({status: "error", code: "length"});
+		}
+		else
+			pool.getConnection(function(err, connection) {
 				if (err) {
-					console.error('DB Insertion error!!');
+					console.error('DB Connection error!!');
 				}
-				connection.release();
-				res.end();
+				console.log('DB Connection Success!!');
+				connection.query('use vasket');
+				connection.query('insert into communityComment(communityNo, userNo, content, regdate) values(?, ?, ?, now())', 
+				[req.body.communityNo, req.session.userNo, content], function(err, result, field) {
+					if (err) {
+						console.error('DB Insertion error!!');
+					}
+					connection.release();
+					res.send({status: "success"});
+				});
 			});
-		});
 	} else {
 		res.redirect('back');
 	}

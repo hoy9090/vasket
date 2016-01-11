@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 					var community = result[0];
 					var at_index = community.email.indexOf('@');
 					community.email = community.email.substr(0, 2)+'***@'+community.email.substr(at_index+1, 2);
-					connection.query('SELECT email, content FROM communityComment c join user u on c.userNo = u.userNo where communityNo='+communityNo+' order by c.commentNo', function(err, result, field) {
+					connection.query('SELECT email, content, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM communityComment c join user u on c.userNo = u.userNo where communityNo='+communityNo+' order by c.commentNo', function(err, result, field) {
 						connection.release();
 						for (var index in result) {
 							var at_index_ = result[index].email.indexOf('@');
@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
 					var community = result[0];
 					var at_index = community.email.indexOf('@');
 					community.email = community.email.substr(0, 2)+'***@'+community.email.substr(at_index+1, 2);
-					connection.query('SELECT email, content FROM communityComment c join user u on c.userNo = u.userNo where communityNo='+communityNo+' order by c.commentNo', function(err, result, field) {
+					connection.query('SELECT email, content, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM communityComment c join user u on c.userNo = u.userNo where communityNo='+communityNo+' order by c.commentNo', function(err, result, field) {
 						connection.release();
 						for (var index in result) {
 							var at_index_ = result[index].email.indexOf('@');
