@@ -74,7 +74,7 @@ block content
     img#main_img(src='/images/info_1.jpg')
     a(href='/service')
       #inner_about1
-  .info
+  .info.col-xs-12
     h3 서비스 소개
     .col-xs-3
       img(src='/images/service-info_1.png' width="100%")
@@ -88,40 +88,42 @@ block content
       img(src='/images/service-info_2.png' width="100%")
       h3 브랜드 득템
       h6 활동에 따른 포인트 지급으로 브랜드 상품을 득템
-  .info
+  .info.col-xs-12
     h3 주요 기능
-    .col-xs-3
-      img(src='/images/func_1.png' width="50%")
-      h4 브랜드 커뮤니티
-      h6 관심 브랜드의 사람들과 다양한 정보 네트워킹
-    .col-xs-3
-      img(src='/images/func_2.png' width="50%")
-      h4 브랜드 간단 프리뷰
-      h6 간단 프리뷰 플랫폼으로 쉬운 프리뷰 작성
-    .col-xs-3
-      img(src='/images/func_3.png' width="50%")
-      h4 브랜드 포토 프리뷰
-      h6 나만의 실제 착용한 사진을 관심 브랜드의 사람들과 공유
-    .col-xs-3
-      img(src='/images/func_4.png' width="50%")
-      h4 바스켓 코인
-      h6 활동에 따른 코인지급으로 이벤트 참여하여 득템
-    .col-xs-3
-      img(src='/images/func_5.png' width="50%")
-      h4 브랜드 컬렉션
-      h6 관심있는 브랜드, 사진을 클립하여 브랜드 컬렉트
-    .col-xs-3
-      img(src='/images/func_6.png' width="50%")
-      h4 맞춤 디테일 프리뷰
-      h6 카테고리별 맞춤 프리뷰 플랫폼을 통한 디테일한 정보 획득
-    .col-xs-3
-      img(src='/images/func_7.png' width="50%")
-      h4 브랜드 검색
-      h6 브랜드, 브랜드 상품 검색을 통해 내가 원하는 정보 획득
-    .col-xs-3
-      img(src='/images/func_8.png' width="50%")
-      h4 소셜 로그인
-      h6 다양한 SNS를 통한 간단 로그인
+    .row
+      .col-xs-6.col-sm-3
+        img(src='/images/func_1.png' width="50%")
+        h4 브랜드 커뮤니티
+        h6 관심 브랜드의 사람들과 다양한 정보 네트워킹
+      .col-xs-6.col-sm-3
+        img(src='/images/func_2.png' width="50%")
+        h4 브랜드 간단 프리뷰
+        h6 간단 프리뷰 플랫폼으로 쉬운 프리뷰 작성
+      .col-xs-6.col-sm-3
+        img(src='/images/func_3.png' width="50%")
+        h4 브랜드 포토 프리뷰
+        h6 나만의 실제 착용한 사진을 관심 브랜드의 사람들과 공유
+      .col-xs-6.col-sm-3
+        img(src='/images/func_4.png' width="50%")
+        h4 바스켓 코인
+        h6 활동에 따른 코인지급으로 이벤트 참여하여 득템
+    .row 
+      .col-xs-6.col-sm-3
+        img(src='/images/func_5.png' width="50%")
+        h4 브랜드 컬렉션
+        h6 관심있는 브랜드, 사진을 클립하여 브랜드 컬렉트
+      .col-xs-6.col-sm-3
+        img(src='/images/func_6.png' width="50%")
+        h4 맞춤 디테일 프리뷰
+        h6 카테고리별 맞춤 프리뷰 플랫폼을 통한 디테일한 정보 획득
+      .col-xs-6.col-sm-3
+        img(src='/images/func_7.png' width="50%")
+        h4 브랜드 검색
+        h6 브랜드, 브랜드 상품 검색을 통해 내가 원하는 정보 획득
+      .col-xs-6.col-sm-3
+        img(src='/images/func_8.png' width="50%")
+        h4 소셜 로그인
+        h6 다양한 SNS를 통한 간단 로그인
 
 block script_content
   script(src='/javascripts/javascript.js')
