@@ -4,7 +4,7 @@ block style
   style(type='text/css').
     #main_img { width: 100%; }
     body{padding-left:0px; padding-right:0px;}
-    #event {width:100%; padding-top:13px; padding-bottom:13px; background-color: #F6F6F6;}
+    #event {width:100%; padding-bottom:20px; background-color: #F6F6F6;}
     #con1 h6 {font-size:90%; font-weight:bold;}
     #con1 {color:#505050; background-color:#ffffff; border-style:solid; border-color:#d5d5d5;border-width:1px;}
     #con2 {color:#505050; background-color:#ffffff; border-style:solid; border-color:#d5d5d5;border-width:1px; border-left-width:0px;}
@@ -56,7 +56,7 @@ block content
     img#main_img(src='/images/main_top.jpg')
   #event
     center
-      h3.bold(style="text-align: center; color: #8200ff; width: 150px; border-bottom: 5px solid #8200ff;") 바스켓 스토리
+      h3.bold(style="text-align: center; color: #8200ff; width: 150px; border-bottom: 5px solid #8200ff; margin: 30px auto;") 바스켓 스토리
       #myCarousel.carousel.slide(data-ride="carousel")
         ol.carousel-indicators(style="margin-bottom:-10px;")
           li.active(data-target="#myCarousel" data-slide-to="0")
@@ -88,7 +88,7 @@ block content
       #inner_about1
   .info1.col-xs-12
     center
-      h3.bold(style="width: 128px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff;") 서비스 소개
+      h3.bold(style="width: 128px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff; margin: 30px auto;") 서비스 소개
       .col-xs-12#info1-content
         .col-xs-12.visible-xs.no-padding
           h3 브랜드 프리뷰
@@ -108,7 +108,7 @@ block content
           img(src='/images/service-info_2.png' width="100%")
   .info2.col-xs-12
     center
-      h3.bold(style="width: 100px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff;") 주요 기능
+      h3.bold(style="width: 100px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff; margin: 30px auto;") 주요 기능
       .col-xs-12.grid-table
         .row(style="border-bottom: 0;")
           .col-xs-6.col-sm-3.func
