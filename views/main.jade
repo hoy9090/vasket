@@ -40,6 +40,7 @@ block style
     @media only screen and (min-width: 500px) and (max-width: 768px) { .func {height: 250px;} }
     .no-padding {padding: 0;}
     .grid-table > .row {max-width: 1000px; border: 2px solid #dedede;}
+    .grid-table {padding-bottom: 50px;}
 block content
   #D-day
     .D-day
@@ -121,7 +122,7 @@ block content
             img(src='/images/func_4.png' width="50%")
             h4 바스켓 코인
             h6 활동에 따른 코인지급으로 이벤트 참여하여 득템
-        .row 
+        .row(style="border-top: 0;")
           .col-xs-6.col-sm-3.func
             img(src='/images/func_5.png' width="50%")
             h4 브랜드 컬렉션
