@@ -28,9 +28,7 @@ block style
     #about {position: relative;}
     .info1 h6 {min-height: 26px;}
     .info1 {padding-bottom: 20px; border-bottom: 10px double #8200FF; }
-    #inner_btn {position: absolute; left: 38%; top: 76%; width: 24%; height: 15%;}
-    #inner_about1 {position: absolute; left: 38.8%; top: 88%; width: 22.5%; height: 7%; }
-    #inner_about2 {position: absolute; left: 45.1%; top: 90.4%; width: 9%; height: 6.5%; }
+    #inner_btn {position: absolute; left: 36.5%; top: 76.5%; width: 27%; height: 10.5%;}
     .carousel-inner > .item > img,
     .carousel-inner > .item > a > img { width:70%; max-width: 1000px; margin:auto;}
     .carousel-control.left, .carousel-control.right {background-image:none;}
@@ -54,6 +52,8 @@ block content
       #d-day
   .info
     img#main_img(src='/images/main_top.jpg')
+    a(href='/login')
+      #inner_btn
   #event
     center
       h3.bold(style="text-align: center; color: #8200ff; width: 150px; border-bottom: 5px solid #8200ff; margin: 30px auto;") 바스켓 스토리
@@ -82,10 +82,6 @@ block content
         a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:-10px;").
           <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
           <span class="sr-only">Next</span>
-  //.info
-    img#main_img(src='/images/info_1.jpg')
-    a(href='/service')
-      #inner_about1
   .info1.col-xs-12
     center
       h3.bold(style="width: 128px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff; margin: 30px auto;") 서비스 소개
