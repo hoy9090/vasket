@@ -39,7 +39,7 @@ block style
     .func {border: 2px solid #dedede; height: 200px; padding: 20px; }
     @media only screen and (min-width: 500px) and (max-width: 768px) { .func {height: 250px;} }
     .grid-table {max-width: 1000px; border: 2px solid #dedede;}
-
+    .no-padding {padding: 0;}
 block content
   #D-day
     .D-day
@@ -82,23 +82,24 @@ block content
     a(href='/service')
       #inner_about1
   .info.col-xs-12
-    h3 서비스 소개
-    .col-xs-12.visible-xs
-      h3 브랜드 프리뷰
-      h6 간단한 댓글형식의 미니 프리뷰 상품 사진 공유는 포토 프리뷰
-      img(src='/images/service-info_3.png' width="100%")
-    .col-xs-6.col-sm-3
-      h3 브랜드 즐겨찾기
-      h6 내가 원하는 브랜드를 즐겨찾기하고 상품, 정보, 이벤트 받아보기
-      img(src='/images/service-info_1.png' width="100%")
-    .hidden-xs.col-sm-6
-      h3 브랜드 프리뷰
-      h6 간단한 댓글형식의 미니 프리뷰 상품 사진 공유는 포토 프리뷰
-      img(src='/images/service-info_3.png' width="100%")
-    .col-xs-6.col-sm-3
-      h3 브랜드 득템
-      h6 활동에 따른 포인트 지급으로 브랜드 상품을 득템
-      img(src='/images/service-info_2.png' width="100%")
+    center
+      h3.bold(style="width: 128px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff;") 서비스 소개
+      .col-xs-12.visible-xs.no-padding
+        h3 브랜드 프리뷰
+        h6 간단한 댓글형식의 미니 프리뷰 상품 사진 공유는 포토 프리뷰
+        img(src='/images/service-info_3.png' width="100%")
+      .col-xs-6.col-sm-3.no-padding
+        h3 브랜드 즐겨찾기
+        h6 내가 원하는 브랜드를 즐겨찾기하고 상품, 정보, 이벤트 받아보기
+        img(src='/images/service-info_1.png' width="100%")
+      .hidden-xs.col-sm-.no-padding
+        h3 브랜드 프리뷰
+        h6 간단한 댓글형식의 미니 프리뷰 상품 사진 공유는 포토 프리뷰
+        img(src='/images/service-info_3.png' width="100%")
+      .col-xs-6.col-sm-3.no-padding
+        h3 브랜드 득템
+        h6 활동에 따른 포인트 지급으로 브랜드 상품을 득템
+        img(src='/images/service-info_2.png' width="100%")
   .info.col-xs-12
     h3 주요 기능
     .col-xs-12.grid-table
