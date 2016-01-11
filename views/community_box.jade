@@ -73,19 +73,19 @@ html
 					h6= community.view
 		#commentBlock.col-xs-12
 			#commentInput
-        textarea#commentField(onClick=(loggedIn? "" : "goLogin();") maxlength="70" placeholder="댓글을 입력하세요")
-        button.btn.btn-warning#commentBtn(onClick=(loggedIn? "reg_comment();" : "goLogin();")) 입력
-      if (loggedIn)
-        .alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
-          a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
-          | 내용을 10자 이상 입력해주세요
-      each val in comment
-        .comment-header.col-xs-12
-          h5.bold(style='display: inline; color: #1F50B5')= val.email
-          .date
-            p= val.date
-        #comment.col-xs-12
-          h6(style='display: inline; word-break: break-all;')= val.content
+				textarea#commentField(onClick=(loggedIn? "" : "goLogin();") maxlength="70" placeholder="댓글을 입력하세요")
+				button.btn.btn-warning#commentBtn(onClick=(loggedIn? "reg_comment();" : "goLogin();")) 입력
+			if (loggedIn)
+				.alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
+					a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
+					| 내용을 10자 이상 입력해주세요
+			each val in comment
+				.comment-header.col-xs-12
+					h5.bold(style='display: inline; color: #1F50B5')= val.email
+					.date
+						p= val.date
+				#comment.col-xs-12
+					h6(style='display: inline; word-break: break-all;')= val.content
 
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
 		script.
@@ -107,32 +107,32 @@ html
 			function like(){
 				var like_id = $('#like_img');
 				if(like_id.attr('class') == "like"){
-				  $.ajax({
-				    type: "POST",
-				    url: '/community_like',
-				    data: {command: "delete", communityNo: #{communityNo}},
-				    success: function(data) {
-				    	like_id.attr('class', 'no_like');
-				    	like_id.attr('src', './images/heart.png');
-				      $('#like h6').html(data.count);
-				    }
-				  });
+					$.ajax({
+						type: "POST",
+						url: '/community_like',
+						data: {command: "delete", communityNo: #{communityNo}},
+						success: function(data) {
+							like_id.attr('class', 'no_like');
+							like_id.attr('src', './images/heart.png');
+							$('#like h6').html(data.count);
+						}
+					});
 				}
 				else{
 				 $.ajax({
-				    type: "POST",
-				    url: '/community_like',
-				    data: {command: "insert", communityNo: #{communityNo}},
-				    success: function(data) {
-				    	like_id.attr('class', 'like');
-				      like_id.attr('src', './images/heart_on.png');
-				      $('#like h6').html(data.count);
-				    }
-				  });
+						type: "POST",
+						url: '/community_like',
+						data: {command: "insert", communityNo: #{communityNo}},
+						success: function(data) {
+							like_id.attr('class', 'like');
+							like_id.attr('src', './images/heart_on.png');
+							$('#like h6').html(data.count);
+						}
+					});
 				}
 			}
 			function goLogin() {
-			  var r = confirm("로그인이 필요합니다.\n로그인하시겠습니까?");
-			  if (r == true)
-			    location.href="/login";
+				var r = confirm("로그인이 필요합니다.\n로그인하시겠습니까?");
+				if (r == true)
+					location.href="/login";
 			}
