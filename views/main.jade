@@ -38,8 +38,8 @@ block style
     .container-fluid {background-color: #ffffff;}
     .func {border: 2px solid #dedede; height: 200px; padding: 20px; }
     @media only screen and (min-width: 500px) and (max-width: 768px) { .func {height: 250px;} }
-    .grid-table {max-width: 1000px; border: 2px solid #dedede;}
     .no-padding {padding: 0;}
+    .grid-table > .row {max-width: 1000px; border: 2px solid #dedede;}
 block content
   #D-day
     .D-day
@@ -104,7 +104,7 @@ block content
     center
       h3.bold(style="width: 100px; border-bottom: 5px solid #8200ff; text-align: center; color: #8200ff;") 주요 기능
       .col-xs-12.grid-table
-        .row
+        .row(style="border-bottom: 0;")
           .col-xs-6.col-sm-3.func
             img(src='/images/func_1.png' width="50%")
             h4 브랜드 커뮤니티
