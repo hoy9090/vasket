@@ -19,6 +19,7 @@ block style
 		.non_activated {width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; background-color:#ffffff; padding-top: 3px; padding-bottom: 3px;}
 		#mini-list {padding: 5px; padding-top: 53px; background-color:#F6F6F6; max-width: 1200px;}
 		#photo-list {padding: 5px; padding-top: 100px; background-color:#F6F6F6; max-width: 1200px;}
+		#preview-list {padding: 5px; padding-top: 100px; background-color:#F6F6F6; max-width: 1200px;}
 		.discount-box {background-color: #FFFFFF;background-clip: content-box;padding: 5px;webkit-flex: 1;-ms-flex: 1;flex: 1; }
 		#conEnroll {position:fixed; background-color:#f6f6f6; padding: 10px; top:100px; left:0px; right:0px;}
 		#conEnroll button {width:100%;}
@@ -180,107 +181,108 @@ block content
 											img(src='./images/view.png' width='15px;')
 											h6= content[index].view
 		#event-con
-			#photo-list(style="display:none;")
-				span.community-row
-					span.community-col
-						each val, index in community
-							- if (index % 2 == 0)
-								span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-									#titleBlock.col-xs-12
-										.row
-											.col-xs-2
-												img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-											.hidden-xs.col-sm-4
-												h6= community[index].brandName
-											.col-xs-9.col-sm-6.email
-												h6= community[index].email
-												img(src='./images/user.png' width="15px")
-									#imgBlock.col-xs-12
-										img(src='./images/community/#{community[index].image}' width="100%;")
-									#likeBlock
-										.row.width-100-no-margin
-											.col-xs-4
-												img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-												h6= community[index].like
-											.col-xs-4
-												img(src='./images/speech.png' width='15px;')
-												h6= community[index].count
-											.col-xs-4
-												img(src='./images/view.png' width='15px;')
-												h6= community[index].view
-					span.community-col
-						each val, index in community
-							- if (index % 2 == 1)
-								span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-									#titleBlock.col-xs-12
-										.row
-											.col-xs-2
-												img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-											.hidden-xs.col-sm-4
-												h6= community[index].brandName
-											.col-xs-9.col-sm-6.email
-												h6= community[index].email
-												img(src='./images/user.png' width="15px")
-									#imgBlock.col-xs-12
-										img(src='./images/community/#{community[index].image}' width="100%;")
-									#likeBlock
-										.row.width-100-no-margin
-											.col-xs-4
-												img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-												h6= community[index].like
-											.col-xs-4
-												img(src='./images/speech.png' width='15px;')
-												h6= community[index].count
-											.col-xs-4
-												img(src='./images/view.png' width='15px;')
-												h6= community[index].view
-				#conEnroll.col-xs-12
-					button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
-			#mini-list
-				#preview-tab
-					#mini-tab 미니
-					#photo-tab 포토
-				#event-list
-					#preview-head.col-xs-12
-						.row
-							.col-xs-2
-								img(src='./images/brand_logo/nike.png' style="width: 50px; max-height: 35px;")
-							.col-xs-7(style='text-align:left;')
-								h6 나이키
-							.col-xs-3(style='text-align:right;')
-								h6 신발
-					#preview-body.col-xs-12
-						#image(style='float:left;')
-							img(src='./images/brand_logo/nike.png' width='60px;' style='margin-left:-10px; padding-top:10px;')
-						#bodylanguage(style='float:left; width:80%;')
-							table(style='margin-left:8px;')
-								tr
-									td(style='width:50%;') 나이키 에어맥스 
-									td 55000
-								tr.comment
-									td coc**
-									td 남자 180 굵은편
-							table(style='margin-left:8px;')
-								tr
-									td(style="width: 45px;") 장점 
-									td(style='margin-bottom:0px;') ~~~~~
-								tr
-									td 단점
-									td(style='margin-bottom:0px;') ~~~~~
-								tr
-									td 코멘트
-									td(style='margin-bottom:0px;') ~~~~~
-					#preview-tail.col-xs-12
-						.col-xs-9(style="text-align: left;")
-							img(src='./images/heart.png' style='display: inline; width: 15px;')
-							h6(style='display: inline; margin-right: 10px;') 1000
-							img(src='./images/speech.png' style='display: inline; width: 15px;')
-							h6(style='display: inline; margin-right: 10px;') 1000
-							img(src='./images/clip.png' style='display: inline; width: 15px;')
-							h6(style='display: inline;') 1000
-						.col-xs-3(style="text-align: right;")
-							img(src='./images/view.png' style='display: inline; width: 15px;')
-							h6(style='display: inline;') 1000
+			#preview-list
+				#photo-list(style="display:none;")
+					span.community-row
+						span.community-col
+							each val, index in community
+								- if (index % 2 == 0)
+									span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+										#titleBlock.col-xs-12
+											.row
+												.col-xs-2
+													img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
+												.hidden-xs.col-sm-4
+													h6= community[index].brandName
+												.col-xs-9.col-sm-6.email
+													h6= community[index].email
+													img(src='./images/user.png' width="15px")
+										#imgBlock.col-xs-12
+											img(src='./images/community/#{community[index].image}' width="100%;")
+										#likeBlock
+											.row.width-100-no-margin
+												.col-xs-4
+													img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+													h6= community[index].like
+												.col-xs-4
+													img(src='./images/speech.png' width='15px;')
+													h6= community[index].count
+												.col-xs-4
+													img(src='./images/view.png' width='15px;')
+													h6= community[index].view
+						span.community-col
+							each val, index in community
+								- if (index % 2 == 1)
+									span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+										#titleBlock.col-xs-12
+											.row
+												.col-xs-2
+													img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
+												.hidden-xs.col-sm-4
+													h6= community[index].brandName
+												.col-xs-9.col-sm-6.email
+													h6= community[index].email
+													img(src='./images/user.png' width="15px")
+										#imgBlock.col-xs-12
+											img(src='./images/community/#{community[index].image}' width="100%;")
+										#likeBlock
+											.row.width-100-no-margin
+												.col-xs-4
+													img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+													h6= community[index].like
+												.col-xs-4
+													img(src='./images/speech.png' width='15px;')
+													h6= community[index].count
+												.col-xs-4
+													img(src='./images/view.png' width='15px;')
+													h6= community[index].view
+					#conEnroll.col-xs-12
+						button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
+				#mini-list
+					#preview-tab
+						#mini-tab 미니
+						#photo-tab 포토
+					#event-list
+						#preview-head.col-xs-12
+							.row
+								.col-xs-2
+									img(src='./images/brand_logo/nike.png' style="width: 50px; max-height: 35px;")
+								.col-xs-7(style='text-align:left;')
+									h6 나이키
+								.col-xs-3(style='text-align:right;')
+									h6 신발
+						#preview-body.col-xs-12
+							#image(style='float:left;')
+								img(src='./images/brand_logo/nike.png' width='60px;' style='margin-left:-10px; padding-top:10px;')
+							#bodylanguage(style='float:left; width:80%;')
+								table(style='margin-left:8px;')
+									tr
+										td(style='width:50%;') 나이키 에어맥스 
+										td 55000
+									tr.comment
+										td coc**
+										td 남자 180 굵은편
+								table(style='margin-left:8px;')
+									tr
+										td(style="width: 45px;") 장점 
+										td(style='margin-bottom:0px;') ~~~~~
+									tr
+										td 단점
+										td(style='margin-bottom:0px;') ~~~~~
+									tr
+										td 코멘트
+										td(style='margin-bottom:0px;') ~~~~~
+						#preview-tail.col-xs-12
+							.col-xs-9(style="text-align: left;")
+								img(src='./images/heart.png' style='display: inline; width: 15px;')
+								h6(style='display: inline; margin-right: 10px;') 1000
+								img(src='./images/speech.png' style='display: inline; width: 15px;')
+								h6(style='display: inline; margin-right: 10px;') 1000
+								img(src='./images/clip.png' style='display: inline; width: 15px;')
+								h6(style='display: inline;') 1000
+							.col-xs-3(style="text-align: right;")
+								img(src='./images/view.png' style='display: inline; width: 15px;')
+								h6(style='display: inline;') 1000
 		#discount-con.col-xs-12
 			h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
 		//- each val, index in product
