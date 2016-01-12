@@ -10,10 +10,21 @@ var pool = mysql.createPool({
 /* GET home page. */
 router.post('/', function(req, res, next) {
 	if (req.session.userid) {
+		var goodContent = req.body.goodContent.trim();
+		var badContent = req.body.badContent.trim();
 		var content = req.body.content.trim();
-		if (content.length < 10) {
-			res.send({status: "error", code: "length"});
+		var code = [];
+		if (goodContent.length < 10) {
+			code.push(1);	
 		}
+		if (badContent.length < 10) {
+			code.push(2);	
+		}
+		if (content.length < 10) {
+			code.push(3);	
+		}
+		if (code != [])
+			res.send({status: "error", code: code});
 		else
 			pool.getConnection(function(err, connection) {
 				if (err) {
@@ -21,8 +32,8 @@ router.post('/', function(req, res, next) {
 				}
 				console.log('DB Connection Success!!');
 				connection.query('use vasket');
-				connection.query('insert into productComment(productNo, userNo, content, star, regdate) values(?, ?, ?, ?, now())', 
-				[req.body.productNo, req.session.userNo, content, req.body.star], function(err, result, field) {
+				connection.query('insert into productComment(productNo, userNo, goodContent, badContent, content, star, regdate) values(?, ?, ?, ?, ?, ?, now())', 
+				[req.body.productNo, req.session.userNo, goodContent, badContent, content, req.body.star], function(err, result, field) {
 					if (err) {
 						console.error('DB Insertion error!!');
 					}

@@ -243,47 +243,48 @@ block content
 					#conEnroll.col-xs-12
 						button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
 				#mini-list
-					#event-list
-						#preview-head.col-xs-12
-							.row
-								.col-xs-2
-									img(src='./images/brand_logo/nike.png' style="width: 50px; max-height: 35px;")
-								.col-xs-7(style='text-align:left;')
-									h6 나이키
-								.col-xs-3(style='text-align:right;')
-									h6 신발
-						#preview-body.col-xs-12
-							#image(style='float:left;')
-								img(src='./images/brand_logo/nike.png' width='60px;' style='margin-left:-10px; padding-top:10px;')
-							#bodylanguage(style='float:left; width:80%;')
-								table(style='margin-left:8px;')
-									tr
-										td(style='width:50%;') 나이키 에어맥스 
-										td 55000
-									tr.comment
-										td coc**
-										td 남자 180 굵은편
-								table(style='margin-left:8px;')
-									tr
-										td(style="width: 45px;") 장점 
-										td(style='margin-bottom:0px;') ~~~~~
-									tr
-										td 단점
-										td(style='margin-bottom:0px;') ~~~~~
-									tr
-										td 코멘트
-										td(style='margin-bottom:0px;') ~~~~~
-						#preview-tail.col-xs-12
-							.col-xs-9(style="text-align: left;")
-								img(src='./images/heart.png' style='display: inline; width: 15px;')
-								h6(style='display: inline; margin-right: 10px;') 1000
-								img(src='./images/speech.png' style='display: inline; width: 15px;')
-								h6(style='display: inline; margin-right: 10px;') 1000
-								img(src='./images/clip.png' style='display: inline; width: 15px;')
-								h6(style='display: inline;') 1000
-							.col-xs-3(style="text-align: right;")
-								img(src='./images/view.png' style='display: inline; width: 15px;')
-								h6(style='display: inline;') 1000
+					each val in preview
+						#event-list
+							#preview-head.col-xs-12
+								.row
+									.col-xs-2
+										img(src='./images/brand_logo/#{val.brandImageName}' style="width: 50px; max-height: 35px;")
+									.col-xs-7(style='text-align:left;')
+										h6= val.brandName
+									.col-xs-3(style='text-align:right;')
+										h6= val.category
+							#preview-body.col-xs-12
+								#image(style='float:left;')
+									img(src='./images/products/#{val.image}/0' width='60px;' style='margin-left:-10px; padding-top:10px;')
+								#bodylanguage(style='float:left; width:80%;')
+									table(style='margin-left:8px;')
+										tr
+											td(style='width:50%;')= val.productName
+											td= val.price
+										tr.comment
+											td= val.email
+											td 남자 180 굵은편
+									table(style='margin-left:8px;')
+										tr
+											td(style="width: 45px;") 장점 
+											td(style='margin-bottom:0px;')= val.goodContent
+										tr
+											td 단점
+											td(style='margin-bottom:0px;')= val.badContent
+										tr
+											td 코멘트
+											td(style='margin-bottom:0px;')= val.content
+							#preview-tail.col-xs-12
+								.col-xs-9(style="text-align: left;")
+									img(src='./images/heart.png' style='display: inline; width: 15px;')
+									h6(style='display: inline; margin-right: 10px;')= val.like
+									img(src='./images/speech.png' style='display: inline; width: 15px;')
+									h6(style='display: inline; margin-right: 10px;')= val.count
+									img(src='./images/clip.png' style='display: inline; width: 15px;')
+									h6(style='display: inline;')= val.clip
+								.col-xs-3(style="text-align: right;")
+									img(src='./images/view.png' style='display: inline; width: 15px;')
+									h6(style='display: inline;')= val.view
 		#discount-con.col-xs-12
 			h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
 		//- each val, index in product

@@ -42,7 +42,7 @@ html
       #commentBlock {background-color:#f9f9f9; width: 100%; padding: 10px; margin-bottom:15px;}
       #commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
       #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
-      #commentField {width: 100%; resize: none; height: 45px; -webkit-appearance: none; border-radius: 0;}
+      #commentField1, #commentField2, #commentField3 {width: 100%; resize: none; height: 45px; -webkit-appearance: none; border-radius: 0;}
       #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
       #like, #clip {z-index: 1; cursor: pointer;}
       #star-bg {width: 150px; height: 30px; position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right: auto; padding-top: 10px;}
@@ -173,8 +173,12 @@ html
                   img(src='./images/star_on.png' width='18px')
                 span#h5(onClick='heart(5)')
                   img(src='./images/star_on.png' width='18px')
-                h6 글 입력
-                textarea#commentField(maxlength="70" placeholder="댓글을 입력하세요")
+                h6 장점
+                textarea#commentField1(maxlength="70" placeholder="장점을 입력하세요")
+                h6 단점
+                textarea#commentField2(maxlength="70" placeholder="단점을 입력하세요")
+                h6 코멘트
+                textarea#commentField3(maxlength="70" placeholder="코멘트를 입력하세요")
               .modal-footer
                 .alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
                   a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
@@ -221,7 +225,12 @@ html
             .date
               p= val.date
             #content
-              h6(style='display: inline;')= val.content
+              h5 장점
+              h6= val.goodContent
+              h5 단점
+              h6= val.badContent
+              h5 코멘트
+              h6= val.content
     #info-con.col-xs-12
       table.table
         if (product.code)
@@ -332,10 +341,21 @@ html
           $.ajax({
             type: "POST",
             url: '/reg_prod_comment',
-            data: {productNo: #{productNo}, content: $("#commentField").val(), star: star},
+            data: {productNo: #{productNo}, goodContent: $("#commentField1").val(), badContent: $("#commentField2").val(), content: $("#commentField3").val(), star: star},
             success: function(data) {
               if (data.status == "error") {
-                $('#commentField').css('border', '2px solid #FF9191');
+                if ($.inArray(1, data.code))
+                  $('#commentField1').css('border', '2px solid #FF9191');
+                else
+                  $('#commentField1').css('border', '0');
+                if ($.inArray(2, data.code))
+                  $('#commentField2').css('border', '2px solid #FF9191');
+                else
+                  $('#commentField2').css('border', '0');
+                if ($.inArray(3, data.code))
+                  $('#commentField3').css('border', '2px solid #FF9191');
+                else
+                  $('#commentField3').css('border', '0');
                 $('#commentAlert').fadeIn('fast');
               } else if (data.status == "success") {
                 $('#commentModal').modal('hide');
