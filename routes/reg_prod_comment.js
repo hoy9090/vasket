@@ -23,7 +23,7 @@ router.post('/', function(req, res, next) {
 		if (content.length < 10) {
 			code.push(3);	
 		}
-		if (code != [])
+		if (code.length !== 0)
 			res.send({status: "error", code: code});
 		else
 			pool.getConnection(function(err, connection) {
