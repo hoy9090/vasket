@@ -97,7 +97,8 @@ block style
 		.comment { background-color:#d5d5d5;}
 		table {width:100%;}
 		#brand-preview {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
-		#preview-tab {width: 204px; height: 29px; border-radius: 5px; border: 2px solid #8200ff; background-color:#fff; cursor: pointer; margin-bottom: 5px; position: fixed; left: 0; right: 0; margin: 5px auto; z-index: 1;}
+		#preview-tab {width: 204px; height: 29px; border-radius: 5px; border: 2px solid #8200ff; background-color:#fff; cursor: pointer; margin-bottom: 5px; margin: 5px auto; z-index: 1;}
+		#preview-fixed {position: fixed; left: 0; right: 0; top: 50px; background-color: #f6f6f6;}
 		#mini-tab, #photo-tab {width: 100px; height: 25px; float: left; padding: 3px; text-align: center;}
 		#mini-tab {background-color: #8200ff; color: #fff;}
 		#photo-tab {background-color: #fff; color: #8200ff;}
@@ -181,9 +182,10 @@ block content
 											h6= content[index].view
 		#event-con
 			#preview-list
-				#preview-tab
-						#mini-tab(onClick='previewChange(1);') 미니
-						#photo-tab(onClick='previewChange(2);') 포토
+				#preview-fixed
+					#preview-tab
+							#mini-tab(onClick='previewChange(1);') 미니
+							#photo-tab(onClick='previewChange(2);') 포토
 				#photo-list(style="display:none;")
 					span.community-row
 						span.community-col
