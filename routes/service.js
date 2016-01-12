@@ -99,7 +99,7 @@ router.get('/', function(req, res, next) {
 								result[index].user_clip = 0;
 							}
 							var content = result;
-							connection.query('select email, goodContent, badContent, c.content, star, p.image, p.view, p.productName, p.category, p.price, b.brandName, b.brandImageName, (select count(*) from productComment where productNo=c.productNo) as `count`, (select count(*) from productLikeList where productNo=c.productNo) as `like`, (select count(*) from productClipList where productNo=c.productNo) as `clip`, `0` user_like, `0` user_clip from miniPreview m join productComment c on m.commentNo=c.commentNo join product p on c.productNo=p.productNo join brand b on p.brandNo=b.brandNo join user u on c.userNo=u.userNo order by m.commentNo desc;', function(err, result, field) {
+							connection.query('select email, goodContent, badContent, c.content, star, p.image, p.view, p.productName, p.category, p.price, b.brandName, b.brandImageName, (select count(*) from productComment where productNo=c.productNo) as `count`, (select count(*) from productLikeList where productNo=c.productNo) as `like`, (select count(*) from productClipList where productNo=c.productNo) as `clip`, 0 user_like, 0 user_clip from miniPreview m join productComment c on m.commentNo=c.commentNo join product p on c.productNo=p.productNo join brand b on p.brandNo=b.brandNo join user u on c.userNo=u.userNo order by m.commentNo desc;', function(err, result, field) {
 								if (err) {
 									console.error(err);
 								}
