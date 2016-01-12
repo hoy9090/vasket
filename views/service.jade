@@ -239,8 +239,8 @@ block content
 						button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
 				#mini-list
 					#preview-tab
-						#mini-tab 미니
-						#photo-tab 포토
+						#mini-tab(onClick='previewChange(1);') 미니
+						#photo-tab(onClick='previewChange(2);') 포토
 					#event-list
 						#preview-head.col-xs-12
 							.row
@@ -398,6 +398,16 @@ block script_content
 			});
 		}
 		$(document).ready(comma);
+		function previewChange(num) {
+			if (num == 1) {
+				$('#mini-tab').css('display', 'block').css('backgroung-color', '#8200ff').css('color', '#fff');
+				$('#photo-tab').css('display', 'none').css('backgroung-color', '#fff').css('color', '#8200ff');
+			}
+			if (num == 2) {
+				$('#photo-tab').css('display', 'block').css('backgroung-color', '#8200ff').css('color', '#fff');
+				$('#mini-tab').css('display', 'none').css('backgroung-color', '#fff').css('color', '#8200ff');
+			}
+		}
 	if (loggedIn)
 		script.
 			function setInitialLike() {
