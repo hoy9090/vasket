@@ -204,7 +204,12 @@ html
             .date
               p= val.date
             #content
-              h6(style='display: inline;')= val.content
+              h5 장점
+              h6= val.goodContent
+              h5 단점
+              h6= val.badContent
+              h5 코멘트
+              h6= val.content
       else
         each val in comment
           .comment-header.col-xs-12
