@@ -93,7 +93,6 @@ router.get('/', function(req, res, next) {
 							if (err) {
 								console.error(err);
 							}
-							connection.release();
 							for (var index in result) {
 								result[index].user_like = 0;
 								result[index].user_clip = 0;
