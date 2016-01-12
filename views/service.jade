@@ -87,6 +87,15 @@ block style
 		.width-100-no-margin {width: 100%; margin: 0;}
 		#likeBlock h6 {margin-top: 0;}
 		.container-fluid {background-color: #f6f6f6;}
+		#preview-brand {display:block;}
+		#preview-list {}
+		#preview-head {height:35px; background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7;}
+		#preview-body {height:100px; background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7; border-top-width:0px;}
+		#preview-tail {}
+		.attr { float:left; border-style:solid; border-width:2px; border-color:#990085; border-radius:10%;font-size:70%; font-weight:bold; color:#990085;margin-right:3px;}
+		.comment { background-color:#d5d5d5;}
+		table {width:100%;}
+		#brand-preview {text-align:center;background-color:#ffffff;border-width:0px; border-style:solid; border-color:#ffffff; border-left-width:0px;height:50px;padding-top:7px;border-bottom-width:3px;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
@@ -166,62 +175,98 @@ block content
 											img(src='./images/view.png' width='15px;')
 											h6= content[index].view
 		#event-con
-			#event-list
-				span.community-row
-					span.community-col
-						each val, index in community
-							- if (index % 2 == 0)
-								span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-									#titleBlock.col-xs-12
-										.row
-											.col-xs-2
-												img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-											.hidden-xs.col-sm-4
-												h6= community[index].brandName
-											.col-xs-9.col-sm-6.email
-												h6= community[index].email
-												img(src='./images/user.png' width="15px")
-									#imgBlock.col-xs-12
-										img(src='./images/community/#{community[index].image}' width="100%;")
-									#likeBlock
-										.row.width-100-no-margin
-											.col-xs-4
-												img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-												h6= community[index].like
-											.col-xs-4
-												img(src='./images/speech.png' width='15px;')
-												h6= community[index].count
-											.col-xs-4
-												img(src='./images/view.png' width='15px;')
-												h6= community[index].view
-					span.community-col
-						each val, index in community
-							- if (index % 2 == 1)
-								span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
-									#titleBlock.col-xs-12
-										.row
-											.col-xs-2
-												img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
-											.hidden-xs.col-sm-4
-												h6= community[index].brandName
-											.col-xs-9.col-sm-6.email
-												h6= community[index].email
-												img(src='./images/user.png' width="15px")
-									#imgBlock.col-xs-12
-										img(src='./images/community/#{community[index].image}' width="100%;")
-									#likeBlock
-										.row.width-100-no-margin
-											.col-xs-4
-												img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
-												h6= community[index].like
-											.col-xs-4
-												img(src='./images/speech.png' width='15px;')
-												h6= community[index].count
-											.col-xs-4
-												img(src='./images/view.png' width='15px;')
-												h6= community[index].view
-			#conEnroll.col-xs-12
-				button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
+			//- #event-list
+			//- 	span.community-row
+			//- 		span.community-col
+			//- 			each val, index in community
+			//- 				- if (index % 2 == 0)
+			//- 					span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+			//- 						#titleBlock.col-xs-12
+			//- 							.row
+			//- 								.col-xs-2
+			//- 									img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
+			//- 								.hidden-xs.col-sm-4
+			//- 									h6= community[index].brandName
+			//- 								.col-xs-9.col-sm-6.email
+			//- 									h6= community[index].email
+			//- 									img(src='./images/user.png' width="15px")
+			//- 						#imgBlock.col-xs-12
+			//- 							img(src='./images/community/#{community[index].image}' width="100%;")
+			//- 						#likeBlock
+			//- 							.row.width-100-no-margin
+			//- 								.col-xs-4
+			//- 									img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+			//- 									h6= community[index].like
+			//- 								.col-xs-4
+			//- 									img(src='./images/speech.png' width='15px;')
+			//- 									h6= community[index].count
+			//- 								.col-xs-4
+			//- 									img(src='./images/view.png' width='15px;')
+			//- 									h6= community[index].view
+			//- 		span.community-col
+			//- 			each val, index in community
+			//- 				- if (index % 2 == 1)
+			//- 					span.community-box(onClick="location.href='/community_box?communityNo=#{community[index].communityNo}';")
+			//- 						#titleBlock.col-xs-12
+			//- 							.row
+			//- 								.col-xs-2
+			//- 									img(src='./images/brand_logo/#{community[index].brandImageName}' width='40px;')
+			//- 								.hidden-xs.col-sm-4
+			//- 									h6= community[index].brandName
+			//- 								.col-xs-9.col-sm-6.email
+			//- 									h6= community[index].email
+			//- 									img(src='./images/user.png' width="15px")
+			//- 						#imgBlock.col-xs-12
+			//- 							img(src='./images/community/#{community[index].image}' width="100%;")
+			//- 						#likeBlock
+			//- 							.row.width-100-no-margin
+			//- 								.col-xs-4
+			//- 									img(src=(community[index].user_like ? './images/heart_on.png' : './images/heart.png') width='15px;')
+			//- 									h6= community[index].like
+			//- 								.col-xs-4
+			//- 									img(src='./images/speech.png' width='15px;')
+			//- 									h6= community[index].count
+			//- 								.col-xs-4
+			//- 									img(src='./images/view.png' width='15px;')
+			//- 									h6= community[index].view
+			//- #conEnroll.col-xs-12
+			//- 	button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
+			#preview-list
+				#preview-head.col-xs-12
+					.row
+						.col-xs-2
+							img(src='./images/nike.png' width='30px;')
+						.col-xs-4
+							h6 나이키
+						.col-xs-6(style='text-align:right;')
+							h6 신발
+				#preview-body.col-xs-12
+					#image(style='float:left;')
+						img(src='./images/nike1.jpg' width='60px;' style='margin-left:-10px; padding-top:10px;')
+					#bodylanguage(style='float:left; width:80%;')
+						table(style='margin-left:8px;')
+							tr
+								td(style='width:30%;').
+									 나이키 에어맥스 
+								td(colspan="3").
+									 55000
+							tr.comment
+								td(colspan="1").
+									coc**
+								td(colspan="3").
+									남자
+									180
+									굵은편
+						table(style='margin-left:8px;')
+							tr
+								td.
+									장점 
+								td(colspan="3" style='margin-bottom:0px;') ~~~~~
+							tr
+								td.
+									단점
+								td(colspan="3" style='margin-bottom:0px;') ~~~~~
+				#preview-tail.col-xs-12
 		#discount-con.col-xs-12
 			h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
 		//- each val, index in product
