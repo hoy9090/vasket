@@ -400,12 +400,16 @@ block script_content
 		$(document).ready(comma);
 		function previewChange(num) {
 			if (num == 1) {
-				$('#mini-tab').css('display', 'block').css('backgroung-color', '#8200ff').css('color', '#fff');
-				$('#photo-tab').css('display', 'none').css('backgroung-color', '#fff').css('color', '#8200ff');
+				$('#mini-tab').css('backgroung-color', '#8200ff').css('color', '#fff');
+				$('#photo-tab').css('backgroung-color', '#fff').css('color', '#8200ff');
+				$('#mini-list').css('display', 'block');
+				$('#photo-list').css('display', 'none');
 			}
 			if (num == 2) {
-				$('#photo-tab').css('display', 'block').css('backgroung-color', '#8200ff').css('color', '#fff');
-				$('#mini-tab').css('display', 'none').css('backgroung-color', '#fff').css('color', '#8200ff');
+				$('#photo-tab').css('backgroung-color', '#8200ff').css('color', '#fff');
+				$('#mini-tab').css('backgroung-color', '#fff').css('color', '#8200ff');
+				$('#mini-list').css('display', 'none');
+				$('#photo-list').css('display', 'block');
 			}
 		}
 	if (loggedIn)
