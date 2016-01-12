@@ -108,7 +108,7 @@ router.get('/', function(req, res, next) {
 									var at_index = preview[index].email.indexOf('@');
 									preview[index].email = preview[index].email.substr(0, 2)+'***@'+preview[index].email.substr(at_index+1, 2);
 								}
-								res.render('service', {brand: brand, brandLike: brandLike, product: product, community: community, content: content, preview: preview});
+								res.render('service', {brand: brand, brandLike: 0, product: product, community: community, content: content, preview: preview});
 							});
 						});
 					});	
