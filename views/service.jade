@@ -90,7 +90,7 @@ block style
 		#preview-brand {display:block;}
 		#preview-list { }
 		#preview-head {height:35px; background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7;}
-		#preview-body {height:100px; background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7; border-top-width:0px;}
+		#preview-body {background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7; border-top-width:0px;}
 		#preview-tail {}
 		.attr { float:left; border-style:solid; border-width:2px; border-color:#990085; border-radius:10%;font-size:70%; font-weight:bold; color:#990085;margin-right:3px;}
 		.comment { background-color:#d5d5d5;}
@@ -235,37 +235,32 @@ block content
 				#preview-head.col-xs-12
 					.row
 						.col-xs-2
-							img(src='./images/nike.png' width='30px;')
-						.col-xs-4
+							img(src='./images/brand_logo/nike.png' width='30px;')
+						.col-xs-7(style='text-align:left;')
 							h6 나이키
-						.col-xs-6(style='text-align:right;')
+						.col-xs-3(style='text-align:right;')
 							h6 신발
 				#preview-body.col-xs-12
 					#image(style='float:left;')
-						img(src='./images/nike1.jpg' width='60px;' style='margin-left:-10px; padding-top:10px;')
+						img(src='./images/brand_logo/nike.png' width='60px;' style='margin-left:-10px; padding-top:10px;')
 					#bodylanguage(style='float:left; width:80%;')
 						table(style='margin-left:8px;')
 							tr
-								td(style='width:30%;').
-									 나이키 에어맥스 
-								td(colspan="3").
-									 55000
+								td(style='width:50%;') 나이키 에어맥스 
+								td 55000
 							tr.comment
-								td(colspan="1").
-									coc**
-								td(colspan="3").
-									남자
-									180
-									굵은편
+								td coc**
+								td 남자 180 굵은편
 						table(style='margin-left:8px;')
 							tr
-								td.
-									장점 
-								td(colspan="3" style='margin-bottom:0px;') ~~~~~
+								td 장점 
+								td(style='margin-bottom:0px; width: 45px;') ~~~~~
 							tr
-								td.
-									단점
-								td(colspan="3" style='margin-bottom:0px;') ~~~~~
+								td 단점
+								td(style='margin-bottom:0px;') ~~~~~
+							tr
+								td 코멘트
+								td(style='margin-bottom:0px;') ~~~~~
 				#preview-tail.col-xs-12
 		#discount-con.col-xs-12
 			h2(style="word-break: keep-all; text-align: center;") 커머스 서비스는 준비중입니다
