@@ -46,7 +46,7 @@ router.get('/', function(req, res, next) {
 						html += "</div><div class='date'><p>"+comment[index].date+"</p></div>";
 						html += "<div id='content'><h5>장점</h5><h6>"+comment[index].goodContent+"</h6><h5>단점</h5><h6>"+comment[index].badContent+"</h6><h5>코멘트</h5><h6>"+comment[index].content+"</h6></div></div>";
 				}
-				var lastIndex = comment[length-1].commentNo;
+				var lastIndex = comment[comment.length-1].commentNo;
 				var isEnd = comment.length==offset? false : true;
 				res.send({html: html, lastIndex: lastIndex, isEnd: isEnd});
 			});
