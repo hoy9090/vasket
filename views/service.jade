@@ -277,20 +277,20 @@ block content
 															td 남자 180 굵은편
 													table(style='margin-left:8px;')
 														tr
-															td(style="width: 45px;")
-																h6 장점 
+															td(style="width: 40px;")
+																h6.bold.no-margin 장점 
 															td(style='margin-bottom:0px;')
-																h6= val.goodContent
+																h.no-margin6= val.goodContent
 														tr
 															td
-																h6 단점
+																h6.bold.no-margin 단점
 															td(style='margin-bottom:0px;')
-																h6= val.badContent
+																h6.no-margin= val.badContent
 														tr
 															td
-																h6 코멘트
+																h6.bold.no-margin 코멘트
 															td(style='margin-bottom:0px;')
-																h6= val.content
+																h6.no-margin= val.content
 							#preview-tail.col-xs-12
 								.col-xs-9(style="text-align: left;")
 									img(src=(val.user_like ? './images/heart_on.png' : './images/heart.png') style='display: inline; width: 20px;')
