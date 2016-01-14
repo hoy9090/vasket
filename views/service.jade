@@ -92,7 +92,7 @@ block style
 		#preview-brand {display:block;}
 		#preview-head {height:35px; background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7;}
 		#preview-body {background-color:#ffffff; width:100%; border-style:solid; border-width:2px; border-color:#e7e7e7; border-top-width:0px;}
-		#preview-tail {padding: 0; border: 2px solid #e7e7e7; border-top: 0; background: #fff; margin-bottom: 5px;}
+		#preview-tail {padding: 0; border: 2px solid #e7e7e7; border-top: 0; background: #fff; }
 		.attr { float:left; border-style:solid; border-width:2px; border-color:#990085; border-radius:10%;font-size:70%; font-weight:bold; color:#990085;margin-right:3px;}
 		.comment { background-color:#d5d5d5;}
 		table {width:100%;}
@@ -100,8 +100,9 @@ block style
 		#preview-tab {width: 204px; height: 29px; border-radius: 5px; border: 2px solid #8200ff; background-color:#fff; cursor: pointer; margin-bottom: 5px; margin: 5px auto;}
 		#preview-fixed {position: fixed; left: 0; right: 0; top: 100px; background-color: #f6f6f6; z-index: 1;}
 		#mini-tab, #photo-tab {width: 100px; height: 25px; float: left; padding: 3px; text-align: center;}
-		#mini-tab {background-color: #8200ff; color: #fff; border-radius: 2px;}
-		#photo-tab {background-color: #fff; color: #8200ff;}
+		#mini-tab {background-color: #8200ff; color: #fff; }
+		#photo-tab {background-color: #fff; color: #8200ff; border-radius: 2px;}
+		#event-list {margin-bottom:5px; float: left;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
@@ -244,7 +245,7 @@ block content
 						button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
 				#mini-list
 					each val in preview
-						#event-list
+						#event-list(onClick="location.href='/product_box?productNo=#{val.produtNo}'")
 							#preview-head.col-xs-12
 								.row
 									.col-xs-2
