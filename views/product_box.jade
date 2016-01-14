@@ -211,7 +211,7 @@ html
               h5 코멘트
               h6= val.content
       else
-        each val in comment(id='#{val.commentNo}')
+        each val in comment
           .comment-header.col-xs-12(id='#{val.commentNo}')
             h5.bold(style='display: inline; color: #1F50B5')= val.email
             .goodbad
