@@ -265,7 +265,7 @@ block content
 													img(src='./images/products/#{val.image}/0' width='100%')
 											td
 												.previewContent
-													table(style='margin-left:8px;')
+													table
 														tr
 															td(style='width:50%;')
 																h5.bold= val.productName
@@ -275,10 +275,11 @@ block content
 															td(colspan='2')
 																img(src='./images/user.png' width='15px' style='display: inline;')
 																h6(style='display: inline;')= val.email
-																h6.tag 남자
-																h6.tag 180
-																h6.tag 굵은편
-													table(style='margin-left:8px;')
+																span
+																	h6.tag 남자
+																	h6.tag 180
+																	h6.tag 굵은편
+													table
 														tr
 															td(style="width: 40px;")
 																h6.bold.no-margin 장점 
