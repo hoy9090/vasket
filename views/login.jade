@@ -108,9 +108,12 @@ html(lang='ko-kr')
       function fb_login(){
       FB.login(function(response) {
       console.log(response);
+      console.log('a');
       if (response.authResponse && response.authResponse.grantedScopes.includes("email")) {
+        console.log('b');
         go_signup();
       } else {
+        console.log('c');
         alert('Vasket 가입을 위해서 Facebook 기본 프로필, 이메일 정보가 필요합니다. 이는 Vasket 회원의 기본 정보(성명, 이메일)의 유효함을 확인하기 위함으로, 자세한 정보는 Vasket 개인정보취급방침을 확인해주시기 바랍니다.');
       }
       }, {
