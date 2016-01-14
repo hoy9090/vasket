@@ -26,7 +26,8 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						connection.query('SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo=? and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+(productNo+ commentNo? ' where commentNo >= ?' : '')+' order by c.commentNo desc '+ commentNo ? '': '?' , [req.session.userNo, commentNo? commentNo : 'limit 0, 5'], function(err, result, field) {
+						var comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo='+req.session.userNo+' and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+(commentNo? ' where commentNo >= '+commentNo : '')+' order by c.commentNo desc '+(commentNo ? '': 'limit 0, 5');
+						connection.query(comment_query, function(err, result, field) {
 							if (err)
 								console.error(err);
 							var comment = result;
@@ -65,7 +66,8 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						connection.query('SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo desc', function(err, result, field) {
+						var comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+(commentNo? ' where commentNo >= '+commentNo : '')+' order by c.commentNo desc '+(commentNo ? '': 'limit 0, 5');
+						connection.query(comment_query, function(err, result, field) {
 							if (err)
 								console.error(err);
 							var comment = result;
