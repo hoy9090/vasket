@@ -300,13 +300,12 @@ html
             type: "GET",
             url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
             success: function (result) {
-              console.log(result);
-              $("#community-con").append(result);
+              $("#community-con").append(result.html);
 
-              sIndex = sIndex + offSet;
+              sIndex = result.lastIndex;
               isPreviousEventComplete = true;
 
-              if (result == '') //When data is not available
+              if (result.html == '' || result.isEnd) //When data is not available
                   isDataAvailable = false;
 
               $(".LoaderImage").css("display", "none");

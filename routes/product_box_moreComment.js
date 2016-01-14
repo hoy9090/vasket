@@ -45,13 +45,14 @@ router.get('/', function(req, res, next) {
 							html += "<img src='./images/star.png'>";
 						html += "</div><div class='date'><p>"+comment[index].date+"</p></div>";
 						html += "<div id='content'><h5>장점</h5><h6>"+comment[index].goodContent+"</h6><h5>단점</h5><h6>"+comment[index].badContent+"</h6><h5>코멘트</h5><h6>"+comment[index].content+"</h6></div></div>";
-						console.log(html);
 				}
-				res.send(html);
+				var lastIndex = comment[lenth-1].commentNo;
+				var isEnd = comment.length==offset? false : true;
+				res.send({html: html, lastIndex: lastIndex, isEnd: isEnd});
 			});
 		});
 	} else {
-		res.send('');
+		res.send({html: '', lastIndex: '', isEnd: ''});
 	}
 });
 
