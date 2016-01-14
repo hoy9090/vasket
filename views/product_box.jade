@@ -349,6 +349,7 @@ html
             data: {productNo: #{productNo}, goodContent: $("#commentField1").val(), badContent: $("#commentField2").val(), content: $("#commentField3").val(), star: star},
             success: function(data) {
               if (data.status == "error") {
+                console.log(data.code);
                 if ($.inArray(1, data.code))
                   $('#commentField1').css('border', '2px solid #FF9191');
                 else
