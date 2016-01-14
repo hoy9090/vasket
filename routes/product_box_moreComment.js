@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 			} else {
 				comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' and commentNo <='+startIndex+' order by c.commentNo desc limit 0, '+offset;
 			}
-			console.log(comment_query);
+			connection.query('use vasket');
 			connection.query(comment_query, function(err, result, field) {
 				connection.release();
 				console.log(result);
