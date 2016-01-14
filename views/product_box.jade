@@ -302,7 +302,7 @@ html
             success: function (result) {
               $("#community-con").append(result.html);
 
-              sIndex = result.lastIndex;
+              sIndex = result.lastIndex-1;
               isPreviousEventComplete = true;
 
               if (result.html == '' || result.isEnd) //When data is not available
