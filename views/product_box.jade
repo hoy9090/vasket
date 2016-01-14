@@ -352,15 +352,15 @@ html
                 if ($.inArray(1, data.code))
                   $('#commentField1').css('border', '2px solid #FF9191');
                 else
-                  $('#commentField1').css('border', '0');
+                  $('#commentField1').css('border', '');
                 if ($.inArray(2, data.code))
                   $('#commentField2').css('border', '2px solid #FF9191');
                 else
-                  $('#commentField2').css('border', '0');
+                  $('#commentField2').css('border', '');
                 if ($.inArray(3, data.code))
                   $('#commentField3').css('border', '2px solid #FF9191');
                 else
-                  $('#commentField3').css('border', '0');
+                  $('#commentField3').css('border', '');
                 $('#commentAlert').fadeIn('fast');
               } else if (data.status == "success") {
                 $('#commentModal').modal('hide');
