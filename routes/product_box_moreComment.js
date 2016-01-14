@@ -21,6 +21,7 @@ router.get('/', function(req, res, next) {
 			}
 			console.log(comment_query);
 			connection.query(comment_query, function(err, result) {
+				connection.release();
 				var comment = result;
 				for (var idx in comment) {
 					var at_index_ = comment[idx].email.indexOf('@');
@@ -43,8 +44,8 @@ router.get('/', function(req, res, next) {
 							html += "<img src='./images/star.png'>";
 						html += "</div><div class='date'><p>"+comment[index].date+"</p></div>";
 						html += "<div id='content'><h5>장점</h5><h6>"+comment[index].goodContent+"</h6><h5>단점</h5><h6>"+comment[index].badContent+"</h6><h5>코멘트</h5><h6>"+comment[index].content+"</h6></div></div>";
+						console.log(html);
 				}
-				console.log(html);
 				res.send(html);
 			});
 		});
