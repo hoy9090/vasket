@@ -22,6 +22,7 @@ router.get('/', function(req, res, next) {
 			console.log(comment_query);
 			connection.query(comment_query, function(err, result) {
 				connection.release();
+				console.log(result);
 				var comment = result;
 				for (var idx in comment) {
 					var at_index_ = comment[idx].email.indexOf('@');
