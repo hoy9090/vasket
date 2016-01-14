@@ -310,7 +310,7 @@ html
       }
       $(document).ready(function() {
         if (location.hash != "")
-          $(location.hash).effect( "highlight", {color:"#FFFFB5"}, 1000 );
+          $("#comment"+location.hash.replace('#','')).effect( "highlight", {color:"#FFFFB5"}, 1000 );
       });
       function change(num){
         var copy = count;
