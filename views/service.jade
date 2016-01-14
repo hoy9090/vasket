@@ -104,7 +104,7 @@ block style
 		#event-list {margin-bottom:5px; float: left; cursor: pointer; width: 100%;}
 		.previewImage {float: left; min-width: 100px !important; width: 100%; padding: 5px;}
 		.previewContent {float: left;}
-		.tag {display: inline; border-radius: 10px; padding: 2px 7px; background-color: #8200ff; color: #fff; margin: 0px 2px;}
+		.tag {display: inline; border-radius: 10px; padding: 2px 7px; background-color: #8200ff; color: #fff; margin: 0px 2px; word-break: keep-all;}
 	style.
 		@media only screen and (max-width: 500px) {.discount-box h5 {font-size: 130%;} .discount-box h6 {font-size: 100%;}}
 		@media only screen and (max-width: 350px) {.email h6 {font-size:80%;}}
@@ -273,9 +273,10 @@ block content
 																h6= val.price
 														tr
 															td(colspan='2')
-																img(src='./images/user.png' width='15px' style='display: inline;')
-																h6(style='display: inline;')= val.email
-																span
+																span(style='float: left;')
+																	img(src='./images/user.png' width='15px' style='display: inline;')
+																	h6(style='display: inline;')= val.email
+																span(style='float: left;')
 																	h6.tag 남자
 																	h6.tag 180
 																	h6.tag 굵은편
