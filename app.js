@@ -62,6 +62,7 @@ var reg_prod_comment = require('./routes/reg_prod_comment');
 var product_clip = require('./routes/product_clip');
 var comment_goodbad = require('./routes/comment_goodbad');
 var privacy_policy = require('./routes/privacy_policy');
+var product_box_moreComment = require('./routes/product_box_moreComment');
 
 var options = {
   key: fs.readFileSync('./ssl/ssl.key'),
@@ -150,6 +151,7 @@ app.use('/reg_prod_comment', reg_prod_comment);
 app.use('/product_clip', product_clip);
 app.use('/comment_goodbad', comment_goodbad);
 app.use('/privacy_policy', privacy_policy);
+app.use('/product_box_moreComment', product_box_moreComment);
 
 app.get('/download/:id', function(req, res) {
   var filename = req.params.id;
