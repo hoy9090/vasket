@@ -247,7 +247,7 @@ block content
 						button.btn.btn-warning(onClick="location.href='/community_post';" style="max-width: 1200px;") 게시글 올리기
 				#mini-list
 					each val in preview
-						#event-list(onClick="location.href='/product_box?productNo=#{val.productNo}##{val.commentNo}'")
+						#event-list(onClick="location.href='/product_box?productNo=#{val.productNo}&commentNo=#{val.commentNo}##{val.commentNo}'")
 							#preview-head.col-xs-12
 								.row
 									.col-xs-2

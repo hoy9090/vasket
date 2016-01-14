@@ -10,6 +10,7 @@ var pool = mysql.createPool({
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	var productNo = req.query.productNo;
+	var commentNo = req.query.commentNo;
 	if (productNo) {
 		if (req.session.userid) {
 			pool.getConnection(function(err, connection) {
@@ -25,7 +26,7 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						connection.query('SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo=? and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' order by c.commentNo desc', [req.session.userNo], function(err, result, field) {
+						connection.query('SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo=? and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+(productNo+ commentNo? ' where commentNo >= ?' : '')+' order by c.commentNo desc '+ commentNo ? '': '?' , [req.session.userNo, commentNo? commentNo : 'limit 0, 5'], function(err, result, field) {
 							if (err)
 								console.error(err);
 							var comment = result;
