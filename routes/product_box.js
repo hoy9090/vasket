@@ -26,7 +26,7 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						var comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo='+req.session.userNo+' and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+(commentNo? ' where commentNo >= '+commentNo : '')+' order by c.commentNo desc '+(commentNo ? '': 'limit 0, 5');
+						var comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo='+req.session.userNo+' and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+((commentNo && product.count > 5) ? ' and commentNo >= '+commentNo : '')+' order by c.commentNo desc '+(commentNo ? '': 'limit 0, 5');
 						connection.query(comment_query, function(err, result, field) {
 							if (err)
 								console.error(err);
@@ -66,7 +66,7 @@ router.get('/', function(req, res, next) {
 						if (err)
 							console.error(err);
 						var star = result[0];
-						var comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+(commentNo? ' where commentNo >= '+commentNo : '')+' order by c.commentNo desc '+(commentNo ? '': 'limit 0, 5');
+						var comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+((commentNo && product.count > 5) ? ' and commentNo >= '+commentNo : '')+' order by c.commentNo desc '+(commentNo ? '': 'limit 0, 5');
 						connection.query(comment_query, function(err, result, field) {
 							if (err)
 								console.error(err);
