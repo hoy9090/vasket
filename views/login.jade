@@ -71,7 +71,7 @@ html(lang='ko-kr')
             FB.api(
               '/me',
               'GET',
-              {"fields":"id,name,birthday,gender,email"},
+              {"fields":"id,name,gender,email"},
               function(response) {
                 $.ajax({
                   type: 'POST',
@@ -107,14 +107,15 @@ html(lang='ko-kr')
 
       function fb_login(){
       FB.login(function(response) {
-      if (response.authResponse) {
-        go_signup();
-      } else {
-        alert('Vasket 가입을 위해서 Facebook 기본 프로필, 이메일 정보가 필요합니다. 이는 Vasket 회원의 기본 정보(성명, 이메일)의 유효함을 확인하기 위함으로, 자세한 정보는 Vasket 개인정보취급방침을 확인해주시기 바랍니다.');
-        location.href = '/';
-      }
+      console.log(response);
+      //- if (response.authResponse) {
+      //-   go_signup();
+      //- } else {
+      //-   alert('Vasket 가입을 위해서 Facebook 기본 프로필, 이메일 정보가 필요합니다. 이는 Vasket 회원의 기본 정보(성명, 이메일)의 유효함을 확인하기 위함으로, 자세한 정보는 Vasket 개인정보취급방침을 확인해주시기 바랍니다.');
+      //- }
       }, {
-      scope: 'public_profile,email'
+      scope: 'public_profile,email',
+      return_scopes: true
       });
       }
 
