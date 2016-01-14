@@ -236,6 +236,8 @@ html
               h6= val.badContent
               h5 코멘트
               h6= val.content
+      .LoaderImage
+        h3 Loading...  
     #info-con.col-xs-12
       table.table
         if (product.code)
@@ -285,6 +287,37 @@ html
       $('#white-bg').css('width', (150-red_width)+"px");
       var count=1;
       var star = 5;
+      var sIndex = parseInt(#{comment[comment.length-1].commentNo})-1, offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
+  
+      $(window).scroll(function () {
+       if ($(document).height() - 50 <= $(window).scrollTop() + $(window).height()) {
+        if (isPreviousEventComplete && isDataAvailable) {
+         
+          isPreviousEventComplete = false;
+          $(".LoaderImage").css("display", "block");
+
+          $.ajax({
+            type: "GET",
+            url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
+            success: function (result) {
+              $("#community-con").append(result);
+
+              sIndex = sIndex + offSet;
+              isPreviousEventComplete = true;
+
+              if (result == '') //When data is not available
+                  isDataAvailable = false;
+
+              $(".LoaderImage").css("display", "none");
+            },
+            error: function (error) {
+                alert(error);
+            }
+          });
+
+        }
+       }
+      });
       function like_(){
         var like_id=document.getElementById("like_");
         if(like_id.className == "like_"){
