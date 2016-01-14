@@ -300,6 +300,7 @@ html
             type: "GET",
             url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
             success: function (result) {
+              console.log(result);
               $("#community-con").append(result);
 
               sIndex = sIndex + offSet;
