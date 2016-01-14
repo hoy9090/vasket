@@ -62,7 +62,7 @@ html
         box-shadow: 1px 1px 1px 1px #BCBCBC;
         border-radius: 1px;
       }
-      .comment-header {padding: 0;}
+      .comment-header {padding: 0; padding-top: 3px;}
       .reg-comment {padding: 0; margin-bottom: 15px;}
       .date {float: right; display: inline;}
       .date p {font-size:10px; color:#A6A6A6;}
@@ -186,7 +186,7 @@ html
                 button.btn.btn-warning(type="button" onClick="reg_comment();") 등록
       if (loggedIn)
         each val in comment
-          .comment-header.col-xs-12
+          .comment-header.col-xs-12(id='#{val.commentNo}')
             h5.bold(style='display: inline; color: #1F50B5')= val.email
             .goodbad
               .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
@@ -211,8 +211,8 @@ html
               h5 코멘트
               h6= val.content
       else
-        each val in comment
-          .comment-header.col-xs-12
+        each val in comment(id='#{val.commentNo}')
+          .comment-header.col-xs-12(id='#{val.commentNo}')
             h5.bold(style='display: inline; color: #1F50B5')= val.email
             .goodbad
               .good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
