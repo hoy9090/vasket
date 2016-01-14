@@ -15,9 +15,9 @@ router.get('/', function(req, res, next) {
 		pool.getConnection(function(err, connection) {
 			var comment_query;
 			if (req.session.userNo) {
-				comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo='+req.session.userNo+' and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' and commentNo <='+commentNo+' order by c.commentNo desc limit 0, '+offset;
+				comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, (select isGood from productCommentGoodBad where userNo='+req.session.userNo+' and commentNo = c.commentNo) isGood, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' and commentNo <='+startIndex+' order by c.commentNo desc limit 0, '+offset;
 			} else {
-				comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' and commentNo <='+commentNo+' order by c.commentNo desc limit 0, '+offset;
+				comment_query = 'SELECT commentNo, email, goodContent, badContent, content, good, bad, star, date_format(regdate, "%Y-%m-%d %H:%i:%s") date FROM productComment c join user u on c.userNo = u.userNo where productNo='+productNo+' and commentNo <='+startIndex+' order by c.commentNo desc limit 0, '+offset;
 			}
 			connection.query(comment_query, function(err, result) {
 				var comment = result;
