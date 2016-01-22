@@ -287,7 +287,10 @@ html
       $('#white-bg').css('width', (150-red_width)+"px");
       var count=1;
       var star = 5;
-      var sIndex = parseInt(#{comment[comment.length-1].commentNo})-1, offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
+      var sIndex;
+      if (#{comment.length} == 0)
+        sIndex = parseInt(#{comment[comment.length-1].commentNo})-1;
+      offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
   
       $(window).scroll(function () {
        if ($(document).height() - 50 <= $(window).scrollTop() + $(window).height()) {
