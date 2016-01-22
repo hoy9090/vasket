@@ -1,507 +1,507 @@
 doctype html
 html
-  head
-    meta(charset='UTF-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    title Vasket!
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
-    link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
-    // WARNING: Respond.js doesn't work if you view the page via file://
-    //if lt IE 9
-      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
-      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
-    style(type='text/css').
-      body {background-color: #f6f6f6; padding-bottom: 20px;}
-      //- #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
-      //- #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
-      //- #nav h4 {float: clear; padding-right: 15px;}
-      #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
-      #nav h5 {font-size: 120%;}
-      .like_ {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
-      .non_activated {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
-      #contentBox { margin-top:10px;}
-      .carousel-inner > .item > img,
-      .carousel-inner > .item > a > img { width:100%; margin:auto;}
-      .carousel-control.left, .carousel-control.right {background-image:none;}
-      #likeBlock {background-color:#eaeaea; text-align:center; width:100%; padding-top:5px;}
-      #contentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:10px;}
-      #community {background-color: #ffa800; text-align:center; border-style:solid; border-color:#ffa800; border-width:2px; color: #ffffff;}
-      #productInfo {background-color: #ffffff; text-align:center; border-style:solid; border-color:#ffa800; border-width:2px; border-left-width:0px; color:#ffa800;}
-      #community-con {display:block; padding-top: 15px; background-color:#ffffff;}
-      #info-con {display:none; background-color:#ffffff; border-color:#bbbbbb; border-width:1px; border-style:solid; width:100%; padding-top:10px;}
-      #tr1{padding-bottom:5px; padding-top:5px; border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px;}
-      #tr2 {padding-bottom:5px; padding-top:5px; border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px; border-bottom-width:2px;}
-      table {width:100%;}
-      table tr td, table tr th {padding-bottom:5px; padding-top:5px;}
-      table tr th {text-align:center; width:30%;}
-      #starAvg {width:100%; background-color:#ffffff; margin-bottom: 15px; padding-top: 10px;}
-      #heart {width:100%; background-color:#ffffff; margin-bottom:15px; padding-bottom: 10px;}
-      #heartSection {padding-top:10px; padding-right: 0;}
-      .commentBlock {background-color:#f9f9f9; width: 100%; padding: 10px; margin-bottom:15px;}
-      #commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
-      #comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
-      #commentField1, #commentField2, #commentField3 {width: 100%; resize: none; height: 45px; -webkit-appearance: none; border-radius: 0;}
-      #commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
-      #like, #clip {z-index: 1; cursor: pointer;}
-      #star-bg {width: 150px; height: 30px; position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right: auto; padding-top: 10px;}
-      #red-bg {height: 30px; background-color: #F00; float: left;}
-      #white-bg {height: 30px; background-color: #FFF; float: right;}
-      #star-5 {text-align: center; }
-      .goodbad {float: right; padding-bottom: 3px;}
-      .good, .bad {height: 25px; background-color: #FFF; border: 1px solid #DEDEDE; float: left; cursor: pointer;}
-      .good {margin-right: 5px;}
-      .good h6, .bad h6 {display: inline; float: right; padding-right: 5px; margin-top: 6px;}
-      .good img, .bad img {margin-left: 5px; width: 15px; padding-right: 3px;}
-      .comment_star img {width: 15px;}
-      .bad img {padding-top: 7px;}
-      .shadow {
-        -webkit-box-shadow: 1px 1px 1px 1px #BCBCBC;
-        -moz-box-shadow: 1px 1px 1px 1px #BCBCBC;
-        box-shadow: 1px 1px 1px 1px #BCBCBC;
-        border-radius: 1px;
-      }
-      .comment-header {padding: 0; padding-top: 3px;}
-      .reg-comment {padding: 0; margin-bottom: 15px;}
-      .date {float: right; display: inline;}
-      .date p {font-size:10px; color:#A6A6A6;}
-      .comment_star {display: inline;}
-  body
-    //#nav.col-xs-12
-      a(href='javascript:history.back()')
-        span.glyphicon.glyphicon-arrow-left
-      h4.bold 상품
-    #nav.col-xs-12
-      .row(style='height: 45px; position: relative')
-        .col-xs-2(style='height: 100%;')
-          a(href='javascript:goBack();')
-            span(style='float: left; font-size: 20px; padding-top: 9px; color:black;').glyphicon.glyphicon-arrow-left
-        .col-xs-1(style='height: 100%; white-space: nowrap; text-align: center;')
-          span(style='display: inline-block; height: 100%; vertical-align: middle;')
-          img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
-        .col-xs-6(style='height: 100%; text-align: center;')
-          span(style='display: inline-block; height: 100%; vertical-align: middle;')
-          h5.bold(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
-        if (loggedIn)
-          .col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
-            p#like_(onclick="like_();" class=(like==1 ? "like_" : "non_activated")) 즐겨찾기
-    #myCarousel.carousel.slide(data-ride="carousel")
-      ol.carousel-indicators(style="margin-bottom:-10px;")
-        li.active(data-target="#myCarousel" data-slide-to="0")
-        - for (var i=1; i<product.imageCount; i++) {
-          li(data-target="#myCarousel" data-slide-to="#{i}")
-        - }
-      .carousel-inner(role="listbox")
-        .item.active
-          img(src="/images/products/#{product.image}/0")
-        - for (var i=1; i<product.imageCount; i++) {
-          .item
-            img(src="/images/products/#{product.image}/#{i}")
-        - }
-      a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:40px;").
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
-        <span class="sr-only">Previous</span>
-      a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:40px;").
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
-        <span class="sr-only">Next</span>
-    #contentBlock.col-xs-12
-      p= product.content
-    #likeBlock.col-xs-12
-      .row
-        .row
-        if (loggedIn)
-          .col-xs-2#like(onClick='like();')
-            img#like_img(src=(product.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(product.user_like==1 ? 'like' : 'no_like') width='18px;')
-            h6= product.like
-        else
-          .col-xs-2
-            img(src='./images/heart.png' width='18px;')
-            h6= product.like
-        .col-xs-2
-          img(src='./images/speech.png' width='18px;')
-          h6= product.count
-        if (loggedIn)
-          .col-xs-2#clip(onClick='clip();')
-            img#clip_img(src=(product.user_clip==1 ? './images/clip_on.png' : './images/clip.png') class=(product.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
-            h6= product.clip
-        else
-          .col-xs-2
-            img(src='./images/clip.png' width='18px;')
-            h6= product.clip
-        .col-xs-offset-4.col-xs-2
-          img(src='./images/view.png' width='18px;')
-          h6= product.view
-    #productBlock.col-xs-12
-      .row
-        #community.col-xs-6(onClick='change(1)')
-          h6 미니 프리뷰
-        #productInfo.col-xs-6(onClick='change(2)')
-          h6 제품정보
-    #community-con.col-xs-12
-      #starAvg.col-xs-12
-        #star-bg
-          #red-bg
-          #white-bg
-        #star-5.col-xs-12
-          img(src='./images/star_5.png' width='150px')
-        .col-xs-12(style="text-align: center;")
-          h5(style="display: inline;") !{star.star? star.star : "0"}
-          h6(style="display: inline;") (총 #{product.count}명 평가)
-      if (loggedIn)
-        .col-xs-12.reg-comment
-          button.btn.btn-warning(style="width: 100%;" data-toggle="modal" data-target="#commentModal") 미니 프리뷰 등록
-      else
-        .col-xs-12.reg-comment
-          button.btn.btn-warning(style="width: 100%;" onClick="goLogin();") 미니 프리뷰 등록
-      if (loggedIn)
-        .modal.fade#commentModal(role="dialog")
-          .modal-dialog
-            .modal-content
-              .modal-header
-                button.close(type="button" data-dismiss="modal") &times;
-                h5.modal-title 미니 프리뷰
-              .modal-body
-                h6 별점 선택
-                span#h1(onClick='heart(1)')
-                  img(src='./images/star_on.png' width='18px')
-                span#h2(onClick='heart(2)')
-                  img(src='./images/star_on.png' width='18px')
-                span#h3(onClick='heart(3)')
-                  img(src='./images/star_on.png' width='18px')
-                span#h4(onClick='heart(4)')
-                  img(src='./images/star_on.png' width='18px')
-                span#h5(onClick='heart(5)')
-                  img(src='./images/star_on.png' width='18px')
-                h6 장점
-                textarea#commentField1(maxlength="70" placeholder="장점을 입력하세요")
-                h6 단점
-                textarea#commentField2(maxlength="70" placeholder="단점을 입력하세요")
-                h6 코멘트
-                textarea#commentField3(maxlength="70" placeholder="코멘트를 입력하세요")
-              .modal-footer
-                .alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
-                  a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
-                  | 내용을 10자 이상 입력해주세요
-                button.btn.btn-warning(type="button" onClick="reg_comment();") 등록
-      if (loggedIn)
-        each val in comment
-          .comment-header.col-xs-12(id='#{val.commentNo}')
-            h5.bold(style='display: inline; color: #1F50B5')= val.email
-            .goodbad
-              .good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
-                img(src='./images/good.png')
-                h6= val.good
-              .bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood == 0 ? "border: 2px solid #0000FF;" : ""))
-                img(src='./images/bad.png')
-                h6= val.bad
-          .commentBlock.col-xs-12(id='comment#{val.commentNo}')
-            .comment_star
-              - for (var i=0; i<val.star; i++)
-                img(src='./images/star_on.png')
-              - for (var i=val.star; i<5; i++)
-                img(src='./images/star.png')
-            .date
-              p= val.date
-            #content
-              h5 장점
-              h6= val.goodContent
-              h5 단점
-              h6= val.badContent
-              h5 코멘트
-              h6= val.content
-      else
-        each val in comment
-          .comment-header.col-xs-12(id='#{val.commentNo}')
-            h5.bold(style='display: inline; color: #1F50B5')= val.email
-            .goodbad
-              .good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
-                img(src='./images/good.png')
-                h6= val.good
-              .bad(onClick="alert('비공감하시려면 로그인하세요.');" id='bad#{val.commentNo}')
-                img(src='./images/bad.png')
-                h6= val.bad
-          .commentBlock.col-xs-12(id='comment#{val.commentNo}')
-            .comment_star
-              - for (var i=0; i<val.star; i++)
-                img(src='./images/star_on.png')
-              - for (var i=val.star; i<5; i++)
-                img(src='./images/star.png')
-            .date
-              p= val.date
-            #content
-              h5 장점
-              h6= val.goodContent
-              h5 단점
-              h6= val.badContent
-              h5 코멘트
-              h6= val.content
-      .LoaderImage
-        h3 Loading...  
-    #info-con.col-xs-12
-      table.table
-        if (product.code)
-          tr
-            th 품번
-            td= product.code
-        if (product.price)
-          tr
-            th 가격
-            td= product.price
-        if (product.category)
-          tr
-            th 카테고리
-            td= product.category
-        if (product.nation)  
-          tr
-            th 제조국
-            td= product.nation
-        if (product.size)  
-          tr
-            th 사이즈
-            td= product.size
-        if (product.material)  
-          tr
-            th 소재
-            td= product.material
-        if (product.waterproof)  
-          tr
-            th 방수
-            td= product.waterproof
-        if (product.gender)  
-          tr
-            th 성별
-            td= product.gender
-        if (product.description)  
-          tr
-            th 제품설명
-            td= product.description
+	head
+		meta(charset='UTF-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		title Vasket!
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap-theme.min.css')
+		link(href='/bootstrap/css/kfonts2.css', rel='stylesheet')
+		// WARNING: Respond.js doesn't work if you view the page via file://
+		//if lt IE 9
+			script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+			script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+		style(type='text/css').
+			body {background-color: #f6f6f6; padding-bottom: 20px;}
+			//- #nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: center;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
+			//- #nav span {float: left; font-size: 20px; padding-top: 9px; color:black;}
+			//- #nav h4 {float: clear; padding-right: 15px;}
+			#nav {background-color: #ffffff; padding-top: 7px; padding-left: 10px; padding-bottom: 7px; text-align: left;border-width:0px; border-bottom-width: 1px; border-color: #bbbbbb; border-style: solid; z-index: 1;}
+			#nav h5 {font-size: 120%;}
+			.like_ {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffa800;padding-top:3px;padding-bottom:3px;}
+			.non_activated {float: right; width: 85px; font-size:90%; border-style:solid; border-width:1px; border-radius:15px; text-align:center; border-color:#bbbbbb; margin-top:8px; background-color:#ffffff;padding-top:3px;padding-bottom:3px;}
+			#contentBox { margin-top:10px;}
+			.carousel-inner > .item > img,
+			.carousel-inner > .item > a > img { width:100%; margin:auto;}
+			.carousel-control.left, .carousel-control.right {background-image:none;}
+			#likeBlock {background-color:#eaeaea; text-align:center; width:100%; padding-top:5px;}
+			#contentBlock {background-color:#ffffff; width:100%;border-width:0px; border-style:solid; border-color:#bbbbbb; border-bottom-width:1px; border-top-width:1px; padding-top:20px; padding-bottom:10px;}
+			#community {background-color: #ffa800; text-align:center; border-style:solid; border-color:#ffa800; border-width:2px; color: #ffffff;}
+			#productInfo {background-color: #ffffff; text-align:center; border-style:solid; border-color:#ffa800; border-width:2px; border-left-width:0px; color:#ffa800;}
+			#community-con {display:block; padding-top: 15px; background-color:#ffffff;}
+			#info-con {display:none; background-color:#ffffff; border-color:#bbbbbb; border-width:1px; border-style:solid; width:100%; padding-top:10px;}
+			#tr1{padding-bottom:5px; padding-top:5px; border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px;}
+			#tr2 {padding-bottom:5px; padding-top:5px; border-style:solid; border-color:#bbbbbb; border-width:0px; border-top-width:2px; border-bottom-width:2px;}
+			table {width:100%;}
+			table tr td, table tr th {padding-bottom:5px; padding-top:5px;}
+			table tr th {text-align:center; width:30%;}
+			#starAvg {width:100%; background-color:#ffffff; margin-bottom: 15px; padding-top: 10px;}
+			#heart {width:100%; background-color:#ffffff; margin-bottom:15px; padding-bottom: 10px;}
+			#heartSection {padding-top:10px; padding-right: 0;}
+			.commentBlock {background-color:#f9f9f9; width: 100%; padding: 10px; margin-bottom:15px;}
+			#commentInput {width: 100%; position: relative; height: 45px; padding: 0;}
+			#comment {width: 100%; padding: 0px;padding-top: 3px; padding-bottom: 3px; }
+			#commentField1, #commentField2, #commentField3 {width: 100%; resize: none; height: 45px; -webkit-appearance: none; border-radius: 0;}
+			#commentBtn {width: 15%; padding: 0; height: 45px; top: 0; position: absolute; border-radius: 0;}
+			#like, #clip {z-index: 1; cursor: pointer;}
+			#star-bg {width: 150px; height: 30px; position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right: auto; padding-top: 10px;}
+			#red-bg {height: 30px; background-color: #F00; float: left;}
+			#white-bg {height: 30px; background-color: #FFF; float: right;}
+			#star-5 {text-align: center; }
+			.goodbad {float: right; padding-bottom: 3px;}
+			.good, .bad {height: 25px; background-color: #FFF; border: 1px solid #DEDEDE; float: left; cursor: pointer;}
+			.good {margin-right: 5px;}
+			.good h6, .bad h6 {display: inline; float: right; padding-right: 5px; margin-top: 6px;}
+			.good img, .bad img {margin-left: 5px; width: 15px; padding-right: 3px;}
+			.comment_star img {width: 15px;}
+			.bad img {padding-top: 7px;}
+			.shadow {
+				-webkit-box-shadow: 1px 1px 1px 1px #BCBCBC;
+				-moz-box-shadow: 1px 1px 1px 1px #BCBCBC;
+				box-shadow: 1px 1px 1px 1px #BCBCBC;
+				border-radius: 1px;
+			}
+			.comment-header {padding: 0; padding-top: 3px;}
+			.reg-comment {padding: 0; margin-bottom: 15px;}
+			.date {float: right; display: inline;}
+			.date p {font-size:10px; color:#A6A6A6;}
+			.comment_star {display: inline;}
+	body
+		//#nav.col-xs-12
+			a(href='javascript:history.back()')
+				span.glyphicon.glyphicon-arrow-left
+			h4.bold 상품
+		#nav.col-xs-12
+			.row(style='height: 45px; position: relative')
+				.col-xs-2(style='height: 100%;')
+					a(href='javascript:goBack();')
+						span(style='float: left; font-size: 20px; padding-top: 9px; color:black;').glyphicon.glyphicon-arrow-left
+				.col-xs-1(style='height: 100%; white-space: nowrap; text-align: center;')
+					span(style='display: inline-block; height: 100%; vertical-align: middle;')
+					img(style='width: 45px; height: auto; vertical-align: middle;' src="./images/brand_logo/#{image}")
+				.col-xs-6(style='height: 100%; text-align: center;')
+					span(style='display: inline-block; height: 100%; vertical-align: middle;')
+					h5.bold(style='display: inline-block; margin: 0; vertical-align: middle; line-height: 100%;')= brand
+				if (loggedIn)
+					.col-xs-3(style='position: absolute; height: 100%; top: 0px; right: 0px;')
+						p#like_(onclick="like_();" class=(like==1 ? "like_" : "non_activated")) 즐겨찾기
+		#myCarousel.carousel.slide(data-ride="carousel")
+			ol.carousel-indicators(style="margin-bottom:-10px;")
+				li.active(data-target="#myCarousel" data-slide-to="0")
+				- for (var i=1; i<product.imageCount; i++) {
+					li(data-target="#myCarousel" data-slide-to="#{i}")
+				- }
+			.carousel-inner(role="listbox")
+				.item.active
+					img(src="/images/products/#{product.image}/0")
+				- for (var i=1; i<product.imageCount; i++) {
+					.item
+						img(src="/images/products/#{product.image}/#{i}")
+				- }
+			a.left.carousel-control(href="#myCarousel" role="button" data-slide="prev" style="margin-top:40px;").
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+				<span class="sr-only">Previous</span>
+			a.right.carousel-control(href="#myCarousel" role="button" data-slide="next" style="margin-top:40px;").
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+				<span class="sr-only">Next</span>
+		#contentBlock.col-xs-12
+			p= product.content
+		#likeBlock.col-xs-12
+			.row
+				.row
+				if (loggedIn)
+					.col-xs-2#like(onClick='like();')
+						img#like_img(src=(product.user_like==1 ? './images/heart_on.png' : './images/heart.png') class=(product.user_like==1 ? 'like' : 'no_like') width='18px;')
+						h6= product.like
+				else
+					.col-xs-2
+						img(src='./images/heart.png' width='18px;')
+						h6= product.like
+				.col-xs-2
+					img(src='./images/speech.png' width='18px;')
+					h6= product.count
+				if (loggedIn)
+					.col-xs-2#clip(onClick='clip();')
+						img#clip_img(src=(product.user_clip==1 ? './images/clip_on.png' : './images/clip.png') class=(product.user_clip==1 ? 'clip' : 'no_clip') width='18px;')
+						h6= product.clip
+				else
+					.col-xs-2
+						img(src='./images/clip.png' width='18px;')
+						h6= product.clip
+				.col-xs-offset-4.col-xs-2
+					img(src='./images/view.png' width='18px;')
+					h6= product.view
+		#productBlock.col-xs-12
+			.row
+				#community.col-xs-6(onClick='change(1)')
+					h6 미니 프리뷰
+				#productInfo.col-xs-6(onClick='change(2)')
+					h6 제품정보
+		#community-con.col-xs-12
+			#starAvg.col-xs-12
+				#star-bg
+					#red-bg
+					#white-bg
+				#star-5.col-xs-12
+					img(src='./images/star_5.png' width='150px')
+				.col-xs-12(style="text-align: center;")
+					h5(style="display: inline;") !{star.star? star.star : "0"}
+					h6(style="display: inline;") (총 #{product.count}명 평가)
+			if (loggedIn)
+				.col-xs-12.reg-comment
+					button.btn.btn-warning(style="width: 100%;" data-toggle="modal" data-target="#commentModal") 미니 프리뷰 등록
+			else
+				.col-xs-12.reg-comment
+					button.btn.btn-warning(style="width: 100%;" onClick="goLogin();") 미니 프리뷰 등록
+			if (loggedIn)
+				.modal.fade#commentModal(role="dialog")
+					.modal-dialog
+						.modal-content
+							.modal-header
+								button.close(type="button" data-dismiss="modal") &times;
+								h5.modal-title 미니 프리뷰
+							.modal-body
+								h6 별점 선택
+								span#h1(onClick='heart(1)')
+									img(src='./images/star_on.png' width='18px')
+								span#h2(onClick='heart(2)')
+									img(src='./images/star_on.png' width='18px')
+								span#h3(onClick='heart(3)')
+									img(src='./images/star_on.png' width='18px')
+								span#h4(onClick='heart(4)')
+									img(src='./images/star_on.png' width='18px')
+								span#h5(onClick='heart(5)')
+									img(src='./images/star_on.png' width='18px')
+								h6 장점
+								textarea#commentField1(maxlength="70" placeholder="장점을 입력하세요")
+								h6 단점
+								textarea#commentField2(maxlength="70" placeholder="단점을 입력하세요")
+								h6 코멘트
+								textarea#commentField3(maxlength="70" placeholder="코멘트를 입력하세요")
+							.modal-footer
+								.alert.alert-danger#commentAlert(style="display: none; text-align: left; margin-bottom: 10px; padding: 5px;")
+									a.close(href="javascript:$('#commentAlert').fadeOut('fast');" aria-label="close") &times;
+									| 내용을 10자 이상 입력해주세요
+								button.btn.btn-warning(type="button" onClick="reg_comment();") 등록
+			if (loggedIn)
+				each val in comment
+					.comment-header.col-xs-12(id='#{val.commentNo}')
+						h5.bold(style='display: inline; color: #1F50B5')= val.email
+						.goodbad
+							.good(onClick='good(#{val.commentNo});' id='good#{val.commentNo}' style=(val.isGood == 1 ? "border: 2px solid #FF0000;" : ""))
+								img(src='./images/good.png')
+								h6= val.good
+							.bad(onClick='bad(#{val.commentNo});' id='bad#{val.commentNo}' style=(val.isGood == 0 ? "border: 2px solid #0000FF;" : ""))
+								img(src='./images/bad.png')
+								h6= val.bad
+					.commentBlock.col-xs-12(id='comment#{val.commentNo}')
+						.comment_star
+							- for (var i=0; i<val.star; i++)
+								img(src='./images/star_on.png')
+							- for (var i=val.star; i<5; i++)
+								img(src='./images/star.png')
+						.date
+							p= val.date
+						#content
+							h5 장점
+							h6= val.goodContent
+							h5 단점
+							h6= val.badContent
+							h5 코멘트
+							h6= val.content
+			else
+				each val in comment
+					.comment-header.col-xs-12(id='#{val.commentNo}')
+						h5.bold(style='display: inline; color: #1F50B5')= val.email
+						.goodbad
+							.good(onClick="alert('공감하시려면 로그인하세요.');" id='good#{val.commentNo}')
+								img(src='./images/good.png')
+								h6= val.good
+							.bad(onClick="alert('비공감하시려면 로그인하세요.');" id='bad#{val.commentNo}')
+								img(src='./images/bad.png')
+								h6= val.bad
+					.commentBlock.col-xs-12(id='comment#{val.commentNo}')
+						.comment_star
+							- for (var i=0; i<val.star; i++)
+								img(src='./images/star_on.png')
+							- for (var i=val.star; i<5; i++)
+								img(src='./images/star.png')
+						.date
+							p= val.date
+						#content
+							h5 장점
+							h6= val.goodContent
+							h5 단점
+							h6= val.badContent
+							h5 코멘트
+							h6= val.content
+			.LoaderImage
+				h3 Loading...  
+		#info-con.col-xs-12
+			table.table
+				if (product.code)
+					tr
+						th 품번
+						td= product.code
+				if (product.price)
+					tr
+						th 가격
+						td= product.price
+				if (product.category)
+					tr
+						th 카테고리
+						td= product.category
+				if (product.nation)  
+					tr
+						th 제조국
+						td= product.nation
+				if (product.size)  
+					tr
+						th 사이즈
+						td= product.size
+				if (product.material)  
+					tr
+						th 소재
+						td= product.material
+				if (product.waterproof)  
+					tr
+						th 방수
+						td= product.waterproof
+				if (product.gender)  
+					tr
+						th 성별
+						td= product.gender
+				if (product.description)  
+					tr
+						th 제품설명
+						td= product.description
 
 
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
-    script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js")
-    script(src='/bootstrap/js/bootstrap.min.js')
-    script.
-      var red_width = Math.round(!{star.star ? star.star : 0} / 5 * 150);
-      $('#red-bg').css('width', red_width+"px");
-      $('#white-bg').css('width', (150-red_width)+"px");
-      var count=1;
-      var star = 5;
-      var sIndex;
-      if (#{comment.length} == 0)
-        sIndex = parseInt(#{comment[comment.length-1].commentNo})-1;
-      offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
-  
-      $(window).scroll(function () {
-       if ($(document).height() - 50 <= $(window).scrollTop() + $(window).height()) {
-        if (isPreviousEventComplete && isDataAvailable) {
-         
-          isPreviousEventComplete = false;
-          $(".LoaderImage").css("display", "block");
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+		script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js")
+		script(src='/bootstrap/js/bootstrap.min.js')
+		script.
+			var red_width = Math.round(!{star.star ? star.star : 0} / 5 * 150);
+			$('#red-bg').css('width', red_width+"px");
+			$('#white-bg').css('width', (150-red_width)+"px");
+			var count=1;
+			var star = 5;
+			var sIndex;
+			if (#{comment.length} == 0)
+				sIndex = parseInt(#{comment[comment.length-1].commentNo})-1;
+			offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
+	
+			$(window).scroll(function () {
+			 if ($(document).height() - 50 <= $(window).scrollTop() + $(window).height()) {
+				if (isPreviousEventComplete && isDataAvailable) {
+				 
+					isPreviousEventComplete = false;
+					$(".LoaderImage").css("display", "block");
 
-          $.ajax({
-            type: "GET",
-            url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
-            success: function (result) {
-              $("#community-con").append(result.html);
+					$.ajax({
+						type: "GET",
+						url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
+						success: function (result) {
+							$("#community-con").append(result.html);
 
-              sIndex = result.lastIndex-1;
-              isPreviousEventComplete = true;
+							sIndex = result.lastIndex-1;
+							isPreviousEventComplete = true;
 
-              if (result.html == '' || result.isEnd) //When data is not available
-                  isDataAvailable = false;
+							if (result.html == '' || result.isEnd) //When data is not available
+									isDataAvailable = false;
 
-              $(".LoaderImage").css("display", "none");
-            },
-            error: function (error) {
-                alert(error);
-            }
-          });
+							$(".LoaderImage").css("display", "none");
+						},
+						error: function (error) {
+								alert(error);
+						}
+					});
 
-        }
-       }
-      });
-      function like_(){
-        var like_id=document.getElementById("like_");
-        if(like_id.className == "like_"){
-          $.ajax({
-            type: "POST",
-            url: '/brand_like',
-            data: {command: "delete", brandNo: #{brandNo}},
-            success: function() {
-              like_id.className = "non_activated";
-            }
-          });
-        }
-        else{
-         $.ajax({
-            type: "POST",
-            url: '/brand_like',
-            data: {command: "insert", brandNo: #{brandNo}},
-            success: function() {
-              like_id.className = "like_";
-            }
-          });
-        }
-      }
-      $(document).ready(function() {
-        if (location.hash != "")
-          $("#comment"+location.hash.replace('#','')).effect( "highlight", {color:"#FFFFB5"}, 1000 );
-      });
-      function change(num){
-        var copy = count;
-        count=num;
-        if(copy==num);
-        else if(count==1){
-          document.getElementById('productInfo').style.backgroundColor='#ffffff';
-          document.getElementById('productInfo').style.color='#ffa800';
-          document.getElementById('info-con').style.display='none';
-          document.getElementById('community').style.backgroundColor='#ffa800';
-          document.getElementById('community').style.color='#ffffff';
-          document.getElementById('community-con').style.display='block';
-        }
-        else{
-          document.getElementById('community').style.backgroundColor='#ffffff';
-          document.getElementById('community').style.color='#ffa800';
-          document.getElementById('community-con').style.display='none';
-          document.getElementById('productInfo').style.backgroundColor='#ffa800';
-          document.getElementById('productInfo').style.color='#ffffff';
-          document.getElementById('info-con').style.display='block';
-        }
-      }
-      function heart(num){
-        var i;
-        var id;
-        star = num;
-        for(i=1;i<=num;i++){
-          id='h'+i;
-          document.getElementById(id).innerHTML="<img src='./images/star_on.png' width='18px')>";
-        }
-        for(i=num+1;i<=5;i++){
-          id='h'+i;
-          document.getElementById(id).innerHTML="<img src='./images/star.png' width='18px')>";
-        }
-        //document.getElementById('grade').innerHTML = num+'점';
-      }
-      function reg_comment(){
-          $.ajax({
-            type: "POST",
-            url: '/reg_prod_comment',
-            data: {productNo: #{productNo}, goodContent: $("#commentField1").val(), badContent: $("#commentField2").val(), content: $("#commentField3").val(), star: star},
-            success: function(data) {
-              if (data.status == "error") {
-                console.log(data.code);
-                if ($.inArray(1, data.code) >= 0)
-                  $('#commentField1').css('border', '2px solid #FF9191');
-                else
-                  $('#commentField1').css('border', '');
-                if ($.inArray(2, data.code) >= 0)
-                  $('#commentField2').css('border', '2px solid #FF9191');
-                else
-                  $('#commentField2').css('border', '');
-                if ($.inArray(3, data.code) >= 0)
-                  $('#commentField3').css('border', '2px solid #FF9191');
-                else
-                  $('#commentField3').css('border', '');
-                $('#commentAlert').fadeIn('fast');
-              } else if (data.status == "success") {
-                $('#commentModal').modal('hide');
-                location.reload();
-              }
-            }
-          });
-        }
-      function good(commentNo) {
-        $.ajax({
-            type: "POST",
-            url: '/comment_goodbad',
-            data: {command: "good", commentNo: commentNo},
-            success: function(data) {
-              if (data.result == 'error')
-                alert('이미 공감 혹은 비공감하셨습니다.');
-              else {
-                $('#good'+commentNo+' h6').html(data.good);
-                $('#bad'+commentNo+' h6').html(data.bad);
-                $('#good'+commentNo).css('border', '2px solid #FF0000');
-              }
-            }
-          });
-      }
-      function bad(commentNo) {
-        $.ajax({
-            type: "POST",
-            url: '/comment_goodbad',
-            data: {command: "bad", commentNo: commentNo},
-            success: function(data) {
-              if (data.result == 'error')
-                alert('이미 공감 혹은 비공감하셨습니다.');
-              else {
-                $('#good'+commentNo+' h6').html(data.good);
-                $('#bad'+commentNo+' h6').html(data.bad);
-                $('#bad'+commentNo).css('border', '2px solid #0000FF');
-              }
-            }
-          });
-      }
-      function like(){
-        var like_id = $('#like_img');
-        if(like_id.attr('class') == "like"){
-          $.ajax({
-            type: "POST",
-            url: '/product_like',
-            data: {command: "delete", productNo: #{productNo}},
-            success: function(data) {
-              like_id.attr('class', 'no_like');
-              like_id.attr('src', './images/heart.png');
-              $('#like h6').html(data.count);
-            }
-          });
-        }
-        else{
-         $.ajax({
-            type: "POST",
-            url: '/product_like',
-            data: {command: "insert", productNo: #{productNo}},
-            success: function(data) {
-              like_id.attr('class', 'like');
-              like_id.attr('src', './images/heart_on.png');
-              $('#like h6').html(data.count);
-            }
-          });
-        }
-      }
-      function clip(){
-        var like_id = $('#clip_img');
-        if(like_id.attr('class') == "clip"){
-          $.ajax({
-            type: "POST",
-            url: '/product_clip',
-            data: {command: "delete", productNo: #{productNo}},
-            success: function(data) {
-              like_id.attr('class', 'no_clip');
-              like_id.attr('src', './images/clip.png');
-              $('#clip h6').html(data.count);
-            }
-          });
-        }
-        else{
-         $.ajax({
-            type: "POST",
-            url: '/product_clip',
-            data: {command: "insert", productNo: #{productNo}},
-            success: function(data) {
-              like_id.attr('class', 'clip');
-              like_id.attr('src', './images/clip_on.png');
-              $('#clip h6').html(data.count);
-            }
-          });
-        }
-      }
-      function goBack(){
-          history.back();
-      }
-      function goLogin() {
-        var r = confirm("로그인이 필요합니다.\n로그인하시겠습니까?");
-        if (r == true)
-          location.href="/login";
-      }
+				}
+			 }
+			});
+			function like_(){
+				var like_id=document.getElementById("like_");
+				if(like_id.className == "like_"){
+					$.ajax({
+						type: "POST",
+						url: '/brand_like',
+						data: {command: "delete", brandNo: #{brandNo}},
+						success: function() {
+							like_id.className = "non_activated";
+						}
+					});
+				}
+				else{
+				 $.ajax({
+						type: "POST",
+						url: '/brand_like',
+						data: {command: "insert", brandNo: #{brandNo}},
+						success: function() {
+							like_id.className = "like_";
+						}
+					});
+				}
+			}
+			$(document).ready(function() {
+				if (location.hash != "")
+					$("#comment"+location.hash.replace('#','')).effect( "highlight", {color:"#FFFFB5"}, 1000 );
+			});
+			function change(num){
+				var copy = count;
+				count=num;
+				if(copy==num);
+				else if(count==1){
+					document.getElementById('productInfo').style.backgroundColor='#ffffff';
+					document.getElementById('productInfo').style.color='#ffa800';
+					document.getElementById('info-con').style.display='none';
+					document.getElementById('community').style.backgroundColor='#ffa800';
+					document.getElementById('community').style.color='#ffffff';
+					document.getElementById('community-con').style.display='block';
+				}
+				else{
+					document.getElementById('community').style.backgroundColor='#ffffff';
+					document.getElementById('community').style.color='#ffa800';
+					document.getElementById('community-con').style.display='none';
+					document.getElementById('productInfo').style.backgroundColor='#ffa800';
+					document.getElementById('productInfo').style.color='#ffffff';
+					document.getElementById('info-con').style.display='block';
+				}
+			}
+			function heart(num){
+				var i;
+				var id;
+				star = num;
+				for(i=1;i<=num;i++){
+					id='h'+i;
+					document.getElementById(id).innerHTML="<img src='./images/star_on.png' width='18px')>";
+				}
+				for(i=num+1;i<=5;i++){
+					id='h'+i;
+					document.getElementById(id).innerHTML="<img src='./images/star.png' width='18px')>";
+				}
+				//document.getElementById('grade').innerHTML = num+'점';
+			}
+			function reg_comment(){
+					$.ajax({
+						type: "POST",
+						url: '/reg_prod_comment',
+						data: {productNo: #{productNo}, goodContent: $("#commentField1").val(), badContent: $("#commentField2").val(), content: $("#commentField3").val(), star: star},
+						success: function(data) {
+							if (data.status == "error") {
+								console.log(data.code);
+								if ($.inArray(1, data.code) >= 0)
+									$('#commentField1').css('border', '2px solid #FF9191');
+								else
+									$('#commentField1').css('border', '');
+								if ($.inArray(2, data.code) >= 0)
+									$('#commentField2').css('border', '2px solid #FF9191');
+								else
+									$('#commentField2').css('border', '');
+								if ($.inArray(3, data.code) >= 0)
+									$('#commentField3').css('border', '2px solid #FF9191');
+								else
+									$('#commentField3').css('border', '');
+								$('#commentAlert').fadeIn('fast');
+							} else if (data.status == "success") {
+								$('#commentModal').modal('hide');
+								location.reload();
+							}
+						}
+					});
+				}
+			function good(commentNo) {
+				$.ajax({
+						type: "POST",
+						url: '/comment_goodbad',
+						data: {command: "good", commentNo: commentNo},
+						success: function(data) {
+							if (data.result == 'error')
+								alert('이미 공감 혹은 비공감하셨습니다.');
+							else {
+								$('#good'+commentNo+' h6').html(data.good);
+								$('#bad'+commentNo+' h6').html(data.bad);
+								$('#good'+commentNo).css('border', '2px solid #FF0000');
+							}
+						}
+					});
+			}
+			function bad(commentNo) {
+				$.ajax({
+						type: "POST",
+						url: '/comment_goodbad',
+						data: {command: "bad", commentNo: commentNo},
+						success: function(data) {
+							if (data.result == 'error')
+								alert('이미 공감 혹은 비공감하셨습니다.');
+							else {
+								$('#good'+commentNo+' h6').html(data.good);
+								$('#bad'+commentNo+' h6').html(data.bad);
+								$('#bad'+commentNo).css('border', '2px solid #0000FF');
+							}
+						}
+					});
+			}
+			function like(){
+				var like_id = $('#like_img');
+				if(like_id.attr('class') == "like"){
+					$.ajax({
+						type: "POST",
+						url: '/product_like',
+						data: {command: "delete", productNo: #{productNo}},
+						success: function(data) {
+							like_id.attr('class', 'no_like');
+							like_id.attr('src', './images/heart.png');
+							$('#like h6').html(data.count);
+						}
+					});
+				}
+				else{
+				 $.ajax({
+						type: "POST",
+						url: '/product_like',
+						data: {command: "insert", productNo: #{productNo}},
+						success: function(data) {
+							like_id.attr('class', 'like');
+							like_id.attr('src', './images/heart_on.png');
+							$('#like h6').html(data.count);
+						}
+					});
+				}
+			}
+			function clip(){
+				var like_id = $('#clip_img');
+				if(like_id.attr('class') == "clip"){
+					$.ajax({
+						type: "POST",
+						url: '/product_clip',
+						data: {command: "delete", productNo: #{productNo}},
+						success: function(data) {
+							like_id.attr('class', 'no_clip');
+							like_id.attr('src', './images/clip.png');
+							$('#clip h6').html(data.count);
+						}
+					});
+				}
+				else{
+				 $.ajax({
+						type: "POST",
+						url: '/product_clip',
+						data: {command: "insert", productNo: #{productNo}},
+						success: function(data) {
+							like_id.attr('class', 'clip');
+							like_id.attr('src', './images/clip_on.png');
+							$('#clip h6').html(data.count);
+						}
+					});
+				}
+			}
+			function goBack(){
+					history.back();
+			}
+			function goLogin() {
+				var r = confirm("로그인이 필요합니다.\n로그인하시겠습니까?");
+				if (r == true)
+					location.href="/login";
+			}
