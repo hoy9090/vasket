@@ -289,7 +289,7 @@ html
 			var star = 5;
 			var sIndex;
 			offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
-		if (comment.length == 0)
+		if (comment.length != 0)
 			script.
 				sIndex = parseInt(#{comment[comment.length-1].commentNo})-1;
 				$(window).scroll(function () {
