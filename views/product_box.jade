@@ -288,39 +288,39 @@ html
 			var count=1;
 			var star = 5;
 			var sIndex;
-			if (#{comment.length} == 0)
-				sIndex = parseInt(#{comment[comment.length-1].commentNo})-1;
 			offSet = 5, isPreviousEventComplete = true, isDataAvailable = true;
-	
-			$(window).scroll(function () {
-			 if ($(document).height() - 50 <= $(window).scrollTop() + $(window).height()) {
-				if (isPreviousEventComplete && isDataAvailable) {
-				 
-					isPreviousEventComplete = false;
-					$(".LoaderImage").css("display", "block");
+			- if (comment.length == 0) {
+				sIndex = parseInt(#{comment[comment.length-1].commentNo})-1;
+				$(window).scroll(function () {
+				 if ($(document).height() - 50 <= $(window).scrollTop() + $(window).height()) {
+					if (isPreviousEventComplete && isDataAvailable) {
+					 
+						isPreviousEventComplete = false;
+						$(".LoaderImage").css("display", "block");
 
-					$.ajax({
-						type: "GET",
-						url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
-						success: function (result) {
-							$("#community-con").append(result.html);
+						$.ajax({
+							type: "GET",
+							url: '/product_box_moreComment?startIndex=' + sIndex + '&offset=' + offSet +'&productNo='+ #{productNo},
+							success: function (result) {
+								$("#community-con").append(result.html);
 
-							sIndex = result.lastIndex-1;
-							isPreviousEventComplete = true;
+								sIndex = result.lastIndex-1;
+								isPreviousEventComplete = true;
 
-							if (result.html == '' || result.isEnd) //When data is not available
-									isDataAvailable = false;
+								if (result.html == '' || result.isEnd) //When data is not available
+										isDataAvailable = false;
 
-							$(".LoaderImage").css("display", "none");
-						},
-						error: function (error) {
-								alert(error);
-						}
-					});
+								$(".LoaderImage").css("display", "none");
+							},
+							error: function (error) {
+									alert(error);
+							}
+						});
 
-				}
-			 }
-			});
+					}
+				 }
+				});
+			- }
 			function like_(){
 				var like_id=document.getElementById("like_");
 				if(like_id.className == "like_"){
@@ -381,7 +381,6 @@ html
 					id='h'+i;
 					document.getElementById(id).innerHTML="<img src='./images/star.png' width='18px')>";
 				}
-				//document.getElementById('grade').innerHTML = num+'점';
 			}
 			function reg_comment(){
 					$.ajax({
